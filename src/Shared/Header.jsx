@@ -6,19 +6,20 @@ const Header = () => {
   return (
     <div style={{ left: "50%", transform: "translateX(-50%)" }} className="fixed max-w-5xl w-full top-16">
       <div className="bg-black rounded-full p-4 text-white capitalize mx-auto">
-        <nav className="flex items-center">
+
+        <nav className="flex flex-wrap items-center">
 
           <div className="nav-brand">
             <Link to={"/"} className="flex items-center gap-2 text">
               <img src={brandLogo} alt="brand-logo" />
-              <h5 className="font-bold text-fs_18">
+              <h5 className="font-bold text-lg">
                 RETracker
               </h5>
             </Link>
           </div>
 
           <div className="navbar mx-auto">
-            <ul className="navbar-nav flex items-center gap-11">
+            <ul className="navbar-nav flex flex-wrap items-center gap-11">
               <li className="nav-items">
                 <Link to={"/"} className="nav-link text-base font-semibold text-white capitalize">
                   Home
@@ -46,7 +47,7 @@ const Header = () => {
             </ul>
           </div>
 
-          <div className="userBtn flex gap-4">
+          <div className="userBtn flex flex-wrap gap-4">
             <button className="border border-white py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300">
               <Link className="text-base font-bold capitalize">
                 Login

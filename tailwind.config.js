@@ -6,8 +6,12 @@ export default {
       colors: {
         primary: "#6E51E0",
         "primary-dark": "#7f65e6",
-        black: "#020617",
+        clr_black: "#020617",
         lightGray: "#DBDBDB",
+        drakWhite: "#F8FAFC",
+      },
+      container: {
+        center: true,
       },
       maxWidth: {
         authWidth: "504px",
@@ -18,8 +22,13 @@ export default {
 
       // Font size
       fontSize: {
-        fs_18: "18px",
+
       },
+
+      // Line height
+      lineHeight: {
+
+      }
     },
   },
   plugins: [],
