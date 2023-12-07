@@ -7,6 +7,11 @@ export default {
         primary: "#6E51E0",
         black: "#020617",
       },
+
+      // Font size
+      fontSize: {
+        fs_18: "18px",
+      },
     },
   },
   plugins: [],
