@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom'
 
 const HowItsWorksStep = ({ stepNumber, createAccount, cardDes, featuresOne, featuresTwo, featuresThree, featuresFour, featuresFive, cardImg, btnName, btnLink }) => {
     return (
-        <div className='howitworks-card p-2 bg-white rounded-lg mb-16'>
+        <div className='flex justify-center'>
+        <div className='howitworks-card p-2 bg-white rounded-lg mb-16 max-w-[1280px]'>
             <div className='border rounded-lg p-8'>
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-12 gap-4">
 
-                    <div class="col-span-1 ">
+                    <div class="col-span-7 ">
                         <div className="card_info pb-8">
                             <div className="card_tag pb-2">
                                 <p className='text-sm font-semibold text-primary'>
@@ -70,14 +71,16 @@ const HowItsWorksStep = ({ stepNumber, createAccount, cardDes, featuresOne, feat
 
                     </div>
 
-                    <div class="col-span-1">
+                    <div class="col-span-5">
                         <div className="card_img">
-                            <img src={cardImg} alt="card-img" />
+                            <img className='w-100' src={cardImg} alt="card-img" />
                         </div>
                     </div>
 
                 </div>
             </div>
+            </div>
+
         </div>
     )
 }

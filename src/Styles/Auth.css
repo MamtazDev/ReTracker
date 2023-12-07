@@ -19,7 +19,7 @@ label span {
     color: var(--slate-500, var(--slate-500, #64748B));
 }
 
-input {
+.auth_layout input {
     border-radius: var(--border-radius-full, 9999px);
     border: 1px solid var(--slate-200, #E2E8F0);
     background: var(--slate-50, #F8FAFC);
