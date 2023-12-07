@@ -5,7 +5,15 @@ export default {
     extend: {
       colors: {
         primary: "#6E51E0",
+        "primary-dark": "#7f65e6",
         black: "#020617",
+        lightGray: "#DBDBDB",
+      },
+      maxWidth: {
+        authWidth: "504px",
+      },
+      padding: {
+        p_153: "153px",
       },
     },
   },

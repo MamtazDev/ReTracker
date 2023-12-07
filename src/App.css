@@ -1,3 +1,13 @@
+
+
 body {
     font-family: 'Inter', sans-serif;
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+input[type="checkbox"] {
+    width: unset;
 }
