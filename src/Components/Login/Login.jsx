@@ -1,6 +1,5 @@
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import AuthTitle from "../../Shared/AuthTitle";
-
 import Divider from "../../Shared/Divider";
 import SocialBtn from "../../Shared/SocialBtn";
 

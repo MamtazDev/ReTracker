@@ -6,7 +6,7 @@ export default {
       colors: {
         primary: "#6E51E0",
         "primary-dark": "#7f65e6",
-        black: "#020617",
+        'slate-black': "#020617",
         lightGray: "#DBDBDB",
       },
       maxWidth: {
