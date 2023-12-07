@@ -6,3 +6,29 @@
     background-size: cover;
 }
 
+label {
+    display: block;
+    color: var(--Text-Primary, var(--colors-slate-950, #020617));
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 8px;
+}
+
+label span {
+    color: var(--slate-500, var(--slate-500, #64748B));
+}
+
+input {
+    border-radius: var(--border-radius-full, 9999px);
+    border: 1px solid var(--slate-200, #E2E8F0);
+    background: var(--slate-50, #F8FAFC);
+    width: 100%;
+    padding: 12px 16px !important;
+}
+
+input[type="password"] {
+    background-image: url('../assets/passwortd_eye.png');
+    background-repeat: no-repeat;
+    background-position: center right 3%;
+}
