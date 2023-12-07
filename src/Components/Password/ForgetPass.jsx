@@ -4,7 +4,7 @@ import PrimaryBtn from "../../Shared/PrimaryBtn";
 
 const ForgetPass = () => {
   return (
-    <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
+    <div className="pb-p_236 pt-p_276 max-w-authWidth mx-auto">
       <AuthTitle>Forgot Password</AuthTitle>
       <p className="mt-3 mb-10 text-base font-normal text-[#78716C]">
         A link will be sent to your registered email to reset your password.

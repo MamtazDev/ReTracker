@@ -1,6 +1,6 @@
 import React from "react";
 import Auth from "../Shared/Auth";
-import ForgetPass from "../Components/Forget/ForgetPass";
+import ForgetPass from "../Components/Password/ForgetPass";
 
 const ForgetPassword = () => {
   return (
