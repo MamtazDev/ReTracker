@@ -10,7 +10,7 @@ export default {
         lightGray: "#DBDBDB",
       },
       maxWidth: {
-        authWidth: "504px",
+        authWidth: "540px",
       },
       padding: {
         p_153: "153px",
