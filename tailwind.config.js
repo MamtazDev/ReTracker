@@ -14,8 +14,8 @@ export default {
         center: true,
       },
       maxWidth: {
-        authWidth: "504px",
         twelveEighty: "1280px",
+        authWidth: "540px",
       },
       padding: {
         p_153: "153px",
