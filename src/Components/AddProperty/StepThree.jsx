@@ -6,7 +6,7 @@ import StepLines from "../../Shared/StepLines";
 import imgGrp from "../../assets/img-grp.png";
 import { RxCross2 } from "react-icons/rx";
 
-const StepThree = () => {
+const StepThree = ({ stepper, setStepper }) => {
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
 
@@ -89,8 +89,12 @@ const StepThree = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <PrimaryBtn>Continue</PrimaryBtn>
-          <OutLineBtn>Go Back</OutLineBtn>
+          <div onClick={() => setStepper(4)} className="w-full">
+            <PrimaryBtn>Continue</PrimaryBtn>
+          </div>
+          <div onClick={() => setStepper(2)} className="w-full">
+            <OutLineBtn>Go Back</OutLineBtn>
+          </div>
         </div>
       </form>
     </div>

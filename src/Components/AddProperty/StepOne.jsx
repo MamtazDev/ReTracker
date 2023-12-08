@@ -3,7 +3,7 @@ import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import StepLines from "../../Shared/StepLines";
 
-const StepOne = () => {
+const StepOne = ({ stepper, setStepper }) => {
   return (
     <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
       <StepLines />
@@ -20,8 +20,10 @@ const StepOne = () => {
             placeholder="Search by street, area or city"
           />
         </div>
+        <div onClick={() => setStepper(2)}>
+          <PrimaryBtn>Continue</PrimaryBtn>
+        </div>
 
-        <PrimaryBtn>Continue</PrimaryBtn>
         <button className="text-primary font-bold text-base  text-center mt-4 w-full">
           Skip for now
         </button>
