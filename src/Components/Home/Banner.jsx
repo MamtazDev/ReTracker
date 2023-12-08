@@ -11,7 +11,7 @@ const Banner = () => {
             Revolutionize Your Property Tasks
           </p>
         </div>
-        
+
         <div className="section_title text-center pb-5">
           <h2 className="text-6xl font-bold pb-5">
             Transform Your Real Estate Management
@@ -28,8 +28,8 @@ const Banner = () => {
           </p>
         </div>
 
-        <div className="hero-img text-center">
-          <img src={heroImg} className="w-full" alt="hero-img" />
+        <div className="hero-img flex justify-center">
+          <img src={heroImg} className="max-w-[1280px] w-full" alt="hero-img" />
         </div>
 
 
