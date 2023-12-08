@@ -1,5 +1,5 @@
 import React from "react";
-import brandLogo from "../assets/favicon.png";
+import brandLogo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -10,7 +10,6 @@ const Header = () => {
           <div className="nav-brand">
             <Link to={"/"} className="flex items-center gap-2 text">
               <img src={brandLogo} alt="brand-logo" />
-              <h5 className="font-bold text-lg">RETracker</h5>
             </Link>
           </div>
 

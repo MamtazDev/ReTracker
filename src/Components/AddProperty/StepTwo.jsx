@@ -28,8 +28,8 @@ const StepTwo = ({ stepper, setStepper }) => {
     },
   ];
   return (
-    <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
-      <StepLines />
+    <div >
+      {/* <StepLines /> */}
 
       <p className="text-primary font-bold text-sm mb-3">Step 02</p>
       <AuthTitle>Property Type </AuthTitle>

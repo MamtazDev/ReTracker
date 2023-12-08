@@ -14,7 +14,7 @@ const EmailVerify = () => {
       </p>
       <div className="flex items-center gap-4 mb-5">
         <div className="icon">
-          <MdOutlineEmail />{" "}
+          <MdOutlineEmail />
         </div>
         <p className="text-slate-black font-medium text-sm">Change Email</p>
       </div>

@@ -9,7 +9,7 @@ const Verification = () => {
     <div className=" pb-p_188 pt-p_228 max-w-authWidth mx-auto text-center">
       <Confetti />
       <div
-        style={{ height: "64px", width: "64px" }}
+        style={{ height: "64px", width: "64px" }} 
         className="icon mx-auto mb-10"
       >
         <IoMdCheckmark className="text-3xl" />

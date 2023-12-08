@@ -40,8 +40,8 @@ const StepThree = ({ stepper, setStepper }) => {
     setSelectedImages(updatedImages);
   };
   return (
-    <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
-      <StepLines />
+    <div >
+      {/* <StepLines stepper={stepper} /> */}
 
       <p className="text-primary font-bold text-sm mb-3">Step 03</p>
       <AuthTitle>Upload Image </AuthTitle>

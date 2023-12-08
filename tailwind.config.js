@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
         primary: "#6E51E0",
-        secondary:"#64748B",
+        secondary: "#64748B",
         "primary-dark": "#7f65e6",
-        'slate-black': "#020617",
+        "slate-black": "#020617",
         lightGray: "#DBDBDB",
         drakWhite: "#F8FAFC",
       },
@@ -26,14 +27,10 @@ export default {
       },
 
       // Font size
-      fontSize: {
-
-      },
+      fontSize: {},
 
       // Line height
-      lineHeight: {
-
-      }
+      lineHeight: {},
     },
   },
   plugins: [],
