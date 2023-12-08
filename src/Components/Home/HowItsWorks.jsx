@@ -3,30 +3,21 @@ import setpOne from '../../assets/step1.png'
 import setpTwo from '../../assets/step2.png'
 import setpThree from '../../assets/step3.png'
 import HowItsWorksStep from './HowItsWorksStep'
+import SectionHeader from './SectionHeader'
 
 const HowItsWorks = () => {
     return (
         <section className='howitworks py-32 bg-drakWhite'>
             <div className='container'>
 
-                <div className="section-header">
-                    <div className="section_tag text-center pb-4">
-                        <p className="text-lg font-semibold text-primary">
-                            How it works?
-                        </p>
-                    </div>
-
-                    <div className="section_title text-center pb-5">
-                        <h2 className="text-6xl font-bold pb-5">
-                            The Easy Way to get started
-                        </h2>
-                        <h2 className="text-6xl text-primary font-bold">
-                            to manage property
-                        </h2>
-                    </div>
-                </div>
-
-
+                <SectionHeader
+                    sectionTag={"How it works?"}
+                    sectionTagColor={"text-primary"}
+                    sectionTagColorTwo={"text-primary"}
+                    sectionTitle={"The Easy Way to get started"}
+                    sectionTitleTwo={"to manage property"}
+                    section_pb={"pb-16"}
+                />
 
                 <HowItsWorksStep
                     cardImg={setpOne}
@@ -37,7 +28,6 @@ const HowItsWorks = () => {
                     featuresTwo={"Create a secure password following the specified guidelines."}
                     featuresThree={"Check your email inbox for a verification message from RE Tracker"}
                     featuresFour={"Return to the RE Tracker website and log in with your newly created credentials."}
-
                     btnName={"Sign up"}
                     btnLink={"/sign-up"}
                 />

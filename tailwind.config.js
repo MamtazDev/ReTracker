@@ -9,7 +9,11 @@ export default {
         'slate-black': "#020617",
         lightGray: "#DBDBDB",
         drakWhite: "#F8FAFC",
+        primaryGreen: "#10B981",
+        amber: "#F59E0B",
+        orange: "#F97316"
       },
+
       container: {
         center: true,
       },
