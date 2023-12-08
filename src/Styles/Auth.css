@@ -33,9 +33,39 @@ input[type="password"] {
     background-position: center right 3%;
 }
 
+input[type="search"] {
+    background-image: url('../assets/search.png');
+    background-repeat: no-repeat;
+    background-position: center left 3%;
+    padding-left: 40px !important;
+}
+
 .verification {
     background-image: url('../assets/verification-successfull.png');
     background-repeat: no-repeat;
     background-size: contain;
     /* background-position: center; */
 }
+
+.icon {
+    color: white;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--Primary-Gradient, linear-gradient(270deg, rgba(255, 255, 255, 0.16) 0%, rgba(0, 0, 0, 0.00) 100%, rgba(255, 255, 255, 0.00) 100%), #6E51E0);
+}
+
+.email_verify input {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
