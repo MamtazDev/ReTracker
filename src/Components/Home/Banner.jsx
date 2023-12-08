@@ -29,7 +29,7 @@ const Banner = () => {
         </div>
 
         <div className="hero-img flex justify-center">
-          <img src={heroImg} className="max-w-[1280px] w-full" alt="hero-img" />
+          <img src={heroImg} className="max-w-twelveEighty w-full" alt="hero-img" />
         </div>
 
 

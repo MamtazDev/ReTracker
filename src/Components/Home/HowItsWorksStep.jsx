@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const HowItsWorksStep = ({ stepNumber, createAccount, cardDes, featuresOne, featuresTwo, featuresThree, featuresFour, featuresFive, cardImg, btnName, btnLink }) => {
     return (
         <div className='flex justify-center'>
-        <div className='howitworks-card p-2 bg-white rounded-lg mb-16 max-w-[1280px]'>
+        <div className='howitworks-card p-2 bg-white rounded-lg mb-16 max-w-twelveEighty'>
             <div className='border rounded-lg p-8'>
                 <div class="grid grid-cols-12 gap-4">
 
