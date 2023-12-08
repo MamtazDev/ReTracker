@@ -33,6 +33,13 @@ input[type="password"] {
     background-position: center right 3%;
 }
 
+input[type="search"] {
+    background-image: url('../assets/search.png');
+    background-repeat: no-repeat;
+    background-position: center left 3%;
+    padding-left: 40px !important;
+}
+
 .verification {
     background-image: url('../assets/verification-successfull.png');
     background-repeat: no-repeat;
@@ -61,3 +68,4 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     display: none;
 }
+
