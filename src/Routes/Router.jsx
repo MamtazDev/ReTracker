@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
         element: <ResetPassword />,
       },
       {
-        path: "/email-verification",
+        path: "/successful-verification",
         element: <EmailVerification />,
       },
       {
