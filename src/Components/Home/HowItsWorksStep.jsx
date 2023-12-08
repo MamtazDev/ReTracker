@@ -10,7 +10,7 @@ const HowItsWorksStep = ({ stepNumber, createAccount, cardDes, featuresOne, feat
                 <div className='card_border'>
                     <div class="grid grid-cols-12 gap-4">
 
-                        <div class="col-span-7 ">
+                        <div class="col-span-5">
                             <div className="card_info pb-8">
                                 <div className="card_tag pb-2">
                                     <p className='text-sm font-semibold text-primary'>
@@ -71,9 +71,9 @@ const HowItsWorksStep = ({ stepNumber, createAccount, cardDes, featuresOne, feat
 
                         </div>
 
-                        <div class="col-span-5">
+                        <div class="col-span-7">
                             <div className="card_img">
-                                <img className='w-100' src={cardImg} alt="card-img" />
+                                <img className='' src={cardImg} alt="card-img" />
                             </div>
                         </div>
 

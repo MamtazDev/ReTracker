@@ -5,7 +5,8 @@ import heroImg from "../../assets/banner-img.png"
 const Banner = () => {
   return (
     <Auth>
-      <section className="home_banner_section pt-28 px-28">
+      <section className="home_banner_section pt-[104px] px-32">
+
         <div className="section_tag text-center pb-4">
           <p className="text-lg font-semibold text-primary">
             Revolutionize Your Property Tasks
@@ -29,7 +30,7 @@ const Banner = () => {
         </div>
 
         <div className="hero-img flex justify-center">
-          <img src={heroImg} className="max-w-twelveEighty w-full" alt="hero-img" />
+          <img src={heroImg} className="max-w-twelveEighty" alt="hero-img" />
         </div>
 
 

@@ -7,11 +7,11 @@ const PowerFeaturesCard = ({ cardTitle, cardContent, bgColor, cardImg }) => {
             <div className={`card_wrapper px-7 pt-7 ${bgColor} rounded-3xl mb-8`}>
                 <div className="card_img">
                     <img src={cardImg} alt="card-img" />
-                </div>``
+                </div>
             </div>
             <div className="card_content">
                 <h2 className='text-xl text-slate-black font-medium mb-3'>
-                 {cardTitle}
+                    {cardTitle}
                 </h2>
                 <p className='text-sm font-normal text-slate-black'>
                     {cardContent}

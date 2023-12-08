@@ -6,6 +6,15 @@
     background-size: cover;
 }
 
+.auth_home_layout {
+    background-image: url('../assets/BG.png');
+    padding: 104px 0 96px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
 label {
     display: block;
     color: var(--Text-Primary, var(--colors-slate-950, #020617));
@@ -68,4 +77,3 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     display: none;
 }
-

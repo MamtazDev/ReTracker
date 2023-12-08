@@ -44,7 +44,6 @@ const TestimonialCard = ({ autohrImg, socialLink, socialIcon, authorSocialId, au
 
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

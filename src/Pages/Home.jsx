@@ -4,6 +4,7 @@ import Banner from '../Components/Home/Banner'
 import HowItsWorks from '../Components/Home/HowItsWorks'
 import PowerFeatures from '../Components/Home/PowerFeatures'
 import Testimonal from '../Components/Home/Testimonal'
+import Pricing from '../Components/Home/Pricing'
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <HowItsWorks />
             <PowerFeatures />
             <Testimonal />
+            <Pricing />
         </>
     )
 }
