@@ -4,7 +4,7 @@ import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 
-const StepTwo = () => {
+const StepTwo = ({ stepper, setStepper }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionClick = (index) => {
@@ -65,8 +65,12 @@ const StepTwo = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <PrimaryBtn>Continue</PrimaryBtn>
-          <OutLineBtn>Go Back</OutLineBtn>
+          <div className="w-full" onClick={() => setStepper(3)}>
+            <PrimaryBtn>Continue</PrimaryBtn>
+          </div>
+          <div className="w-full" onClick={() => setStepper(1)}>
+            <OutLineBtn>Go Back</OutLineBtn>
+          </div>
         </div>
       </form>
     </div>
