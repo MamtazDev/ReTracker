@@ -6,6 +6,7 @@ import ForgetPassword from "../Pages/ForgetPassword";
 import ResetPassword from "../Pages/ResetPassword";
 import Signup from "../Pages/Signup";
 import EmailVerification from "../Pages/EmailVerification";
+import VerifyEmail from "../Pages/VerifyEmail";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/email-verification",
         element: <EmailVerification />,
+      },
+      {
+        path: "/verify-email",
+        element: <VerifyEmail />,
       },
     ],
   },
