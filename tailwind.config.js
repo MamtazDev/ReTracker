@@ -16,7 +16,8 @@ export default {
         amber: "#F59E0B",
         orange: "#F97316",
         dark: "#0F172A",
-        btnGradient: "linear-gradient(270deg, rgba(255, 255, 255, 0.16) 0%, rgba(0, 0, 0, 0.00) 100%, rgba(255, 255, 255, 0.00) 100%), #6E51E0);"
+        darkTwo: "#525252",
+        btnGroup: "#1E293B"
       },
 
       container: {
