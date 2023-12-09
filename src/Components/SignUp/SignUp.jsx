@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import Divider from "../../Shared/Divider";
 import SocialBtn from "../../Shared/SocialBtn";
 import AuthTitle from "../../Shared/AuthTitle";
 import { Link } from "react-router-dom";
+import eye from "../../assets/passwortd_eye.png";
 
 const SignUp = () => {
+  const [passwordShow, setPasswordShow] = useState(false);
   return (
     <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
       <AuthTitle>Create Account</AuthTitle>
@@ -29,7 +31,16 @@ const SignUp = () => {
           <label htmlFor="password">
             Password <span>(Required)</span>{" "}
           </label>
-          <input type="password" id="password" />
+        
+          <div className="relative">
+            <input type={passwordShow ? "text" : "password"} id="password" />
+            <img
+              onClick={() => setPasswordShow(!passwordShow)}
+              className="absolute right-4 top-4 cursor-pointer"
+              src={eye}
+              alt=""
+            />
+          </div>
         </div>
 
         <div className="flex gap-3 items-center mb-10">

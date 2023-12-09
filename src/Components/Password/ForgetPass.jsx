@@ -13,12 +13,12 @@ const ForgetPass = () => {
       <form>
         <div className="mb-10">
           <label htmlFor="email">
-            Email <span>(Required)</span>{" "}
+            Email <span>(Required)</span>
           </label>
           <input type="email" id="email" />
         </div>
 
-        <PrimaryBtn>Send Rest Link</PrimaryBtn>
+        <PrimaryBtn >Send Rest Link</PrimaryBtn>
       </form>
     </div>
   );

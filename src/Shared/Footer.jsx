@@ -29,7 +29,7 @@ const Footer = () => {
               efficient real estate management.
             </p>
             <div className="flex items-center gap-3">
-              {socialIcons.map((data, index) => (
+              {socialIcons.length > 0 && socialIcons.map((data, index) => (
                 <div
                   key={index}
                   className="border border-primary rounded-full h-10 w-10 flex justify-center items-center transition duration-600 ease-in-out hover:bg-primary"
