@@ -68,7 +68,7 @@ const Footer = () => {
           <p>© 2023 RETracker. All rights reserved.</p>
           <div className=" flex items-center gap-6">
             <Link to="#">Privacy Policy</Link>
-            <Link to="#">Terms of Service</Link>
+            <Link to="#"> of Service</Link>
           </div>
         </div>
       </div>

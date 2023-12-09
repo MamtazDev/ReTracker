@@ -4,6 +4,7 @@ import Divider from "../../Shared/Divider";
 import SocialBtn from "../../Shared/SocialBtn";
 import { useState } from "react";
 import eye from "../../assets/passwortd_eye.png";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [isChecked, setChecked] = useState(false);
@@ -58,12 +59,16 @@ const Login = () => {
             Stay signed in
           </label>
 
-          <p className="text-primary font-semibold text-sm ">
+          <Link
+            to="/forget-password"
+            className="text-primary font-semibold text-sm "
+          >
             I forgot my password
-          </p>
+          </Link>
         </div>
-
-        <PrimaryBtn>Login</PrimaryBtn>
+        <Link to="/">
+          <PrimaryBtn>Login</PrimaryBtn>
+        </Link>
       </form>
     </div>
   );
