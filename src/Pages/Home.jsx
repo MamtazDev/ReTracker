@@ -6,6 +6,8 @@ import PowerFeatures from '../Components/Home/PowerFeatures'
 import Testimonal from '../Components/Home/Testimonal'
 import Pricing from '../Components/Home/Pricing'
 import Faq from '../Components/Home/Faq'
+import Intregations from '../Components/Home/Intregations'
+import GetStartdToday from '../Components/Home/GetStartdToday'
 
 const Home = () => {
     return (
@@ -16,6 +18,8 @@ const Home = () => {
             <Testimonal />
             <Pricing />
             <Faq />
+            <Intregations />
+            <GetStartdToday />
         </>
     )
 }
