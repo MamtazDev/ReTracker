@@ -28,7 +28,7 @@ const Header = () => {
 
               <li className="nav-items">
                 <Link
-                  to={"/features"}
+                  to={"/"}
                   className="nav-link text-base font-semibold text-white capitalize"
                 >
                   Features
@@ -37,7 +37,7 @@ const Header = () => {
 
               <li className="nav-items">
                 <Link
-                  to={"/pricing"}
+                  to={"/"}
                   className="nav-link text-base font-semibold text-white capitalize"
                 >
                   Pricing
@@ -46,7 +46,7 @@ const Header = () => {
 
               <li className="nav-items">
                 <Link
-                  to={"/contact"}
+                  to={"/"}
                   className="nav-link text-base font-semibold text-white capitalize"
                 >
                   Contact
