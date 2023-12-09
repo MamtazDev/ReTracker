@@ -3,9 +3,11 @@ import AuthTitle from "../../Shared/AuthTitle";
 import Divider from "../../Shared/Divider";
 import SocialBtn from "../../Shared/SocialBtn";
 import { useState } from "react";
+import eye from "../../assets/passwortd_eye.png";
 
 const Login = () => {
   const [isChecked, setChecked] = useState(false);
+  const [passwordShow, setPasswordShow] = useState(false);
 
   const handleCheckboxChange = () => {
     setChecked(!isChecked);
@@ -27,7 +29,15 @@ const Login = () => {
           <label htmlFor="password">
             Password <span>(Required)</span>{" "}
           </label>
-          <input type="password" id="password" />
+          <div className="relative">
+            <input type={passwordShow ? "text" : "password"} id="password" />
+            <img
+              onClick={() => setPasswordShow(!passwordShow)}
+              className="absolute right-4 top-4 cursor-pointer"
+              src={eye}
+              alt=""
+            />
+          </div>
         </div>
 
         <div className="flex justify-between items-center gap-3 mb-10">
