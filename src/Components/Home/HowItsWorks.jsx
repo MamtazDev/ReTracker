@@ -42,7 +42,7 @@ const HowItsWorks = () => {
                     featuresThree={"Click the 'Save' or 'Add Property' button on the form to save the information"}
                     featuresFour={"Receive a confirmation message or be redirected back to the main dashboard"}
                     btnName={"Try for free"}
-                    btnLink={"/try-for-free"}
+                    btnLink={"/"}
                 />
 
                 <HowItsWorksStep
@@ -55,11 +55,8 @@ const HowItsWorks = () => {
                     featuresThree={"Utilize gathered data to inform strategic decisions and optimize your real estate approach"}
                     featuresFour={"Leverage RE Tracker's analytics tools to continuously analyze, strategize, and optimize your property management practices"}
                     btnName={"Try for free"}
-                    btnLink={"/try-for-free"}
+                    btnLink={"/"}
                 />
-
-
-
             </div>
         </section>
     )
