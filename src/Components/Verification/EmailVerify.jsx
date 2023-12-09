@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import { MdOutlineEmail } from "react-icons/md";
@@ -35,7 +35,9 @@ const EmailVerify = () => {
         <p className="text-secondary font-medium text-base mb-10">
           Can’t find the code? Please check your spam folder.
         </p>
-        <PrimaryBtn>Verify Email</PrimaryBtn>
+        <Link to="/successful-verification">
+          <PrimaryBtn>Verify Email</PrimaryBtn>
+        </Link>
       </form>
     </div>
   );
