@@ -68,21 +68,22 @@ const StepThree = ({ stepper, setStepper }) => {
           </p>
         </div>
         <div className="img_box grid grid-cols-4 gap-4">
-          {selectedImages.map((image, index) => (
-            <div key={index} className="relative">
-              <img
-                src={image}
-                alt={`Selected ${index + 1}`}
-                className="w-full  object-cover rounded-3xl h-32"
-              />
-              <button
-                onClick={() => handleRemoveImage(index)}
-                className="absolute top-2 right-2 icon z-10"
-              >
-                <RxCross2 />
-              </button>
-            </div>
-          ))}
+          {selectedImages.length > 0 &&
+            selectedImages.map((image, index) => (
+              <div key={index} className="relative">
+                <img
+                  src={image}
+                  alt={`Selected ${index + 1}`}
+                  className="w-full  object-cover rounded-3xl h-32"
+                />
+                <button
+                  onClick={() => handleRemoveImage(index)}
+                  className="absolute top-2 right-2 icon z-10"
+                >
+                  <RxCross2 />
+                </button>
+              </div>
+            ))}
         </div>
 
         <div className="flex items-center gap-4 mt-10">

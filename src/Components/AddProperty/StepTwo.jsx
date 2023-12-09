@@ -28,7 +28,7 @@ const StepTwo = ({ stepper, setStepper }) => {
     },
   ];
   return (
-    <div >
+    <div>
       {/* <StepLines /> */}
 
       <p className="text-primary font-bold text-sm mb-3">Step 02</p>
@@ -38,29 +38,30 @@ const StepTwo = ({ stepper, setStepper }) => {
         <div className=" my-10">
           <label htmlFor="search">Type Lists </label>
           <div className="flex flex-col gap-3">
-            {options.map((option, index) => (
-              <div
-                onClick={() => handleOptionClick(index)}
-                key={index}
-                className="border border-[#E5E7EB] rounded-lg p-5 flex items-start gap-4 "
-              >
+            {options.length > 0 &&
+              options.map((option, index) => (
                 <div
-                  className={`cursor-pointer flex-shrink-0 h-4 w-4 rounded-full mt-1 ${
-                    selectedOption === index
-                      ? "border-4 border-primary"
-                      : "border-2 border-[#E5E7EB]"
-                  }`}
-                ></div>
-                <div>
-                  <p className="text-base font-semibold text-[#1F2937]">
-                    {option?.title}
-                  </p>
-                  <p className="text-[#6B7280] text-sm font-normal">
-                    {option?.subtitle}
-                  </p>
+                  onClick={() => handleOptionClick(index)}
+                  key={index}
+                  className="border border-[#E5E7EB] rounded-lg p-5 flex items-start gap-4 "
+                >
+                  <div
+                    className={`cursor-pointer flex-shrink-0 h-4 w-4 rounded-full mt-1 ${
+                      selectedOption === index
+                        ? "border-4 border-primary"
+                        : "border-2 border-[#E5E7EB]"
+                    }`}
+                  ></div>
+                  <div>
+                    <p className="text-base font-semibold text-[#1F2937]">
+                      {option?.title}
+                    </p>
+                    <p className="text-[#6B7280] text-sm font-normal">
+                      {option?.subtitle}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
 
