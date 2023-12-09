@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom'
 
 const Testimonal = () => {
     return (
-        <div className='testimonial py-32' style={{ backgroundImage: `url(${testimonialBg})`, backgroundRepeat: "no-repeat" }}>
+        <div className='testimonial py-24' style={{ backgroundImage: `url(${testimonialBg})`, backgroundRepeat: "no-repeat" }}>
             <div className="container">
 
                 <SectionHeader
@@ -29,7 +29,7 @@ const Testimonal = () => {
                 />
 
                 <div className='flex justify-center pb-16'>
-                    <div class="grid grid-cols-12 gap-4">
+                    <div class="grid grid-cols-12 gap-8">
                         <TestimonialCard
                             cardTitle={"Seamless interface"}
                             cardDes={"RE Tracker has revolutionized how I manage my properties. The seamless interface and intuitive features make day-to-day tasks a breeze. Highly recommend!"}

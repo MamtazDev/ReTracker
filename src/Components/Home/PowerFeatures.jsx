@@ -32,7 +32,7 @@ const PowerFeatures = () => {
             <div className="container">
                 <div className="card flex justify-center">
                     <div className="power_features_wrapper max-w-twelveEighty">
-                        <div className="grid grid-cols-12 gap-4">
+                        <div className="grid grid-cols-12 gap-8">
                             <div className="col-span-4">
                                 <PowerFeaturesCard
                                     cardImg={cardImg1}

@@ -29,7 +29,7 @@ const HowItsWorks = () => {
                     featuresThree={"Check your email inbox for a verification message from RE Tracker"}
                     featuresFour={"Return to the RE Tracker website and log in with your newly created credentials."}
                     btnName={"Sign up"}
-                    btnLink={"/sign-up"}
+                    btnLink={"/signup"}
                 />
 
                 <HowItsWorksStep
