@@ -20,7 +20,7 @@ const Intregations = () => {
 
                 <div className='text-center'>
                     <Link className='py-3 px-16 border border-primary w-full text-center rounded-full text-base font-bold hover:bg-primary  text-primary hover:text-white transition-all duration-300'>
-                        Start with Pro
+                        Try for free
                     </Link>
                 </div>
 

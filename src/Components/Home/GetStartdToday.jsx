@@ -51,7 +51,7 @@ const GetStartdToday = () => {
 
                     <div className='text-center'>
                         <Link className='py-3 px-16 border border-primary w-full iline-block text-center rounded-full text-base font-bold hover:bg-white hover:text-primary bg-primary text-white transition-all duration-300'>
-                            Start with Pro
+                            Try for free
                         </Link>
                     </div>
 
