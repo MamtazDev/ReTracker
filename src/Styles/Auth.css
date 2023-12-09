@@ -6,7 +6,8 @@
     background-size: cover;
 }
 
-label {
+label,
+.year {
     display: block;
     color: var(--Text-Primary, var(--colors-slate-950, #020617));
     font-size: 14px;
@@ -19,7 +20,8 @@ label span {
     color: var(--slate-500, var(--slate-500, #64748B));
 }
 
-.auth_layout input {
+.auth_layout input,
+.year {
     border-radius: var(--border-radius-full, 9999px);
     border: 1px solid var(--slate-200, #E2E8F0);
     background: var(--slate-50, #F8FAFC);
@@ -49,7 +51,7 @@ input[type="search"] {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: var(--Primary-Gradient, linear-gradient(270deg, rgba(255, 255, 255, 0.16) 0%, rgba(0, 0, 0, 0.00) 100%, rgba(255, 255, 255, 0.00) 100%), #6E51E0);
+    background: var(--Primary-Gradient, linear-gradient(270deg, rgba(255, 255, 255, 0.16) 0%, rgba(0, 0, 0, 0.00) 100%, rgba(255, 255, 255, 0.00) 100%), #6E51E0) !important;
 }
 
 .email_verify input {

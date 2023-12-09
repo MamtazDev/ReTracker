@@ -40,9 +40,7 @@ const StepThree = ({ stepper, setStepper }) => {
     setSelectedImages(updatedImages);
   };
   return (
-    <div >
-      {/* <StepLines stepper={stepper} /> */}
-
+    <div>
       <p className="text-primary font-bold text-sm mb-3">Step 03</p>
       <AuthTitle>Upload Image </AuthTitle>
 
@@ -59,7 +57,7 @@ const StepThree = ({ stepper, setStepper }) => {
           onClick={() => fileRef.current.click()}
           onDrop={handleDrop}
           onDragOver={handleDragOver}
-          className="border rounded-xl border-dashed border-[#E5E7EB] text-center py-16 mt-10 mb-4"
+          className="cursor-pointer border rounded-xl border-dashed border-[#E5E7EB] text-center py-16 mt-10 mb-4"
         >
           <img className="mx-auto mb-5" src={imgGrp} alt="" />
           <p className="text-base font-medium text-[#1F2937] mb-1">
@@ -74,9 +72,8 @@ const StepThree = ({ stepper, setStepper }) => {
             <div key={index} className="relative">
               <img
                 src={image}
-                height={120}
                 alt={`Selected ${index + 1}`}
-                className="w-full  object-cover rounded-3xl"
+                className="w-full  object-cover rounded-3xl h-32"
               />
               <button
                 onClick={() => handleRemoveImage(index)}
@@ -88,7 +85,7 @@ const StepThree = ({ stepper, setStepper }) => {
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 mt-10">
           <div onClick={() => setStepper(4)} className="w-full">
             <PrimaryBtn>Continue</PrimaryBtn>
           </div>
