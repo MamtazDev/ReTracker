@@ -5,8 +5,8 @@ import StepLines from "../../Shared/StepLines";
 
 const StepOne = ({ stepper, setStepper }) => {
   return (
-    <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
-      <StepLines />
+    <div>
+      {/* <StepLines stepper={stepper} /> */}
 
       <p className="text-primary font-bold text-sm mb-3">Step 01</p>
       <AuthTitle>Add Property</AuthTitle>

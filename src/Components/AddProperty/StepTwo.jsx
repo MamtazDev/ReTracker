@@ -5,11 +5,6 @@ import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 
 const StepTwo = ({ stepper, setStepper }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const handleOptionClick = (index) => {
-    setSelectedOption(index);
-  };
   const options = [
     {
       title: "Short-Term Rental (STR)",
@@ -27,10 +22,14 @@ const StepTwo = ({ stepper, setStepper }) => {
         "Hybrid rental models provide property owners with income diversification, market adaptability, and the flexibility to use the property personally.",
     },
   ];
-  return (
-    <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
-      <StepLines />
+  const [selectedOption, setSelectedOption] = useState(0);
 
+  const handleOptionClick = (index) => {
+    setSelectedOption(index);
+  };
+
+  return (
+    <div>
       <p className="text-primary font-bold text-sm mb-3">Step 02</p>
       <AuthTitle>Property Type </AuthTitle>
 
@@ -38,29 +37,30 @@ const StepTwo = ({ stepper, setStepper }) => {
         <div className=" my-10">
           <label htmlFor="search">Type Lists </label>
           <div className="flex flex-col gap-3">
-            {options.map((option, index) => (
-              <div
-                onClick={() => handleOptionClick(index)}
-                key={index}
-                className="border border-[#E5E7EB] rounded-lg p-5 flex items-start gap-4 "
-              >
+            {options.length > 0 &&
+              options.map((option, index) => (
                 <div
-                  className={`cursor-pointer flex-shrink-0 h-4 w-4 rounded-full mt-1 ${
-                    selectedOption === index
-                      ? "border-4 border-primary"
-                      : "border-2 border-[#E5E7EB]"
-                  }`}
-                ></div>
-                <div>
-                  <p className="text-base font-semibold text-[#1F2937]">
-                    {option?.title}
-                  </p>
-                  <p className="text-[#6B7280] text-sm font-normal">
-                    {option?.subtitle}
-                  </p>
+                  onClick={() => handleOptionClick(index)}
+                  key={index}
+                  className="border border-[#E5E7EB] rounded-lg p-5 flex items-start gap-4 "
+                >
+                  <div
+                    className={`cursor-pointer flex-shrink-0 h-4 w-4 rounded-full mt-1 ${
+                      selectedOption === index
+                        ? "border-4 border-primary"
+                        : "border-2 border-[#E5E7EB]"
+                    }`}
+                  ></div>
+                  <div>
+                    <p className="text-base font-semibold text-[#1F2937]">
+                      {option?.title}
+                    </p>
+                    <p className="text-[#6B7280] text-sm font-normal">
+                      {option?.subtitle}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
 

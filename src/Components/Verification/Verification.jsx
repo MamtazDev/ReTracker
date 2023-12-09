@@ -24,6 +24,6 @@ const Verification = () => {
       <PrimaryBtn>Continue </PrimaryBtn>
     </div>
   );
-};
+};          
 
 export default Verification;

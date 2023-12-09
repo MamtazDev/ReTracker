@@ -1,8 +1,10 @@
 import React from "react";
-import brandLogo from "../assets/favicon.png";
-import { Link } from "react-router-dom";
+import brandLogo from "../assets/logo.png";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  let location = useLocation();
+
   return (
     <div className="mx-auto max-w-5xl w-full top-16">
       <div className="bg-slate-black rounded-full p-4 text-white capitalize mx-auto">
@@ -10,7 +12,6 @@ const Header = () => {
           <div className="nav-brand">
             <Link to={"/"} className="flex items-center gap-2 text">
               <img src={brandLogo} alt="brand-logo" />
-              <h5 className="font-bold text-lg">RETracker</h5>
             </Link>
           </div>
 
@@ -27,7 +28,7 @@ const Header = () => {
 
               <li className="nav-items">
                 <Link
-                  to={"/features"}
+                  to={"/"}
                   className="nav-link text-base font-semibold text-white capitalize"
                 >
                   Features
@@ -36,7 +37,7 @@ const Header = () => {
 
               <li className="nav-items">
                 <Link
-                  to={"/pricing"}
+                  to={"/"}
                   className="nav-link text-base font-semibold text-white capitalize"
                 >
                   Pricing
@@ -45,7 +46,7 @@ const Header = () => {
 
               <li className="nav-items">
                 <Link
-                  to={"/contact"}
+                  to={"/"}
                   className="nav-link text-base font-semibold text-white capitalize"
                 >
                   Contact
@@ -55,13 +56,39 @@ const Header = () => {
           </div>
 
           <div className="userBtn flex flex-wrap gap-4">
-            <button className="border border-white py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300">
-              <Link className="text-base font-bold capitalize">Login</Link>
-            </button>
+            {location.pathname !==
+              ("/login" &&
+                "/forget-password" &&
+                "/reset-password" &&
+                "/add-priority") && (
+              <Link
+                to="/login"
+                className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300"
+              >
+                Login
+              </Link>
+            )}
 
-            <button className="border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white  transition-all duration-300">
-              <Link className="text-base font-bold capitalize">Sign up</Link>
-            </button>
+            {location.pathname !==
+              ("/signup" &&
+                "/verify-email" &&
+                "/successful-verification" &&
+                "/add-priority") && (
+              <Link
+                to="/signup"
+                className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white  transition-all duration-300"
+              >
+                Sign up
+              </Link>
+            )}
+            {location.pathname === "/add-priority" && (
+              <Link
+                to="#"
+                className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white  transition-all duration-300"
+              >
+                Go to account
+              </Link>
+            )}
           </div>
         </nav>
       </div>

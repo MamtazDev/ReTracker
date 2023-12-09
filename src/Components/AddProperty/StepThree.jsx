@@ -40,9 +40,7 @@ const StepThree = ({ stepper, setStepper }) => {
     setSelectedImages(updatedImages);
   };
   return (
-    <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
-      <StepLines />
-
+    <div>
       <p className="text-primary font-bold text-sm mb-3">Step 03</p>
       <AuthTitle>Upload Image </AuthTitle>
 
@@ -59,7 +57,7 @@ const StepThree = ({ stepper, setStepper }) => {
           onClick={() => fileRef.current.click()}
           onDrop={handleDrop}
           onDragOver={handleDragOver}
-          className="border rounded-xl border-dashed border-[#E5E7EB] text-center py-16 mt-10 mb-4"
+          className="cursor-pointer border rounded-xl border-dashed border-[#E5E7EB] text-center py-16 mt-10 mb-4"
         >
           <img className="mx-auto mb-5" src={imgGrp} alt="" />
           <p className="text-base font-medium text-[#1F2937] mb-1">
@@ -70,25 +68,25 @@ const StepThree = ({ stepper, setStepper }) => {
           </p>
         </div>
         <div className="img_box grid grid-cols-4 gap-4">
-          {selectedImages.map((image, index) => (
-            <div key={index} className="relative">
-              <img
-                src={image}
-                height={120}
-                alt={`Selected ${index + 1}`}
-                className="w-full  object-cover rounded-3xl"
-              />
-              <button
-                onClick={() => handleRemoveImage(index)}
-                className="absolute top-2 right-2 icon z-10"
-              >
-                <RxCross2 />
-              </button>
-            </div>
-          ))}
+          {selectedImages.length > 0 &&
+            selectedImages.map((image, index) => (
+              <div key={index} className="relative">
+                <img
+                  src={image}
+                  alt={`Selected ${index + 1}`}
+                  className="w-full  object-cover rounded-3xl h-32"
+                />
+                <button
+                  onClick={() => handleRemoveImage(index)}
+                  className="absolute top-2 right-2 icon z-10"
+                >
+                  <RxCross2 />
+                </button>
+              </div>
+            ))}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 mt-10">
           <div onClick={() => setStepper(4)} className="w-full">
             <PrimaryBtn>Continue</PrimaryBtn>
           </div>
