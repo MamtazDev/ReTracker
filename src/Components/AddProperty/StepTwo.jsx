@@ -5,11 +5,6 @@ import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 
 const StepTwo = ({ stepper, setStepper }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const handleOptionClick = (index) => {
-    setSelectedOption(index);
-  };
   const options = [
     {
       title: "Short-Term Rental (STR)",
@@ -27,10 +22,14 @@ const StepTwo = ({ stepper, setStepper }) => {
         "Hybrid rental models provide property owners with income diversification, market adaptability, and the flexibility to use the property personally.",
     },
   ];
+  const [selectedOption, setSelectedOption] = useState(0);
+
+  const handleOptionClick = (index) => {
+    setSelectedOption(index);
+  };
+
   return (
     <div>
-      {/* <StepLines /> */}
-
       <p className="text-primary font-bold text-sm mb-3">Step 02</p>
       <AuthTitle>Property Type </AuthTitle>
 

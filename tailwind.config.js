@@ -6,16 +6,24 @@ export default {
     extend: {
       colors: {
         primary: "#6E51E0",
+        lightPrimary: "#F5F3FF",
         secondary: "#64748B",
         "primary-dark": "#7f65e6",
         "slate-black": "#020617",
         lightGray: "#DBDBDB",
         drakWhite: "#F8FAFC",
+        primaryGreen: "#10B981",
+        amber: "#F59E0B",
+        orange: "#F97316",
+        dark: "#0F172A",
+        btnGradient: "linear-gradient(270deg, rgba(255, 255, 255, 0.16) 0%, rgba(0, 0, 0, 0.00) 100%, rgba(255, 255, 255, 0.00) 100%), #6E51E0);"
       },
+
       container: {
         center: true,
       },
       maxWidth: {
+        twelveEighty: "1280px",
         authWidth: "540px",
       },
       padding: {

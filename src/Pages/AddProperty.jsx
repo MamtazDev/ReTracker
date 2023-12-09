@@ -5,6 +5,7 @@ import StepTwo from "../Components/AddProperty/StepTwo";
 import StepThree from "../Components/AddProperty/StepThree";
 import StepLines from "../Shared/StepLines";
 import StepFour from "../Components/AddProperty/StepFour";
+import StepFive from "../Components/AddProperty/StepFive";
 
 const AddProperty = () => {
   const [stepper, setStepper] = useState(4);
@@ -19,6 +20,9 @@ const AddProperty = () => {
         )}
         {stepper === 4 && (
           <StepFour stepper={stepper} setStepper={setStepper} />
+        )}
+        {stepper === 5 && (
+          <StepFive stepper={stepper} setStepper={setStepper} />
         )}
       </div>
     </Auth>
