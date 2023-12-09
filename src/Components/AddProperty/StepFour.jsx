@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import AuthTitle from "../../Shared/AuthTitle";
@@ -10,6 +10,17 @@ const StepFour = ({ setStepper }) => {
   const [serviceYear, setServiceYear] = useState(2023);
   const [showDropdown, setShowDropDown] = useState(false);
   const [country, setCountry] = useState();
+
+  useEffect(() => {
+    const svgElement = document.querySelector("#flagContainer svg");
+
+    if (svgElement) {
+      svgElement.setAttribute("width", "20px");
+      svgElement.setAttribute("height", "20px");
+      svgElement.setAttribute("viewBox", "0 0 336 336");
+      svgElement.style.borderRadius = "100%";
+    }
+  }, [country]);
   return (
     <div>
       <p className="text-primary font-bold text-sm mb-3">Step 04</p>
@@ -73,14 +84,20 @@ const StepFour = ({ setStepper }) => {
                 <div className="w-full flex justify-start items-center gap-2 mb-1">
                   {country ? (
                     <div
+                      id="flagContainer"
                       className="h-5 w-5 rounded-full"
                       dangerouslySetInnerHTML={{ __html: country.flag }}
                     />
                   ) : (
                     <div className="h-5 w-5 rounded-full">
                       <svg
-                        viewBox="0 0 512 336"
+                        width="20px"
+                        height="20px"
+                        viewBox="0 0 336 336"
                         xmlns="http://www.w3.org/2000/svg"
+                        style={{
+                          borderRadius: "100%",
+                        }}
                       >
                         <g fill="none">
                           <path
@@ -114,18 +131,19 @@ const StepFour = ({ setStepper }) => {
                   </div>
                   {showDropdown && (
                     <div className="absolute left-[-12px] lg:left-0 overflow-hidden w-[300px] top-12 z-20 bg-white shadow p-5 max-h-[200px] overflow-y-scroll">
-                      {countryCodes.length >0 &&  countryCodes?.map((data, index) => (
-                        <div
-                          onClick={() => setCountry(data)}
-                          className="flex justify-between mb-3 cursor-pointer"
-                          key={index}
-                        >
-                          {data.name}
+                      {countryCodes.length > 0 &&
+                        countryCodes?.map((data, index) => (
                           <div
-                            dangerouslySetInnerHTML={{ __html: data.flag }}
-                          />
-                        </div>
-                      ))}
+                            onClick={() => setCountry(data)}
+                            className="flex justify-between mb-3 cursor-pointer"
+                            key={index}
+                          >
+                            {data.name}
+                            <div
+                              dangerouslySetInnerHTML={{ __html: data.flag }}
+                            />
+                          </div>
+                        ))}
                     </div>
                   )}
                 </div>
