@@ -3,11 +3,9 @@ import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import StepLines from "../../Shared/StepLines";
 
-const StepOne = ({ stepper, setStepper }) => {
+const StepOne = ({ setStepper }) => {
   return (
     <div>
-      {/* <StepLines stepper={stepper} /> */}
-
       <p className="text-primary font-bold text-sm mb-3">Step 01</p>
       <AuthTitle>Add Property</AuthTitle>
 
