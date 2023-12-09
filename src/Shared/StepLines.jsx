@@ -1,5 +1,5 @@
 const StepLines = ({ stepper }) => {
-  console.log(stepper, "ds");
+
   return (
     <div className="flex gap-4 items-center mb-10">
       {[1, 2, 3, 4].map((item, idx) => (
