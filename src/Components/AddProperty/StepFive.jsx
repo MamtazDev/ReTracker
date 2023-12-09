@@ -45,7 +45,7 @@ const StepFive = () => {
           ))}
         </div>
 
-        <PrimaryBtn>Send Invites</PrimaryBtn>
+        <PrimaryBtn type="button" >Send Invites</PrimaryBtn>
 
         <button className="text-primary font-bold text-base  text-center mt-4 w-full">
           Skip for now
