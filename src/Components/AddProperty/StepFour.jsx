@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import AuthTitle from "../../Shared/AuthTitle";
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { FaPlus, FaMinus, FaChevronDown } from "react-icons/fa";
 import CountrySelect from "./CountrySelect";
-
+import countryCodes from "../../Utils/CountryCode";
 
 const StepFour = ({ setStepper }) => {
   const [purchaseYear, setPurchaseYear] = useState(2023);
