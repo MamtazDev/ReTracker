@@ -1,4 +1,4 @@
-import React from "react";
+
 import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import { MdOutlineEmail } from "react-icons/md";

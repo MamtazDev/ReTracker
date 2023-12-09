@@ -1,4 +1,4 @@
-import React from "react";
+
 import Auth from "../Shared/Auth";
 import Verification from "../Components/Verification/Verification";
 

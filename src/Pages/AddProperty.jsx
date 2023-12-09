@@ -10,7 +10,7 @@ const AddProperty = () => {
   return (
     <Auth>
       <div   className="pb-28 pt-p_153 max-w-authWidth mx-auto">
-      <StepLines/>
+     {stepper!==5 && <StepLines stepper={stepper}/>}
       {stepper === 1 && <StepOne stepper={stepper} setStepper={setStepper} />}
       {stepper === 2 && <StepTwo stepper={stepper} setStepper={setStepper} />}
       {stepper === 3 && <StepThree stepper={stepper} setStepper={setStepper} />}
