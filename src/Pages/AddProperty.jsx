@@ -8,7 +8,7 @@ import StepFour from "../Components/AddProperty/StepFour";
 import StepFive from "../Components/AddProperty/StepFive";
 
 const AddProperty = () => {
-  const [stepper, setStepper] = useState(4);
+  const [stepper, setStepper] = useState(1);
   return (
     <Auth>
       <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
