@@ -17,21 +17,22 @@ const Header = () => {
 
         <nav className={isOpen ? "block" : "flex flex-wrap items-center"}>
 
-          {isOpen ? (
-            <div className="flex justify-between mb-4">
-              <div className={"nav-brand"}>
-                <Link to={"/"} className="flex items-center gap-2 text">
-                  <img src={brandLogo} alt="brand-logo" />
-                </Link>
-              </div>
+          {
+            isOpen ? (
+              <div className="flex justify-between mb-4">
+                <div className={"nav-brand"}>
+                  <Link to={"/"} className="flex items-center gap-2 text">
+                    <img src={brandLogo} alt="brand-logo" />
+                  </Link>
+                </div>
 
-              <div className="responsive_btn sm:hidden ml-auto">
-                <button onClick={toggleResponsiveNav}>
-                  <img src={responsiveBtn} className="cursor-pointer" alt="responsive_btn" />
-                </button>
+                <div className="responsive_btnmd:hidden ml-auto">
+                  <button onClick={toggleResponsiveNav}>
+                    <img src={responsiveBtn} className="cursor-pointer" alt="responsive_btn" />
+                  </button>
+                </div>
               </div>
-            </div>
-          ) : (
+            ) : (
               <>
                 <div className={"nav-brand"}>
                   <Link to={"/"} className="flex items-center gap-2 text">
@@ -39,18 +40,16 @@ const Header = () => {
                   </Link>
                 </div>
 
-                <div className="responsive_btn sm:hidden ml-auto">
+                <div className="responsive_btn md:hidden ml-auto">
                   <button onClick={toggleResponsiveNav}>
                     <img src={responsiveBtn} className="cursor-pointer" alt="responsive_btn" />
                   </button>
                 </div>
               </>
-          )}
+            )
+          }
 
-
-
-
-          <div className={isOpen ? "block" : "navbar mx-auto hidden sm:block"}>
+          <div className={isOpen ? "block" : "navbar mx-auto hidden md:block"}>
             <ul className={isOpen ? "navbar-nav block" : "navbar-nav flex flex-wrap items-center gap-11"}>
               <li className={isOpen ? "nav-items mb-8" : "nav-items"}>
                 <Link
@@ -90,7 +89,7 @@ const Header = () => {
             </ul>
           </div>
 
-          <div className={isOpen ? "block" : "userBtn hidden sm:block"} >
+          <div className={isOpen ? "block" : "userBtn hidden md:block"} >
             <div className="flex flex-wrap gap-4 ">
               {location.pathname !==
                 ("/login" &&
@@ -129,6 +128,7 @@ const Header = () => {
           </div>
 
         </nav>
+
       </div>
     </div>
   );
