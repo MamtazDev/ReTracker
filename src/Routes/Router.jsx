@@ -9,6 +9,7 @@ import Signup from "../Pages/Signup";
 import EmailVerification from "../Pages/EmailVerification";
 import VerifyEmail from "../Pages/VerifyEmail";
 import AddProperty from "../Pages/AddProperty";
+import Calender from "../Pages/Calender";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: "/add-property",
         element: <AddProperty />,
+      },
+      {
+        path: "/calender",
+        element: <Calender />,
       },
     ],
   },
