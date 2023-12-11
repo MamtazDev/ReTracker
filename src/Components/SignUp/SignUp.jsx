@@ -14,7 +14,7 @@ const SignUp = () => {
     setChecked(!isChecked);
   };
   return (
-    <div className="px-5 lg:px-0 pb-5 lg:pb-28 pt-10 lg:pt-p_153 max-w-authWidth mx-auto">
+    <div className="pb-5 lg:pb-28 pt-10 lg:pt-p_153 max-w-authWidth mx-auto">
       <AuthTitle>Create Account</AuthTitle>
       <SocialBtn />
       <Divider />

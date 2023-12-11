@@ -8,7 +8,7 @@ const Reset = () => {
   const [passShow, setPassShow] = useState(false);
 
   return (
-    <div className="px-5 lg:px-0 pb-p_105 lg:pb-p_188 pt-p_125 lg:pt-p_228 max-w-authWidth mx-auto">
+    <div className="pb-p_105 lg:pb-p_188 pt-p_125 lg:pt-p_228 max-w-authWidth mx-auto">
       <AuthTitle>Reset Password </AuthTitle>
       <p className="mt-3 mb-5 lg:mb-10 text-base font-normal text-[#78716C]">
         Enter a new password and confirm your new password to reset.

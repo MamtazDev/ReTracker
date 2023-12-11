@@ -6,7 +6,7 @@ import { TbBrandTelegram } from "react-icons/tb";
 
 const EmailVerify = () => {
   return (
-    <div className="email_verify px-5 lg:px-0 pb-5 lg:pb-28 pt-10 lg:pt-p_153 max-w-authWidth mx-auto">
+    <div className="email_verify  pb-5 lg:pb-28 pt-10 lg:pt-p_153 max-w-authWidth mx-auto">
       <AuthTitle>Verify Email</AuthTitle>
       <p className="text-secondary text-base font-normal mt-3 mb-5 lg:mb-10">
         Enter the 6-digit code we just sent to{" "}

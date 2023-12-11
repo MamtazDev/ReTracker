@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Verification = () => {
   return (
-    <div className="px-5 lg:px-0 pb-20 lg:pb-p_188 pt-[100px] lg:pt-p_228 max-w-authWidth mx-auto text-center">
+    <div className=" pb-20 lg:pb-p_188 pt-[100px] lg:pt-p_228 max-w-authWidth mx-auto text-center">
       <Confetti />
       <div
         style={{ height: "64px", width: "64px" }}
