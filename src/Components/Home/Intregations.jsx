@@ -24,7 +24,6 @@ const Intregations = () => {
                     </Link>
                 </div>
 
-
             </div>
 
 
