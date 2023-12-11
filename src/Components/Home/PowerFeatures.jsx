@@ -27,7 +27,7 @@ const PowerFeatures = () => {
         section_pb={"pb-7 md:pb-16"}
       />
 
-      <div className="container">
+      <div className="container px-5">
         <div className="card flex justify-center">
           <div className="power_features_wrapper max-w-twelveEighty">
             <div className="grid grid-cols-12 gap-8">

@@ -5,7 +5,7 @@ import FaqAccordion from './FaqAccordion'
 const Faq = () => {
     return (
         <section className='faq py-8 md:py-32 bg-dark'>
-            <div className="container">
+            <div className="container px-5">
                 <SectionHeader
                     sectionTag={"RETracker FAQ’s"}
                     sectionTagColor={"text-primary"}

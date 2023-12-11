@@ -31,7 +31,6 @@ const Banner = () => {
           <img src={heroImg} className="max-w-twelveEighty w-full" alt="hero-img" />
         </div>
 
-
       </section>
     </Auth>
   )
