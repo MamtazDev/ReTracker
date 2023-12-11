@@ -29,6 +29,7 @@ export default {
       },
       padding: {
         p_153: "153px",
+        p_173: "173px",
         p_276: "276px",
         p_236: "236px",
         p_228: "228px",
