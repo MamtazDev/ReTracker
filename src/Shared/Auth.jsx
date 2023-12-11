@@ -7,7 +7,7 @@ const Auth = ({ children }) => {
 
   return (
     <div className="relative">
-      <div className="absolute w-full top-16">
+      <div className="absolute w-full top-7 lg:top-16">
         <Header />
       </div>
       <div
@@ -16,7 +16,9 @@ const Auth = ({ children }) => {
         }
       >
         <div className="container mx-auto">
-          <div className="max-w-[1536px] w-full bg-white rounded-3xl mx-4 lg:mx-0">
+
+          <div className="lg:max-w-[1536px] w-full bg-white rounded-3xl mx-4 lg:mx-0">
+
             {children}
           </div>
         </div>

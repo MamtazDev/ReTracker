@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import brandLogo from "../assets/logo.png";
 import { Link, useLocation } from "react-router-dom";
-import responsiveBtn from '../assets/res-btn.png';
+import responsiveBtn from "../assets/res-btn.png";
 
 const Header = () => {
   let location = useLocation();
@@ -11,11 +11,15 @@ const Header = () => {
   };
 
   return (
-    <div className="mx-auto max-w-5xl w-full top-16">
-      <div className={isOpen ? "bg-slate-black rounded-[20px] p-4 text-white capitalize mx-auto" : "bg-slate-black rounded-full p-4 text-white capitalize mx-auto"}>
-
+    <div className="mx-auto max-w-[280px]  lg:max-w-5xl w-full ">
+      <div
+        className={
+          isOpen
+            ? "bg-slate-black rounded-[20px] p-2 lg:p-4 text-white capitalize mx-auto"
+            : "bg-slate-black rounded-full p-2 lg:p-4 text-white capitalize mx-auto"
+        }
+      >
         <nav className={isOpen ? "block" : "flex flex-wrap items-center"}>
-
           {isOpen ? (
             <div className="flex justify-between mb-4">
               <div className={"nav-brand"}>
@@ -26,7 +30,11 @@ const Header = () => {
 
               <div className="responsive_btnmd:hidden ml-auto">
                 <button onClick={toggleResponsiveNav}>
-                  <img src={responsiveBtn} className="cursor-pointer" alt="responsive_btn" />
+                  <img
+                    src={responsiveBtn}
+                    className="cursor-pointer"
+                    alt="responsive_btn"
+                  />
                 </button>
               </div>
             </div>
@@ -96,26 +104,26 @@ const Header = () => {
                   "/forget-password" &&
                   "/reset-password" &&
                   "/add-priority") && (
-                  <Link
-                    to="/login"
-                    className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300"
-                  >
-                    Login
-                  </Link>
-                )}
+                <Link
+                  to="/login"
+                  className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300"
+                >
+                  Login
+                </Link>
+              )}
 
               {location.pathname !==
                 ("/signup" &&
                   "/verify-email" &&
                   "/successful-verification" &&
                   "/add-priority") && (
-                  <Link
-                    to="/signup"
-                    className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white  transition-all duration-300"
-                  >
-                    Sign up
-                  </Link>
-                )}
+                <Link
+                  to="/signup"
+                  className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white  transition-all duration-300"
+                >
+                  Sign up
+                </Link>
+              )}
               {location.pathname === "/add-priority" && (
                 <Link
                   to="#"
@@ -126,7 +134,6 @@ const Header = () => {
               )}
             </div>
           </div>
-
         </nav>
       </div>
     </div>
