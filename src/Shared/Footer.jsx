@@ -33,11 +33,11 @@ const Footer = () => {
                 socialIcons.map((data, index) => (
                   <div
                     key={index}
-                    className="border border-primary rounded-full h-10 w-10 flex justify-center items-center transition duration-600 ease-in-out hover:bg-primary"
+                    className="border border-primary rounded-full text-primary text-2xl hover:text-white h-10 w-10 flex justify-center items-center transition duration-600 ease-in-out hover:bg-primary"
                   >
                     <Link
                       target="_blank"
-                      className="text-primary text-2xl transition duration-600 ease-in-out hover:text-white"
+                      className=""
                       to={data.link}
                     >
                       {data.pic}

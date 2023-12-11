@@ -1,5 +1,4 @@
 import React from "react";
-import testimonialBg from "../../assets/customer-saying-bg.png";
 import SectionHeader from "./SectionHeader";
 import TestimonialCard from "./TestimonialCard";
 import autohrImg1 from "../../assets/user1.png";
@@ -12,28 +11,25 @@ import twitter from "../../assets/twitter.png";
 import instagram from "../../assets/instagram.png";
 import facebook from "../../assets/instagram.png";
 import { Link } from "react-router-dom";
+import '../../Styles/Testimonal.css';
 
 const Testimonal = () => {
   return (
     <div
-      className="testimonial py-24"
-      style={{
-        backgroundImage: `url(${testimonialBg})`,
-        backgroundRepeat: "no-repeat",
-      }}
+      className="testimonial py-7 md:py-24 testimonal_bg"
     >
-      <div className="container">
+      <div className="container px-5">
         <SectionHeader
           sectionTag={"Testimonials"}
           sectionTagColor={"text-white"}
           sectionTagColorTwo={"text-white"}
           sectionTitle={"See what our"}
           sectionTitleTwo={"customers are saying"}
-          section_pb={"pb-16"}
+          section_pb={"pb-7 md:pb-16"}
         />
 
-        <div className="flex justify-center pb-16">
-          <div className="grid grid-cols-12 gap-8">
+        <div className="flex justify-center pb-7 md:pb-16">
+          <div className="grid grid-cols-12 md:gap-8 gap-4">
             <TestimonialCard
               cardTitle={"Seamless interface"}
               cardDes={
@@ -109,8 +105,8 @@ const Testimonal = () => {
         </div>
 
         <div className="testi_btn text-center">
-          <button className="bg-slate-black py-3 px-16 rounded-full">
-            <Link to={"#"} className="text-base font-bold text-white">
+          <button className="bg-slate-black border border-slate-black text-white hover:bg-white hover:text-slate-black py-3 px-16 rounded-full transition-all ease-in-out duration-300">
+            <Link to={"#"} className="text-base font-bold  hover:text-slate-black">
               Try for free
             </Link>
           </button>

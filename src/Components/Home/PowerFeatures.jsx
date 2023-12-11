@@ -12,7 +12,7 @@ import cardImg6 from "../../assets/card_img6.png";
 const PowerFeatures = () => {
   return (
     <section
-      className="powerful_features py-32"
+      className="powerful_features py-7 md:py-32"
       style={{
         backgroundImage: `url(${powerfulPattern})`,
         backgroundRepeat: "no-repeat",
@@ -24,14 +24,15 @@ const PowerFeatures = () => {
         sectionTagColorTwo={"text-primary"}
         sectionTitle={"Streamline your property management"}
         sectionTitleTwo={"with powerful features"}
-        section_pb={"pb-16"}
+        section_pb={"pb-7 md:pb-16"}
       />
 
-      <div className="container">
+      <div className="container px-5">
         <div className="card flex justify-center">
           <div className="power_features_wrapper max-w-twelveEighty">
-            <div className="grid grid-cols-12 gap-8">
-              <div className="col-span-4">
+            <div className="grid grid-cols-12 md:gap-8 gap-4">
+
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg1}
                   cardTitle={"Intuitive Dashboard"}
@@ -41,7 +42,8 @@ const PowerFeatures = () => {
                   bgColor={"bg-primary"}
                 />
               </div>
-              <div className="col-span-4">
+
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg2}
                   cardTitle={"Property Management"}
@@ -51,7 +53,8 @@ const PowerFeatures = () => {
                   bgColor={"bg-emerald-500"}
                 />
               </div>
-              <div className="col-span-4">
+
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg3}
                   cardTitle={"Calendar View"}
@@ -62,7 +65,7 @@ const PowerFeatures = () => {
                 />
               </div>
 
-              <div className="col-span-4">
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg4}
                   cardTitle={"Customizable Categories"}
@@ -73,7 +76,7 @@ const PowerFeatures = () => {
                 />
               </div>
 
-              <div className="col-span-4">
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg5}
                   cardTitle={"Smart Analytics"}
@@ -84,7 +87,7 @@ const PowerFeatures = () => {
                 />
               </div>
 
-              <div className="col-span-4">
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg6}
                   cardTitle={"Collaborate Seamlessly"}

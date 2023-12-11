@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 
 const GetStartdToday = () => {
     return (
-        <div className='get_started_today mb-16'>
-            <div className="container">
-                <div className='py-16' style={{ backgroundImage: `url(${getstartedImg})`, backgroundRepeat: "no-repeat", backgroundPosition: "center" }}>
+        <div className='get_started_today'>
+            <div className="container px-5">
+                <div className='py-8 md:py-16' style={{ backgroundImage: `url(${getstartedImg})`, backgroundRepeat: "no-repeat", backgroundPosition: "center" }}>
 
                     <SectionHeader
                         sectionTag={"Get Started Today"}
@@ -19,38 +19,38 @@ const GetStartdToday = () => {
                         sectionTitleColor={"pb-8"}
                     />
 
-                    <ul className='flex gap-8 justify-center mb-12'>
-                        <li className='text-sm font-medium text-slate-black flex items-center gap-3'>
-                            <span>
-                                <img src={MarkIcon2} alt="mark-icon" />
+                    <ul className='flex flex-col md:flex items-center md:flex-row gap-8 justify-center mb-12 '>
+                        <li className='text-sm font-medium text-slate-black flex items-center gap-2'>
+                            <span className="flex-shrink-0">
+                                <img className='w-6' src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Streamlined Tasks
                         </li>
 
-                        <li className='text-sm font-medium text-slate-black flex items-center gap-3'>
-                            <span>
-                                <img src={MarkIcon2} alt="mark-icon" />
+                        <li className='text-sm font-medium text-slate-black flex items-center gap-2'>
+                            <span className="flex-shrink-0">
+                                <img className='w-6' src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Smart Insights
                         </li>
 
-                        <li className='text-sm font-medium text-slate-black flex items-center gap-3'>
-                            <span>
-                                <img src={MarkIcon2} alt="mark-icon" />
+                        <li className='text-sm font-medium text-slate-black flex items-center gap-2'>
+                            <span className="flex-shrink-0">
+                                <img className='w-6' src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Collaborate Seamlessly
                         </li>
 
-                        <li className='text-sm font-medium text-slate-black flex items-center gap-3'>
-                            <span>
-                                <img src={MarkIcon2} alt="mark-icon" />
+                        <li className='text-sm font-medium text-slate-black flex items-center gap-2'>
+                            <span className="flex-shrink-0">
+                                <img className='w-6' src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Secure and Reliable
                         </li>
                     </ul>
 
                     <div className='text-center'>
-                        <Link className='py-3 px-16 border border-primary w-full iline-block text-center rounded-full text-base font-bold hover:bg-white hover:text-primary bg-primary text-white transition-all duration-300'>
+                        <Link className='py-3 px-16 inline-block md:inline border border-primary w-full iline-block text-center rounded-full text-base font-bold hover:bg-white hover:text-primary bg-primary text-white transition-all duration-300'>
                             Try for free
                         </Link>
                     </div>

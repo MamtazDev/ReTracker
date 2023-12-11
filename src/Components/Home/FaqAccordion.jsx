@@ -64,17 +64,21 @@ const FaqAccordion = () => {
         <div className="faq">
             <div className="container">
                 <div className='grid grid-cols-12 gap-6'>
-                    <div className="col-span-6">
+                    <div className="col-span-12 md:col-span-6">
 
-                        {accoprdionData.slice(0,5).map((data, index) => (
+                        {accoprdionData.slice(0, 5).map((data, index) => (
                             <div key={index} className={"bg-btnGroup rounded-2xl mb-6"}>
                                 <div onClick={() => setIsOpen(index === isOpen ? null : index)} className={index === isOpen ? "flex border-b border-darkTwo justify-between cursor-pointer p-5" : "flex justify-between border-0 cursor-pointer p-5"}>
                                     <p className="text-base text-white font-semibold">
                                         {data.ques}
                                     </p>
 
-                                    <img className="" src={isOpen === index ? minus : plus} alt="icon" />
+                                    <span className='flex-shrink-0'>
+
+                                        <img className="" src={isOpen === index ? minus : plus} alt="icon" />
+                                    </span>
                                 </div>
+
                                 {isOpen === index && (
                                     <p className="text-white text-sm font-normal p-5">
                                         {data.ans}
@@ -85,7 +89,7 @@ const FaqAccordion = () => {
                         ))}
 
                     </div>
-                    <div className="col-span-6">
+                    <div className="col-span-12 md:col-span-6">
 
                         {accoprdionData.slice(5, 10).map((data, index) => (
                             <div key={index} className={"bg-btnGroup rounded-2xl mb-6"}>
@@ -94,7 +98,10 @@ const FaqAccordion = () => {
                                         {data.ques}
                                     </p>
 
-                                    <img className="" src={isOpen === data?.id ? minus : plus} alt="icon" />
+                                    <span className='flex-shrink-0'>
+                                        <img className="" src={isOpen === data?.id ? minus : plus} alt="icon" />
+
+                                    </span>
                                 </div>
                                 {isOpen === data?.id && (
                                     <p className="text-white text-sm font-normal p-5">

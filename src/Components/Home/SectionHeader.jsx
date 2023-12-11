@@ -11,8 +11,9 @@ const SectionHeader = ({ sectionTag, sectionTitle, sectionTitleTwo, section_pb, 
             </div>
 
             <div className="section_title text-center">
-                <h2 className={`text-6xl font-semibold leading-[76px] ${sectionTitleColor}`}>
+                <h2 className={`text-2xl md:text-6xl font-semibold leading-8 md:leading-[76px] ${sectionTitleColor}`}>
                     {sectionTitle} <br />
+                    {/* className='hidden md:block' */}
                     <span className={`${sectionTagColorTwo}`}>
                         {sectionTitleTwo}
                     </span>
