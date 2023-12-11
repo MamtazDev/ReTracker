@@ -4,8 +4,13 @@ import FaqAccordion from './FaqAccordion'
 import faqBackground from '../../assets/faq-background.png'
 
 const Faq = () => {
+    const [activeTab, setActiveTab] = useState('Basics');
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState('Basics');
+
+    const handleTabClick = (tab) => {
+        setActiveTab(tab);
+    };
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
@@ -16,7 +21,7 @@ const Faq = () => {
         setIsOpen(false);
     };
     return (
-        <section className='faq py-8 md:py-32 bg-dark' style={{ backgroundImage: `url(${faqBackground})`, backgroundRepeat: "no-repeat"}}>
+        <section className='faq py-8 md:py-32 bg-dark' style={{ backgroundImage: `url(${faqBackground})`, backgroundRepeat: "no-repeat" }}>
             <div className="container px-5">
                 <SectionHeader
                     sectionTag={"RETracker FAQ’s"}
@@ -29,27 +34,44 @@ const Faq = () => {
                 />
 
                 <div className="btn_wrapper flex justify-center mb-8">
-                    <div className='bg-btnGroup p-2 rounded-full hidden md:inline-block '>
-                        <button className='text-white py-2 px-4 btnGradientClr rounded-full'>
+                    <div className='bg-btnGroup p-2 rounded-full hidden md:inline-block'>
+                        <button
+                            className={`text-white py-2 px-4 rounded-full ${activeTab === 'Basics'
+                                ? 'btnGradientClr font-bold'
+                                : ''
+                                }`}
+                            onClick={() => handleTabClick('Basics')}
+                        >
                             Basics
                         </button>
 
-                        <button className='text-white  py-2 px-4'>
+                        <button
+                            className={`text-white py-2 px-4 ${activeTab === 'Company' ? 'btnGradientClr rounded-full font-bold' : ''}`}
+                            onClick={() => handleTabClick('Company')}
+                        >
                             Company
                         </button>
 
-                        <button className='text-white  py-2 px-4'>
+                        <button
+                            className={`text-white py-2 px-4 ${activeTab === 'Pricing' ? 'btnGradientClr rounded-full font-bold' : ''}`}
+                            onClick={() => handleTabClick('Pricing')}
+                        >
                             Pricing
                         </button>
 
-                        <button className='text-white  py-2 px-4'>
+                        <button
+                            className={`text-white py-2 px-4 ${activeTab === 'Features' ? 'btnGradientClr rounded-full font-bold' : ''}`}
+                            onClick={() => handleTabClick('Features')}
+                        >
                             Features
                         </button>
 
-                        <button className='text-white  py-2 px-4'>
+                        <button
+                            className={`text-white py-2 px-4 ${activeTab === 'Compare' ? 'btnGradientClr rounded-full font-bold' : ''}`}
+                            onClick={() => handleTabClick('Compare')}
+                        >
                             Compare
                         </button>
-
                     </div>
 
                     <div className='bg-btnGroup p-2 rounded-full inline-block md:hidden'>
