@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 const GetStartdToday = () => {
     return (
-        <div className='get_started_today mb-16'>
-            <div className="container">
+        <div className='get_started_today'>
+            <div className="container px-5">
                 <div className='py-8 md:py-16' style={{ backgroundImage: `url(${getstartedImg})`, backgroundRepeat: "no-repeat", backgroundPosition: "center" }}>
 
                     <SectionHeader
@@ -50,7 +50,7 @@ const GetStartdToday = () => {
                     </ul>
 
                     <div className='text-center'>
-                        <Link className='py-3 px-16 border border-primary w-full iline-block text-center rounded-full text-base font-bold hover:bg-white hover:text-primary bg-primary text-white transition-all duration-300'>
+                        <Link className='py-3 px-16 inline-block md:inline border border-primary w-full iline-block text-center rounded-full text-base font-bold hover:bg-white hover:text-primary bg-primary text-white transition-all duration-300'>
                             Try for free
                         </Link>
                     </div>

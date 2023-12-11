@@ -1,5 +1,4 @@
 import React from "react";
-import testimonialBg from "../../assets/customer-saying-bg.png";
 import SectionHeader from "./SectionHeader";
 import TestimonialCard from "./TestimonialCard";
 import autohrImg1 from "../../assets/user1.png";
@@ -12,17 +11,14 @@ import twitter from "../../assets/twitter.png";
 import instagram from "../../assets/instagram.png";
 import facebook from "../../assets/instagram.png";
 import { Link } from "react-router-dom";
+import '../../Styles/Testimonal.css';
 
 const Testimonal = () => {
   return (
     <div
-      className="testimonial py-7 md:py-24"
-      style={{
-        backgroundImage: `url(${testimonialBg})`,
-        backgroundRepeat: "no-repeat",
-      }}
+      className="testimonial py-7 md:py-24 testimonal_bg"
     >
-      <div className="container">
+      <div className="container px-5">
         <SectionHeader
           sectionTag={"Testimonials"}
           sectionTagColor={"text-white"}
@@ -33,7 +29,7 @@ const Testimonal = () => {
         />
 
         <div className="flex justify-center pb-7 md:pb-16">
-          <div className="grid grid-cols-12 gap-8">
+          <div className="grid grid-cols-12 md:gap-8">
             <TestimonialCard
               cardTitle={"Seamless interface"}
               cardDes={

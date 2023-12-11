@@ -7,7 +7,7 @@ const Intregations = () => {
     return (
         <section className='intregrations py-7 md:py-32'>
 
-            <div className="container">
+            <div className="container px-5">
                 <SectionHeader sectionTag={"Integrations"} sectionTagColor={"text-primary"} sectionTitle={"Elevate Property Management Efficiency"} sectionTitleTwo={"with 50+ Integrations."} sectionTagColorTwo={"text-primary"} section_pb={"pb-8 md:pb-16"}
                 />
 
