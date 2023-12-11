@@ -28,7 +28,7 @@ const ActivityDetails = () => {
           <p>Dec 01, 2023</p>
           <p>9:00 AM</p>
           <p>6:00 PM</p>
-          <p></p>
+          <p>Completed</p>
         </div>
       </div>
     </div>

@@ -10,13 +10,11 @@ const Calender = () => {
   const [currenMonth, setCurrentMonth] = useState(getMonth());
   const { monthIndex, showEventModal } = useContext(GlobalContext);
 
-
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
   }, [monthIndex]);
 
-
-    console.log("currenMonth:", currenMonth)
+  console.log("currenMonth:", currenMonth);
 
   return (
     <div>

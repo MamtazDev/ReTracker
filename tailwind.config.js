@@ -17,9 +17,9 @@ export default {
       fontFamily: {
         sans: ["Open Sans"],
       },
-      gridTemplateColumns: {
-        "1/5": "1fr 5fr",
-      },
+      // gridTemplateColumns: {
+      //   "1/5": "1fr 5fr",
+      // },
       colors: {
         primary: "#6E51E0",
         lightPrimary: "#F5F3FF",

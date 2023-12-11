@@ -5,7 +5,7 @@ import Labels from "./Labels";
 import ActivityDetails from "./ActivityDetails";
 export default function Sidebar() {
   return (
-    <aside className="border p-5 w-64">
+    <aside className="border p-5 w-80">
       {/* <CreateEventButton />
       <SmallCalendar />
       <Labels /> */}
