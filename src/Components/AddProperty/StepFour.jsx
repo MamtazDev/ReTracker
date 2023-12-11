@@ -28,7 +28,7 @@ const StepFour = ({ setStepper }) => {
       <AuthTitle>Purchase Information </AuthTitle>
 
       <form>
-        <div className="mt-10 flex items-center gap-4 mb-4">
+        <div className="mt-5 lg:mt-10 flex flex-col lg:flex-row items-center gap-4 mb-4">
           <div className="w-full">
             <label>
               Purchase Year <span>(Required)</span>{" "}
@@ -154,7 +154,7 @@ const StepFour = ({ setStepper }) => {
           <input type="number" placeholder="0.00" />
         </div>
 
-        <div className="flex items-center gap-4 mt-10">
+        <div className="flex flex-col lg:flex-row items-center gap-4 mt-5 lg:mt-10">
           <div onClick={() => setStepper(5)} className="w-full">
             <PrimaryBtn>Continue</PrimaryBtn>
           </div>

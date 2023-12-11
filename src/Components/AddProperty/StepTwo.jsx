@@ -34,7 +34,7 @@ const StepTwo = ({ stepper, setStepper }) => {
       <AuthTitle>Property Type </AuthTitle>
 
       <form>
-        <div className=" my-10">
+        <div className="my-5 lg:my-10">
           <label htmlFor="search">Type Lists </label>
           <div className="flex flex-col gap-4 lg:gap-3">
             {options.length > 0 &&
