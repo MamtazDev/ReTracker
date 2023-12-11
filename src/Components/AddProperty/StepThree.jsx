@@ -57,7 +57,7 @@ const StepThree = ({ stepper, setStepper }) => {
           onClick={() => fileRef.current.click()}
           onDrop={handleDrop}
           onDragOver={handleDragOver}
-          className="cursor-pointer border rounded-xl border-dashed border-[#E5E7EB] text-center py-16 mt-10 mb-4"
+          className="cursor-pointer border rounded-xl border-dashed border-[#E5E7EB] text-center py-16 mt-5 lg:mt-10 mb-4"
         >
           <img className="mx-auto mb-5" src={imgGrp} alt="" />
           <p className="text-base font-medium text-[#1F2937] mb-1">
@@ -67,7 +67,7 @@ const StepThree = ({ stepper, setStepper }) => {
             Maximum size: 2MB
           </p>
         </div>
-        <div className="img_box grid grid-cols-4 gap-4">
+        <div className="img_box grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {selectedImages.length > 0 &&
             selectedImages.map((image, index) => (
               <div key={index} className="relative">
@@ -86,7 +86,7 @@ const StepThree = ({ stepper, setStepper }) => {
             ))}
         </div>
 
-        <div className="flex items-center gap-4 mt-10">
+        <div className="flex flex-col lg:flex-row items-center gap-4 mt-5 lg:mt-10">
           <div onClick={() => setStepper(4)} className="w-full">
             <PrimaryBtn>Continue</PrimaryBtn>
           </div>

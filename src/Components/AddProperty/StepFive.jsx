@@ -21,22 +21,24 @@ const StepFive = () => {
   };
   return (
     <div>
-      <p className="text-primary font-bold text-sm mb-3">Step 05</p>
       <AuthTitle>Invite Coworkers </AuthTitle>
-      <p className="text-secondary font-normal text-base mt-3 mb-10">
+      <p className="text-secondary font-normal text-base mt-3 mb-5 lg:mb-10">
         If you have coworkers, you add them to collaborate on this property.
       </p>
       <form>
-        <div className="mb-10 relative">
+        <div className="mb-5 lg:mb-10 relative">
           <label>Copy this link and share with your workers</label>
-          <div className="flex items-center justify-between bg-slate-50 rounded-full py-1 pr-1 pl-4">
-            <label ref={labelRef} className="mb-0">
+          <div className="flex items-center justify-between bg-slate-50 rounded-full p-3 lg:py-1 lg:pr-1 lg:pl-4">
+            <label
+              ref={labelRef}
+              className="mb-0 text-ellipsis overflow-hidden ..."
+            >
               https://www.retracker.com/coworker_invite
             </label>
             <button
               onClick={copyToClipboard}
               type="button"
-              className="border border-primary text-primary rounded-full py-2 px-4"
+              className="hidden lg:block border border-primary text-primary rounded-full py-2 px-4"
             >
               Copy Link
             </button>
@@ -46,6 +48,13 @@ const StepFive = () => {
               Link copied to clipboard!
             </div>
           )}
+          <button
+            onClick={copyToClipboard}
+            type="button"
+            className="mt-2 block lg:hidden border w-full border-primary text-primary rounded-full py-2 px-4"
+          >
+            Copy Link
+          </button>
         </div>
         <div className="mb-2">
           <label>
@@ -53,7 +62,7 @@ const StepFive = () => {
           </label>
           <input type="email" />
         </div>
-        <div className="flex items-center gap-2 mb-10">
+        <div className="flex flex-col lg:flex-row flex-wrap items-start justify-start gap-2 mb-5 lg:mb-10">
           {[1, 2].map((data, index) => (
             <div
               key={index}
