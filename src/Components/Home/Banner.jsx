@@ -15,9 +15,7 @@ const Banner = () => {
 
         <div className="section_title text-center pb-5">
           <h2 className="text-6xl font-bold pb-5">
-            Transform Your Real Estate Management
-          </h2>
-          <h2 className="text-6xl font-bold">
+            Transform Your Real Estate Management <br />
             Experience with <span className="text-primary">RETracker</span>
           </h2>
         </div>
