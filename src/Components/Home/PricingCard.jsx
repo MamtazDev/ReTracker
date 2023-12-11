@@ -5,7 +5,7 @@ import MarkIcon2 from '../../assets/mark2.png'
 const PricingCard = ({ planType, planDetails, subType, featuresOne, featuresTwo, featuresThree, featuresFour, featuresFive, subBtn, sub_time }) => {
     return (
 
-        <div className='pricing-card max-w-[405px] h-full'>
+        <div className='pricing-card max-w-[405px] h-full mb-5 md:mb-0'>
             <div className=' h-full flex flex-col justify-between'>
                 <div className="card_content bg-white rounded-2xl p-2">
                     <div className="pricing_card_type border p-8 rounded-t-2xl">

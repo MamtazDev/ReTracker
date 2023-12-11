@@ -8,9 +8,8 @@ const Pricing = () => {
     const [subTime, setSubTime] = useState('monthly');
 
     const handleSubtime = (option) => {
-        setSubTime(option)
-    }
-
+        setSubTime(option);
+    };
     return (
         <section className='pricing py-7 md:py-32 bg-drakWhite'>
             <div className="container px-5">
@@ -25,25 +24,34 @@ const Pricing = () => {
                 />
 
                 <div className="subcription_type flex justify-center mb-10">
-                    <div className="btn_wrapper border border-slate-200 flex p-2 rounded-full w-full md:w-[20%]">
+                    <div className="btn_wrapper border border-slate-200 flex p-2 rounded-full w-full lg:w-[20%]">
 
-                        {/* <div> */}
-                        <button className='py-4 px-4 w-full bg-lightPrimary rounded-full text-primary text-base font-bold'>
+                        <button
+                            className={`py-2 px-4 w-full rounded-full ${subTime === 'monthly'
+                                ? 'bg-lightPrimary text-primary font-bold'
+                                : 'text-base font-bold'
+                                }`}
+                            onClick={() => handleSubtime('monthly')}
+                        >
                             Monthly
                         </button>
-                        {/* </div> */}
 
-                        {/* <div> */}
-                        <button className='py-4 px-4 w-full text-base font-bold'>
+                        <button
+                            className={`py-2 px-4 w-full rounded-full ${subTime === 'yearly'
+                                ? 'bg-lightPrimary text-primary font-bold'
+                                : 'text-base font-bold'
+                                }`}
+                            onClick={() => handleSubtime('yearly')}
+                        >
                             Yearly
                         </button>
-                        {/* </div> */}
+
 
                     </div>
                 </div>
 
                 <div className='flex justify-center md:pb-16'>
-                    <div class="grid grid-cols-12 md:flex gap-8 items-center">
+                    <div class="grid grid-cols-12 md:flex md:gap-8 items-center">
                         <div class="col-span-12 md:col-span-4">
                             <PricingCard
                                 planType={"Basic Plan"}
@@ -58,7 +66,7 @@ const Pricing = () => {
                             />
                         </div>
                         <div class="col-span-12 md:col-span-4">
-                            <div className='pricing-card max-w-[405px] h-full'>
+                            <div className='pricing-card max-w-[405px] h-full mb-5 md:mb-0'>
                                 <div className='h-full flex flex-col justify-between bg-white p-2 rounded-2xl'>
                                     <div className="card_content bg-white rounded-2xl border-2 border-primary">
                                         <h2 className='py-4 text-center bg-primary text-white text-xs rounded-t-xl'>
