@@ -8,7 +8,7 @@ const GetStartdToday = () => {
     return (
         <div className='get_started_today mb-16'>
             <div className="container">
-                <div className='py-16' style={{ backgroundImage: `url(${getstartedImg})`, backgroundRepeat: "no-repeat", backgroundPosition: "center" }}>
+                <div className='py-8 md:py-16' style={{ backgroundImage: `url(${getstartedImg})`, backgroundRepeat: "no-repeat", backgroundPosition: "center" }}>
 
                     <SectionHeader
                         sectionTag={"Get Started Today"}
@@ -19,30 +19,30 @@ const GetStartdToday = () => {
                         sectionTitleColor={"pb-8"}
                     />
 
-                    <ul className='flex gap-8 justify-center mb-12'>
+                    <ul className='flex flex-col md:flex items-center md:flex-row gap-8 justify-center mb-12 '>
                         <li className='text-sm font-medium text-slate-black flex items-center gap-3'>
-                            <span>
+                            <span className="flex-shrink-0">
                                 <img src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Streamlined Tasks
                         </li>
 
                         <li className='text-sm font-medium text-slate-black flex items-center gap-3'>
-                            <span>
+                            <span className="flex-shrink-0">
                                 <img src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Smart Insights
                         </li>
 
                         <li className='text-sm font-medium text-slate-black flex items-center gap-3'>
-                            <span>
+                            <span className="flex-shrink-0">
                                 <img src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Collaborate Seamlessly
                         </li>
 
                         <li className='text-sm font-medium text-slate-black flex items-center gap-3'>
-                            <span>
+                            <span className="flex-shrink-0">
                                 <img src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Secure and Reliable

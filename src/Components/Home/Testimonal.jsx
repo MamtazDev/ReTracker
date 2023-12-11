@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 const Testimonal = () => {
   return (
     <div
-      className="testimonial py-24"
+      className="testimonial py-7 md:py-24"
       style={{
         backgroundImage: `url(${testimonialBg})`,
         backgroundRepeat: "no-repeat",
@@ -29,10 +29,10 @@ const Testimonal = () => {
           sectionTagColorTwo={"text-white"}
           sectionTitle={"See what our"}
           sectionTitleTwo={"customers are saying"}
-          section_pb={"pb-16"}
+          section_pb={"pb-7 md:pb-16"}
         />
 
-        <div className="flex justify-center pb-16">
+        <div className="flex justify-center pb-7 md:pb-16">
           <div className="grid grid-cols-12 gap-8">
             <TestimonialCard
               cardTitle={"Seamless interface"}
@@ -109,8 +109,8 @@ const Testimonal = () => {
         </div>
 
         <div className="testi_btn text-center">
-          <button className="bg-slate-black py-3 px-16 rounded-full">
-            <Link to={"#"} className="text-base font-bold text-white">
+          <button className="bg-slate-black border border-slate-black text-white hover:bg-white hover:text-slate-black py-3 px-16 rounded-full transition-all ease-in-out duration-300">
+            <Link to={"#"} className="text-base font-bold  hover:text-slate-black">
               Try for free
             </Link>
           </button>

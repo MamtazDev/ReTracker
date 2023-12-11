@@ -11,7 +11,7 @@ const TestimonialCard = ({
   cardTitle,
 }) => {
   return (
-    <div className="col-span-4">
+    <div className="col-span-12 md:col-span-4">
       <div className="tesimonial-card card_wrapper max-w-[405px] w-full h-full">
         <div className="card_border h-full flex flex-col justify-between">
           <div className="card_content">

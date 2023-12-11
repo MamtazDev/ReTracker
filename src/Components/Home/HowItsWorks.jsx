@@ -15,7 +15,7 @@ const HowItsWorks = () => {
           sectionTagColorTwo={"text-primary"}
           sectionTitle={"The Easy Way to get started"}
           sectionTitleTwo={"to manage property"}
-          section_pb={"pb-16"}
+          section_pb={"pb-7 md:pb-16"}
         />
 
         <HowItsWorksStep
