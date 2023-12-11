@@ -3,6 +3,7 @@ import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import { IoMdCheckmark } from "react-icons/io";
 import Confetti from "react-confetti";
+import { Link } from "react-router-dom";
 
 const Verification = () => {
   return (
@@ -20,10 +21,11 @@ const Verification = () => {
         You have been verified to our platform successfully. Opening doors to
         manage your property like never before.
       </p>
-
-      <PrimaryBtn>Continue </PrimaryBtn>
+      <Link to="/">
+        <PrimaryBtn>Continue </PrimaryBtn>
+      </Link>
     </div>
   );
-};          
+};
 
 export default Verification;

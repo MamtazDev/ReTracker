@@ -8,7 +8,8 @@ const GetStartdToday = () => {
     return (
         <div className='get_started_today mb-16'>
             <div className="container">
-                <div className='py-16' style={{ backgroundImage: `url(${getstartedImg})`, backgroundRepeat:"no-repeat", backgroundPosition: "center" }}>
+                <div className='py-16' style={{ backgroundImage: `url(${getstartedImg})`, backgroundRepeat: "no-repeat", backgroundPosition: "center" }}>
+
                     <SectionHeader
                         sectionTag={"Get Started Today"}
                         sectionTagColor={"text-primary"}
@@ -17,7 +18,6 @@ const GetStartdToday = () => {
                         sectionTagColorTwo={"text-primary"}
                         sectionTitleColor={"pb-8"}
                     />
-
 
                     <ul className='flex gap-8 justify-center mb-12'>
                         <li className='text-sm font-medium text-slate-black flex items-center gap-3'>

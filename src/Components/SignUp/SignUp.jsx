@@ -7,7 +7,12 @@ import { Link } from "react-router-dom";
 import eye from "../../assets/passwortd_eye.png";
 
 const SignUp = () => {
+  const [isChecked, setChecked] = useState(false);
   const [passwordShow, setPasswordShow] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setChecked(!isChecked);
+  };
   return (
     <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
       <AuthTitle>Create Account</AuthTitle>
@@ -31,7 +36,7 @@ const SignUp = () => {
           <label htmlFor="password">
             Password <span>(Required)</span>{" "}
           </label>
-        
+
           <div className="relative">
             <input type={passwordShow ? "text" : "password"} id="password" />
             <img
@@ -44,14 +49,30 @@ const SignUp = () => {
         </div>
 
         <div className="flex gap-3 items-center mb-10">
-          <input type="checkbox" id="stay" />
-          <label className="mb-0" htmlFor="stay">
+          <label className="flex items-center gap-4">
+            <input
+              className="hidden"
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+            />
+            <span
+              className={`${
+                isChecked && "bg-slate-200"
+              } border  border-black rounded-sm h-[18px] w-[18px] flex items-center justify-center`}
+            >
+              {isChecked ? "✔" : ""}
+            </span>
             By providing your email, you agreeing to our{" "}
-            <Link to="#">Terms of Service</Link> .
+            <Link className="underline" to="#">
+              Terms of Service
+            </Link>{" "}
+            .
           </label>
         </div>
-
-        <PrimaryBtn>Create Account</PrimaryBtn>
+        <Link to="/verify-email">
+          <PrimaryBtn>Create Account</PrimaryBtn>
+        </Link>
       </form>
     </div>
   );
