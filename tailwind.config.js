@@ -28,12 +28,14 @@ export default {
         authWidth: "540px",
       },
       padding: {
+        p_105: "105px",
+        p_125: "125px",
         p_153: "153px",
         p_173: "173px",
+        p_188: "188px",
         p_276: "276px",
         p_236: "236px",
         p_228: "228px",
-        p_188: "188px",
       },
 
       // Font size

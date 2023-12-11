@@ -17,7 +17,6 @@ const ForgetPass = () => {
           </label>
           <input type="email" id="email" />
         </div>
-
         <PrimaryBtn>Send Rest Link</PrimaryBtn>
       </form>
     </div>
