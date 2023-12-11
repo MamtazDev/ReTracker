@@ -3,7 +3,7 @@ import React from 'react'
 
 const PowerFeaturesCard = ({ cardTitle, cardContent, bgColor, cardImg }) => {
     return (
-        <div className='max-w-[405px] mb-8 md:mb-0'>
+        <div className='max-w-[320px] md:max-w-[405px]'>
             <div className="card_img mb-8">
                 <img className='w-full' src={cardImg} alt="card-img" />
             </div>

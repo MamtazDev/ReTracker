@@ -30,8 +30,9 @@ const PowerFeatures = () => {
       <div className="container px-5">
         <div className="card flex justify-center">
           <div className="power_features_wrapper max-w-twelveEighty">
-            <div className="grid grid-cols-12 gap-8">
-              <div className="col-span-12 md:col-span-4">
+            <div className="grid grid-cols-12 md:gap-8 gap-4">
+
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg1}
                   cardTitle={"Intuitive Dashboard"}
@@ -42,7 +43,7 @@ const PowerFeatures = () => {
                 />
               </div>
 
-              <div className="col-span-12 md:col-span-4">
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg2}
                   cardTitle={"Property Management"}
@@ -53,7 +54,7 @@ const PowerFeatures = () => {
                 />
               </div>
 
-              <div className="col-span-12 md:col-span-4">
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg3}
                   cardTitle={"Calendar View"}
@@ -64,7 +65,7 @@ const PowerFeatures = () => {
                 />
               </div>
 
-              <div className="col-span-12 md:col-span-4">
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg4}
                   cardTitle={"Customizable Categories"}
@@ -75,7 +76,7 @@ const PowerFeatures = () => {
                 />
               </div>
 
-              <div className="col-span-12 md:col-span-4">
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg5}
                   cardTitle={"Smart Analytics"}
@@ -86,7 +87,7 @@ const PowerFeatures = () => {
                 />
               </div>
 
-              <div className="col-span-12 md:col-span-4">
+              <div className="col-span-12 sm:col-span-6  lg:col-span-4">
                 <PowerFeaturesCard
                   cardImg={cardImg6}
                   cardTitle={"Collaborate Seamlessly"}

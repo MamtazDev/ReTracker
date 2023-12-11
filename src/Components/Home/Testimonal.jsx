@@ -29,7 +29,7 @@ const Testimonal = () => {
         />
 
         <div className="flex justify-center pb-7 md:pb-16">
-          <div className="grid grid-cols-12 md:gap-8">
+          <div className="grid grid-cols-12 md:gap-8 gap-4">
             <TestimonialCard
               cardTitle={"Seamless interface"}
               cardDes={
