@@ -7,7 +7,7 @@ const Auth = ({ children }) => {
 
   return (
     <div className="relative">
-      <div className="absolute w-full top-7 lg:top-16">
+      <div className="absolute w-full top-7 lg:top-16 z-10">
         <Header />
       </div>
       <div

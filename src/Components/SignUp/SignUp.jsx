@@ -14,7 +14,7 @@ const SignUp = () => {
     setChecked(!isChecked);
   };
   return (
-    <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
+    <div className="px-5 lg:px-0 pb-5 lg:pb-28 pt-10 lg:pt-p_153 max-w-authWidth mx-auto">
       <AuthTitle>Create Account</AuthTitle>
       <SocialBtn />
       <Divider />
@@ -48,7 +48,7 @@ const SignUp = () => {
           </div>
         </div>
 
-        <div className="flex gap-3 items-center mb-10">
+        <div className="flex gap-3 items-center mb-5 lg:mb-10">
           <label className="flex items-center gap-4">
             <input
               className="hidden"
@@ -59,15 +59,17 @@ const SignUp = () => {
             <span
               className={`${
                 isChecked && "bg-slate-200"
-              } border  border-black rounded-sm h-[18px] w-[18px] flex items-center justify-center`}
+              } border  border-black rounded-sm h-[18px] w-[18px] flex items-center justify-center flex-shrink-0`}
             >
               {isChecked ? "✔" : ""}
             </span>
-            By providing your email, you agreeing to our{" "}
-            <Link className="underline" to="#">
-              Terms of Service
-            </Link>{" "}
-            .
+            <p>
+              By providing your email, you agreeing to our{" "}
+              <Link className="underline" to="#">
+                Terms of Service
+              </Link>{" "}
+              .
+            </p>
           </label>
         </div>
         <Link to="/verify-email">
