@@ -14,13 +14,10 @@ const Login = () => {
     setChecked(!isChecked);
   };
   return (
-
-    <div className="px-5 pt-10 pb-5 lg:pb-28 lg:pt-p_153 max-w-80 lg:max-w-authWidth mx-auto">
-
+    <div className="pt-10 pb-5 lg:pb-28 lg:pt-p_153 max-w-[320px] lg:max-w-authWidth mx-auto">
       <AuthTitle>Login to Your Account</AuthTitle>
       <SocialBtn />
       <Divider />
-
       <form>
         <div className="mb-5">
           <label htmlFor="email">
@@ -43,8 +40,8 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="flex justify-between items-center gap-3 mb-5 lg:mb-10">
-          <label className="flex items-center gap-4">
+        <div className="flex justify-between items-center gap-1 lg:gap-3 mb-5 lg:mb-10">
+          <label className="flex items-center gap-4 mb-0">
             <input
               className="hidden"
               type="checkbox"
@@ -52,9 +49,8 @@ const Login = () => {
               onChange={handleCheckboxChange}
             />
             <span
-              className={`${
-                isChecked && "bg-slate-200"
-              } border  border-slate-200 rounded-sm h-[18px] w-[18px] flex items-center justify-center`}
+              className={`${isChecked && "bg-slate-200"
+                } border  border-slate-200 rounded-sm h-[18px] w-[18px] flex items-center justify-center`}
             >
               {isChecked ? "✔" : ""}
             </span>
