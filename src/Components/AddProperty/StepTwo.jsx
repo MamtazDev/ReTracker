@@ -36,13 +36,13 @@ const StepTwo = ({ stepper, setStepper }) => {
       <form>
         <div className=" my-10">
           <label htmlFor="search">Type Lists </label>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4 lg:gap-3">
             {options.length > 0 &&
               options.map((option, index) => (
                 <div
                   onClick={() => handleOptionClick(index)}
                   key={index}
-                  className="border border-[#E5E7EB] rounded-lg p-5 flex items-start gap-4 "
+                  className="border border-[#E5E7EB] rounded-lg p-5 flex flex-col lg:flex-row items-start gap-4 "
                 >
                   <div
                     className={`cursor-pointer flex-shrink-0 h-4 w-4 rounded-full mt-1 ${
@@ -64,7 +64,7 @@ const StepTwo = ({ stepper, setStepper }) => {
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col lg:flex-row items-center gap-4">
           <div className="w-full" onClick={() => setStepper(3)}>
             <PrimaryBtn>Continue</PrimaryBtn>
           </div>
