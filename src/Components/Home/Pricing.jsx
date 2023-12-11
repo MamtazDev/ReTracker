@@ -6,12 +6,15 @@ import MarkIcon2 from '../../assets/mark2.png'
 
 const Pricing = () => {
     const [subTime, setSubTime] = useState('monthly');
+
     const handleSubtime = (option) => {
         setSubTime(option)
     }
+
     return (
-        <section className='pricing py-32 bg-drakWhite'>
+        <section className='pricing py-7 md:py-32 bg-drakWhite'>
             <div className="container">
+
                 <SectionHeader
                     sectionTag={"Pricing"}
                     sectionTagColor={"text-primary"}
@@ -22,25 +25,26 @@ const Pricing = () => {
                 />
 
                 <div className="subcription_type flex justify-center mb-10">
-                    <div className="btn_wrapper border border-slate-200 flex p-2 rounded-full">
-                        <div>
-                            <button className='py-4 px-4 bg-lightPrimary rounded-full text-primary text-base font-bold'>
-                                Monthly
-                            </button>
-                        </div>
+                    <div className="btn_wrapper border border-slate-200 flex p-2 rounded-full w-full md:w-[20%]">
 
-                        <div>
-                            <button className='py-4 px-4 text-base font-bold'>
-                                Yearly
-                            </button>
-                        </div>
+                        {/* <div> */}
+                        <button className='py-4 px-4 w-full bg-lightPrimary rounded-full text-primary text-base font-bold'>
+                            Monthly
+                        </button>
+                        {/* </div> */}
+
+                        {/* <div> */}
+                        <button className='py-4 px-4 w-full text-base font-bold'>
+                            Yearly
+                        </button>
+                        {/* </div> */}
+
                     </div>
                 </div>
 
-
-                <div className='flex justify-center pb-16'>
-                    <div class="grid-cols-12 gap-8 flex items-center">
-                        <div class="col-span-4">
+                <div className='flex justify-center md:pb-16'>
+                    <div class="grid grid-cols-12 md:flex gap-8 items-center">
+                        <div class="col-span-12 md:col-span-4">
                             <PricingCard
                                 planType={"Basic Plan"}
                                 planDetails={"Unlock the power of data analytics and gain actionable insights."}
@@ -53,7 +57,7 @@ const Pricing = () => {
                                 subBtn={"Try for free"}
                             />
                         </div>
-                        <div class="col-span-4">
+                        <div class="col-span-12 md:col-span-4">
                             <div className='pricing-card max-w-[405px] h-full'>
                                 <div className='h-full flex flex-col justify-between bg-white p-2 rounded-2xl'>
                                     <div className="card_content bg-white rounded-2xl border-2 border-primary">
@@ -91,35 +95,35 @@ const Pricing = () => {
                                         <div className="pricing_card_features p-8">
                                             <ul>
                                                 <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
-                                                    <span>
+                                                    <span className='flex-shrink-0'>
                                                         <img src={MarkIcon2} alt="mark-icon" />
                                                     </span>
                                                     Comprehensive Property Management
                                                 </li>
 
                                                 <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
-                                                    <span>
+                                                    <span className='flex-shrink-0'>
                                                         <img src={MarkIcon2} alt="mark-icon" />
                                                     </span>
                                                     Up to 15 Properties
                                                 </li>
 
                                                 <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
-                                                    <span>
+                                                    <span className='flex-shrink-0'>
                                                         <img src={MarkIcon2} alt="mark-icon" />
                                                     </span>
                                                     Full Analytics Dashboard
                                                 </li>
 
                                                 <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
-                                                    <span>
+                                                    <span className='flex-shrink-0'>
                                                         <img src={MarkIcon2} alt="mark-icon" />
                                                     </span>
                                                     Collaboration with up to 2 Coworkers
                                                 </li>
 
                                                 <li className='flex items-center gap-2 text-sm font-normal text-slate-black'>
-                                                    <span>
+                                                    <span className='flex-shrink-0'>
                                                         <img src={MarkIcon2} alt="mark-icon" />
                                                     </span>
                                                     Priority Email Support
@@ -132,7 +136,7 @@ const Pricing = () => {
                             </div>
                         </div>
 
-                        <div className="col-span-4">
+                        <div className="col-span-12 md:col-span-4">
                             <PricingCard
                                 planType={"Premium Plan"}
                                 planDetails={"Unlock the power of data analytics and gain actionable insights."}
@@ -150,6 +154,7 @@ const Pricing = () => {
 
                     </div>
                 </div>
+
             </div>
         </section>
     )
