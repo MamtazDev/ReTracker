@@ -72,3 +72,19 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     display: none;
 }
+
+
+@media screen and (max-width:767px) {
+    .auth_layout {
+        padding: 68px 20px 28px;
+    }
+
+    .auth_home_layout {
+        padding: 60px 20px 28px;
+    }
+
+    .email_verify input {
+        width: 36px;
+        height: 36px;
+    }
+}
