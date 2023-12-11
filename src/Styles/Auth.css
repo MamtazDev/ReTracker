@@ -72,3 +72,10 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     display: none;
 }
+
+
+@media screen and (max-width:767px) {
+    .auth_layout{
+        padding-top: 68px;
+    }
+}
