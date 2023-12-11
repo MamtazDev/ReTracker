@@ -78,4 +78,8 @@ input::-webkit-inner-spin-button {
     .auth_layout {
         padding: 68px 20px 28px;
     }
+
+    .auth_home_layout {
+        padding: 60px 20px 28px;
+    }
 }
