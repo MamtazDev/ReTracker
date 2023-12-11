@@ -14,7 +14,9 @@ const Login = () => {
     setChecked(!isChecked);
   };
   return (
+
     <div className="px-5 pt-10 pb-5 lg:pb-28 lg:pt-p_153 max-w-80 lg:max-w-authWidth mx-auto">
+
       <AuthTitle>Login to Your Account</AuthTitle>
       <SocialBtn />
       <Divider />
