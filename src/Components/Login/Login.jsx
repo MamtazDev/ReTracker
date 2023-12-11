@@ -14,7 +14,7 @@ const Login = () => {
     setChecked(!isChecked);
   };
   return (
-    <div className="pb-28 pt-p_153 max-w-authWidth mx-auto">
+    <div className="px-5 pt-10 pb-5 lg:pb-28 lg:pt-p_153 max-w-authWidth mx-auto">
       <AuthTitle>Login to Your Account</AuthTitle>
       <SocialBtn />
       <Divider />
@@ -41,7 +41,7 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="flex justify-between items-center gap-3 mb-10">
+        <div className="flex justify-between items-center gap-3 mb-5 lg:mb-10">
           <label className="flex items-center gap-4">
             <input
               className="hidden"
