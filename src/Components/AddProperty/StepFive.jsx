@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import AuthTitle from "../../Shared/AuthTitle";
 import { RxCross2 } from "react-icons/rx";
-import OutLineBtn from "../../Shared/OutLineBtn";
 
 const StepFive = () => {
+  const labelRef = useRef(null);
+  const [isTooltipVisible, setTooltipVisible] = useState(false);
+
+  const copyToClipboard = () => {
+    const tempInput = document.createElement("input");
+    tempInput.value = labelRef.current.textContent;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    setTooltipVisible(true);
+    setTimeout(() => {
+      setTooltipVisible(false);
+    }, 1500);
+  };
   return (
     <div>
       <p className="text-primary font-bold text-sm mb-3">Step 05</p>
@@ -13,16 +27,25 @@ const StepFive = () => {
         If you have coworkers, you add them to collaborate on this property.
       </p>
       <form>
-        <div className="mb-10">
+        <div className="mb-10 relative">
           <label>Copy this link and share with your workers</label>
           <div className="flex items-center justify-between bg-slate-50 rounded-full py-1 pr-1 pl-4">
-            <label className="mb-0">
+            <label ref={labelRef} className="mb-0">
               https://www.retracker.com/coworker_invite
             </label>
-            <button className="border border-primary text-primary rounded-full py-2 px-4">
+            <button
+              onClick={copyToClipboard}
+              type="button"
+              className="border border-primary text-primary rounded-full py-2 px-4"
+            >
               Copy Link
             </button>
           </div>
+          {isTooltipVisible && (
+            <div className="absolute -bottom-5 right-0">
+              Link copied to clipboard!
+            </div>
+          )}
         </div>
         <div className="mb-2">
           <label>
@@ -37,16 +60,14 @@ const StepFive = () => {
               className="flex items-center rounded-full gap-3 bg-violet-50 py-1 px-3"
             >
               <p className="text-xs font-medium">name{index + 1}@example.com</p>
-              <button className="icon flex-shrink-0">
+              <button type="button" className="icon flex-shrink-0">
                 {" "}
                 <RxCross2 />
               </button>
             </div>
           ))}
         </div>
-
-        <PrimaryBtn type="button" >Send Invites</PrimaryBtn>
-
+        <PrimaryBtn type="button">Send Invites</PrimaryBtn>
         <button className="text-primary font-bold text-base  text-center mt-4 w-full">
           Skip for now
         </button>
