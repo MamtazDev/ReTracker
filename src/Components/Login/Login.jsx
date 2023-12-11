@@ -15,7 +15,7 @@ const Login = () => {
   };
   return (
 
-    <div className="px-5 pt-10 pb-5 lg:pb-28 lg:pt-p_153 max-w-80 lg:max-w-authWidth mx-auto">
+    <div className="px-5 pt-10 pb-5 lg:pb-28 lg:pt-p_153 max-w-[320px] lg:max-w-authWidth mx-auto">
 
       <AuthTitle>Login to Your Account</AuthTitle>
       <SocialBtn />
@@ -52,9 +52,8 @@ const Login = () => {
               onChange={handleCheckboxChange}
             />
             <span
-              className={`${
-                isChecked && "bg-slate-200"
-              } border  border-slate-200 rounded-sm h-[18px] w-[18px] flex items-center justify-center`}
+              className={`${isChecked && "bg-slate-200"
+                } border  border-slate-200 rounded-sm h-[18px] w-[18px] flex items-center justify-center`}
             >
               {isChecked ? "✔" : ""}
             </span>

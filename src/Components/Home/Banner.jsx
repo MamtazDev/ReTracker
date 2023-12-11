@@ -13,14 +13,14 @@ const Banner = () => {
           </p>
         </div>
 
-        <div className="section_title text-center pb-5">
-          <h2 className="text-2xl md:text-6xl font-bold pb-5">
+        <div className="section_title text-center pb-3 md:pb-5">
+          <h2 className="text-2xl md:text-6xl font-bold">
             Transform Your Real Estate Management <br />
             Experience with <span className="text-primary">RETracker</span>
           </h2>
         </div>
 
-        <div className="secton-info text-center pb-16">
+        <div className="secton-info text-center pb-7 md:pb-16">
           <p className="text-sm md:text-xl">
             Your All-in-One Solution for Streamlined Real Estate Management. From Task Tracking to <br />
             Smart Analytics, We've Got You Covered.
