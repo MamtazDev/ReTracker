@@ -82,4 +82,9 @@ input::-webkit-inner-spin-button {
     .auth_home_layout {
         padding: 60px 20px 28px;
     }
+
+    .email_verify input {
+        width: 36px;
+        height: 36px;
+    }
 }
