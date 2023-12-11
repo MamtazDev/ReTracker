@@ -16,7 +16,7 @@ const Auth = ({ children }) => {
         }
       >
         <div className="container mx-auto">
-          <div className="max-w-[1536px] w-full bg-white rounded-3xl">
+          <div className="max-w-[1536px] w-full bg-white rounded-3xl mx-4 lg:mx-0">
             {children}
           </div>
         </div>
