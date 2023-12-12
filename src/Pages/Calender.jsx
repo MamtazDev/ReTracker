@@ -10,7 +10,7 @@ const Calender = () => {
   const [currenMonth, setCurrentMonth] = useState(getMonth());
   const { monthIndex, showEventModal } = useContext(GlobalContext);
 
-
+  
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
   }, [monthIndex]);
