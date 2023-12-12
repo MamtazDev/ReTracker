@@ -40,6 +40,9 @@ const Testimonal = () => {
               authorSocialId={"@fignel_sooon"}
               socialLink={"#"}
               socialIcon={twitter}
+              dataAos={"flip-up"}
+              dataDuration={"500"}
+
             />
 
             <TestimonialCard
@@ -52,6 +55,8 @@ const Testimonal = () => {
               authorSocialId={"@@sadiieberlin00"}
               socialLink={"#"}
               socialIcon={instagram}
+              dataAos={"flip-up"}
+              dataDuration={"500"}
             />
 
             <TestimonialCard
@@ -64,6 +69,8 @@ const Testimonal = () => {
               authorSocialId={"@amaylocosta"}
               socialLink={"#"}
               socialIcon={facebook}
+              dataAos={"flip-up"}
+              dataDuration={"500"}
             />
 
             <TestimonialCard
@@ -76,6 +83,8 @@ const Testimonal = () => {
               authorSocialId={"@sadiieberlin00"}
               socialLink={"#"}
               socialIcon={instagram}
+              dataAos={"flip-up"}
+              dataDuration={"500"}
             />
 
             <TestimonialCard
@@ -88,6 +97,8 @@ const Testimonal = () => {
               authorSocialId={"@fignel_sooon"}
               socialLink={"#"}
               socialIcon={twitter}
+              dataAos={"flip-up"}
+              dataDuration={"500"}
             />
 
             <TestimonialCard
@@ -100,6 +111,8 @@ const Testimonal = () => {
               authorSocialId={"@sadiieberlin00"}
               socialLink={"#"}
               socialIcon={instagram}
+              dataAos={"flip-up"}
+              dataDuration={"500"}
             />
           </div>
         </div>

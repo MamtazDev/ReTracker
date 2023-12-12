@@ -1,7 +1,7 @@
-import React from "react";
-
+import React, { useEffect } from "react";
 import markIcon from "../../assets/mark.png";
 import { Link } from "react-router-dom";
+import Aos from "aos";
 
 const HowItsWorksStep = ({
   stepNumber,
@@ -16,6 +16,9 @@ const HowItsWorksStep = ({
   btnName,
   btnLink,
 }) => {
+  useEffect(() => {
+    Aos.init();
+  }, [])
   return (
     <div className="flex justify-center">
       <div className="howitworks-card p-2 bg-white rounded-2xl mb-7 md:card_wrapper">
@@ -26,19 +29,28 @@ const HowItsWorksStep = ({
                 <div>
                   <div className="card_info pb-8">
                     <div className="card_tag pb-2">
-                      <p className="text-sm font-semibold text-primary">
+                      <p className="text-sm font-semibold text-primary"
+                        data-aos="fade-up"
+                        data-aos-duration="500"
+                      >
                         {stepNumber}
                       </p>
                     </div>
 
                     <div className="card_title pb-1">
-                      <h2 className="text-2xl md:text-4xl font-semibold text-clr_black">
+                      <h2 className="text-2xl md:text-4xl font-semibold text-clr_black"
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                      >
                         {createAccount}
                       </h2>
                     </div>
 
                     <div className="card_des">
-                      <p className="text-sm md:text-base font-normal text-clr_black">
+                      <p className="text-sm md:text-base font-normal text-clr_black"
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                      >
                         {cardDes}
                       </p>
                     </div>
@@ -46,25 +58,41 @@ const HowItsWorksStep = ({
 
                   <div className="card_features">
                     <ul className="pb-4 md:pb-0">
-                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4">
+
+                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4"
+                        data-aos="fade-up"
+                        data-aos-duration="2000"
+                      >
                         <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
                         </span>
                         {featuresOne}
                       </li>
-                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4">
+
+                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4"
+                        data-aos="fade-up"
+                        data-aos-duration="2500"
+                      >
                         <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
                         </span>
                         {featuresTwo}
                       </li>
-                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4">
+
+                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4"
+                        data-aos="fade-up"
+                        data-aos-duration="2500"
+                      >
                         <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
                         </span>
                         {featuresThree}
                       </li>
-                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4">
+
+                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4"
+                        data-aos="fade-up"
+                        data-aos-duration="2500"
+                      >
                         <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
                         </span>
@@ -86,7 +114,8 @@ const HowItsWorksStep = ({
             </div>
 
             <div className="col-span-12 md:col-span-7 flex justify-end items-center">
-              <div className="card_img">
+              <div className="card_img" data-aos="fade-left"
+                data-aos-duration="2500">
                 <img className="" src={cardImg} alt="card-img" />
               </div>
             </div>

@@ -9,6 +9,8 @@ import Signup from "../Pages/Signup";
 import EmailVerification from "../Pages/EmailVerification";
 import VerifyEmail from "../Pages/VerifyEmail";
 import AddProperty from "../Pages/AddProperty";
+import Consulting from "../Pages/Consulting";
+import ConsultingNew from "../Pages/ConsultingNew";
 
 export const router = createBrowserRouter([
   {
@@ -19,33 +21,50 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+
       {
         path: "/login",
         element: <LoginPage />,
       },
+
       {
         path: "/signup",
         element: <Signup />,
       },
+
       {
         path: "/forget-password",
         element: <ForgetPassword />,
       },
+
       {
         path: "/reset-password",
         element: <ResetPassword />,
       },
+
       {
         path: "/successful-verification",
         element: <EmailVerification />,
       },
+
       {
         path: "/verify-email",
         element: <VerifyEmail />,
       },
+
       {
         path: "/add-property",
         element: <AddProperty />,
+      },
+
+      {
+        path: "/consulting",
+        element: <Consulting />
+      },
+
+      {
+        path: "/consulting-new",
+        element: <ConsultingNew />
       },
     ],
   },

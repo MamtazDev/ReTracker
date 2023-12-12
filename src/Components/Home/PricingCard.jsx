@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import MarkIcon2 from '../../assets/mark2.png'
 
-const PricingCard = ({ planType, planDetails, subType, featuresOne, featuresTwo, featuresThree, featuresFour, featuresFive, subBtn, sub_time }) => {
+const PricingCard = ({ planType, planDetails, subType, featuresOne, featuresTwo, featuresThree, featuresFour, featuresFive, subBtn, sub_time, dataAos, dataDuration }) => {
     return (
 
-        <div className='pricing-card max-w-[405px] h-full mb-5 md:mb-0'>
+        <div className='pricing-card max-w-[405px] h-full mb-5 md:mb-0' data-aos={dataAos} data-aos-duration={dataDuration}>
             <div className=' h-full flex flex-col justify-between'>
                 <div className="card_content bg-white rounded-2xl p-2">
                     <div className="pricing_card_type border p-8 rounded-t-2xl">

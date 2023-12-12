@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import SectionHeader from './SectionHeader'
 import FaqAccordion from './FaqAccordion'
 import faqBackground from '../../assets/faq-background.png'
+import FaqAccordionTwo from './FaqAccordionTwo'
+import FaqAccordionThree from './FaqAccordionThree'
+import FaqAccordionFour from './FaqAccordionFour'
+import FaqAccordionFive from './FaqAccordionFive'
 
 const Faq = () => {
     const [activeTab, setActiveTab] = useState('Basics');
@@ -119,11 +123,43 @@ const Faq = () => {
                             )}
                         </div>
                     </div>
-
-
                 </div>
 
-                <FaqAccordion />
+                {
+                    activeTab === 'Basics' && (
+                        <FaqAccordion />
+                    )
+                }
+
+                {
+                    activeTab === 'Company' && (
+                        <FaqAccordionTwo />
+                    )
+                }
+
+                {
+                    activeTab === 'Pricing' && (
+                        <FaqAccordionThree />
+                    )
+                }
+
+                {
+                    activeTab === 'Pricing' && (
+                        <FaqAccordionThree />
+                    )
+                }
+
+                {
+                    activeTab === 'Features' && (
+                        <FaqAccordionFour />
+                    )
+                }
+
+                {
+                    activeTab === 'Compare' && (
+                        <FaqAccordionFive />
+                    )
+                }
 
             </div>
         </section>

@@ -40,6 +40,8 @@ const PowerFeatures = () => {
                     "Effortlessly navigate through a user-friendly dashboard that provides a comprehensive overview of your properties, tasks, and insights."
                   }
                   bgColor={"bg-primary"}
+                  dataAos={"zoom-in"}
+                  dataDuration={"500"}
                 />
               </div>
 
@@ -51,6 +53,8 @@ const PowerFeatures = () => {
                     "Add, edit, and manage your properties with just a few clicks. Our intuitive property management tools empower you to stay organized and informed asset in your portfolio."
                   }
                   bgColor={"bg-emerald-500"}
+                  dataAos={"zoom-in"}
+                  dataDuration={"1000"}
                 />
               </div>
 
@@ -62,6 +66,8 @@ const PowerFeatures = () => {
                     "Log hours spent on property-related tasks and gain a visual perspective with our interactive calendar view. Track your activities efficiently and plan for future endeavors."
                   }
                   bgColor={"bg-amber"}
+                  dataAos={"zoom-in"}
+                  dataDuration={"1500"}
                 />
               </div>
 
@@ -73,6 +79,8 @@ const PowerFeatures = () => {
                     "Tailor RE Tracker to fit your unique needs by customizing task categories. Whether it's repairs, analyses, or consultations, adapt the platform."
                   }
                   bgColor={"bg-orange"}
+                  dataAos={"zoom-in"}
+                  dataDuration={"2000"}
                 />
               </div>
 
@@ -84,6 +92,8 @@ const PowerFeatures = () => {
                     "Make informed decisions with our analytics dashboard. Gain valuable insights into your property portfolio's performance, track trends, and identify areas for improvement."
                   }
                   bgColor={"bg-blue-500"}
+                  dataAos={"zoom-in"}
+                  dataDuration={"2500"}
                 />
               </div>
 
@@ -95,6 +105,8 @@ const PowerFeatures = () => {
                     "Enhance teamwork by inviting coworkers to collaborate on your properties. Share responsibilities, communicate effortlessly, and elevate your property management."
                   }
                   bgColor={"bg-pink-500"}
+                  dataAos={"zoom-in"}
+                  dataDuration={"2500"}
                 />
               </div>
             </div>

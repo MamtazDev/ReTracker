@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <div className="mx-auto max-w-[280px]  lg:max-w-5xl w-full ">
+    <div className="mx-auto max-w-[280px] md:max-w-5xl w-full ">
       <div className={isOpen ? "bg-slate-black rounded-[20px] p-2 lg:p-4 text-white capitalize mx-auto" : "bg-slate-black rounded-full p-2 lg:p-4 text-white capitalize mx-auto"
       }
       >
