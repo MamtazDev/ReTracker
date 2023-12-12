@@ -20,13 +20,12 @@ const Calender = () => {
     <div>
       {showEventModal && <EventModal />}
 
-      <div className="h-screen flex flex-col">
-        <CalendarHeader />
-
-        <div className="flex flex-1 w-[80%] mx-auto">
+      <div className="flex w-full">
+        <div className="p-8 w-full border">
+          <CalendarHeader />
           <Month month={currenMonth} />
-          <Sidebar />
         </div>
+        <Sidebar />
       </div>
     </div>
   );

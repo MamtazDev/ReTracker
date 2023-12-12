@@ -14,8 +14,7 @@ export default function Day({ day, rowIdx }) {
 
   useEffect(() => {
     const events = filteredEvents.filter(
-      (evt) =>
-        dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
+      (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
     );
     setDayEvents(events);
   }, [filteredEvents, day]);
@@ -26,42 +25,42 @@ export default function Day({ day, rowIdx }) {
       : "";
   }
 
-  dayEvents.length &&  console.log("DayEvents:", dayEvents)
+  dayEvents.length && console.log("DayEvents:", dayEvents);
 
   return (
-    <div className="border border-gray-200 flex flex-col">
+    <div className="border border-gray-200 flex flex-col p-2">
       <header className="flex flex-col items-center">
         {rowIdx === 0 && (
-          <p className="text-sm mt-1">
-            {day.format("ddd").toUpperCase()}
-          </p>
+          <p className="text-sm mt-1">{day.format("ddd").toUpperCase()}</p>
         )}
-        <p
-          className={`text-sm p-1 my-1 text-center  ${getCurrentDayClass()}`}
-        >
+        <p className={`text-sm p-1 my-1 text-center  ${getCurrentDayClass()}`}>
           {day.format("DD")}
         </p>
       </header>
       <div
-        className="flex-1 cursor-pointer"
+        className="flex-1 cursor-pointer w-full"
         onClick={() => {
           setDaySelected(day);
           setShowEventModal(true);
         }}
       >
-        {dayEvents?.map((evt, idx) => (
-          <div
-            key={idx}
-            onClick={() => setSelectedEvent(evt)}
-            className={`bg-${evt.label}-200 p-1 mr-3 text-gray-600 text-sm rounded mb-1 truncate`}
-          >
-            Data {evt.title}
-            <p>Data {evt.label}</p>
-            <p>Data {evt.startTime}</p>
-            <p>Data {evt.startTime}</p>
-            <CountDown evt={evt}/>
+        <div className="">
+          <div className="flex flex-col gap-2 h-[90px] overflow-y-scroll no-scrollbar">
+            {dayEvents?.map((evt, idx) => (
+              <div
+                key={idx}
+                onClick={() => setSelectedEvent(evt)}
+                className={` border-l-8 border-${evt.label}-800  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+              >
+                {/* <CountDown evt={evt} /> */}
+                {/* Data {evt.title} */}
+                {/* <p>Data {evt.label}</p> */}
+                <p>Data {evt.startTime}</p>
+                {/* <p>Data {evt.startTime}</p> */}
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

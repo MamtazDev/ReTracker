@@ -10,6 +10,9 @@ input[type="checkbox"] {
     width: unset !important;
 }
 
+.no-scrollbar::-webkit-scrollbar{
+display: none;
+}
 
 .footer button {
     border-radius: var(--border-radius-full, 9999px);

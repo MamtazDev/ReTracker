@@ -10,6 +10,7 @@ import EmailVerification from "../Pages/EmailVerification";
 import VerifyEmail from "../Pages/VerifyEmail";
 import AddProperty from "../Pages/AddProperty";
 import Calender from "../Pages/Calender";
+import DashboardLayout from "../Layouts/DashboardLayout";
 
 export const router = createBrowserRouter([
   {
@@ -48,8 +49,14 @@ export const router = createBrowserRouter([
         path: "/add-property",
         element: <AddProperty />,
       },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
       {
-        path: "/calender",
+        path: "/dashboard/calender",
         element: <Calender />,
       },
     ],
