@@ -12,12 +12,8 @@ const Header = () => {
 
   return (
     <div className="mx-auto max-w-[280px]  lg:max-w-5xl w-full ">
-      <div
-        className={
-          isOpen
-            ? "bg-slate-black rounded-[20px] p-2 lg:p-4 text-white capitalize mx-auto"
-            : "bg-slate-black rounded-full p-2 lg:p-4 text-white capitalize mx-auto"
-        }
+      <div className={isOpen ? "bg-slate-black rounded-[20px] p-2 lg:p-4 text-white capitalize mx-auto" : "bg-slate-black rounded-full p-2 lg:p-4 text-white capitalize mx-auto"
+      }
       >
         <nav className={isOpen ? "block" : "flex flex-wrap items-center"}>
 
@@ -100,26 +96,26 @@ const Header = () => {
                   "/forget-password" &&
                   "/reset-password" &&
                   "/add-priority") && (
-                <Link
-                  to="/login"
-                  className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300"
-                >
-                  Login
-                </Link>
-              )}
+                  <Link
+                    to="/login"
+                    className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300"
+                  >
+                    Login
+                  </Link>
+                )}
 
               {location.pathname !==
                 ("/signup" &&
                   "/verify-email" &&
                   "/successful-verification" &&
                   "/add-priority") && (
-                <Link
-                  to="/signup"
-                  className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white  transition-all duration-300"
-                >
-                  Sign up
-                </Link>
-              )}
+                  <Link
+                    to="/signup"
+                    className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white  transition-all duration-300"
+                  >
+                    Sign up
+                  </Link>
+                )}
               {location.pathname === "/add-priority" && (
                 <Link
                   to="#"
@@ -130,6 +126,7 @@ const Header = () => {
               )}
             </div>
           </div>
+
         </nav>
 
       </div>
