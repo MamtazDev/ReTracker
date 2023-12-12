@@ -18,10 +18,10 @@ const HowItsWorksStep = ({
 }) => {
   return (
     <div className="flex justify-center">
-      <div className="howitworks-card card_wrapper">
-        <div className="card_border">
+      <div className="howitworks-card p-2 bg-white rounded-2xl mb-7 md:card_wrapper">
+        <div className="border rounded-2xl p-4 md:card_border">
           <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-5">
+            <div className="col-span-12 md:col-span-5">
               <div className="flex flex-col justify-between h-full">
                 <div>
                   <div className="card_info pb-8">
@@ -32,40 +32,40 @@ const HowItsWorksStep = ({
                     </div>
 
                     <div className="card_title pb-1">
-                      <h2 className="text-4xl font-semibold text-clr_black">
+                      <h2 className="text-2xl md:text-4xl font-semibold text-clr_black">
                         {createAccount}
                       </h2>
                     </div>
 
                     <div className="card_des">
-                      <p className="text-base font-normal text-clr_black">
+                      <p className="text-sm md:text-base font-normal text-clr_black">
                         {cardDes}
                       </p>
                     </div>
                   </div>
 
                   <div className="card_features">
-                    <ul>
-                      <li className="flex items-center gap-4 text-sm font-medium text-clr_black mb-4">
-                        <span>
+                    <ul className="pb-4 md:pb-0">
+                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4">
+                        <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
                         </span>
                         {featuresOne}
                       </li>
-                      <li className="flex items-center gap-4 text-sm font-medium text-clr_black mb-4">
-                        <span>
+                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4">
+                        <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
                         </span>
                         {featuresTwo}
                       </li>
-                      <li className="flex items-center gap-4 text-sm font-medium text-clr_black mb-4">
-                        <span>
+                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4">
+                        <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
                         </span>
                         {featuresThree}
                       </li>
-                      <li className="flex items-center gap-4 text-sm font-medium text-clr_black mb-4">
-                        <span>
+                      <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4">
+                        <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
                         </span>
                         {featuresFour}
@@ -77,7 +77,7 @@ const HowItsWorksStep = ({
                 <div className="card_btn">
                   <Link
                     to={`${btnLink}`}
-                    className="border border-primary py-3 px-16 rounded-full text-base font-bold text-primary hover:bg-primary hover:text-white transition-all duration-300"
+                    className="border inline-block w-full md:inline text-center border-primary py-3 px-16 rounded-full text-base font-bold text-primary hover:bg-primary hover:text-white transition-all duration-300"
                   >
                     {btnName}
                   </Link>
@@ -85,7 +85,7 @@ const HowItsWorksStep = ({
               </div>
             </div>
 
-            <div className="col-span-7 flex justify-end items-center">
+            <div className="col-span-12 md:col-span-7 flex justify-end items-center">
               <div className="card_img">
                 <img className="" src={cardImg} alt="card-img" />
               </div>

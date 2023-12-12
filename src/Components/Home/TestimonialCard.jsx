@@ -11,10 +11,11 @@ const TestimonialCard = ({
   cardTitle,
 }) => {
   return (
-    <div className="col-span-4">
-      <div className="tesimonial-card card_wrapper max-w-[405px] w-full h-full">
-        <div className="card_border h-full flex flex-col justify-between">
-          <div className="card_content">
+    <div className="col-span-12 sm:col-span-6 lg:col-span-4">
+
+      <div className="tesimonial-card max-w-[320px] p-2 bg-white rounded-2xl md:card_wrapper md:mb-0 md:max-w-[405px] w-full md:h-full">
+        <div className="border rounded-2xl p-4 md:card_border h-full flex flex-col justify-between">
+          <div className="card_content pb-4 md:pb-10">
             <div className="card_title">
               <h2 className="text-lg font-medium text-slate-black pb-1">
                 {cardTitle}

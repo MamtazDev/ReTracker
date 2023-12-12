@@ -20,42 +20,38 @@ const Header = () => {
         }
       >
         <nav className={isOpen ? "block" : "flex flex-wrap items-center"}>
-          {isOpen ? (
-            <div className="flex justify-between mb-4">
-              <div className={"nav-brand"}>
-                <Link to={"/"} className="flex items-center gap-2 text">
-                  <img src={brandLogo} alt="brand-logo" />
-                </Link>
+
+          {
+            isOpen ? (
+              <div className="flex justify-between mb-4">
+                <div className={"nav-brand"}>
+                  <Link to={"/"} className="flex items-center gap-2 text">
+                    <img src={brandLogo} alt="brand-logo" />
+                  </Link>
+                </div>
+
+                <div className="responsive_btnmd:hidden ml-auto">
+                  <button onClick={toggleResponsiveNav}>
+                    <img src={responsiveBtn} className="cursor-pointer" alt="responsive_btn" />
+                  </button>
+                </div>
               </div>
+            ) : (
+              <>
+                <div className={"nav-brand"}>
+                  <Link to={"/"} className="flex items-center gap-2 text">
+                    <img src={brandLogo} alt="brand-logo" />
+                  </Link>
+                </div>
 
-              <div className="responsive_btnmd:hidden ml-auto">
-                <button onClick={toggleResponsiveNav}>
-                  <img
-                    src={responsiveBtn}
-                    className="cursor-pointer"
-                    alt="responsive_btn"
-                  />
-                </button>
-              </div>
-            </div>
-          ) : (
-            <>
-              <div className={"nav-brand"}>
-                <Link to={"/"} className="flex items-center gap-2 text">
-                  <img src={brandLogo} alt="brand-logo" />
-                </Link>
-              </div>
-
-              <div className="responsive_btn md:hidden ml-auto">
-                <button onClick={toggleResponsiveNav}>
-                  <img src={responsiveBtn} className="cursor-pointer" alt="responsive_btn" />
-                </button>
-              </div>
-            </>
-          )}
-
-
-
+                <div className="responsive_btn md:hidden ml-auto">
+                  <button onClick={toggleResponsiveNav}>
+                    <img src={responsiveBtn} className="cursor-pointer" alt="responsive_btn" />
+                  </button>
+                </div>
+              </>
+            )
+          }
 
           <div className={isOpen ? "block" : "navbar mx-auto hidden md:block"}>
             <ul className={isOpen ? "navbar-nav block" : "navbar-nav flex flex-wrap items-center gap-11"}>
@@ -135,6 +131,7 @@ const Header = () => {
             </div>
           </div>
         </nav>
+
       </div>
     </div>
   );
