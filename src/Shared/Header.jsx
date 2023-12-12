@@ -15,8 +15,8 @@ const Header = () => {
       <div
         className={
           isOpen
-            ? "bg-slate-black rounded-[20px] p-2 lg:p-4 text-white capitalize mx-auto"
-            : "bg-slate-black rounded-full p-2 lg:p-4 text-white capitalize mx-auto"
+            ? "bg-slate-950 rounded-[20px] p-2 lg:p-4 text-white capitalize mx-auto"
+            : "bg-slate-950 rounded-full p-2 lg:p-4 text-white capitalize mx-auto"
         }
       >
         <nav className={isOpen ? "block" : "flex flex-wrap items-center"}>

@@ -42,7 +42,7 @@ const ActivityDetails = () => {
         </div>
         <div className="flex justify-between gap-16 items-center mb-6">
           <div className="flex flex-col gap-4 text-slate-500 text-sm font-medium">
-            <p className="text-slate-black text-sm font-semibold">
+            <p className="text-slate-950 text-sm font-semibold">
               Information
             </p>
             <p>Category</p>
@@ -52,8 +52,8 @@ const ActivityDetails = () => {
             <p>End Time</p>
             <p>Status</p>
           </div>
-          <div className="flex flex-col gap-4 items-end text-slate-black text-sm font-normal">
-            <button className="bg-slate-black flex items-center  gap-[2px] px-2 py-[2px] text-xs font-normal text-white rounded-full">
+          <div className="flex flex-col gap-4 items-end text-slate-950 text-sm font-normal">
+            <button className="bg-slate-950 flex items-center  gap-[2px] px-2 py-[2px] text-xs font-normal text-white rounded-full">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@ const ActivityDetails = () => {
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-slate-black mb-4">
+          <p className="text-sm font-semibold text-slate-950 mb-4">
             Attachments
           </p>
           <div className="mb-6 flex flex-col gap-4">

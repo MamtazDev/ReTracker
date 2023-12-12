@@ -46,7 +46,7 @@ export default function CalendarHeader() {
 
           <h2
             onClick={() => setIsSmallCallenderActive(!isSmallCallenderActive)}
-            className="text-3xl text-slate-black font-bold"
+            className="text-3xl text-slate-950 font-bold"
           >
             {dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM YYYY")}
           </h2>

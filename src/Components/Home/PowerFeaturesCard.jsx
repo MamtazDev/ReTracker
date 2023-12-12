@@ -8,10 +8,10 @@ const PowerFeaturesCard = ({ cardTitle, cardContent, bgColor, cardImg }) => {
                 <img className='w-full' src={cardImg} alt="card-img" />
             </div>
             <div className="card_content">
-                <h2 className='text-xl text-slate-black font-medium mb-3'>
+                <h2 className='text-xl text-slate-950 font-medium mb-3'>
                     {cardTitle}
                 </h2>
-                <p className='text-sm font-normal text-slate-black'>
+                <p className='text-sm font-normal text-slate-950'>
                     {cardContent}
                 </p>
             </div>

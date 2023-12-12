@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
-import StepLines from "../../Shared/StepLines";
 import imgGrp from "../../assets/img-grp.png";
 import { RxCross2 } from "react-icons/rx";
 

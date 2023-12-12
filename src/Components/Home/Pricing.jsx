@@ -68,21 +68,21 @@ const Pricing = () => {
                                             <div className="card_title">
                                                 <div className="packages_name">
                                                     <div className='discount-plan flex items-center justify-between pb-2'>
-                                                        <h2 className='text-xl font-bold text-slate-black'>
+                                                        <h2 className='text-xl font-bold text-slate-950'>
                                                             Pro Plan
                                                         </h2>
                                                         <p className='bg-green-100 text-green-500 font-medium text-sm py-1 px-2 rounded-full'>
                                                             Save up to 15%
                                                         </p>
                                                     </div>
-                                                    <p className='text-base font-normal text-slate-black'>
+                                                    <p className='text-base font-normal text-slate-950'>
                                                         Unlock the power of data analytics and gain actionable insights.
                                                     </p>
                                                 </div>
                                             </div>
 
                                             <div className="sub_type py-8">
-                                                <h2 className='text-4xl font-semibold text-slate-black'>
+                                                <h2 className='text-4xl font-semibold text-slate-950'>
                                                     $19.99<small className='text-base font-normal text-secondary'>/ Month</small>
                                                 </h2>
                                             </div>
@@ -94,35 +94,35 @@ const Pricing = () => {
 
                                         <div className="pricing_card_features p-8">
                                             <ul>
-                                                <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
+                                                <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-950'>
                                                     <span className='flex-shrink-0'>
                                                         <img src={MarkIcon2} alt="mark-icon" />
                                                     </span>
                                                     Comprehensive Property Management
                                                 </li>
 
-                                                <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
+                                                <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-950'>
                                                     <span className='flex-shrink-0'>
                                                         <img src={MarkIcon2} alt="mark-icon" />
                                                     </span>
                                                     Up to 15 Properties
                                                 </li>
 
-                                                <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
+                                                <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-950'>
                                                     <span className='flex-shrink-0'>
                                                         <img src={MarkIcon2} alt="mark-icon" />
                                                     </span>
                                                     Full Analytics Dashboard
                                                 </li>
 
-                                                <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
+                                                <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-950'>
                                                     <span className='flex-shrink-0'>
                                                         <img src={MarkIcon2} alt="mark-icon" />
                                                     </span>
                                                     Collaboration with up to 2 Coworkers
                                                 </li>
 
-                                                <li className='flex items-center gap-2 text-sm font-normal text-slate-black'>
+                                                <li className='flex items-center gap-2 text-sm font-normal text-slate-950'>
                                                     <span className='flex-shrink-0'>
                                                         <img src={MarkIcon2} alt="mark-icon" />
                                                     </span>

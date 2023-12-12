@@ -15,6 +15,7 @@
 
 }
 
+.hour_spent label,
 label {
     display: block;
     color: var(--Text-Primary, var(--colors-slate-950, #020617));
@@ -24,12 +25,14 @@ label {
     margin-bottom: 8px;
 }
 
-label span {
+.hour_spent label span,label span {
     color: var(--slate-500, var(--slate-500, #64748B));
 }
 
 .auth_layout input,
-.year {
+.year,
+.hour_spent input,
+.hour_spent select {
     border-radius: var(--border-radius-full, 9999px);
     border: 1px solid var(--slate-200, #E2E8F0);
     background: var(--slate-50, #F8FAFC);

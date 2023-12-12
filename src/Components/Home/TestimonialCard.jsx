@@ -17,12 +17,12 @@ const TestimonialCard = ({
         <div className="card_border h-full flex flex-col justify-between">
           <div className="card_content">
             <div className="card_title">
-              <h2 className="text-lg font-medium text-slate-black pb-1">
+              <h2 className="text-lg font-medium text-slate-950 pb-1">
                 {cardTitle}
               </h2>
             </div>
             <div className="card_des">
-              <p className="text-sm font-normal text-slate-black">{cardDes}</p>
+              <p className="text-sm font-normal text-slate-950">{cardDes}</p>
             </div>
           </div>
 
@@ -33,7 +33,7 @@ const TestimonialCard = ({
                   <img src={autohrImg} alt="author-icon" />
                 </div>
                 <div className="author_info">
-                  <h5 className="text-sm font-normal text-slate-black">
+                  <h5 className="text-sm font-normal text-slate-950">
                     {authorName}
                   </h5>
                   <p className="text-[12px] font-medium text-primary">

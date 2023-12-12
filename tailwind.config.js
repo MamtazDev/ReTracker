@@ -25,7 +25,6 @@ export default {
         lightPrimary: "#F5F3FF",
         secondary: "#64748B",
         "primary-dark": "#7f65e6",
-        "slate-black": "#020617",
         lightGray: "#DBDBDB",
         drakWhite: "#F8FAFC",
         primaryGreen: "#10B981",

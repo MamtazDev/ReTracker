@@ -121,7 +121,7 @@ const StepFour = ({ setStepper }) => {
                       </svg>
                     </div>
                   )}
-                  <span className="text-slate-black text-sm font-medium">
+                  <span className="text-slate-950 text-sm font-medium">
                     {country ? country.code : "USD"}{" "}
                   </span>
                   <FaChevronDown />

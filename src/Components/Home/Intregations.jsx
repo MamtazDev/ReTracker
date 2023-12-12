@@ -15,7 +15,7 @@ const Intregations = () => {
                     <img src={intregrationImg} alt="img" />
                 </div>
 
-                <p className='text-sm md:text-lg font-normal text-slate-black text-center mb-7 md:mb-12'>
+                <p className='text-sm md:text-lg font-normal text-slate-950 text-center mb-7 md:mb-12'>
                     Experience a new level of productivity as RE Tracker seamlessly integrates with 50+ tools, <br /> enhancing your property management with unmatched efficiency and precision.
                 </p>
 

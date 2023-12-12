@@ -105,8 +105,8 @@ const Testimonal = () => {
         </div>
 
         <div className="testi_btn text-center">
-          <button className="bg-slate-black border border-slate-black text-white hover:bg-white hover:text-slate-black py-3 px-16 rounded-full transition-all ease-in-out duration-300">
-            <Link to={"#"} className="text-base font-bold  hover:text-slate-black">
+          <button className="bg-slate-950 border border-slate-950 text-white hover:bg-white hover:text-slate-950 py-3 px-16 rounded-full transition-all ease-in-out duration-300">
+            <Link to={"#"} className="text-base font-bold  hover:text-slate-950">
               Try for free
             </Link>
           </button>
