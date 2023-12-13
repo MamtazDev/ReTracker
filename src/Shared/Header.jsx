@@ -5,7 +5,7 @@ import responsiveBtn from "../assets/res-btn.png";
 
 const Header = () => {
   let location = useLocation();
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const toggleResponsiveNav = () => {
     setIsOpen(!isOpen);
   };
@@ -48,17 +48,24 @@ const Header = () => {
 
               <div className="responsive_btn md:hidden ml-auto">
                 <button onClick={toggleResponsiveNav}>
-                  <img src={responsiveBtn} className="cursor-pointer" alt="responsive_btn" />
+                  <img
+                    src={responsiveBtn}
+                    className="cursor-pointer"
+                    alt="responsive_btn"
+                  />
                 </button>
               </div>
             </>
           )}
 
-
-
-
           <div className={isOpen ? "block" : "navbar mx-auto hidden md:block"}>
-            <ul className={isOpen ? "navbar-nav block" : "navbar-nav flex flex-wrap items-center gap-11"}>
+            <ul
+              className={
+                isOpen
+                  ? "navbar-nav block"
+                  : "navbar-nav flex flex-wrap items-center gap-11"
+              }
+            >
               <li className={isOpen ? "nav-items mb-8" : "nav-items"}>
                 <Link
                   to={"/"}
@@ -97,7 +104,7 @@ const Header = () => {
             </ul>
           </div>
 
-          <div className={isOpen ? "block" : "userBtn hidden md:block"} >
+          <div className={isOpen ? "block" : "userBtn hidden md:block"}>
             <div className="flex flex-wrap gap-4 ">
               {location.pathname !==
                 ("/login" &&

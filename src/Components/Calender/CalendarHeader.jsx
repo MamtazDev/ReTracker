@@ -8,7 +8,8 @@ import plus from "../../assets/add.png";
 import SmallCalendar from "./SmallCalendar";
 import GlobalContext from "../../context/GlobalContext";
 export default function CalendarHeader() {
-  const { monthIndex, setMonthIndex, setShowEventModal } = useContext(GlobalContext);
+  const { monthIndex, setMonthIndex, setShowEventModal } =
+    useContext(GlobalContext);
 
   const [isSmallCallenderActive, setIsSmallCallenderActive] = useState(false);
 
@@ -35,7 +36,7 @@ export default function CalendarHeader() {
         Today
       </button> */}
 
-      <div className="flex justify-between w-full items-center gap-3">
+      <div className="flex flex-col lg:flex-row justify-between w-full items-center gap-3">
         <div className="flex items-center gap-5">
           <button
             className="w-9 h-9 border border-slate-200 rounded-full flex justify-center items-center text-primary text-2xl"
@@ -46,7 +47,7 @@ export default function CalendarHeader() {
 
           <h2
             onClick={() => setIsSmallCallenderActive(!isSmallCallenderActive)}
-            className="text-3xl text-slate-950 font-bold"
+            className="text-2xl lg:text-3xl text-slate-950 font-bold"
           >
             {dayjs(new Date(dayjs().year(), monthIndex)).format("MMMM YYYY")}
           </h2>
@@ -64,8 +65,7 @@ export default function CalendarHeader() {
             Filter
           </button>
           <button
-          onClick={() =>  setShowEventModal(true)}
-
+            onClick={() => setShowEventModal(true)}
             style={{ width: "unset", height: "unset", borderRadius: "9999px" }}
             className="icon py-2 px-4 gap-2"
           >

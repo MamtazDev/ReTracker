@@ -5,7 +5,7 @@ import DashboardSidebar from "../Components/Calender/DashboardSidebar";
 
 const DashboardLayout = () => {
   return (
-    <div className="grid grid-cols-6">
+    <div className="grid grid-cols-1 lg:grid-cols-6">
       <DashboardSidebar />
       <div className="col-span-5">
         <Header />
