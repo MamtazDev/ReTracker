@@ -4,7 +4,7 @@ import { FaPlus } from "react-icons/fa";
 import { useContext, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 
-const AddHoursModal = ({ setOpen, setSuccessfullOpen }) => {
+const AddHoursModal = ({ setOpen }) => {
 
   const { setShowEventModal } = useContext(GlobalContext);
 

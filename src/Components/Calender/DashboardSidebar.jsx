@@ -89,14 +89,7 @@ const DashboardSidebar = () => {
           Settings
         </Link>
       </div>
-      {open && (
-        <AddHoursModal
-          open={open}
-          setOpen={setOpen}
-          setSuccessfullOpen={setSuccessfullOpen}
-        />
-      )}
-    
+      {open && <AddHoursModal open={open} setOpen={setOpen} />}
     </div>
   );
 };
