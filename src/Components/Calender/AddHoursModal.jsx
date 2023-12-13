@@ -1,12 +1,17 @@
 import timer from "../../assets/timer.png";
 import { RxCross2 } from "react-icons/rx";
 import { FaPlus } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import GlobalContext from "../../context/GlobalContext";
 
 const AddHoursModal = ({ setOpen, setSuccessfullOpen }) => {
+
+  const { setShowEventModal } = useContext(GlobalContext);
+
+
   const handleClick = () => {
     setOpen(false);
-    setSuccessfullOpen(true);
+    setShowEventModal(true);
   };
   return (
     <div className="h-screen w-full  fixed z-10 left-0 top-0 flex justify-center items-center hour_spent ">

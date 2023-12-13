@@ -9,7 +9,7 @@ import PrimaryBtn from "../../Shared/PrimaryBtn";
 const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
 import cross from "../../assets/cross.png";
 
-export default function EventModal() {
+export default function EventModal({ setSuccessfullOpen }) {
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
 
@@ -84,6 +84,11 @@ export default function EventModal() {
 
     setShowEventModal(false);
   }
+
+  const handleClick = () => {
+    setSuccessfullOpen(true);
+    setShowEventModal(false);
+  };
   return (
     <div className="h-screen w-full  fixed z-10 left-0 top-0 flex justify-center items-center hour_spent ">
       <form className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">
@@ -214,8 +219,10 @@ export default function EventModal() {
           </div>
 
           <div className="flex items-center gap-4 mt-6">
-            <OutLineBtn>Cancel</OutLineBtn>
-            <PrimaryBtn>Add Task</PrimaryBtn>
+            <OutLineBtn type="button">Cancel</OutLineBtn>
+            <div className="w-full" onClick={handleClick}>
+              <PrimaryBtn type="button">Add Task</PrimaryBtn>
+            </div>
           </div>
         </form>
 

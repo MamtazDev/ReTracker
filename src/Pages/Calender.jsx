@@ -5,11 +5,14 @@ import EventModal from "../Components/Calender/EventModal";
 import { getMonth } from "../Utils/DayMatrix";
 import GlobalContext from "../context/GlobalContext";
 import Sidebar from "../Components/Calender/Sidebar";
+import Successfull from "../Components/Calender/Successfull";
 
 const Calender = () => {
   const [currenMonth, setCurrentMonth] = useState(getMonth());
   const { monthIndex, showEventModal } = useContext(GlobalContext);
   const [open, setOpen] = useState(false);
+  
+  const [successfullOpen, setSuccessfullOpen] = useState(false);
 
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
@@ -19,7 +22,10 @@ const Calender = () => {
 
   return (
     <div>
-      {showEventModal && <EventModal />}
+      {showEventModal && <EventModal setSuccessfullOpen={setSuccessfullOpen} />}
+      {successfullOpen && (
+        <Successfull setSuccessfullOpen={setSuccessfullOpen} />
+      )}
 
       <div className="flex w-full">
         <div className="p-8 w-full border">
