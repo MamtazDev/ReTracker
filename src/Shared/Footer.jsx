@@ -23,24 +23,23 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="pb-7 lg:pb-8 mb-5 lg:mb-8 flex flex-col lg:flex-row justify-between gap-8 lg:gap-3 items-center border-b border-b-lightGray">
           <div className="max-w-authWidth">
-            <img className="mb-5 lg:mb-6" src={logo} alt="" />
+            <img className="mb-5 lg:mb-6" src={logo} alt="logo" />
             <p className="text-base font-normal mb-5 lg:mb-8">
               Empowering property owners with seamless tools and insights for
               efficient real estate management.
             </p>
+
             <div className="flex items-center gap-3">
-              {socialIcons.length > 0 &&
+              {
+                socialIcons.length > 0 &&
                 socialIcons.map((data, index) => (
-                  <div
-                    key={index}
-                    className="border border-slate-200 text-primary  hover:text-white rounded-full h-10 w-10 flex justify-center items-center transition duration-600 ease-in-out hover:bg-primary"
-                  >
-                    <Link target="_blank" to={data.link}>
-                      {data.pic}
-                    </Link>
-                  </div>
-                ))}
+                  <Link target="_blank" to={data.link} key={index} className="border border-slate-200 text-primary  hover:text-white rounded-full h-10 w-10 flex justify-center items-center transition duration-600 ease-in-out hover:bg-primary">
+                    {data.pic}
+                  </Link>
+                ))
+              }
             </div>
+            
           </div>
           <div className="max-w-authWidth">
             <p className="text-2xl font-bold mb-2">Subscribe</p>

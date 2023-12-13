@@ -12,7 +12,7 @@ const Pricing = () => {
     };
 
     return (
-        <section className='pricing py-7 md:py-32 bg-drakWhite'>
+        <section className='pricing py-7 md:py-32 bg-drakWhite overflow-x-hidden'>
             <div className="container px-5">
 
                 <SectionHeader

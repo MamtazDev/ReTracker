@@ -7,7 +7,7 @@ import SectionHeader from "./SectionHeader";
 
 const HowItsWorks = () => {
   return (
-    <section className="howitworks py-7 md:py-32 bg-drakWhite">
+    <section className="howitworks py-7 md:py-32 bg-drakWhite overflow-x-hidden">
       <div className="container px-5">
         <SectionHeader
           sectionTag={"How it works?"}
