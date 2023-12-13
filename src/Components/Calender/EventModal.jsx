@@ -3,6 +3,8 @@ import GlobalContext from "../../context/GlobalContext";
 import close from "../../assets/close.png";
 import imgGrp from "../../assets/img-grp.png";
 import "../../Styles/Auth.css";
+import OutLineBtn from "../../Shared/OutLineBtn";
+import PrimaryBtn from "../../Shared/PrimaryBtn";
 const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
 
 export default function EventModal() {
@@ -191,6 +193,11 @@ export default function EventModal() {
               </p>
             </div>
           </div>
+
+          <div className="flex items-center gap-4 mt-6">
+            <OutLineBtn>Cancel</OutLineBtn>
+            <PrimaryBtn>Add Task</PrimaryBtn>
+          </div>
         </form>
 
         {/* <div className="p-3">
@@ -265,7 +272,7 @@ export default function EventModal() {
             </div>
           </div>
         </div> */}
-        <footer className="flex justify-end border-t p-3 mt-5">
+        {/* <footer className="flex justify-end border-t p-3 mt-5">
           <button
             type="submit"
             onClick={handleSubmit}
@@ -273,7 +280,7 @@ export default function EventModal() {
           >
             Save
           </button>
-        </footer>
+        </footer> */}
       </form>
     </div>
   );
