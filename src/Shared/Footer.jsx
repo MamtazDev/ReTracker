@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
 import logo from "../assets/footer-logo.png";
 
 const Footer = () => {
@@ -37,26 +36,26 @@ const Footer = () => {
     e.preventDefault();
 
     if (isEmailValid) {
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Subscribe",
-        showConfirmButton: false,
-        timer: 1500,
-        heightAuto: false,
-      });
+      // Swal.fire({
+      //   position: "top-end",
+      //   icon: "success",
+      //   title: "Subscribe",
+      //   showConfirmButton: false,
+      //   timer: 1500,
+      //   heightAuto: false,
+      // });
     }
 
-    else {
-       Swal.fire({
-         position: "top-end",
-         icon: "error",
-         title: "Input Valid Email",
-         showConfirmButton: false,
-         timer: 1500,
-         heightAuto: false
-       });
-    }
+    // else {
+    //    Swal.fire({
+    //      position: "top-end",
+    //      icon: "error",
+    //      title: "Input Valid Email",
+    //      showConfirmButton: false,
+    //      timer: 1500,
+    //      heightAuto: false
+    //    });
+    // }
   };
 
   return (
