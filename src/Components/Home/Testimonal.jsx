@@ -40,7 +40,7 @@ const Testimonal = () => {
               authorSocialId={"@fignel_sooon"}
               socialLink={"#"}
               socialIcon={twitter}
-              dataAos={"flip-up"}
+              dataAos={"fade-up"}
               dataDuration={"500"}
 
             />
@@ -55,7 +55,7 @@ const Testimonal = () => {
               authorSocialId={"@@sadiieberlin00"}
               socialLink={"#"}
               socialIcon={instagram}
-              dataAos={"flip-up"}
+              dataAos={"fade-up"}
               dataDuration={"500"}
             />
 
@@ -69,7 +69,7 @@ const Testimonal = () => {
               authorSocialId={"@amaylocosta"}
               socialLink={"#"}
               socialIcon={facebook}
-              dataAos={"flip-up"}
+              dataAos={"fade-up"}
               dataDuration={"500"}
             />
 
@@ -83,7 +83,7 @@ const Testimonal = () => {
               authorSocialId={"@sadiieberlin00"}
               socialLink={"#"}
               socialIcon={instagram}
-              dataAos={"flip-up"}
+              dataAos={"fade-up"}
               dataDuration={"500"}
             />
 
@@ -97,7 +97,7 @@ const Testimonal = () => {
               authorSocialId={"@fignel_sooon"}
               socialLink={"#"}
               socialIcon={twitter}
-              dataAos={"flip-up"}
+              dataAos={"fade-up"}
               dataDuration={"500"}
             />
 
@@ -111,7 +111,7 @@ const Testimonal = () => {
               authorSocialId={"@sadiieberlin00"}
               socialLink={"#"}
               socialIcon={instagram}
-              dataAos={"flip-up"}
+              dataAos={"fade-up"}
               dataDuration={"500"}
             />
           </div>
