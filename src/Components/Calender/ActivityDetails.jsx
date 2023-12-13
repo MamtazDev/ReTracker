@@ -6,10 +6,12 @@ import pdf from "../../assets/pdf.png";
 import user from "../../assets/user.png";
 import back from "../../assets/back.png";
 
-const ActivityDetails = () => {
+const ActivityDetails = ({ setOpen }) => {
   const handleDownload = async () => {
     try {
-      const response = await fetch("https://www.africau.edu/images/default/sample.pdf");
+      const response = await fetch(
+        "https://www.africau.edu/images/default/sample.pdf"
+      );
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -25,7 +27,7 @@ const ActivityDetails = () => {
   return (
     <div>
       <div className="px-6 py-4 flex items-center gap-3 border-b border-slate-200">
-        <button>
+        <button className="cursor-pointer" onClick={() => setOpen(false)}>
           <img src={back} alt="" />
         </button>
         <p className="text-[#161736] text-lg font-semibold  ">
@@ -42,9 +44,7 @@ const ActivityDetails = () => {
         </div>
         <div className="flex justify-between gap-16 items-center mb-6">
           <div className="flex flex-col gap-4 text-slate-500 text-sm font-medium">
-            <p className="text-slate-950 text-sm font-semibold">
-              Information
-            </p>
+            <p className="text-slate-950 text-sm font-semibold">Information</p>
             <p>Category</p>
             <p>Subcategory</p>
             <p>Date</p>

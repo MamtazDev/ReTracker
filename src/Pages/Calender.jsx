@@ -9,6 +9,7 @@ import Sidebar from "../Components/Calender/Sidebar";
 const Calender = () => {
   const [currenMonth, setCurrentMonth] = useState(getMonth());
   const { monthIndex, showEventModal } = useContext(GlobalContext);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
@@ -23,9 +24,9 @@ const Calender = () => {
       <div className="flex w-full">
         <div className="p-8 w-full border">
           <CalendarHeader />
-          <Month month={currenMonth} />
+          <Month month={currenMonth} setOpen={setOpen} />
         </div>
-        <Sidebar />
+        <Sidebar open={open} setOpen={setOpen} />
       </div>
     </div>
   );
