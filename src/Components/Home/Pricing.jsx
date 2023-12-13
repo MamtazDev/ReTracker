@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import SectionHeader from './SectionHeader';
-import PricingCard from './PricingCard';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import MarkIcon2 from '../../assets/mark2.png'
+import MarkIcon2 from '../../assets/mark2.png';
+import PricingCard from './PricingCard';
+import SectionHeader from './SectionHeader';
 
 const Pricing = () => {
     const [subTime, setSubTime] = useState('monthly');
@@ -54,8 +54,8 @@ const Pricing = () => {
                     subTime === 'monthly' && (
                         <>
                             <div className='flex justify-center md:pb-16'>
-                                <div class="grid grid-cols-12 md:flex md:gap-8 items-center">
-                                    <div class="col-span-12 md:col-span-4">
+                                <div className="grid grid-cols-12 md:flex md:gap-8 items-center">
+                                    <div className="col-span-12 md:col-span-4">
                                         <PricingCard
                                             planType={"Basic Plan"}
                                             planDetails={"Unlock the power of data analytics and gain actionable insights."}
@@ -71,7 +71,7 @@ const Pricing = () => {
                                         />
                                     </div>
 
-                                    <div class="col-span-12 md:col-span-4">
+                                    <div className="col-span-12 md:col-span-4">
                                         <div className='pricing-card max-w-[405px] h-full mb-5 md:mb-0'>
                                             <div className='h-full flex flex-col justify-between bg-white p-2 rounded-2xl'>
                                                 <div className="card_content bg-white rounded-2xl border-2 border-primary">
@@ -176,8 +176,8 @@ const Pricing = () => {
                     subTime === 'yearly' && (
                         <>
                             <div className='flex justify-center md:pb-16'>
-                                <div class="grid grid-cols-12 md:flex md:gap-8 items-center">
-                                    <div class="col-span-12 md:col-span-4">
+                                <div className="grid grid-cols-12 md:flex md:gap-8 items-center">
+                                    <div className="col-span-12 md:col-span-4">
                                         <PricingCard
                                             planType={"Basic Plan"}
                                             planDetails={"Unlock the power of data analytics and gain actionable insights."}
@@ -193,7 +193,7 @@ const Pricing = () => {
                                         />
                                     </div>
 
-                                    <div class="col-span-12 md:col-span-4">
+                                    <div className="col-span-12 md:col-span-4">
                                         <div className='pricing-card max-w-[405px] h-full mb-5 md:mb-0'>
                                             <div className='h-full flex flex-col justify-between bg-white p-2 rounded-2xl'>
                                                 <div className="card_content bg-white rounded-2xl border-2 border-primary">

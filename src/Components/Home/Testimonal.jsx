@@ -11,13 +11,11 @@ import twitter from "../../assets/twitter.png";
 import instagram from "../../assets/instagram.png";
 import facebook from "../../assets/instagram.png";
 import { Link } from "react-router-dom";
-import '../../Styles/Testimonal.css';
+import "../../Styles/Testimonal.css";
 
 const Testimonal = () => {
   return (
-    <div
-      className="testimonial py-7 md:py-24 testimonal_bg"
-    >
+    <div className="testimonial py-7 md:py-24 testimonal_bg">
       <div className="container px-5">
         <SectionHeader
           sectionTag={"Testimonials"}
@@ -41,8 +39,7 @@ const Testimonal = () => {
               socialLink={"#"}
               socialIcon={twitter}
               dataAos={"fade-up"}
-              dataDuration={"500"}
-
+              dataDuration={"1000"}
             />
 
             <TestimonialCard
@@ -56,7 +53,7 @@ const Testimonal = () => {
               socialLink={"#"}
               socialIcon={instagram}
               dataAos={"fade-up"}
-              dataDuration={"500"}
+              dataDuration={"1000"}
             />
 
             <TestimonialCard
@@ -70,7 +67,7 @@ const Testimonal = () => {
               socialLink={"#"}
               socialIcon={facebook}
               dataAos={"fade-up"}
-              dataDuration={"500"}
+              dataDuration={"1000"}
             />
 
             <TestimonialCard
@@ -84,7 +81,7 @@ const Testimonal = () => {
               socialLink={"#"}
               socialIcon={instagram}
               dataAos={"fade-up"}
-              dataDuration={"500"}
+              dataDuration={"1000"}
             />
 
             <TestimonialCard
@@ -98,7 +95,7 @@ const Testimonal = () => {
               socialLink={"#"}
               socialIcon={twitter}
               dataAos={"fade-up"}
-              dataDuration={"500"}
+              dataDuration={"1000"}
             />
 
             <TestimonialCard
@@ -112,14 +109,16 @@ const Testimonal = () => {
               socialLink={"#"}
               socialIcon={instagram}
               dataAos={"fade-up"}
-              dataDuration={"500"}
+              dataDuration={"1000"}
             />
           </div>
         </div>
 
         <div className="testi_btn text-center">
           <button className="bg-slate-black border border-slate-black text-white hover:bg-white hover:text-slate-black py-3 px-16 rounded-full transition-all ease-in-out duration-300">
-            <Link to={"#"} className="text-base font-bold  hover:text-slate-black">
+            <Link
+              to={"#"}
+              className="text-base font-bold  hover:text-slate-black">
               Try for free
             </Link>
           </button>

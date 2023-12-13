@@ -34,35 +34,35 @@ const PricingCard = ({ planType, planDetails, subType, featuresOne, featuresTwo,
                     <div className="pricing_card_features border p-8 border-t-0 rounded-b-2xl">
                         <ul>
                             <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
-                                <span clasName="flex-shrink-0">
+                                <span className="flex-shrink-0">
                                     <img className='w-full' src={MarkIcon2} alt="mark-icon" />
                                 </span>
                                 {featuresOne}
                             </li>
 
                             <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
-                                <span clasName="flex-shrink-0">
+                                <span className="flex-shrink-0">
                                     <img src={MarkIcon2} alt="mark-icon" />
                                 </span>
                                 {featuresTwo}
                             </li>
 
                             <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
-                                <span clasName="flex-shrink-0">
+                                <span className="flex-shrink-0">
                                     <img src={MarkIcon2} alt="mark-icon" />
                                 </span>
                                 {featuresThree}
                             </li>
 
                             <li className='flex items-center gap-2 mb-4 text-sm font-normal text-slate-black'>
-                                <span clasName="flex-shrink-0">
+                                <span className="flex-shrink-0">
                                     <img src={MarkIcon2} alt="mark-icon" />
                                 </span>
                                 {featuresFour}
                             </li>
 
                             <li className='flex items-center gap-2 text-sm font-normal text-slate-black'>
-                                <span clasName="flex-shrink-0">
+                                <span className="flex-shrink-0">
                                     <img src={MarkIcon2} alt="mark-icon" />
                                 </span>
                                 {featuresFive}

@@ -10,12 +10,11 @@ input[type="checkbox"] {
     width: unset !important;
 }
 
-
 .footer button {
-    border-radius: var(--border-radius-full, 9999px);
-    background: var(--Primary-Gradient, linear-gradient(270deg, rgba(255, 255, 255, 0.16) 0%, rgba(0, 0, 0, 0.00) 100%, rgba(255, 255, 255, 0.00) 100%), #6E51E0);
+    border-radius: 9999px;
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.16) 0%, rgba(0, 0, 0, 0.00) 100%, rgba(255, 255, 255, 0.00) 100%), #6E51E0;
     padding: 12px 32px;
-    color: var(--base-white, var(--base-white, #FFF));
+    color: #FFF;
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
@@ -29,14 +28,14 @@ input[type="checkbox"] {
 /* Firefox */
 * {
     scrollbar-width: auto;
-    scrollbar-color: #6d53d7 #ffffff;
+    scrollbar-color: #a999e9 #ffffff;
 }
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
     scrollbar-width: auto;
-    scrollbar-color: #6d53d7 #e9e4fb;
+    scrollbar-color: #a999e9 #e9e4fb;
 }
 
 /* Chrome, Edge, and Safari */
@@ -49,7 +48,7 @@ input[type="checkbox"] {
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #6d53d7;
+    background-color: #a999e9;
     border-radius: 10px;
-    border: 3px solid #6d53d7;
+    border: 3px solid #a999e9;
 }

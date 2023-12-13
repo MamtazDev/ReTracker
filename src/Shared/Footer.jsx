@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
-import logo from "../assets/footer-logo.png";
+import { useState } from "react";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import logo from "../assets/footer-logo.png";
 
 const Footer = () => {
   const socialIcons = [
@@ -18,6 +20,45 @@ const Footer = () => {
       link: "https://www.instagram.com/",
     },
   ];
+
+  const [email, setEmail] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(true);
+
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setIsEmailValid(emailRegex.test(newEmail));
+  };
+
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+
+    if (isEmailValid) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Subscribe",
+        showConfirmButton: false,
+        timer: 1500,
+        heightAuto: false,
+      });
+    }
+
+    else {
+       Swal.fire({
+         position: "top-end",
+         icon: "error",
+         title: "Input Valid Email",
+         showConfirmButton: false,
+         timer: 1500,
+         heightAuto: false
+       });
+    }
+  };
+
   return (
     <div className="footer px-5 lg:px-0 py-7  lg:py-16">
       <div className="container mx-auto">
@@ -28,41 +69,51 @@ const Footer = () => {
               Empowering property owners with seamless tools and insights for
               efficient real estate management.
             </p>
-
             <div className="flex items-center gap-3">
-              {
-                socialIcons.length > 0 &&
+              {socialIcons.length > 0 &&
                 socialIcons.map((data, index) => (
-                  <Link target="_blank" to={data.link} key={index} className="border border-slate-200 text-primary  hover:text-white rounded-full h-10 w-10 flex justify-center items-center transition duration-600 ease-in-out hover:bg-primary">
+                  <Link
+                    target="_blank"
+                    to={data.link}
+                    key={index}
+                    className="border border-slate-200 text-primary  hover:text-white rounded-full h-10 w-10 flex justify-center items-center transition duration-600 ease-in-out hover:bg-primary">
                     {data.pic}
                   </Link>
-                ))
-              }
+                ))}
             </div>
-            
           </div>
           <div className="max-w-authWidth">
             <p className="text-2xl font-bold mb-2">Subscribe</p>
             <p className="text-base font-normal mb-6">
               Join our newsletter to stay up to date on features and releases.
             </p>
-            <div className="hidden mb-4 w-full lg:flex items-center gap-2 border border-slate-200 rounded-full bg-slate-50 py-2 pl-6 pr-2">
-              <input
-                className="bg-transparent w-full"
-                type="email"
-                placeholder="Email address"
-              />
-              <button>Subscribe</button>
-            </div>
 
-            <div className="block lg:hidden  ">
+            <form
+              className="hidden mb-4 w-full lg:flex items-center gap-2 border border-slate-200 rounded-full bg-slate-50 py-2 pl-6 pr-2"
+              onSubmit={handleEmailSubmit}>
               <input
-                className="year mb-4"
+                className={`bg-transparent w-full ${
+                  isEmailValid ? "" : "border-red-500"
+                }`}
                 type="email"
                 placeholder="Email address"
+                value={email}
+                onChange={handleEmailChange}
               />
-              <button className="w-full mb-4">Subscribe</button>
-            </div>
+              <button type="submit">Subscribe</button>
+            </form>
+
+            <form className="block lg:hidden" onSubmit={handleEmailSubmit}>
+              <input
+                className={`year mb-4 ${isEmailValid ? "" : "border-red-500"}`}
+                type="email"
+                placeholder="Email address"
+                onChange={handleEmailChange}
+              />
+              <button type="submit" className="w-full mb-4">
+                Subscribe
+              </button>
+            </form>
 
             <p className="text-xs text-slate-black">
               By subscribing you agree to with our Privacy Policy and provide
