@@ -9,10 +9,12 @@ import settings from "../../assets/settings.png";
 import { Link, useLocation } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 import AddHoursModal from "./AddHoursModal";
+import Successfull from "./Successfull";
 
 const DashboardSidebar = () => {
   let location = useLocation();
   const [open, setOpen] = useState(false);
+  const [successfullOpen, setSuccessfullOpen] = useState(false);
   return (
     <div className="bg-indigo-950 text-base font-medium text-white h-screen flex flex-col justify-between">
       <div>
@@ -89,7 +91,16 @@ const DashboardSidebar = () => {
           Settings
         </Link>
       </div>
-      {open && <AddHoursModal open={open} setOpen={setOpen} />}
+      {open && (
+        <AddHoursModal
+          open={open}
+          setOpen={setOpen}
+          setSuccessfullOpen={setSuccessfullOpen}
+        />
+      )}
+      {successfullOpen && (
+        <Successfull setSuccessfullOpen={setSuccessfullOpen} />
+      )}
     </div>
   );
 };

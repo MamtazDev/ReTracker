@@ -1,8 +1,13 @@
 import timer from "../../assets/timer.png";
 import { RxCross2 } from "react-icons/rx";
 import { FaPlus } from "react-icons/fa";
+import { useState } from "react";
 
-const AddHoursModal = ({ setOpen }) => {
+const AddHoursModal = ({ setOpen, setSuccessfullOpen }) => {
+  const handleClick = () => {
+    setOpen(false);
+    setSuccessfullOpen(true);
+  };
   return (
     <div className="h-screen w-full  fixed z-10 left-0 top-0 flex justify-center items-center hour_spent ">
       <div className="bg-white rounded-3xl p-6 border max-w-[400px] w-full h-[316px] overflow-y-scroll no-scrollbar">
@@ -25,13 +30,13 @@ const AddHoursModal = ({ setOpen }) => {
         <button
           style={{ borderRadius: "9999px" }}
           className="icon flex items-center gap-[10px] px-4 py-3  w-full "
-          onClick={() => setOpen(true)}
+          onClick={handleClick}
         >
           <FaPlus />
           Add Hours
         </button>
         <div className="text-primary text-center mt-4">
-          <button>Do it later</button>
+          <button onClick={() => setOpen(false)}>Do it later</button>
         </div>
       </div>
     </div>

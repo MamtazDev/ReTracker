@@ -2,10 +2,12 @@ import React, { useContext, useRef, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 import close from "../../assets/close.png";
 import imgGrp from "../../assets/img-grp.png";
+import pdf from "../../assets/pdf.png";
 import "../../Styles/Auth.css";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
+import cross from "../../assets/cross.png";
 
 export default function EventModal() {
   const fileRef = useRef();
@@ -191,6 +193,23 @@ export default function EventModal() {
               <p className="text-[#9CA3AF] text-sm font-normal">
                 Maximum size: 2MB
               </p>
+            </div>
+          </div>
+
+          <div className="mb-6 flex flex-col gap-4 mt-[6px]">
+            <div className="border border-slate-200 rounded-xl p-4 flex items-start gap-3 justify-between">
+              <div className="flex items-center gap-3">
+                <img src={pdf} alt="" />
+                <div>
+                  <p className="text-[#323539] text-sm font-medium">
+                    Invoice002.pdf
+                  </p>
+                  <p className="text-[#858C95] text-xs font-normal">500 kb</p>
+                </div>
+              </div>
+              <button className="text-red-500">
+                <img src={cross} alt="" />
+              </button>
             </div>
           </div>
 
