@@ -13,13 +13,13 @@ const EmailVerify = () => {
         <span className="text-black">name@example.com</span>{" "}
       </p>
       <div className="flex items-center gap-4 mb-5">
-        <div className="icon flex-shrink-0">
+        <div className="icon h-8 w-8 flex-shrink-0">
           <MdOutlineEmail />
         </div>
         <p className="text-slate-950 font-medium text-sm">Change Email</p>
       </div>
       <div className="flex items-center gap-4 mb-5 lg:mb-10">
-        <div className="icon flex-shrink-0">
+        <div className="icon h-8 w-8 flex-shrink-0">
           <TbBrandTelegram />{" "}
         </div>
         <p className="text-slate-950 font-medium text-sm">

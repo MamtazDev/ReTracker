@@ -77,7 +77,7 @@ const StepThree = ({ stepper, setStepper }) => {
                 />
                 <button
                   onClick={() => handleRemoveImage(index)}
-                  className="absolute top-2 right-2 icon z-10"
+                  className="absolute top-2 right-2 icon z-10 h-8 w-8"
                 >
                   <RxCross2 />
                 </button>

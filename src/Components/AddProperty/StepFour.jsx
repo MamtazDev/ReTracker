@@ -37,7 +37,7 @@ const StepFour = ({ setStepper }) => {
               <button
                 type="button"
                 onClick={() => setPurchaseYear(purchaseYear + 1)}
-                className="icon"
+                className="icon h-8 w-8"
               >
                 <FaPlus />
               </button>
@@ -45,7 +45,7 @@ const StepFour = ({ setStepper }) => {
               <button
                 onClick={() => setPurchaseYear(purchaseYear - 1)}
                 type="button"
-                className="icon"
+                className="icon h-8 w-8"
               >
                 <FaMinus />
               </button>
@@ -59,7 +59,7 @@ const StepFour = ({ setStepper }) => {
               <button
                 onClick={() => setServiceYear(serviceYear + 1)}
                 type="button"
-                className="icon"
+                className="icon h-8 w-8"
               >
                 <FaPlus />
               </button>
@@ -67,7 +67,7 @@ const StepFour = ({ setStepper }) => {
               <button
                 onClick={() => setServiceYear(serviceYear - 1)}
                 type="button"
-                className="icon"
+                className="icon h-8 w-8"
               >
                 <FaMinus />
               </button>

@@ -15,6 +15,11 @@
 
 }
 
+.hour_spent {
+    background: var(--palette-black-black-alpha-50, rgba(0, 0, 0, 0.50));
+    backdrop-filter: blur(12px);
+}
+
 .hour_spent label,
 label {
     display: block;
@@ -25,7 +30,8 @@ label {
     margin-bottom: 8px;
 }
 
-.hour_spent label span,label span {
+.hour_spent label span,
+label span {
     color: var(--slate-500, var(--slate-500, #64748B));
 }
 
@@ -56,8 +62,6 @@ input[type="search"] {
 
 .icon {
     color: white;
-    height: 32px;
-    width: 32px;
     display: flex;
     align-items: center;
     justify-content: center;

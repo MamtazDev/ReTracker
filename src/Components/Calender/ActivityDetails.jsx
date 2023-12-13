@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import download from "../../assets/download.png";
 import pdf from "../../assets/pdf.png";
 import user from "../../assets/user.png";
 import back from "../../assets/back.png";
+import GlobalContext from "../../context/GlobalContext";
 
 const ActivityDetails = ({ setOpen }) => {
   const handleDownload = async () => {
@@ -16,7 +17,7 @@ const ActivityDetails = ({ setOpen }) => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "downloaded_file.pdf"; // You can set the desired file name here
+      a.download = "downloaded_file.pdf";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -24,6 +25,7 @@ const ActivityDetails = ({ setOpen }) => {
       console.error("Error downloading the file:", error);
     }
   };
+  const { setShowEventModal } = useContext(GlobalContext);
   return (
     <div>
       <div className="px-6 py-4 flex items-center gap-3 border-b border-slate-200">
@@ -35,10 +37,7 @@ const ActivityDetails = ({ setOpen }) => {
         </p>
       </div>
       <div className="p-6">
-        <div
-          style={{ height: "120px", width: "120px" }}
-          className="icon flex flex-col mx-auto mb-6"
-        >
+        <div className="icon h-[120px] w-[120px]  flex flex-col mx-auto mb-6">
           <p className="text-4xl font-bold mb-1">9</p>
           <p className="text-xs font-medium">Hours Spent</p>
         </div>
@@ -106,14 +105,13 @@ const ActivityDetails = ({ setOpen }) => {
           </div>
           <div className="flex items-center gap-4">
             <OutLineBtn>Delete</OutLineBtn>
-            <PrimaryBtn>Edit</PrimaryBtn>
+            <div className="w-full" onClick={() => setShowEventModal(true)}>
+              <PrimaryBtn>Edit</PrimaryBtn>
+            </div>
           </div>
         </div>
       </div>
-      <button
-        style={{ height: "64px", width: "64px" }}
-        className="icon fixed bottom-2 right-2"
-      >
+      <button className="icon h-16 w-16 fixed bottom-2 right-2">
         <img src={user} alt="" />
       </button>
     </div>

@@ -23,8 +23,7 @@ const Header = () => {
             <img src={bell} alt="" />
           </button>{" "}
           <p
-            style={{ width: "16px", height: "16px" }}
-            className="absolute -top-1.5 right-0 icon text-xs"
+            className="absolute -top-1.5 right-0 icon h-4 w-4 text-xs"
           >
             8
           </p>

@@ -33,11 +33,11 @@ export default function Day({ day, rowIdx, setOpen }) {
   };
 
   return (
-    <div className="border border-gray-200 flex flex-col p-2">
+    <div className="border border-gray-200 flex flex-col p-2 h-[138px]">
       <header className="flex flex-col items-center">
-        {rowIdx === 0 && (
+        {/* {rowIdx === 0 && (
           <p className="text-sm mt-1">{day.format("ddd").toUpperCase()}</p>
-        )}
+        )} */}
         <p className={`text-sm p-1 my-1 text-center  ${getCurrentDayClass()}`}>
           {day.format("DD")}
         </p>

@@ -69,7 +69,7 @@ const StepFive = () => {
               className="flex items-center rounded-full gap-3 bg-violet-50 py-1 px-3"
             >
               <p className="text-xs font-medium">name{index + 1}@example.com</p>
-              <button type="button" className="icon flex-shrink-0">
+              <button type="button" className="h-8 w-8 icon flex-shrink-0">
                 {" "}
                 <RxCross2 />
               </button>
