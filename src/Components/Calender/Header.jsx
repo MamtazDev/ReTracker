@@ -7,7 +7,7 @@ import logo from "../../assets/favicon.png";
 import hamburger from "../../assets/hambergur.png";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({setOffcanvas}) => {
   return (
     <div className="py-4 px-6 flex justify-between items-center border-b">
       <div className="hidden lg:flex items-center gap-3">
@@ -18,7 +18,7 @@ const Header = () => {
         <img src={arrow} alt="" />
       </div>
       <div className="flex  lg:hidden items-center gap-3">
-        <button>
+        <button onClick={()=> setOffcanvas(true)}>
           <img src={hamburger} alt="" />
         </button>
         <Link to="/">
