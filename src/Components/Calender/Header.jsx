@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="py-4 px-6 flex justify-between items-center">
+    <div className="py-4 px-6 flex justify-between items-center border-b">
       <div className="hidden lg:flex items-center gap-3">
         <img src={location} alt="" />
         <p className="text-sm font-medium">

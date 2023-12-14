@@ -12,6 +12,7 @@ import cross from "../../assets/cross.png";
 export default function EventModal({ setSuccessfullOpen }) {
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
+  const [upload, setUpload] = useState(25);
 
   const handleFileChange = (event) => {
     const files = event.target.files;
@@ -202,19 +203,30 @@ export default function EventModal({ setSuccessfullOpen }) {
           </div>
 
           <div className="mb-6 flex flex-col gap-4 mt-[6px]">
-            <div className="border border-slate-200 rounded-xl p-4 flex items-start gap-3 justify-between">
-              <div className="flex items-center gap-3">
-                <img src={pdf} alt="" />
-                <div>
-                  <p className="text-[#323539] text-sm font-medium">
-                    Invoice002.pdf
-                  </p>
-                  <p className="text-[#858C95] text-xs font-normal">500 kb</p>
+            <div className="border border-slate-200 rounded-xl p-4 ">
+              <div className="flex items-start gap-3 justify-between">
+                <div className="flex items-center gap-3 mb-2">
+                  <img src={pdf} alt="" />
+                  <div>
+                    <p className="text-[#323539] text-sm font-medium">
+                      Invoice002.pdf
+                    </p>
+                    <p className="text-[#858C95] text-xs font-normal">500 kb</p>
+                  </div>
                 </div>
+                <button className="text-red-500">
+                  <img src={cross} alt="" />
+                </button>
               </div>
-              <button className="text-red-500">
-                <img src={cross} alt="" />
-              </button>
+              <div className="flex items-center gap-2">
+                <div className="bg-violet-50 h-2 w-full rounded-md">
+                  <div
+                    style={{ width: `${upload}%` }}
+                    className=" bg-primary rounded-md h-2"
+                  ></div>
+                </div>
+                <p className="text-xs font-medium">{upload}%</p>
+              </div>
             </div>
           </div>
 

@@ -28,7 +28,7 @@ const Calender = () => {
       )}
 
       <div className="flex w-full">
-        <div className="p-8 w-full border">
+        <div className="px-8 pt-8 w-full ">
           <CalendarHeader />
           <Month month={currenMonth} setOpen={setOpen} />
         </div>
