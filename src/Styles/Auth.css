@@ -43,7 +43,7 @@ label span {
     border: 1px solid var(--slate-200, #E2E8F0);
     background: var(--slate-50, #F8FAFC);
     width: 100%;
-    padding: 12px 16px !important;
+    padding: 12px 16px;
 }
 
 input[type="search"] {

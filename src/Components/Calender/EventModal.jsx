@@ -8,6 +8,7 @@ import OutLineBtn from "../../Shared/OutLineBtn";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
 import cross from "../../assets/cross.png";
+import dollar from "../../assets/dollar.png";
 
 export default function EventModal({ setSuccessfullOpen }) {
   const fileRef = useRef();
@@ -45,7 +46,7 @@ export default function EventModal({ setSuccessfullOpen }) {
     updatedImages.splice(index, 1);
     setSelectedImages(updatedImages);
   };
-  
+
   const [isChecked, setChecked] = useState(false);
   const handleCheckboxChange = () => {
     setChecked(!isChecked);
@@ -95,7 +96,7 @@ export default function EventModal({ setSuccessfullOpen }) {
   };
   return (
     <div className="h-screen w-full  fixed z-10 left-0 top-0 flex justify-center items-center hour_spent ">
-      <form className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">
+      <div className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">
         <header className="flex justify-between items-center mb-2">
           <p className="text-xl font-medium text-slate-950">Add Hours Spent</p>
 
@@ -125,23 +126,37 @@ export default function EventModal({ setSuccessfullOpen }) {
         <form>
           <div className="mb-4">
             <label>Select Category</label>
-            <select>
+            <select name="repair">
               <option>Repairs</option>
-              <option>Repairs 2</option>
+              <option>Management</option>
+              <option>Analysis</option>
+              <option>Consultation</option>
             </select>
           </div>
           <div className="mb-4">
             <label>
               Select Subcategory <span> (Optional)</span>
             </label>
-            <select>
+            <select name="plumbing">
               <option>Plumbing</option>
               <option>Plumbing 2</option>
             </select>
           </div>
           <div className="mb-4">
             <label>Total Cost</label>
-            <input type="number" placeholder="0.00" />
+            <div className="relative">
+              <input
+                style={{ paddingLeft: "30px" }}
+                type="number"
+                placeholder="0.00"
+              />
+              <img
+                style={{ top: "50%", transform: "translateY(-50%" }}
+                className="absolute left-3"
+                src={dollar}
+                alt=""
+              />
+            </div>
           </div>
           <div className="mb-4">
             <label>Select Date</label>
@@ -322,7 +337,7 @@ export default function EventModal({ setSuccessfullOpen }) {
             Save
           </button>
         </footer> */}
-      </form>
+      </div>
     </div>
   );
 }

@@ -33,7 +33,7 @@ export default function Day({ day, rowIdx, setOpen }) {
   };
 
   return (
-    <div className="border border-gray-200 flex gap-2 flex-row lg:flex-col p-0 lg:p-2 min-h-16 h-auto lg:h-[138px]">
+    <div className="border-r border-t border-gray-200 flex gap-2 flex-row lg:flex-col p-0 lg:p-2 min-h-16 h-auto lg:h-[138px]">
       <header className="w-16 lg:w-auto border-r lg:border-none flex flex-col items-center justify-center">
         <p className="lg:hidden text-sm ">{day.format("ddd").toUpperCase()}</p>
 

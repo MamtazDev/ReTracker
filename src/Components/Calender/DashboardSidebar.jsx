@@ -9,6 +9,7 @@ import settings from "../../assets/settings.png";
 import { Link, useLocation } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 import AddHoursModal from "./AddHoursModal";
+import { RxCross2 } from "react-icons/rx";
 
 const DashboardSidebar = ({ setOffcanvas, offcanvas }) => {
   let location = useLocation();
@@ -19,9 +20,18 @@ const DashboardSidebar = ({ setOffcanvas, offcanvas }) => {
     >
       <div className="bg-indigo-950 text-base font-medium text-white h-screen flex flex-col justify-between">
         <div>
-          <Link className="px-6 py-5" to="/">
-            <img src={logo} alt="" />
-          </Link>
+          <div className="flex items-center justify-between">
+            <Link className="px-6 py-5 block" to="/">
+              <img src={logo} alt="" />
+            </Link>
+            <button
+              onClick={() => setOffcanvas(false)}
+              className="lg:hidden text-white text-2xl font-bold p-2"
+            >
+              {" "}
+              <RxCross2 />
+            </button>
+          </div>
           <div className="m-6">
             <button
               style={{ borderRadius: "9999px" }}

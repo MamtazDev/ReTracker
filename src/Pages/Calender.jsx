@@ -21,7 +21,7 @@ const Calender = () => {
   console.log("currenMonth:", currenMonth);
 
   return (
-    <div>
+    <div >
       {showEventModal && <EventModal setSuccessfullOpen={setSuccessfullOpen} />}
       {successfullOpen && (
         <Successfull setSuccessfullOpen={setSuccessfullOpen} />
