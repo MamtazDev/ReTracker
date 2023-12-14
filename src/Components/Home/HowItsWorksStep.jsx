@@ -40,7 +40,7 @@ const HowItsWorksStep = ({
                     <div className="card_title pb-1">
                       <h2 className="text-2xl md:text-4xl font-semibold text-clr_black"
                         data-aos="fade-up"
-                        data-aos-duration="1000"
+                        data-aos-duration="600"
                       >
                         {createAccount}
                       </h2>
@@ -49,7 +49,7 @@ const HowItsWorksStep = ({
                     <div className="card_des">
                       <p className="text-sm md:text-base font-normal text-clr_black"
                         data-aos="fade-up"
-                        data-aos-duration="1500"
+                        data-aos-duration="700"
                       >
                         {cardDes}
                       </p>
@@ -61,7 +61,7 @@ const HowItsWorksStep = ({
 
                       <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4"
                         data-aos="fade-up"
-                        data-aos-duration="2000"
+                        data-aos-duration="800"
                       >
                         <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
@@ -71,7 +71,7 @@ const HowItsWorksStep = ({
 
                       <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4"
                         data-aos="fade-up"
-                        data-aos-duration="2500"
+                        data-aos-duration="900"
                       >
                         <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
@@ -81,7 +81,7 @@ const HowItsWorksStep = ({
 
                       <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4"
                         data-aos="fade-up"
-                        data-aos-duration="2500"
+                        data-aos-duration="1000"
                       >
                         <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
@@ -91,7 +91,7 @@ const HowItsWorksStep = ({
 
                       <li className="flex items-start gap-4 text-sm font-medium text-clr_black pb-4"
                         data-aos="fade-up"
-                        data-aos-duration="2500"
+                        data-aos-duration="1100"
                       >
                         <span className="flex-shrink-0 pt-1">
                           <img src={markIcon} alt="mark-icon" />
@@ -115,7 +115,7 @@ const HowItsWorksStep = ({
 
             <div className="col-span-12 md:col-span-7 flex justify-end items-center">
               <div className="card_img" data-aos="fade-left"
-                data-aos-duration="2500">
+                data-aos-duration="1500">
                 <img className="" src={cardImg} alt="card-img" />
               </div>
             </div>
