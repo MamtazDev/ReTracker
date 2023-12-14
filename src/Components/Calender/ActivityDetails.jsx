@@ -27,8 +27,8 @@ const ActivityDetails = ({ setOpen }) => {
   };
   const { setShowEventModal } = useContext(GlobalContext);
   return (
-    <div>
-      <div className="px-6 py-4 flex items-center gap-3 border-b border-slate-200">
+    <div >
+      <div className=" px-6 py-4 flex items-center gap-3 border-b border-slate-200 ">
         <button className="cursor-pointer" onClick={() => setOpen(false)}>
           <img src={back} alt="" />
         </button>
