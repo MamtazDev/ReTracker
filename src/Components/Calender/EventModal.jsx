@@ -21,6 +21,7 @@ export default function EventModal({ setSuccessfullOpen }) {
     );
     setSelectedImages((prevImages) => [...prevImages, ...imagesArray]);
   };
+
   const handleDrop = (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
@@ -37,12 +38,14 @@ export default function EventModal({ setSuccessfullOpen }) {
   const handleDragOver = (event) => {
     event.preventDefault();
   };
+
   const handleRemoveImage = (index) => {
     event.preventDefault();
     const updatedImages = [...selectedImages];
     updatedImages.splice(index, 1);
     setSelectedImages(updatedImages);
   };
+  
   const [isChecked, setChecked] = useState(false);
   const handleCheckboxChange = () => {
     setChecked(!isChecked);
@@ -230,7 +233,7 @@ export default function EventModal({ setSuccessfullOpen }) {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 mt-6">
+          <div className="flex flex-col lg:flex-row items-center gap-4 mt-6">
             <OutLineBtn type="button">Cancel</OutLineBtn>
             <div className="w-full" onClick={handleClick}>
               <PrimaryBtn type="button">Add Task</PrimaryBtn>

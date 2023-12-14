@@ -33,17 +33,18 @@ export default function Day({ day, rowIdx, setOpen }) {
   };
 
   return (
-    <div className="border border-gray-200 flex flex-col p-2 h-[138px]">
-      <header className="flex flex-col items-center">
-        {/* {rowIdx === 0 && (
-          <p className="text-sm mt-1">{day.format("ddd").toUpperCase()}</p>
-        )} */}
-        <p className={`text-sm p-1 my-1 text-center  ${getCurrentDayClass()}`}>
+    <div className="border border-gray-200 flex gap-2 flex-row lg:flex-col p-0 lg:p-2 min-h-16 h-auto lg:h-[138px]">
+      <header className="w-16 lg:w-auto border-r lg:border-none flex flex-col items-center justify-center">
+        <p className="lg:hidden text-sm ">{day.format("ddd").toUpperCase()}</p>
+
+        <p
+          className={`text-sm text-slate-950 font-normal text-center  ${getCurrentDayClass()}`}
+        >
           {day.format("DD")}
         </p>
       </header>
       <div
-        className="flex-1 cursor-pointer w-full"
+        className="flex-1 cursor-pointer w-full p-2 lg:p-0"
         onClick={() => {
           setDaySelected(day);
           setShowEventModal(true);

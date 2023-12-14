@@ -3,7 +3,7 @@ import Day from "./Day";
 export default function Month({ month, setOpen, rowIdx }) {
   return (
     <>
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-7 text-center ">
+      <div className="hidden flex-1 lg:grid grid-cols-1 lg:grid-cols-7 text-center ">
         <p className="border border-b-0 rounded-tl-lg py-2">Sun</p>
         <p className="py-2 border border-b-0">Mon</p>
         <p className="py-2 border border-b-0">Tue</p>
