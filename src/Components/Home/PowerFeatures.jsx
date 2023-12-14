@@ -39,7 +39,7 @@ const PowerFeatures = () => {
                   }
                   bgColor={"bg-primary"}
                   dataAos={"fade-up"}
-                  dataDuration={"1500"}
+                  dataDuration={"1000"}
                 />
               </div>
 
@@ -52,7 +52,7 @@ const PowerFeatures = () => {
                   }
                   bgColor={"bg-emerald-500"}
                   dataAos={"fade-up"}
-                  dataDuration={"1500"}
+                  dataDuration={"1000"}
                 />
               </div>
 
@@ -65,7 +65,7 @@ const PowerFeatures = () => {
                   }
                   bgColor={"bg-amber"}
                   dataAos={"fade-up"}
-                  dataDuration={"1500"}
+                  dataDuration={"1000"}
                 />
               </div>
 
@@ -78,7 +78,7 @@ const PowerFeatures = () => {
                   }
                   bgColor={"bg-orange"}
                   dataAos={"fade-up"}
-                  dataDuration={"1500"}
+                  dataDuration={"1000"}
                 />
               </div>
 
@@ -91,7 +91,7 @@ const PowerFeatures = () => {
                   }
                   bgColor={"bg-blue-500"}
                   dataAos={"fade-up"}
-                  dataDuration={"1500"}
+                  dataDuration={"1000"}
                 />
               </div>
 
@@ -104,7 +104,7 @@ const PowerFeatures = () => {
                   }
                   bgColor={"bg-pink-500"}
                   dataAos={"fade-up"}
-                  dataDuration={"1500"}
+                  dataDuration={"1000"}
                 />
               </div>
             </div>
