@@ -6,7 +6,7 @@ import { getMonth } from "./Utils/DayMatrix";
 
 function App() {
   const [currenMonth, setCurrentMonth] = useState(getMonth());
-  console.log("currenMonth:", currenMonth)
+  // console.log("currenMonth:", currenMonth)
 
 
   return <RouterProvider router={router} />;

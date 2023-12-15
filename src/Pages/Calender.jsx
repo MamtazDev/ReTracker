@@ -18,7 +18,7 @@ const Calender = () => {
     setCurrentMonth(getMonth(monthIndex));
   }, [monthIndex]);
 
-  console.log("currenMonth:", currenMonth);
+  // console.log("currenMonth:", currenMonth);
 
   return (
     <div >

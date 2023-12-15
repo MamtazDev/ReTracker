@@ -11,6 +11,7 @@ import VerifyEmail from "../Pages/VerifyEmail";
 import AddProperty from "../Pages/AddProperty";
 import Calender from "../Pages/Calender";
 import DashboardLayout from "../Layouts/DashboardLayout";
+import YearlyDashboard from "../Pages/YearlyDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/calender",
         element: <Calender />,
+      },
+      {
+        path: "/dashboard/yearly",
+        element: <YearlyDashboard />,
       },
     ],
   },

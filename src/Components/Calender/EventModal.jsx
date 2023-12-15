@@ -15,11 +15,14 @@ export default function EventModal({ setSuccessfullOpen }) {
   const [selectedImages, setSelectedImages] = useState([]);
   const [upload, setUpload] = useState(25);
 
+  console.log(selectedImages, "dd");
   const handleFileChange = (event) => {
     const files = event.target.files;
-    const imagesArray = Array.from(files).map((file) =>
-      URL.createObjectURL(file)
-    );
+    const imagesArray = Array.from(files).filter((file) => file.name);
+    // const imagesArray = Array.from(files).map((file) =>
+    //   URL.createObjectURL(file)
+    // );
+    // console.log(files,"dd")
     setSelectedImages((prevImages) => [...prevImages, ...imagesArray]);
   };
 
@@ -48,47 +51,76 @@ export default function EventModal({ setSuccessfullOpen }) {
   };
 
   const [isChecked, setChecked] = useState(false);
-  const handleCheckboxChange = () => {
-    setChecked(!isChecked);
-  };
+
   const { setShowEventModal, daySelected, dispatchCalEvent, selectedEvent } =
     useContext(GlobalContext);
 
-  const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
-  const [startTime, setStartTime] = useState(
-    selectedEvent ? selectedEvent.startTime : ""
-  );
-  const [endTime, setEndTime] = useState(
-    selectedEvent ? selectedEvent.endTime : ""
-  );
-  const [description, setDescription] = useState(
-    selectedEvent ? selectedEvent.description : ""
-  );
-  const [selectedLabel, setSelectedLabel] = useState(
-    selectedEvent
-      ? labelsClasses.find((lbl) => lbl === selectedEvent.label)
-      : labelsClasses[0]
-  );
+  // const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
+  // const [startTime, setStartTime] = useState(
+  //   selectedEvent ? selectedEvent.startTime : ""
+  // );
+  // const [endTime, setEndTime] = useState(
+  //   selectedEvent ? selectedEvent.endTime : ""
+  // );
+  // const [description, setDescription] = useState(
+  //   selectedEvent ? selectedEvent.description : ""
+  // );
+  // const [selectedLabel, setSelectedLabel] = useState(
+  //   selectedEvent
+  //     ? labelsClasses.find((lbl) => lbl === selectedEvent.label)
+  //     : labelsClasses[0]
+  // );
 
   function handleSubmit(e) {
     e.preventDefault();
-    const calendarEvent = {
-      title,
+    // const calendarEvent = {
+    //   title,
+    //   startTime,
+    //   endTime,
+    //   description,
+    //   label: selectedLabel,
+    //   day: daySelected.valueOf(),
+    //   id: selectedEvent ? selectedEvent.id : Date.now(),
+    // };
+    // if (selectedEvent) {
+    //   dispatchCalEvent({ type: "update", payload: calendarEvent });
+    // } else {
+    //   dispatchCalEvent({ type: "push", payload: calendarEvent });
+    // }
+
+    // setShowEventModal(false);
+
+    const form = e.target;
+
+    const category = form.category.value;
+    const subcategory = form.subcategory.value;
+    const cost = form.cost.value;
+    const date = form.date.value;
+    const startTime = form.startTime.value;
+    const endTime = form.endTime.value;
+    const isWorking = isChecked;
+    const files = selectedImages;
+
+    const data = {
+      category,
+      subcategory,
+      cost,
+      date,
       startTime,
       endTime,
-      description,
-      label: selectedLabel,
-      day: daySelected.valueOf(),
-      id: selectedEvent ? selectedEvent.id : Date.now(),
+      isWorking,
+      files,
     };
-    if (selectedEvent) {
-      dispatchCalEvent({ type: "update", payload: calendarEvent });
-    } else {
-      dispatchCalEvent({ type: "push", payload: calendarEvent });
-    }
 
+    console.log(data, "data");
+    setSuccessfullOpen(true);
     setShowEventModal(false);
   }
+
+  const handleFile = (name) => {
+    const newFiles = selectedImages.filter((item) => item?.name !== name);
+    setSelectedImages(newFiles);
+  };
 
   const handleClick = () => {
     setSuccessfullOpen(true);
@@ -123,32 +155,34 @@ export default function EventModal({ setSuccessfullOpen }) {
           senectus.
         </p>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label>Select Category</label>
-            <select name="repair">
-              <option>Repairs</option>
-              <option>Management</option>
-              <option>Analysis</option>
-              <option>Consultation</option>
+            <select name="category" required>
+              <option value="Repairs">Repairs</option>
+              <option value="Management">Management</option>
+              <option value="Analysis">Analysis</option>
+              <option value="Consultation">Consultation</option>
             </select>
           </div>
           <div className="mb-4">
             <label>
               Select Subcategory <span> (Optional)</span>
             </label>
-            <select name="plumbing">
-              <option>Plumbing</option>
-              <option>Plumbing 2</option>
+            <select name="subcategory">
+              <option value="Plumbing">Plumbing</option>
+              <option value="Plumbing 2">Plumbing 2</option>
             </select>
           </div>
           <div className="mb-4">
             <label>Total Cost</label>
             <div className="relative">
               <input
+                name="cost"
                 style={{ paddingLeft: "30px" }}
                 type="number"
                 placeholder="0.00"
+                required
               />
               <img
                 style={{ top: "50%", transform: "translateY(-50%" }}
@@ -160,16 +194,16 @@ export default function EventModal({ setSuccessfullOpen }) {
           </div>
           <div className="mb-4">
             <label>Select Date</label>
-            <input type="date" />
+            <input type="date" name="date" required />
           </div>
           <div className="flex items-center gap-4 mb-4 ">
             <div className="w-full">
               <label>Start Time </label>
-              <input type="time" />
+              <input type="time" name="startTime" required />
             </div>
             <div className="w-full">
               <label>End Time </label>
-              <input type="time" />
+              <input type="time" name="endTime" required />
             </div>
           </div>
           <label
@@ -180,7 +214,7 @@ export default function EventModal({ setSuccessfullOpen }) {
               className="hidden"
               type="checkbox"
               checked={isChecked}
-              onChange={handleCheckboxChange}
+              onClick={() => setChecked(!isChecked)}
             />
             <span
               className={`${
@@ -221,37 +255,50 @@ export default function EventModal({ setSuccessfullOpen }) {
           </div>
 
           <div className="mb-6 flex flex-col gap-4 mt-[6px]">
-            <div className="border border-slate-200 rounded-xl p-4 ">
-              <div className="flex items-start gap-3 justify-between">
-                <div className="flex items-center gap-3 mb-2">
-                  <img src={pdf} alt="" />
-                  <div>
-                    <p className="text-[#323539] text-sm font-medium">
-                      Invoice002.pdf
-                    </p>
-                    <p className="text-[#858C95] text-xs font-normal">500 kb</p>
+            {selectedImages &&
+              selectedImages.length > 0 &&
+              selectedImages.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="border border-slate-200 rounded-xl p-4 "
+                >
+                  <div className="flex items-start gap-3 justify-between">
+                    <div className="flex items-center gap-3 mb-2">
+                      <img src={pdf} alt="" />
+                      <div>
+                        <p className="text-[#323539] text-sm font-medium">
+                          {item?.name}
+                        </p>
+                        <p className="text-[#858C95] text-xs font-normal">
+                          {(item?.size / 1024).toFixed(2)} kb
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      className="text-red-500"
+                      type="button"
+                      onClick={() => handleFile(item?.name)}
+                    >
+                      <img src={cross} alt="" />
+                    </button>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="bg-violet-50 h-2 w-full rounded-md">
+                      <div
+                        style={{ width: `${upload}%` }}
+                        className=" bg-primary rounded-md h-2"
+                      ></div>
+                    </div>
+                    <p className="text-xs font-medium">{upload}%</p>
                   </div>
                 </div>
-                <button className="text-red-500">
-                  <img src={cross} alt="" />
-                </button>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="bg-violet-50 h-2 w-full rounded-md">
-                  <div
-                    style={{ width: `${upload}%` }}
-                    className=" bg-primary rounded-md h-2"
-                  ></div>
-                </div>
-                <p className="text-xs font-medium">{upload}%</p>
-              </div>
-            </div>
+              ))}
           </div>
 
           <div className="flex flex-col lg:flex-row items-center gap-4 mt-6">
             <OutLineBtn type="button">Cancel</OutLineBtn>
-            <div className="w-full" onClick={handleClick}>
-              <PrimaryBtn type="button">Add Task</PrimaryBtn>
+            <div className="w-full">
+              <PrimaryBtn type="submit">Add Task</PrimaryBtn>
             </div>
           </div>
         </form>

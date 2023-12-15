@@ -25,7 +25,7 @@ export default function Day({ day, rowIdx, setOpen }) {
       : "";
   }
 
-  dayEvents.length && console.log("DayEvents:", dayEvents);
+  // dayEvents.length && console.log("DayEvents:", dayEvents);
 
   const handleOpen = (e) => {
     e.stopPropagation();
