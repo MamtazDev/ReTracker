@@ -93,13 +93,32 @@ const HourSpent = () => {
     },
     {
       name: "Dec",
-      Repairs: 300,
+      Repairs: 310,
       Management: 80,
       Analysis: 50,
       Consultation: 10,
     },
   ];
   const formatYAxisTick = (value) => `${value} Hrs`;
+
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active) {
+      return (
+        <div className="custom-tooltip bg-white p-2 border rounded-lg shadow-lg">
+          <p className="label">{`${label} 2021`}</p>
+          {payload.map((entry, index) => (
+            <p key={index} className="intro">
+              {`${entry.name}: ${entry.value} Hrs`}
+            </p>
+          ))}
+        </div>
+      );
+    }
+  
+    return null;
+  };
+  
+
   return (
     <div className="border border-slate-200 rounded-xl p-6">
       <ChartHeader title="Hours Spent" />
@@ -130,13 +149,14 @@ const HourSpent = () => {
               }}
             />
 
-            <Tooltip />
+            <Tooltip content={<CustomTooltip />} />
             <Area
               type="monotone"
               dataKey="Repairs"
               strokeWidth={2}
               stroke="#10B981"
               fill="#ECFDF5"
+              stackId="1"
             />
             <Area
               type="monotone"
@@ -144,6 +164,7 @@ const HourSpent = () => {
               strokeWidth={2}
               stroke="#3B82F6"
               fill="#EFF6FF"
+              stackId="2"
             />
             <Area
               type="monotone"
@@ -151,6 +172,7 @@ const HourSpent = () => {
               strokeWidth={2}
               stroke="#F59E0B"
               fill="#FFFBEB"
+              stackId="3"
             />
             <Area
               type="monotone"
@@ -158,6 +180,7 @@ const HourSpent = () => {
               strokeWidth={2}
               stroke="#6366F1"
               fill="#EEF2FF"
+              stackId="4"
             />
           </AreaChart>
         </ResponsiveContainer>
