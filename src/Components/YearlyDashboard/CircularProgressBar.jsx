@@ -15,15 +15,15 @@ const CircularProgressBar = ({
 
   const gradientId = `progressGradient-${getPercentage}`;
 
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setGetPercentage(i);
-      i++;
-      if (i > percentage) clearInterval(interval);
-    }, 100);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   let i = 0;
+  //   const interval = setInterval(() => {
+  //     setGetPercentage(i);
+  //     i++;
+  //     if (i > percentage) clearInterval(interval);
+  //   }, 100);
+  //   return () => clearInterval(interval);
+  // }, [ percentage]);
 
   return (
     <svg width={sqSize} height={sqSize} viewBox={viewBox}>
