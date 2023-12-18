@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import MarkF2 from '../../assets/mark2.png'
+import MarkIcon2 from '../../assets/mark2.png'
 
 const PricingCard = ({ planType, planDetails, subType, featuresOne, featuresTwo, featuresThree, featuresFour, featuresFive, subBtn, sub_time, dataAos, dataDuration }) => {
     return (
