@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 
 import SmallCalendar from "./SmallCalendar";
 import GlobalContext from "../../context/GlobalContext";
+import CreateEventButton from "./CreateEventButton";
 export default function CalendarHeader() {
   const { monthIndex, setMonthIndex } = useContext(GlobalContext);
 
@@ -25,7 +26,7 @@ export default function CalendarHeader() {
     <header className="px-4 py-2 flex items-center w-[80%] mx-auto mb-5">
       {/* <img src={logo} alt="calendar" className="mr-2 w-12 h-12" /> */}
 
-      <h1 className="mr-10 text-xl text-gray-500 fond-bold">Calendar</h1>
+      <h1 className="mr-10 text-xl text-gray-500 fond-bold">ReTracker</h1>
 
       <button onClick={handleReset} className="border rounded py-2 px-4 mr-5">
         Today
@@ -50,6 +51,7 @@ export default function CalendarHeader() {
         </h2>
         {isSmallCallenderActive && <SmallCalendar />}
       </div>
+      <CreateEventButton />
     </header>
   );
 }
