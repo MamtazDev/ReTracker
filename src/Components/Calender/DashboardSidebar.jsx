@@ -16,7 +16,7 @@ const DashboardSidebar = ({ setOffcanvas, offcanvas }) => {
   const [open, setOpen] = useState(false);
   return (
     <div
-      className={`${offcanvas ? "fixed lg:relative z-10" : "hidden lg:block"}`}
+      className={`${offcanvas ? "fixed lg:relative z-10" : "hidden lg:block"} h-full`}
     >
       <div className="bg-indigo-950 text-base font-medium text-white h-screen flex flex-col justify-between">
         <div>
@@ -55,9 +55,9 @@ const DashboardSidebar = ({ setOffcanvas, offcanvas }) => {
             Calendar Overview
           </Link>
           <Link
-            to="/dashboard/calender"
+            to="/dashboard/yearly"
             className={`${
-              location.pathname === "/" && "text-indigo-400"
+              location.pathname === "/dashboard/yearly" && "text-indigo-400"
             } px-6 py-4 flex items-center gap-3  mb-6`}
           >
             <img src={dashboard} alt="" />

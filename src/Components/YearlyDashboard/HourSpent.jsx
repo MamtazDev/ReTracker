@@ -10,6 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import GraphLegend from "./GraphLegend";
 
 const HourSpent = () => {
   const data = [
@@ -106,8 +107,6 @@ const HourSpent = () => {
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
-            // width={500}
-            // height={400}
             data={data}
             margin={{
               top: 10,
@@ -159,27 +158,7 @@ const HourSpent = () => {
           </AreaChart>
         </ResponsiveContainer>
       </div>
-      <div className="flex items-center justify-center gap-6 mt-8">
-        <p className="flex items-center gap-2 text-sm font-medium text-slate-950">
-          <span className="bg-emerald-500 w-2 h-2 rounded-full block"></span>
-          Repairs
-        </p>
-        <p className="flex items-center gap-2 text-sm font-medium text-slate-950">
-          {" "}
-          <span className="bg-blue-500 w-2 h-2 rounded-full block"></span>
-          Management
-        </p>
-        <p className="flex items-center gap-2 text-sm font-medium text-slate-950">
-          {" "}
-          <span className="bg-[#F59E0B] w-2 h-2 rounded-full block"></span>
-          Analysis
-        </p>
-        <p className="flex items-center gap-2 text-sm font-medium text-slate-950">
-          {" "}
-          <span className="bg-indigo-500 w-2 h-2 rounded-full block"></span>
-          Consultation
-        </p>
-      </div>
+      <GraphLegend />
     </div>
   );
 };
