@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import brandLogo from "../assets/logo.png";
 import { Link, useLocation } from "react-router-dom";
+import brandLogo from "../assets/logo.png";
 import responsiveBtn from "../assets/res-btn.png";
 
 const Header = () => {
@@ -17,8 +17,7 @@ const Header = () => {
           isOpen
             ? "bg-slate-950 rounded-[20px] p-2 lg:p-4 text-white capitalize mx-auto"
             : "bg-slate-950 rounded-full p-2 lg:p-4 text-white capitalize mx-auto"
-        }
-      >
+        }>
         <nav className={isOpen ? "block" : "flex flex-wrap items-center"}>
           {isOpen ? (
             <div className="flex justify-between mb-4">
@@ -64,13 +63,11 @@ const Header = () => {
                 isOpen
                   ? "navbar-nav block"
                   : "navbar-nav flex flex-wrap items-center gap-11"
-              }
-            >
+              }>
               <li className={isOpen ? "nav-items mb-8" : "nav-items"}>
                 <Link
                   to={"/"}
-                  className="nav-link text-base font-semibold text-white capitalize"
-                >
+                  className="nav-link text-base font-semibold text-white capitalize">
                   Home
                 </Link>
               </li>
@@ -78,8 +75,7 @@ const Header = () => {
               <li className={isOpen ? "nav-items mb-8" : "nav-items"}>
                 <Link
                   to={"/"}
-                  className="nav-link text-base font-semibold text-white capitalize"
-                >
+                  className="nav-link text-base font-semibold text-white capitalize">
                   Features
                 </Link>
               </li>
@@ -87,8 +83,7 @@ const Header = () => {
               <li className={isOpen ? "nav-items mb-8" : "nav-items"}>
                 <Link
                   to={"/"}
-                  className="nav-link text-base font-semibold text-white capitalize"
-                >
+                  className="nav-link text-base font-semibold text-white capitalize">
                   Pricing
                 </Link>
               </li>
@@ -96,8 +91,7 @@ const Header = () => {
               <li className={isOpen ? "nav-items mb-8" : "nav-items"}>
                 <Link
                   to={"/"}
-                  className="nav-link text-base font-semibold text-white capitalize"
-                >
+                  className="nav-link text-base font-semibold text-white capitalize">
                   Contact
                 </Link>
               </li>
@@ -106,36 +100,32 @@ const Header = () => {
 
           <div className={isOpen ? "block" : "userBtn hidden md:block"}>
             <div className="flex flex-wrap gap-4 ">
-              {location.pathname !==
-                ("/login" &&
-                  "/forget-password" &&
-                  "/reset-password" &&
-                  "/add-priority") && (
-                <Link
-                  to="/login"
-                  className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300"
-                >
-                  Login
-                </Link>
-              )}
 
-              {location.pathname !==
-                ("/signup" &&
-                  "/verify-email" &&
-                  "/successful-verification" &&
-                  "/add-priority") && (
-                <Link
-                  to="/signup"
-                  className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white  transition-all duration-300"
-                >
-                  Sign up
-                </Link>
-              )}
+              {location.pathname !== "/login" &&
+                location.pathname !== "/forget-password" &&
+                location.pathname !== "/reset-password" &&
+                location.pathname !== "/add-priority" && (
+                  <Link
+                    to="/login"
+                    className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+                    Login
+                  </Link>
+                )}
+
+              {location.pathname !== "/signup" &&
+                location.pathname !== "/verify-email" &&
+                location.pathname !== "/successful-verification" &&
+                location.pathname !== "/add-priority" && (
+                  <Link
+                    to="/signup"
+                    className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white transition-all duration-300">
+                    Sign up
+                  </Link>
+                )}
               {location.pathname === "/add-priority" && (
                 <Link
                   to="#"
-                  className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white  transition-all duration-300"
-                >
+                  className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white  transition-all duration-300">
                   Go to account
                 </Link>
               )}
