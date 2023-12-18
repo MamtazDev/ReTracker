@@ -15,46 +15,88 @@ import GraphLegend from "./GraphLegend";
 const ExpenseGraph = () => {
   const data = [
     {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
+      name: "Jan",
+      Repairs: 300,
+      Management: 200,
+      Analysis: 300,
+      Consultation: 100,
     },
     {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
+      name: "Feb",
+      Repairs: 200,
+      Management: 28,
+      Analysis: 26,
+      Consultation: 25,
     },
     {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
+      name: "Mar",
+      Repairs: 100,
+      Management: 300,
+      Analysis: 20,
+      Consultation: 400,
     },
     {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
+      name: "Apr",
+      Repairs: 200,
+      Management: 400,
+      Analysis: 100,
+      Consultation: 200,
     },
     {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
+      name: "May",
+      Repairs: 300,
+      Management: 50,
+      Analysis: 20,
+      Consultation: 300,
     },
     {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
+      name: "Jun",
+      Repairs: 400,
+      Management: 100,
+      Analysis: 500,
+      Consultation: 200,
     },
     {
-      name: "Page G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      name: "Jul",
+      Repairs: 100,
+      Management: 50,
+      Analysis: 300,
+      Consultation: 100,
+    },
+    {
+      name: "Aug",
+      Repairs: 50,
+      Management: 20,
+      Analysis: 300,
+      Consultation: 50,
+    },
+    {
+      name: "Sep",
+      Repairs: 200,
+      Management: 200,
+      Analysis: 100,
+      Consultation: 300,
+    },
+    {
+      name: "Oct",
+      Repairs: 300,
+      Management: 200,
+      Analysis: 400,
+      Consultation: 100,
+    },
+    {
+      name: "Nov",
+      Repairs: 400,
+      Management: 500,
+      Analysis: 300,
+      Consultation: 200,
+    },
+    {
+      name: "Dec",
+      Repairs: 500,
+      Management: 200,
+      Analysis: 200,
+      Consultation: 100,
     },
   ];
   return (
@@ -76,8 +118,10 @@ const ExpenseGraph = () => {
             <XAxis dataKey="name" axisLine={false} tickLine={false} />
             <YAxis axisLine={false} tickLine={false} />
             <Tooltip />
-            <Bar dataKey="pv" stackId="a" fill="#8884d8" />
-            <Bar dataKey="uv" stackId="a" fill="#82ca9d" />
+            <Bar dataKey="Repairs" stackId="a" fill="#10B981" />
+            <Bar dataKey="Management" stackId="a" fill="#3B82F6" />
+            <Bar dataKey="Analysis" stackId="a" fill="#F59E0B" />
+            <Bar dataKey="Consultation" stackId="a" fill="#6366F1" />
           </BarChart>
         </ResponsiveContainer>
       </div>

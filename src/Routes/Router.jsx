@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
         element: <VerifyEmail />,
       },
       {
-        path: "/add-property",
+        path: "/add-priority",
         element: <AddProperty />,
       },
     ],
