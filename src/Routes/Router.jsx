@@ -9,6 +9,9 @@ import Signup from "../Pages/Signup";
 import EmailVerification from "../Pages/EmailVerification";
 import VerifyEmail from "../Pages/VerifyEmail";
 import AddProperty from "../Pages/AddProperty";
+import Calender from "../Pages/Calender";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import YearlyDashboard from "../Pages/YearlyDashboard";
 import Consulting from "../Pages/Consulting";
 import ConsultingNew from "../Pages/ConsultingNew";
 
@@ -53,7 +56,7 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "/add-property",
+        path: "/add-priority",
         element: <AddProperty />,
       },
 
@@ -65,6 +68,20 @@ export const router = createBrowserRouter([
       {
         path: "/consulting-new",
         element: <ConsultingNew />
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/dashboard/calender",
+        element: <Calender />,
+      },
+      {
+        path: "/dashboard/yearly",
+        element: <YearlyDashboard />,
       },
     ],
   },

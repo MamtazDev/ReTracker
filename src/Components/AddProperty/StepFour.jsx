@@ -5,6 +5,7 @@ import AuthTitle from "../../Shared/AuthTitle";
 import { FaPlus, FaMinus, FaChevronDown } from "react-icons/fa";
 import CountrySelect from "./CountrySelect";
 import countryCodes from "../../Utils/CountryCode";
+import dollar from "../../assets/dollar.png";
 
 const StepFour = ({ setStepper }) => {
   const [purchaseYear, setPurchaseYear] = useState(2023);
@@ -37,7 +38,7 @@ const StepFour = ({ setStepper }) => {
               <button
                 type="button"
                 onClick={() => setPurchaseYear(purchaseYear + 1)}
-                className="icon"
+                className="icon h-8 w-8"
               >
                 <FaPlus />
               </button>
@@ -45,7 +46,7 @@ const StepFour = ({ setStepper }) => {
               <button
                 onClick={() => setPurchaseYear(purchaseYear - 1)}
                 type="button"
-                className="icon"
+                className="icon h-8 w-8"
               >
                 <FaMinus />
               </button>
@@ -59,7 +60,7 @@ const StepFour = ({ setStepper }) => {
               <button
                 onClick={() => setServiceYear(serviceYear + 1)}
                 type="button"
-                className="icon"
+                className="icon h-8 w-8"
               >
                 <FaPlus />
               </button>
@@ -67,7 +68,7 @@ const StepFour = ({ setStepper }) => {
               <button
                 onClick={() => setServiceYear(serviceYear - 1)}
                 type="button"
-                className="icon"
+                className="icon h-8 w-8"
               >
                 <FaMinus />
               </button>
@@ -121,7 +122,7 @@ const StepFour = ({ setStepper }) => {
                       </svg>
                     </div>
                   )}
-                  <span className="text-slate-black text-sm font-medium">
+                  <span className="text-slate-950 text-sm font-medium">
                     {country ? country.code : "USD"}{" "}
                   </span>
                   <FaChevronDown />
@@ -151,7 +152,19 @@ const StepFour = ({ setStepper }) => {
               </div>
             </div>
           </div>
-          <input type="number" placeholder="0.00" />
+          <div className="relative">
+            <input
+              style={{ paddingLeft: "30px" }}
+              type="number"
+              placeholder="0.00"
+            />
+            <img
+              style={{ top: "50%", transform: "translateY(-50%" }}
+              className="absolute left-3"
+              src={dollar}
+              alt=""
+            />
+          </div>
         </div>
 
         <div className="flex flex-col lg:flex-row items-center gap-4 mt-5 lg:mt-10">

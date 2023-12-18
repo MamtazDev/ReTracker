@@ -49,7 +49,7 @@ const TestimonialCard = ({
                 </div>
 
                 <div className="author_info">
-                  <h5 className="text-sm font-normal text-slate-black">
+                  <h5 className="text-sm font-normal text-slate-950">
                     {authorName}
                   </h5>
                   <p className="text-[12px] font-medium text-primary">

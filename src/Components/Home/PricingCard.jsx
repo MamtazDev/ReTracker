@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import MarkIcon2 from '../../assets/mark2.png'
+import MarkF2 from '../../assets/mark2.png'
 
 const PricingCard = ({ planType, planDetails, subType, featuresOne, featuresTwo, featuresThree, featuresFour, featuresFive, subBtn, sub_time, dataAos, dataDuration }) => {
     return (
@@ -11,17 +11,17 @@ const PricingCard = ({ planType, planDetails, subType, featuresOne, featuresTwo,
                     <div className="pricing_card_type border p-8 rounded-t-2xl">
                         <div className="card_title">
                             <div className="packages_name">
-                                <h2 className='text-xl font-bold text-slate-black pb-2'>
+                                <h2 className='text-xl font-bold text-slate-950 pb-2'>
                                     {planType}
                                 </h2>
-                                <p className='text-base font-normal text-slate-black'>
+                                <p className='text-base font-normal text-slate-950'>
                                     {planDetails}
                                 </p>
                             </div>
                         </div>
 
                         <div className="sub_type py-8">
-                            <h2 className='text-4xl font-semibold text-slate-black'>
+                            <h2 className='text-4xl font-semibold text-slate-950'>
                                 {subType}<small className='text-base font-normal text-secondary'>{sub_time}</small>
                             </h2>
                         </div>

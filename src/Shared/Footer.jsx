@@ -112,7 +112,7 @@ const Footer = () => {
               </button>
             </form>
 
-            <p className="text-xs text-slate-black">
+            <p className="text-xs text-slate-950">
               By subscribing you agree to with our Privacy Policy and provide
               consent to receive updates from our company.
             </p>
