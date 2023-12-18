@@ -2,7 +2,7 @@ import React from "react";
 
 const GraphLegend = () => {
   return (
-    <div className="flex items-center justify-center gap-6 mt-8">
+    <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
       <p className="flex items-center gap-2 text-sm font-medium text-slate-950">
         <span className="bg-emerald-500 w-2 h-2 rounded-full block"></span>
         Repairs

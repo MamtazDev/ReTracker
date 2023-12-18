@@ -57,11 +57,12 @@ export default function Day({ day, rowIdx, setOpen ,eventData}) {
                 key={idx}
                 // onClick={() => setSelectedEvent(evt)}
                 onClick={handleOpen}
-                className={` border-l-8 border-${evt.label}-800 min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                className={`border-l-8 border-l-${evt.label} min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
               >
                 {/* <CountDown evt={evt} /> */}
                 {/* Data {evt.title} */}
                 {/* <p>Data {evt.label}</p> */}
+               
                 <p>Data {evt.startTime}</p>
                 {/* <p>Data {evt.startTime}</p> */}
               </div>
