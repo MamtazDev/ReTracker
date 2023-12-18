@@ -20,30 +20,30 @@ const GetStartdToday = () => {
                     />
 
                     <ul className='flex flex-col md:flex items-center md:flex-row gap-8 justify-center mb-12 '>
-                        <li className='text-sm font-medium text-slate-950 flex items-center gap-3'>
+                        <li className='text-sm font-medium text-slate-black flex items-center gap-2'>
                             <span className="flex-shrink-0">
-                                <img src={MarkIcon2} alt="mark-icon" />
+                                <img className='w-6' src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Streamlined Tasks
                         </li>
 
-                        <li className='text-sm font-medium text-slate-950 flex items-center gap-3'>
+                        <li className='text-sm font-medium text-slate-black flex items-center gap-2'>
                             <span className="flex-shrink-0">
-                                <img src={MarkIcon2} alt="mark-icon" />
+                                <img className='w-6' src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Smart Insights
                         </li>
 
-                        <li className='text-sm font-medium text-slate-950 flex items-center gap-3'>
+                        <li className='text-sm font-medium text-slate-black flex items-center gap-2'>
                             <span className="flex-shrink-0">
-                                <img src={MarkIcon2} alt="mark-icon" />
+                                <img className='w-6' src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Collaborate Seamlessly
                         </li>
 
-                        <li className='text-sm font-medium text-slate-950 flex items-center gap-3'>
+                        <li className='text-sm font-medium text-slate-black flex items-center gap-2'>
                             <span className="flex-shrink-0">
-                                <img src={MarkIcon2} alt="mark-icon" />
+                                <img className='w-6' src={MarkIcon2} alt="mark-icon" />
                             </span>
                             Secure and Reliable
                         </li>

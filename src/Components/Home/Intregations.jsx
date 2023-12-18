@@ -12,10 +12,10 @@ const Intregations = () => {
                 />
 
                 <div className='flex justify-center pb-7 md:pb-16'>
-                    <img src={intregrationImg} alt="img" />
+                    <img src={intregrationImg} alt="img" data-aos="fade-up" data-aos-duration="2000" />
                 </div>
 
-                <p className='text-sm md:text-lg font-normal text-slate-950 text-center mb-7 md:mb-12'>
+                <p className='text-sm md:text-lg font-normal text-slate-black text-center mb-7 md:mb-12' data-aos="fade-up" data-aos-duration="3000">
                     Experience a new level of productivity as RE Tracker seamlessly integrates with 50+ tools, <br /> enhancing your property management with unmatched efficiency and precision.
                 </p>
 
