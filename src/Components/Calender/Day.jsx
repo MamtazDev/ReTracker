@@ -3,7 +3,7 @@ import React, { useContext, useState, useEffect } from "react";
 import CountDown from "./CountDown";
 import GlobalContext from "../../context/GlobalContext";
 
-export default function Day({ day, rowIdx, setOpen ,eventData}) {
+export default function Day({ day, rowIdx, setOpen, eventData }) {
   const [dayEvents, setDayEvents] = useState([]);
   const {
     setDaySelected,
@@ -27,9 +27,10 @@ export default function Day({ day, rowIdx, setOpen ,eventData}) {
 
   // dayEvents.length && console.log("DayEvents:", dayEvents);
 
-  const handleOpen = (e) => {
+  const handleOpen = (e, idx) => {
     e.stopPropagation();
     setOpen(true);
+    setSelectedEvent(idx);
   };
 
   return (
@@ -56,13 +57,13 @@ export default function Day({ day, rowIdx, setOpen ,eventData}) {
               <div
                 key={idx}
                 // onClick={() => setSelectedEvent(evt)}
-                onClick={handleOpen}
+                onClick={() => handleOpen(idx)}
                 className={`border-l-8 border-l-${evt.label} min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
               >
                 {/* <CountDown evt={evt} /> */}
                 {/* Data {evt.title} */}
                 {/* <p>Data {evt.label}</p> */}
-               
+
                 <p>Data {evt.startTime}</p>
                 {/* <p>Data {evt.startTime}</p> */}
               </div>

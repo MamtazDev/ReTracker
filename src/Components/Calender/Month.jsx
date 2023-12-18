@@ -1,6 +1,6 @@
 import React from "react";
 import Day from "./Day";
-export default function Month({ month, setOpen, rowIdx,eventData }) {
+export default function Month({ month, setOpen, rowIdx,eventData ,setEventData}) {
   return (
     <div className="border rounded-xl">
       <div className="hidden flex-1 lg:grid grid-cols-1 lg:grid-cols-7 text-center ">
@@ -16,7 +16,7 @@ export default function Month({ month, setOpen, rowIdx,eventData }) {
         {month.map((row, i) => (
           <React.Fragment key={i}>
             {row.map((day, idx) => (
-              <Day day={day} key={idx} rowIdx={i} setOpen={setOpen} eventData={eventData} />
+              <Day day={day} key={idx} rowIdx={i} setOpen={setOpen} eventData={eventData} setEventData={setEventData} />
             ))}
           </React.Fragment>
         ))}
