@@ -104,7 +104,7 @@ const Header = () => {
               {location.pathname !== "/login" &&
                 location.pathname !== "/forget-password" &&
                 location.pathname !== "/reset-password" &&
-                location.pathname !== "/add-priority" && (
+                location.pathname !== "/add-property" && (
                   <Link
                     to="/login"
                     className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300">
@@ -115,14 +115,14 @@ const Header = () => {
               {location.pathname !== "/signup" &&
                 location.pathname !== "/verify-email" &&
                 location.pathname !== "/successful-verification" &&
-                location.pathname !== "/add-priority" && (
+                location.pathname !== "/add-property" && (
                   <Link
                     to="/signup"
                     className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white transition-all duration-300">
                     Sign up
                   </Link>
                 )}
-              {location.pathname === "/add-priority" && (
+              {location.pathname === "/add-property" && (
                 <Link
                   to="#"
                   className="text-base font-bold capitalize border border-white py-3 px-8 rounded-full bg-white hover:bg-black text-black hover:text-white  transition-all duration-300">

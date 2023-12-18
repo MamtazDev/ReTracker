@@ -56,18 +56,18 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "/add-priority",
+        path: "/add-property",
         element: <AddProperty />,
       },
 
       {
         path: "/consulting",
-        element: <Consulting />
+        element: <Consulting />,
       },
 
       {
         path: "/consulting-new",
-        element: <ConsultingNew />
+        element: <ConsultingNew />,
       },
     ],
   },
