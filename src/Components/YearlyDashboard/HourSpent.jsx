@@ -116,17 +116,24 @@ const HourSpent = () => {
             }}
           >
             <CartesianGrid vertical={false} strokeDasharray="" />
-            <XAxis dataKey="name" tickLine={false} />
+            <XAxis dataKey="name" tickLine={false} tick={{ fontSize: 12 }} />
             <YAxis
               axisLine={false}
               tickLine={false}
+              tick={{ fontSize: 12 }}
               tickFormatter={formatYAxisTick}
+              label={{
+                position: "insideLeft",
+                angle: -90,
+                dy: -10,
+                style: { textAnchor: "middle", fontSize: 12, lineHeight: 1 },
+              }}
             />
+
             <Tooltip />
             <Area
               type="monotone"
               dataKey="Repairs"
-              stackId="1"
               strokeWidth={2}
               stroke="#10B981"
               fill="#ECFDF5"
@@ -134,7 +141,6 @@ const HourSpent = () => {
             <Area
               type="monotone"
               dataKey="Management"
-              stackId="1"
               strokeWidth={2}
               stroke="#3B82F6"
               fill="#EFF6FF"
@@ -142,7 +148,6 @@ const HourSpent = () => {
             <Area
               type="monotone"
               dataKey="Analysis"
-              stackId="1"
               strokeWidth={2}
               stroke="#F59E0B"
               fill="#FFFBEB"
@@ -150,7 +155,6 @@ const HourSpent = () => {
             <Area
               type="monotone"
               dataKey="Consultation"
-              stackId="1"
               strokeWidth={2}
               stroke="#6366F1"
               fill="#EEF2FF"

@@ -116,8 +116,14 @@ const ExpenseGraph = () => {
             }}
           >
             <CartesianGrid vertical={false} strokeDasharray="" />
-            <XAxis dataKey="name" axisLine={false} tickLine={false} />
+            <XAxis
+              dataKey="name"
+              axisLine={false}
+              tickLine={false}
+              tick={{ fontSize: 12 }}
+            />
             <YAxis
+              tick={{ fontSize: 12 }}
               axisLine={false}
               tickLine={false}
               tickFormatter={formatYAxisTick}
