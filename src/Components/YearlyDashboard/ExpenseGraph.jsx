@@ -99,6 +99,7 @@ const ExpenseGraph = () => {
       Consultation: 100,
     },
   ];
+  const formatYAxisTick = (value) => `$${value}`;
   return (
     <div className="border border-slate-200 rounded-xl p-6">
       <ChartHeader title="Expense Graph" />
@@ -116,8 +117,12 @@ const ExpenseGraph = () => {
           >
             <CartesianGrid vertical={false} strokeDasharray="" />
             <XAxis dataKey="name" axisLine={false} tickLine={false} />
-            <YAxis axisLine={false} tickLine={false} />
-            <Tooltip />
+            <YAxis
+              axisLine={false}
+              tickLine={false}
+              tickFormatter={formatYAxisTick}
+            />
+            {/* <Tooltip /> */}
             <Bar dataKey="Repairs" stackId="a" fill="#10B981" />
             <Bar dataKey="Management" stackId="a" fill="#3B82F6" />
             <Bar dataKey="Analysis" stackId="a" fill="#F59E0B" />

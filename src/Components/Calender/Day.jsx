@@ -3,7 +3,7 @@ import React, { useContext, useState, useEffect } from "react";
 import CountDown from "./CountDown";
 import GlobalContext from "../../context/GlobalContext";
 
-export default function Day({ day, rowIdx, setOpen }) {
+export default function Day({ day, rowIdx, setOpen ,eventData}) {
   const [dayEvents, setDayEvents] = useState([]);
   const {
     setDaySelected,
@@ -21,8 +21,8 @@ export default function Day({ day, rowIdx, setOpen }) {
 
   function getCurrentDayClass() {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
-      ? "bg-blue-600 text-white rounded-full w-7"
-      : "";
+      ? "bg-primary text-white rounded-full w-6 h-6 text-xs font-normal flex items-center justify-center"
+      : "text-xs font-normal text-slate-950";
   }
 
   // dayEvents.length && console.log("DayEvents:", dayEvents);

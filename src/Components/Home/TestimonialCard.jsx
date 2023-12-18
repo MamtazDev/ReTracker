@@ -10,7 +10,7 @@ const TestimonialCard = ({
   cardDes,
   cardTitle,
   dataAos,
-  dataDuration
+  dataDuration,
 }) => {
   return (
     <div className="col-span-12 sm:col-span-6 lg:col-span-4">
@@ -21,27 +21,16 @@ const TestimonialCard = ({
         <div className="border rounded-2xl p-4 md:card_border h-full flex flex-col justify-between">
           <div className="card_content pb-4 md:pb-10">
             <div className="card_title">
-              <h2
-                className="text-lg font-medium text-slate-black pb-1"
-                data-aos="fade-up"
-                data-aos-duration="500">
+              <h2 className="text-lg font-medium text-slate-black pb-1">
                 {cardTitle}
               </h2>
             </div>
             <div className="card_des">
-              <p
-                className="text-sm font-normal text-slate-black"
-                data-aos="fade-up"
-                data-aos-duration="1000">
-                {cardDes}
-              </p>
+              <p className="text-sm font-normal text-slate-black">{cardDes}</p>
             </div>
           </div>
 
-          <div
-            className="card_athor"
-            data-aos="fade-up"
-            data-aos-duration="1000">
+          <div className="card_athor">
             <div className="author_wrapper flex justify-between items-center">
               <div className="flex items-center gap-4">
                 <div className="author_img">

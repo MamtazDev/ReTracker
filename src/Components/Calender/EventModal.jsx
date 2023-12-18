@@ -6,11 +6,11 @@ import pdf from "../../assets/pdf.png";
 import "../../Styles/Auth.css";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
-const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
 import cross from "../../assets/cross.png";
 import dollar from "../../assets/dollar.png";
 
-export default function EventModal({ setSuccessfullOpen }) {
+export default function EventModal({ setSuccessfullOpen,setEventData }) {
+  const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
   const [upload, setUpload] = useState(25);
@@ -113,6 +113,7 @@ export default function EventModal({ setSuccessfullOpen }) {
     };
 
     console.log(data, "data");
+    setEventData(data)
     setSuccessfullOpen(true);
     setShowEventModal(false);
   }

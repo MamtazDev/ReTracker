@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import Auth from "../Shared/Auth";
-import Banner from "../Components/ConsultingNew/Banner";
-import WhatWeDo from "../Components/ConsultingNew/WhatWeDo";
-import GetStartedToday from "../Components/ConsultingNew/GetStartedToday";
-import ConsultingOptions from "../Components/ConsultingNew/ConsultingOptions";
 import Aos from "aos";
+import React, { useEffect } from "react";
+import Banner from "../Components/ConsultingNew/Banner";
+import ConsultingOptions from "../Components/ConsultingNew/ConsultingOptions";
+import GetStartedToday from "../Components/ConsultingNew/GetStartedToday";
+import WhatWeDo from "../Components/ConsultingNew/WhatWeDo";
+import Auth from "../Shared/Auth";
 
 const ConsultingNew = () => {
   useEffect(() => {
