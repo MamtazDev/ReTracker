@@ -80,7 +80,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                   style={{ borderLeft: `6px solid ${evt.label}` }}
                   key={idx}
                   onClick={() => handleOpen(idx)}
-                  className={`flex items-center justify-between border-l-8 border-l-${evt.label}-100 text-center min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                  className={`flex items-center justify-between   min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
                 >
                   <div>
                     <p className="text-xs font-bold text-slate-950 mb-1">
