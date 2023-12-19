@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import React, { useContext, useState, useEffect } from "react";
 import CountDown from "./CountDown";
 import GlobalContext from "../../context/GlobalContext";
+import lock from "../../assets/lock.png";
 
 export default function Day({ day, rowIdx, setOpen, eventData }) {
   const [dayEvents, setDayEvents] = useState([]);
@@ -64,7 +65,13 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                 {/* Data {evt.title} */}
                 {/* <p>Data {evt.label}</p> */}
 
-                <p>Data {evt.startTime}</p>
+                {/* <p>Data {evt.startTime}</p> */}
+                <button className="text-white text-xs font-normal flex gap-[2px] items-center bg-red-500 py-[2px] px-2">
+                  <img src={lock} alt="" />
+                  27h:23m
+                </button>
+                <p className="text-sm font-bold text-slate-950">Consultation</p>
+                <p className="text-xs font-normal text-slate-500">9 Hours</p>
                 {/* <p>Data {evt.startTime}</p> */}
               </div>
             ))}

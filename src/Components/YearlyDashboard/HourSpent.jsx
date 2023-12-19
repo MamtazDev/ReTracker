@@ -101,23 +101,29 @@ const HourSpent = () => {
   ];
   const formatYAxisTick = (value) => `${value} Hrs`;
 
+  const [activeDataKey, setActiveDataKey] = React.useState(null);
+
+  const handleMouseOver = (dataKey) => {
+    setActiveDataKey(dataKey);
+  };
+
   const CustomTooltip = ({ active, payload, label }) => {
-    if (active) {
-      return (
-        <div className="custom-tooltip bg-white p-2 border rounded-lg shadow-lg">
-          <p className="label">{`${label} 2021`}</p>
-          {payload.map((entry, index) => (
-            <p key={index} className="intro">
-              {`${entry.name}: ${entry.value} Hrs`}
-            </p>
-          ))}
-        </div>
+    if (active && payload && payload.length) {
+      const activePayload = payload.find(
+        (item) => item.dataKey === activeDataKey
       );
+      if (activePayload) {
+        return (
+          <div className="custom-tooltip bg-white p-2 border rounded-lg shadow-lg">
+            <p className="label">{`${label} 2021`}</p>
+            <p className="intro">{`${activePayload.name}: ${activePayload.value} Hrs`}</p>
+          </div>
+        );
+      }
     }
-  
+
     return null;
   };
-  
 
   return (
     <div className="border border-slate-200 rounded-xl p-6">
@@ -157,6 +163,7 @@ const HourSpent = () => {
               stroke="#10B981"
               fill="#ECFDF5"
               stackId="1"
+              onMouseOver={() => handleMouseOver("Repairs")}
             />
             <Area
               type="monotone"
@@ -165,6 +172,7 @@ const HourSpent = () => {
               stroke="#3B82F6"
               fill="#EFF6FF"
               stackId="2"
+              onMouseOver={() => handleMouseOver("Management")}
             />
             <Area
               type="monotone"
@@ -173,6 +181,7 @@ const HourSpent = () => {
               stroke="#F59E0B"
               fill="#FFFBEB"
               stackId="3"
+              onMouseOver={() => handleMouseOver("Analysis")}
             />
             <Area
               type="monotone"
@@ -181,6 +190,7 @@ const HourSpent = () => {
               stroke="#6366F1"
               fill="#EEF2FF"
               stackId="4"
+              onMouseOver={() => handleMouseOver("Consultation")}
             />
           </AreaChart>
         </ResponsiveContainer>
