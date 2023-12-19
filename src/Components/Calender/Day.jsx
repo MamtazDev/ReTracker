@@ -3,7 +3,7 @@ import React, { useContext, useState, useEffect } from "react";
 import CountDown from "./CountDown";
 import GlobalContext from "../../context/GlobalContext";
 
-export default function Day({ day, rowIdx, setOpen ,eventData}) {
+export default function Day({ day, rowIdx, setOpen, eventData }) {
   const [dayEvents, setDayEvents] = useState([]);
   const {
     setDaySelected,
@@ -27,9 +27,10 @@ export default function Day({ day, rowIdx, setOpen ,eventData}) {
 
   // dayEvents.length && console.log("DayEvents:", dayEvents);
 
-  const handleOpen = (e) => {
+  const handleOpen = (e, idx) => {
     e.stopPropagation();
     setOpen(true);
+    setSelectedEvent(idx);
   };
 
   return (
@@ -51,21 +52,48 @@ export default function Day({ day, rowIdx, setOpen ,eventData}) {
         }}
       >
         <div className="">
-          <div className="flex flex-col gap-2 h-[90px] overflow-y-scroll no-scrollbar">
-            {dayEvents?.map((evt, idx) => (
-              <div
-                key={idx}
-                // onClick={() => setSelectedEvent(evt)}
-                onClick={handleOpen}
-                className={` border-l-8 border-${evt.label}-800 min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
-              >
-                {/* <CountDown evt={evt} /> */}
-                {/* Data {evt.title} */}
-                {/* <p>Data {evt.label}</p> */}
-                <p>Data {evt.startTime}</p>
-                {/* <p>Data {evt.startTime}</p> */}
-              </div>
-            ))}
+          <div className="flex flex-col gap-1 h-[90px] overflow-y-scroll no-scrollbar">
+            {dayEvents?.map((evt, idx) =>
+              dayEvents.length === 1 ? (
+                <div
+                  key={idx}
+                  style={{ borderLeft: `6px solid ${evt.label}` }}
+                  // onClick={() => setSelectedEvent(evt)}
+                  onClick={() => handleOpen(idx)}
+                  className={` text-center min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                >
+                  <CountDown evt={evt} />
+
+                  {/* Data {evt.title} */}
+                  {/* <p>Data {evt.label}</p> */}
+
+                  {/* <p>Data {evt.startTime}</p> */}
+
+                  <p className="text-sm font-bold text-slate-950 mb-1">
+                    Consultation
+                  </p>
+                  <p className="text-xs font-normal text-slate-500">9 Hours</p>
+                  {/* <p>Data {evt.startTime}</p> */}
+                </div>
+              ) : (
+                <div
+                  style={{ borderLeft: `6px solid ${evt.label}` }}
+                  key={idx}
+                  onClick={() => handleOpen(idx)}
+                  className={`flex items-center justify-between   min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                >
+                  <div>
+                    <p className="text-xs font-bold text-slate-950 mb-1">
+                      Consultation
+                    </p>
+                    <p className="text-xs font-normal text-slate-500">
+                      9 Hours
+                    </p>
+                  </div>
+                  <CountDown evt={evt} />
+                </div>
+              )
+            )}
           </div>
         </div>
       </div>

@@ -18,88 +18,113 @@ const HourSpent = () => {
       name: "Jan",
       Repairs: 300,
       Management: 200,
-      Analysis: 300,
-      Consultation: 100,
+      Analysis: 70,
+      Consultation: 50,
     },
     {
       name: "Feb",
       Repairs: 200,
-      Management: 28,
-      Analysis: 26,
+      Management: 100,
+      Analysis: 50,
       Consultation: 25,
     },
     {
       name: "Mar",
-      Repairs: 100,
-      Management: 300,
-      Analysis: 20,
-      Consultation: 400,
+      Repairs: 200,
+      Management: 140,
+      Analysis: 80,
+      Consultation: 40,
     },
     {
       name: "Apr",
       Repairs: 200,
-      Management: 400,
-      Analysis: 100,
-      Consultation: 200,
+      Management: 100,
+      Analysis: 50,
+      Consultation: 20,
     },
     {
       name: "May",
       Repairs: 300,
-      Management: 50,
-      Analysis: 20,
-      Consultation: 300,
+      Management: 140,
+      Analysis: 70,
+      Consultation: 30,
     },
     {
       name: "Jun",
-      Repairs: 400,
+      Repairs: 300,
       Management: 100,
-      Analysis: 500,
-      Consultation: 200,
+      Analysis: 50,
+      Consultation: 20,
     },
     {
       name: "Jul",
-      Repairs: 100,
-      Management: 50,
-      Analysis: 300,
+      Repairs: 280,
+      Management: 180,
+      Analysis: 140,
       Consultation: 100,
     },
     {
       name: "Aug",
-      Repairs: 50,
-      Management: 20,
-      Analysis: 300,
+      Repairs: 240,
+      Management: 140,
+      Analysis: 70,
       Consultation: 50,
     },
     {
       name: "Sep",
-      Repairs: 200,
+      Repairs: 300,
       Management: 200,
-      Analysis: 100,
-      Consultation: 300,
+      Analysis: 70,
+      Consultation: 30,
     },
     {
       name: "Oct",
       Repairs: 300,
       Management: 200,
-      Analysis: 400,
+      Analysis: 120,
       Consultation: 100,
     },
     {
       name: "Nov",
-      Repairs: 400,
-      Management: 500,
-      Analysis: 300,
-      Consultation: 200,
+      Repairs: 140,
+      Management: 80,
+      Analysis: 40,
+      Consultation: 20,
     },
     {
       name: "Dec",
-      Repairs: 500,
-      Management: 200,
-      Analysis: 200,
-      Consultation: 100,
+      Repairs: 310,
+      Management: 80,
+      Analysis: 50,
+      Consultation: 10,
     },
   ];
   const formatYAxisTick = (value) => `${value} Hrs`;
+
+  const [activeDataKey, setActiveDataKey] = React.useState(null);
+
+  const handleMouseOver = (dataKey) => {
+    setActiveDataKey(dataKey);
+  };
+
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      const activePayload = payload.find(
+        (item) => item.dataKey === activeDataKey
+      );
+      if (activePayload) {
+        return (
+          <div className="custom-tooltip bg-white p-2 border rounded-lg shadow-lg">
+            <p className="label">{`${label} 2021`}</p>
+            <p className="intro">{`${activePayload.name}: ${activePayload.value} Hrs`}</p>
+          </div>
+        );
+      }
+    }
+
+    return null;
+  };
+
   return (
     <div className="border border-slate-200 rounded-xl p-6">
       <ChartHeader title="Hours Spent" />
@@ -116,44 +141,56 @@ const HourSpent = () => {
             }}
           >
             <CartesianGrid vertical={false} strokeDasharray="" />
-            <XAxis dataKey="name" tickLine={false} />
+            <XAxis dataKey="name" tickLine={false} tick={{ fontSize: 12 }} />
             <YAxis
               axisLine={false}
               tickLine={false}
+              tick={{ fontSize: 12 }}
               tickFormatter={formatYAxisTick}
+              label={{
+                position: "insideLeft",
+                angle: -90,
+                dy: -10,
+                style: { textAnchor: "middle", fontSize: 12, lineHeight: 1 },
+              }}
             />
-            <Tooltip />
+
+            <Tooltip content={<CustomTooltip />} />
             <Area
               type="monotone"
               dataKey="Repairs"
-              stackId="1"
               strokeWidth={2}
               stroke="#10B981"
               fill="#ECFDF5"
+              stackId="1"
+              onMouseOver={() => handleMouseOver("Repairs")}
             />
             <Area
               type="monotone"
               dataKey="Management"
-              stackId="1"
               strokeWidth={2}
               stroke="#3B82F6"
               fill="#EFF6FF"
+              stackId="2"
+              onMouseOver={() => handleMouseOver("Management")}
             />
             <Area
               type="monotone"
               dataKey="Analysis"
-              stackId="1"
               strokeWidth={2}
               stroke="#F59E0B"
               fill="#FFFBEB"
+              stackId="3"
+              onMouseOver={() => handleMouseOver("Analysis")}
             />
             <Area
               type="monotone"
               dataKey="Consultation"
-              stackId="1"
               strokeWidth={2}
               stroke="#6366F1"
               fill="#EEF2FF"
+              stackId="4"
+              onMouseOver={() => handleMouseOver("Consultation")}
             />
           </AreaChart>
         </ResponsiveContainer>

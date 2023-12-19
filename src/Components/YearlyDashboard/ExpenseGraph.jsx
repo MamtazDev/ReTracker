@@ -116,17 +116,23 @@ const ExpenseGraph = () => {
             }}
           >
             <CartesianGrid vertical={false} strokeDasharray="" />
-            <XAxis dataKey="name" axisLine={false} tickLine={false} />
+            <XAxis
+              dataKey="name"
+              axisLine={false}
+              tickLine={false}
+              tick={{ fontSize: 12 }}
+            />
             <YAxis
+              tick={{ fontSize: 12 }}
               axisLine={false}
               tickLine={false}
               tickFormatter={formatYAxisTick}
             />
             {/* <Tooltip /> */}
-            <Bar dataKey="Repairs" stackId="a" fill="#10B981" />
-            <Bar dataKey="Management" stackId="a" fill="#3B82F6" />
-            <Bar dataKey="Analysis" stackId="a" fill="#F59E0B" />
             <Bar dataKey="Consultation" stackId="a" fill="#6366F1" />
+            <Bar dataKey="Analysis" stackId="a" fill="#F59E0B" />
+            <Bar dataKey="Management" stackId="a" fill="#3B82F6" />
+            <Bar dataKey="Repairs" stackId="a" fill="#10B981" />
           </BarChart>
         </ResponsiveContainer>
       </div>

@@ -4,10 +4,10 @@ import GraphLegend from "./GraphLegend";
 
 const TaskCompletion = () => {
   return (
-    <div className="border border-slate-200 rounded-xl p-6">
+    <div className="border flex flex-col justify-between border-slate-200 rounded-xl p-6">
       <ChartHeader title="Task Completion Rate" />
 
-      <div className="h-64 flex justify-between items-center gap-5">
+      <div className="flex flex-wrap  justify-center items-center gap-8">
         <div>
           <CircularProgressBar
             strokeWidth={10}

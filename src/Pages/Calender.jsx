@@ -24,7 +24,7 @@ const Calender = () => {
 
   return (
     <div >
-      {showEventModal && <EventModal setSuccessfullOpen={setSuccessfullOpen} setEventData={setEventData} />}
+      {showEventModal && <EventModal setSuccessfullOpen={setSuccessfullOpen} setEventData={setEventData}  />}
       {successfullOpen && (
         <Successfull setSuccessfullOpen={setSuccessfullOpen} />
       )}
@@ -32,7 +32,7 @@ const Calender = () => {
       <div className="flex w-full">
         <div className="px-8 pt-8 w-full ">
           <CalendarHeader />
-          <Month month={currenMonth} setOpen={setOpen} eventData={eventData} />
+          <Month month={currenMonth} setOpen={setOpen} eventData={eventData} setEventData={setEventData}/>
         </div>
         <Sidebar open={open} setOpen={setOpen} />
       </div>

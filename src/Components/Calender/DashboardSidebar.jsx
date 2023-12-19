@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../../assets/dashboardLogo.png";
 import calender from "../../assets/calender.png";
 import dashboard from "../../assets/dashboard.png";
+import dashboardActive from "../../assets/dashboard-active.png";
 import properties from "../../assets/properties.png";
 import workers from "../../assets/workers.png";
 import profile from "../../assets/userProfile.png";
@@ -16,9 +17,11 @@ const DashboardSidebar = ({ setOffcanvas, offcanvas }) => {
   const [open, setOpen] = useState(false);
   return (
     <div
-      className={`${offcanvas ? "fixed lg:relative z-10" : "hidden lg:block"} h-full`}
+      className={`${
+        offcanvas ? "fixed lg:relative z-10" : "hidden lg:block"
+      } h-full`}
     >
-      <div className="bg-indigo-950 text-base font-medium text-white h-screen flex flex-col justify-between">
+      <div className="bg-indigo-950 text-sm font-medium text-white h-screen flex flex-col justify-between">
         <div>
           <div className="flex items-center justify-between">
             <Link className="px-6 py-5 block" to="/">
@@ -48,7 +51,8 @@ const DashboardSidebar = ({ setOffcanvas, offcanvas }) => {
           <Link
             to="/dashboard/calender"
             className={`${
-              location.pathname === "/dashboard/calender" && "text-indigo-400"
+              location.pathname === "/dashboard/calender" &&
+              "text-indigo-400 bg-[#14112E] border-l-[5px] border-indigo-400"
             } px-6 py-4 flex items-center gap-3 `}
           >
             <img src={calender} alt="" />
@@ -57,10 +61,18 @@ const DashboardSidebar = ({ setOffcanvas, offcanvas }) => {
           <Link
             to="/dashboard/yearly"
             className={`${
-              location.pathname === "/dashboard/yearly" && "text-indigo-400"
-            } px-6 py-4 flex items-center gap-3  mb-6`}
+              location.pathname === "/dashboard/yearly" &&
+              "text-indigo-400 bg-[#14112E] border-l-[5px]  border-indigo-400"
+            } px-6 py-4 flex items-center gap-3  mb-6 `}
           >
-            <img src={dashboard} alt="" />
+            <img
+              src={
+                location.pathname === "/dashboard/yearly"
+                  ? dashboardActive
+                  : dashboard
+              }
+              alt=""
+            />
             Yearly Dashboard
           </Link>
           <p className="text-indigo-200 text-xs font-bold pl-6 mb-6">Manage</p>
