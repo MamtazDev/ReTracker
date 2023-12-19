@@ -26,8 +26,8 @@ function CountDown({ evt }) {
     };
     return remaining;
   }
-  console.log("evt.startTime:", evt.startTime);
-  console.log("evt.startTime:", evt.endTime);
+  // console.log("evt.startTime:", evt.startTime);
+  // console.log("evt.startTime:", evt.endTime);
 
   return (
     <div className="flex justify-center">

@@ -30,12 +30,16 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
   const handleOpen = (e, idx) => {
     e.stopPropagation();
     setOpen(true);
-    setSelectedEvent(idx);
+    console.log("clicked");
+    // setSelectedEvent(idx);
   };
 
   return (
     <div className="border-r border-t border-gray-200 flex gap-2 flex-row lg:flex-col p-0 lg:p-2 min-h-16 h-auto lg:h-[138px]">
-      <header className="w-16 lg:w-auto border-r lg:border-none flex flex-col items-center justify-center">
+      <header
+        onClick={() => setShowEventModal(true)}
+        className="w-16 lg:w-auto border-r lg:border-none flex flex-col items-center justify-center"
+      >
         <p className="lg:hidden text-sm ">{day.format("ddd").toUpperCase()}</p>
 
         <p
@@ -59,7 +63,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                   key={idx}
                   style={{ borderLeft: `6px solid ${evt.label}` }}
                   // onClick={() => setSelectedEvent(evt)}
-                  onClick={() => handleOpen(idx)}
+                  onClick={(e) => handleOpen(e, idx)}
                   className={` text-center min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
                 >
                   <CountDown evt={evt} />
@@ -79,7 +83,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                 <div
                   style={{ borderLeft: `6px solid ${evt.label}` }}
                   key={idx}
-                  onClick={() => handleOpen(idx)}
+                  onClick={(e) => handleOpen(e, idx)}
                   className={`flex items-center justify-between   min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
                 >
                   <div>
