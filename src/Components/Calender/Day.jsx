@@ -66,11 +66,13 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                 {/* <p>Data {evt.label}</p> */}
 
                 {/* <p>Data {evt.startTime}</p> */}
-                <button className="text-white text-xs font-normal flex gap-[2px] items-center bg-red-500 py-[2px] px-2">
+                <button className="text-white text-xs font-normal flex gap-[2px] rounded-full items-center bg-red-500 mb-1 py-[2px] px-2">
                   <img src={lock} alt="" />
                   27h:23m
                 </button>
-                <p className="text-sm font-bold text-slate-950">Consultation</p>
+                <p className="text-sm font-bold text-slate-950 mb-1">
+                  Consultation
+                </p>
                 <p className="text-xs font-normal text-slate-500">9 Hours</p>
                 {/* <p>Data {evt.startTime}</p> */}
               </div>
