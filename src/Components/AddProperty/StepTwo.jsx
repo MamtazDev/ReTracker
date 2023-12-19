@@ -42,7 +42,7 @@ const StepTwo = ({ stepper, setStepper }) => {
                 <div
                   onClick={() => handleOptionClick(index)}
                   key={index}
-                  className="border border-[#E5E7EB] rounded-lg p-5 flex flex-col lg:flex-row items-start gap-4 "
+                  className="cursor-pointer border border-[#E5E7EB] rounded-lg p-5 flex flex-col lg:flex-row items-start gap-4 "
                 >
                   <div
                     className={`cursor-pointer flex-shrink-0 h-4 w-4 rounded-full mt-1 ${
