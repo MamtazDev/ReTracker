@@ -2,7 +2,6 @@ import dayjs from "dayjs";
 import React, { useContext, useState, useEffect } from "react";
 import CountDown from "./CountDown";
 import GlobalContext from "../../context/GlobalContext";
-import lock from "../../assets/lock.png";
 
 export default function Day({ day, rowIdx, setOpen, eventData }) {
   const [dayEvents, setDayEvents] = useState([]);
@@ -53,30 +52,46 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
         }}
       >
         <div className="">
-          <div className="flex flex-col gap-2 h-[90px] overflow-y-scroll no-scrollbar">
-            {dayEvents?.map((evt, idx) => (
-              <div
-                key={idx}
-                // onClick={() => setSelectedEvent(evt)}
-                onClick={() => handleOpen(idx)}
-                className={`border-l-8 border-l-${evt.label} min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
-              >
-                {/* <CountDown evt={evt} /> */}
-                {/* Data {evt.title} */}
-                {/* <p>Data {evt.label}</p> */}
+          <div className="flex flex-col gap-1 h-[90px] overflow-y-scroll no-scrollbar">
+            {dayEvents?.map((evt, idx) =>
+              dayEvents.length === 1 ? (
+                <div
+                  key={idx}
+                  // onClick={() => setSelectedEvent(evt)}
+                  onClick={() => handleOpen(idx)}
+                  className={`border-l-8 border-l-${evt.label}-100 text-center min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                >
+                  <CountDown evt={evt} />
 
-                {/* <p>Data {evt.startTime}</p> */}
-                <button className="text-white text-xs font-normal flex gap-[2px] rounded-full items-center bg-red-500 mb-1 py-[2px] px-2">
-                  <img src={lock} alt="" />
-                  27h:23m
-                </button>
-                <p className="text-sm font-bold text-slate-950 mb-1">
-                  Consultation
-                </p>
-                <p className="text-xs font-normal text-slate-500">9 Hours</p>
-                {/* <p>Data {evt.startTime}</p> */}
-              </div>
-            ))}
+                  {/* Data {evt.title} */}
+                  {/* <p>Data {evt.label}</p> */}
+
+                  {/* <p>Data {evt.startTime}</p> */}
+
+                  <p className="text-sm font-bold text-slate-950 mb-1">
+                    Consultation
+                  </p>
+                  <p className="text-xs font-normal text-slate-500">9 Hours</p>
+                  {/* <p>Data {evt.startTime}</p> */}
+                </div>
+              ) : (
+                <div
+                  key={idx}
+                  onClick={() => handleOpen(idx)}
+                  className={`flex items-center justify-between border-l-8 border-l-${evt.label}-100 text-center min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                >
+                  <div>
+                    <p className="text-xs font-bold text-slate-950 mb-1">
+                      Consultation
+                    </p>
+                    <p className="text-xs font-normal text-slate-500">
+                      9 Hours
+                    </p>
+                  </div>
+                  <CountDown evt={evt} />
+                </div>
+              )
+            )}
           </div>
         </div>
       </div>
