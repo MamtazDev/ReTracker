@@ -61,7 +61,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
               dayEvents.length === 1 ? (
                 <div
                   key={idx}
-                  style={{ borderLeft: `6px solid ${evt.label}` }}
+                  style={{ borderLeft: `3px solid ${evt.label}` }}
                   // onClick={() => setSelectedEvent(evt)}
                   onClick={(e) => handleOpen(e, idx)}
                   className={` text-center min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
@@ -81,7 +81,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                 </div>
               ) : (
                 <div
-                  style={{ borderLeft: `6px solid ${evt.label}` }}
+                  style={{ borderLeft: `3px solid ${evt.label}` }}
                   key={idx}
                   onClick={(e) => handleOpen(e, idx)}
                   className={`flex items-center justify-between   min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
