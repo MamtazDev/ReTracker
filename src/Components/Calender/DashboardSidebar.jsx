@@ -18,7 +18,7 @@ const DashboardSidebar = ({ setOffcanvas, offcanvas }) => {
   return (
     <div
       className={`${
-        offcanvas ? "fixed lg:relative z-10" : "hidden lg:block"
+        offcanvas ? "fixed lg:relative z-50" : "hidden lg:block"
       } h-full`}
     >
       <div className="bg-indigo-950 text-sm font-medium text-white h-screen flex flex-col justify-between">

@@ -53,6 +53,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
         onClick={() => {
           setDaySelected(day);
           setShowEventModal(true);
+          setOpen(false);
         }}
       >
         <div className="">
