@@ -7,6 +7,7 @@ import plus from "../../assets/add.png";
 
 import SmallCalendar from "./SmallCalendar";
 import GlobalContext from "../../context/GlobalContext";
+import CreateEventButton from "./CreateEventButton";
 export default function CalendarHeader() {
   const { monthIndex, setMonthIndex, setShowEventModal } =
     useContext(GlobalContext);

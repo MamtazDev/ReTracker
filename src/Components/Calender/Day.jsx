@@ -17,6 +17,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
       (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
     );
     setDayEvents(events);
+    console.log("events", events)
   }, [filteredEvents, day]);
 
   function getCurrentDayClass() {
@@ -27,11 +28,11 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
 
   // dayEvents.length && console.log("DayEvents:", dayEvents);
 
-  const handleOpen = (e, idx) => {
+  const handleOpen = (e, idx, evt) => {
     e.stopPropagation();
     setOpen(true);
     console.log("clicked");
-    // setSelectedEvent(idx);
+    setSelectedEvent(evt);
   };
 
   return (
@@ -62,34 +63,37 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
               dayEvents.length === 1 ? (
                 <div
                   key={idx}
-                  style={{ borderLeft: `3px solid ${evt.label}` }}
+                  style={{ borderLeft: `3px solid ${colorPalate[evt.category]}` }}
                   // onClick={() => setSelectedEvent(evt)}
-                  onClick={(e) => handleOpen(e, idx)}
-                  className={` text-center min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                  onClick={(e) =>{
+                    setSelectedEvent(evt);
+                    handleOpen(e, idx, evt)}}
+                  className={` text-center min-h-[43px]  h-full bg-purple-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
                 >
                   <CountDown evt={evt} />
 
-                  {/* Data {evt.title} */}
+                
                   {/* <p>Data {evt.label}</p> */}
 
                   {/* <p>Data {evt.startTime}</p> */}
 
                   <p className="text-sm font-bold text-slate-950 mb-1">
-                    Consultation
+                  {evt.category}
                   </p>
-                  <p className="text-xs font-normal text-slate-500">9 Hours</p>
-                  {/* <p>Data {evt.startTime}</p> */}
+                 
+                  <StartEndDiff evt={evt} />
+                  
                 </div>
               ) : (
                 <div
-                  style={{ borderLeft: `3px solid ${evt.label}` }}
+                  style={{ borderLeft: `3px solid ${colorPalate["Repairs"]}-500` }}
                   key={idx}
                   onClick={(e) => handleOpen(e, idx)}
-                  className={`flex items-center justify-between   min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                  className={`flex items-center justify-between   min-h-[43px]  h-full bg-purple-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
                 >
                   <div>
                     <p className="text-xs font-bold text-slate-950 mb-1">
-                      Consultation
+                      Consultation s
                     </p>
                     <p className="text-xs font-normal text-slate-500">
                       9 Hours
@@ -104,4 +108,20 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
       </div>
     </div>
   );
+}
+
+const colorPalate = {
+  "Consultation":"Purple",
+  "Repairs":"Pink",
+  "Management":"Green",
+  "Analysis":"Yellow",
+}
+
+
+function StartEndDiff({evt}) {
+  return (
+    <>
+     <p className="text-xs font-normal text-slate-500">9 Hours</p>
+    </>
+  )
 }
