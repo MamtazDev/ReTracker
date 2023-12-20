@@ -19,9 +19,13 @@ const StepFive = () => {
   };
 
   const handleAddEmail = () => {
-    if (emailInput.trim() !== "") {
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.trim());
+
+    if (isValidEmail) {
       setEmailList((prevEmails) => [...prevEmails, emailInput.trim()]);
       setEmailInput("");
+    } else {
+      console.log("Invalid email address");
     }
   };
 
@@ -71,7 +75,7 @@ const StepFive = () => {
             <button
               onClick={copyToClipboard}
               type="button"
-              className="hidden lg:block border border-primary text-primary rounded-full py-2 px-4"
+              className="hidden lg:block border border-primary text-primary rounded-full py-2 px-4 cursor-copy"
             >
               Copy Link
             </button>
@@ -91,9 +95,7 @@ const StepFive = () => {
         </div>
         <div>
           <div className="mb-2">
-            <label>
-              Invite by email <span>(Comma Separated)</span>{" "}
-            </label>
+            <label>Invite by email</label>
             <input
               type="email"
               value={emailInput}
