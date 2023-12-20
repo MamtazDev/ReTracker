@@ -25,7 +25,9 @@ const ActivityDetails = ({ setOpen }) => {
       console.error("Error downloading the file:", error);
     }
   };
-  const { setShowEventModal } = useContext(GlobalContext);
+  const { setShowEventModal, selectedEvent } = useContext(GlobalContext);
+
+  console.log("selectedEvent: ", selectedEvent)
   return (
     <div >
       <div className=" px-6 py-4 flex items-center gap-3 border-b border-slate-200 ">
