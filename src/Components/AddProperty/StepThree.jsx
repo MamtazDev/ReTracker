@@ -11,9 +11,16 @@ const StepThree = ({ stepper, setStepper }) => {
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
 
+
   const handleFileChange = (event) => {
     const files = event.target.files;
-    setSelectedImages((prevImages) => [...prevImages, ...Array.from(files)]);
+    for (const file of files) {
+      if (file.size <= 2 * 1024 * 1024) {
+        setSelectedImages((prevImages) => [...prevImages, file]);
+      } else {
+        console.log(`File ${file.name} exceeds the maximum size limit (2MB)`);
+      }
+    }
   };
 
   const handleDrop = (event) => {

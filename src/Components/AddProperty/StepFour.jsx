@@ -15,8 +15,8 @@ const StepFour = ({ setStepper }) => {
   const [serviceYear, setServiceYear] = useState(2023);
   const [showDropdown, setShowDropDown] = useState(false);
   const [country, setCountry] = useState();
-  const [dollarvalue,setDollar] = useState('')
-  console.log(country,"ppp");
+  const [dollarvalue, setDollar] = useState("");
+  console.log(country, "ppp");
 
   useEffect(() => {
     const svgElement = document.querySelector("#flagContainer svg");
@@ -36,14 +36,13 @@ const StepFour = ({ setStepper }) => {
   const handleContinue = () => {
     setPropertyData((prevData) => ({
       ...prevData,
-      purchaseYear:purchaseYear,
-      serviceYear:serviceYear,
-      country:country?.name,
-      dollar:dollarvalue,
+      purchaseYear: purchaseYear,
+      serviceYear: serviceYear,
+      country: country?.name,
+      dollar: dollarvalue,
     }));
     setStepper(5);
   };
-
 
   return (
     <div>
@@ -189,6 +188,9 @@ const StepFour = ({ setStepper }) => {
               placeholder="0.00"
               value={dollarvalue}
               onChange={handleInputChange}
+              onKeyDown={(e) =>
+                ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
+              }
             />
             <img
               style={{ top: "50%", transform: "translateY(-50%" }}
