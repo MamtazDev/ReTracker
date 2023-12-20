@@ -58,19 +58,19 @@ const StepFour = ({ setStepper }) => {
             </label>
             <div className="flex justify-between year">
               <button
-                onClick={() => setServiceYear(serviceYear + 1)}
-                type="button"
-                className="icon h-8 w-8"
-              >
-                <FaPlus />
-              </button>
-              <p>{serviceYear}</p>
-              <button
                 onClick={() => setServiceYear(serviceYear - 1)}
                 type="button"
                 className="icon h-8 w-8"
               >
                 <FaMinus />
+              </button>
+              <p>{serviceYear}</p>
+              <button
+                onClick={() => setServiceYear(serviceYear + 1)}
+                type="button"
+                className="icon h-8 w-8"
+              >
+                <FaPlus />
               </button>
             </div>
           </div>
