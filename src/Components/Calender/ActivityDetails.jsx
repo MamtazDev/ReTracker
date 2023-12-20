@@ -25,9 +25,11 @@ const ActivityDetails = ({ setOpen }) => {
       console.error("Error downloading the file:", error);
     }
   };
-  const { setShowEventModal } = useContext(GlobalContext);
+  const { setShowEventModal, selectedEvent } = useContext(GlobalContext);
+
+  console.log("selectedEvent: ", selectedEvent);
   return (
-    <div >
+    <div>
       <div className=" px-6 py-4 flex items-center gap-3 border-b border-slate-200 ">
         <button className="cursor-pointer" onClick={() => setOpen(false)}>
           <img src={back} alt="" />
@@ -105,13 +107,18 @@ const ActivityDetails = ({ setOpen }) => {
           </div>
           <div className="flex items-center gap-4">
             <OutLineBtn>Delete</OutLineBtn>
-            <div className="w-full" onClick={() => setShowEventModal(true)}>
+            <div
+              className="w-full"
+              onClick={() => {
+                setShowEventModal(true), setOpen(false);
+              }}
+            >
               <PrimaryBtn>Edit</PrimaryBtn>
             </div>
           </div>
         </div>
       </div>
-      <button className="icon h-16 w-16 fixed bottom-2 right-2">
+      <button className="icon h-16 w-16 fixed bottom-6 right-6">
         <img src={user} alt="" />
       </button>
     </div>

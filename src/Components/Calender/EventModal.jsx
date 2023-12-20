@@ -73,22 +73,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // const calendarEvent = {
-    //   title,
-    //   startTime,
-    //   endTime,
-    //   description,
-    //   label: selectedLabel,
-    //   day: daySelected.valueOf(),
-    //   id: selectedEvent ? selectedEvent.id : Date.now(),
-    // };
-    // if (selectedEvent) {
-    //   dispatchCalEvent({ type: "update", payload: calendarEvent });
-    // } else {
-    //   dispatchCalEvent({ type: "push", payload: calendarEvent });
-    // }
-
-    // setShowEventModal(false);
 
     const form = e.target;
 
@@ -100,6 +84,33 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     const endTime = form.endTime.value;
     const isWorking = isChecked;
     const files = selectedImages;
+
+    const calendarEvent = {
+      // title,
+      // startTime,
+      // endTime,
+      // description,
+      // label: selectedLabel,
+      // day: daySelected.valueOf(),
+      // id: selectedEvent ? selectedEvent.id : Date.now(),
+
+      category,
+      subcategory,
+      cost,
+      date,
+      startTime,
+      endTime,
+      isWorking,
+      files,
+      day: daySelected.valueOf(),
+    };
+    if (selectedEvent) {
+      dispatchCalEvent({ type: "update", payload: calendarEvent });
+    } else {
+      dispatchCalEvent({ type: "push", payload: calendarEvent });
+    }
+
+    setShowEventModal(false);
 
     const data = {
       category,
@@ -128,7 +139,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     setShowEventModal(false);
   };
   return (
-    <div className="h-screen w-full  fixed z-10 left-0 top-0 flex justify-center items-center hour_spent ">
+    <div className="h-screen w-full  fixed z-50 left-0 top-0 flex justify-center items-center hour_spent ">
       <div className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">
         <header className="flex justify-between items-center mb-2">
           <p className="text-xl font-medium text-slate-950">Add Hours Spent</p>
@@ -238,7 +249,19 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
               onChange={handleFileChange}
               multiple
             />
-            <div
+          </div>
+
+          <ImageDrop
+            fileRef={fileRef}
+            handleDrop={handleDrop}
+            handleDragOver={handleDragOver}
+            imgGrp={imgGrp}
+            selectedImages={selectedImages}
+            handleFile={handleFile}
+            upload={upload}
+          />
+
+          {/* <div
               onClick={() => fileRef.current.click()}
               onDrop={handleDrop}
               onDragOver={handleDragOver}
@@ -253,7 +276,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
                 Maximum size: 2MB
               </p>
             </div>
-          </div>
 
           <div className="mb-6 flex flex-col gap-4 mt-[6px]">
             {selectedImages &&
@@ -294,7 +316,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
                   </div>
                 </div>
               ))}
-          </div>
+          </div> */}
 
           <div className="flex flex-col lg:flex-row items-center gap-4 mt-6">
             <OutLineBtn onClick={() => setShowEventModal(false)} type="button">
@@ -389,5 +411,71 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
         </footer> */}
       </div>
     </div>
+  );
+}
+
+function ImageDrop({
+  fileRef,
+  handleDrop,
+  handleDragOver,
+  imgGrp,
+  selectedImages,
+  handleFile,
+  upload,
+}) {
+  return (
+    <>
+      <div
+        onClick={() => fileRef.current.click()}
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+        className="cursor-pointer border rounded-xl border-dashed border-[#E5E7EB] text-center p-6"
+      >
+        <img className="mx-auto mb-5" src={imgGrp} alt="" />
+        <p className="text-base font-medium text-[#1F2937] mb-1">
+          Drop your files here or <span className="text-primary">browse</span>
+        </p>
+        <p className="text-[#9CA3AF] text-sm font-normal">Maximum size: 2MB</p>
+      </div>
+
+      <div className="mb-6 flex flex-col gap-4 mt-[6px]">
+        {selectedImages &&
+          selectedImages.length > 0 &&
+          selectedImages.map((item, idx) => (
+            <div key={idx} className="border border-slate-200 rounded-xl p-4 ">
+              <div className="flex items-start gap-3 justify-between">
+                <div className="flex items-center gap-3 mb-2">
+                  {/* <img src={pdf} alt="" /> */}
+                  <img className="h-10 w-10 rounded-full" src={URL.createObjectURL(item)}alt="" />
+                  <div>
+                    <p className="text-[#323539] text-sm font-medium">
+                      {item?.name}
+                    </p>
+                    <p className="text-[#858C95] text-xs font-normal">
+                      {(item?.size / 1024).toFixed(2)} kb
+                    </p>
+                  </div>
+                </div>
+                <button
+                  className="text-red-500"
+                  type="button"
+                  onClick={() => handleFile(item?.name)}
+                >
+                  <img src={cross} alt="" />
+                </button>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="bg-violet-50 h-2 w-full rounded-md">
+                  <div
+                    style={{ width: `${upload}%` }}
+                    className=" bg-primary rounded-md h-2"
+                  ></div>
+                </div>
+                <p className="text-xs font-medium">{upload}%</p>
+              </div>
+            </div>
+          ))}
+      </div>
+    </>
   );
 }

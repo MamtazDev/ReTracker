@@ -14,7 +14,7 @@ const AddHoursModal = ({ setOpen }) => {
     setShowEventModal(true);
   };
   return (
-    <div className="h-screen w-full  fixed z-10 left-0 top-0 flex justify-center items-center hour_spent ">
+    <div className="h-screen w-full  fixed z-50 left-0 top-0 flex justify-center items-center hour_spent ">
       <div className="bg-white rounded-3xl p-6 border max-w-[400px] w-full h-[316px] overflow-y-scroll no-scrollbar">
         <div className="flex justify-between items-start mb-6">
           <div></div>

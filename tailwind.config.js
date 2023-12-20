@@ -28,7 +28,6 @@ export default {
         lightGray: "#DBDBDB",
         drakWhite: "#F8FAFC",
         primaryGreen: "#10B981",
-        amber: "#F59E0B",
         orange: "#F97316",
         dark: "#0F172A",
         darkTwo: "#525252",
