@@ -9,7 +9,7 @@ import PrimaryBtn from "../../Shared/PrimaryBtn";
 import cross from "../../assets/cross.png";
 import dollar from "../../assets/dollar.png";
 
-export default function EventModal({ setSuccessfullOpen,setEventData }) {
+export default function EventModal({ setSuccessfullOpen, setEventData }) {
   const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
@@ -113,7 +113,7 @@ export default function EventModal({ setSuccessfullOpen,setEventData }) {
     };
 
     console.log(data, "data");
-    setEventData(data)
+    setEventData(data);
     setSuccessfullOpen(true);
     setShowEventModal(false);
   }
@@ -297,7 +297,9 @@ export default function EventModal({ setSuccessfullOpen,setEventData }) {
           </div>
 
           <div className="flex flex-col lg:flex-row items-center gap-4 mt-6">
-            <OutLineBtn type="button">Cancel</OutLineBtn>
+            <OutLineBtn onClick={() => setShowEventModal(false)} type="button">
+              Cancel
+            </OutLineBtn>
             <div className="w-full">
               <PrimaryBtn type="submit">Add Task</PrimaryBtn>
             </div>
