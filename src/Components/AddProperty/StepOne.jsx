@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import StepLines from "../../Shared/StepLines";
 import { Link } from "react-router-dom";
+import GlobalContext from "../../context/GlobalContext";
 
 const StepOne = ({ setStepper }) => {
+  const { setPropertyData } = useContext(GlobalContext);
   const [searchInput, setSearchInput] = useState("");
 
   const handleInputChange = (e) => {
@@ -15,16 +17,21 @@ const StepOne = ({ setStepper }) => {
     if (searchInput.trim() !== "") {
       setStepper(2);
     }
+    setPropertyData((prevData) => ({
+      ...prevData,
+      address: searchInput.trim(),
+    }));
   };
   return (
     <div>
       <p className="text-primary font-bold text-sm mb-3">Step 01</p>
       <AuthTitle>Add Property</AuthTitle>
 
-      <form>
+      <div>
         <div className=" my-10">
           <label htmlFor="search">Enter Address</label>
           <input
+            name="address"
             type="search"
             id="search"
             placeholder="Search by street, area or city"
@@ -43,7 +50,7 @@ const StepOne = ({ setStepper }) => {
         >
           Skip for now
         </Link>
-      </form>
+      </div>
     </div>
   );
 };

@@ -1,9 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import AuthTitle from "../../Shared/AuthTitle";
 import { RxCross2 } from "react-icons/rx";
+import GlobalContext from "../../context/GlobalContext";
 
 const StepFive = () => {
+  const { setPropertyData } = useContext(GlobalContext);
   const labelRef = useRef(null);
   const [isTooltipVisible, setTooltipVisible] = useState(false);
   const [emailInput, setEmailInput] = useState("");
@@ -42,6 +44,14 @@ const StepFive = () => {
       setTooltipVisible(false);
     }, 1500);
   };
+
+  const handleContinue = () => {
+    setPropertyData((prevData) => ({
+      ...prevData,
+      emails: emailList,
+    }));
+  };
+
   return (
     <div>
       <AuthTitle>Invite Coworkers </AuthTitle>
@@ -109,7 +119,9 @@ const StepFive = () => {
               </div>
             ))}
           </div>
-          <PrimaryBtn type="button">Send Invites</PrimaryBtn>
+          <PrimaryBtn onClick={handleContinue} type="button">
+            Send Invites
+          </PrimaryBtn>
           <button
             className="text-primary font-bold text-base  text-center mt-4 w-full"
             type="button"

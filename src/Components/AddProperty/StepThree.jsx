@@ -1,21 +1,21 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import imgGrp from "../../assets/img-grp.png";
 import { RxCross2 } from "react-icons/rx";
+import GlobalContext from "../../context/GlobalContext";
 
 const StepThree = ({ stepper, setStepper }) => {
+  const { setPropertyData } = useContext(GlobalContext);
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
 
   const handleFileChange = (event) => {
     const files = event.target.files;
-    const imagesArray = Array.from(files).map((file) =>
-      URL.createObjectURL(file)
-    );
-    setSelectedImages((prevImages) => [...prevImages, ...imagesArray]);
+    setSelectedImages((prevImages) => [...prevImages, ...Array.from(files)]);
   };
+
   const handleDrop = (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
@@ -23,27 +23,33 @@ const StepThree = ({ stepper, setStepper }) => {
   };
 
   const handleFiles = (files) => {
-    const imagesArray = Array.from(files).map((file) =>
-      URL.createObjectURL(file)
-    );
-    setSelectedImages((prevImages) => [...prevImages, ...imagesArray]);
+    setSelectedImages((prevImages) => [...prevImages, ...Array.from(files)]);
   };
 
   const handleDragOver = (event) => {
     event.preventDefault();
   };
+
   const handleRemoveImage = (index) => {
-    event.preventDefault();
     const updatedImages = [...selectedImages];
     updatedImages.splice(index, 1);
     setSelectedImages(updatedImages);
   };
+
+  const handleContinue = () => {
+    setPropertyData((prevData) => ({
+      ...prevData,
+      images: selectedImages,
+    }));
+    setStepper(4);
+  };
+
   return (
     <div>
       <p className="text-primary font-bold text-sm mb-3">Step 03</p>
       <AuthTitle>Upload Image </AuthTitle>
 
-      <form>
+      <div>
         <input
           ref={fileRef}
           type="file"
@@ -71,7 +77,7 @@ const StepThree = ({ stepper, setStepper }) => {
             selectedImages.map((image, index) => (
               <div key={index} className="relative">
                 <img
-                  src={image}
+                  src={URL.createObjectURL(image)}
                   alt={`Selected ${index + 1}`}
                   className="w-full  object-cover rounded-3xl h-32"
                 />
@@ -86,14 +92,14 @@ const StepThree = ({ stepper, setStepper }) => {
         </div>
 
         <div className="flex flex-col lg:flex-row items-center gap-4 mt-5 lg:mt-10">
-          <div onClick={() => setStepper(4)} className="w-full">
-            <PrimaryBtn>Continue</PrimaryBtn>
-          </div>
           <div onClick={() => setStepper(2)} className="w-full">
             <OutLineBtn>Go Back</OutLineBtn>
           </div>
+          <div onClick={handleContinue} className="w-full">
+            <PrimaryBtn>Continue</PrimaryBtn>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
