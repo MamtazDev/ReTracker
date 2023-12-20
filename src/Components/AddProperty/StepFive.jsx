@@ -1,9 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import AuthTitle from "../../Shared/AuthTitle";
 import { RxCross2 } from "react-icons/rx";
+import GlobalContext from "../../context/GlobalContext";
 
 const StepFive = () => {
+  const { setPropertyData } = useContext(GlobalContext);
   const labelRef = useRef(null);
   const [isTooltipVisible, setTooltipVisible] = useState(false);
   const [emailInput, setEmailInput] = useState("");
@@ -17,9 +19,13 @@ const StepFive = () => {
   };
 
   const handleAddEmail = () => {
-    if (emailInput.trim() !== "") {
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.trim());
+
+    if (isValidEmail) {
       setEmailList((prevEmails) => [...prevEmails, emailInput.trim()]);
       setEmailInput("");
+    } else {
+      console.log("Invalid email address");
     }
   };
 
@@ -42,6 +48,14 @@ const StepFive = () => {
       setTooltipVisible(false);
     }, 1500);
   };
+
+  const handleContinue = () => {
+    setPropertyData((prevData) => ({
+      ...prevData,
+      emails: emailList,
+    }));
+  };
+
   return (
     <div>
       <AuthTitle>Invite Coworkers </AuthTitle>
@@ -61,7 +75,7 @@ const StepFive = () => {
             <button
               onClick={copyToClipboard}
               type="button"
-              className="hidden lg:block border border-primary text-primary rounded-full py-2 px-4"
+              className="hidden lg:block border border-primary text-primary rounded-full py-2 px-4 cursor-copy"
             >
               Copy Link
             </button>
@@ -81,9 +95,7 @@ const StepFive = () => {
         </div>
         <div>
           <div className="mb-2">
-            <label>
-              Invite by email <span>(Comma Separated)</span>{" "}
-            </label>
+            <label>Invite by email</label>
             <input
               type="email"
               value={emailInput}
@@ -109,7 +121,9 @@ const StepFive = () => {
               </div>
             ))}
           </div>
-          <PrimaryBtn type="button">Send Invites</PrimaryBtn>
+          <PrimaryBtn onClick={handleContinue} type="button">
+            Send Invites
+          </PrimaryBtn>
           <button
             className="text-primary font-bold text-base  text-center mt-4 w-full"
             type="button"

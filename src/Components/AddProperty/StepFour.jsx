@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import AuthTitle from "../../Shared/AuthTitle";
@@ -6,12 +6,17 @@ import { FaPlus, FaMinus, FaChevronDown } from "react-icons/fa";
 import CountrySelect from "./CountrySelect";
 import countryCodes from "../../Utils/CountryCode";
 import dollar from "../../assets/dollar.png";
+import GlobalContext from "../../context/GlobalContext";
 
 const StepFour = ({ setStepper }) => {
+  const { setPropertyData } = useContext(GlobalContext);
+  const currentYear = new Date().getFullYear();
   const [purchaseYear, setPurchaseYear] = useState(2023);
   const [serviceYear, setServiceYear] = useState(2023);
   const [showDropdown, setShowDropDown] = useState(false);
   const [country, setCountry] = useState();
+  const [dollarvalue, setDollar] = useState("");
+  console.log(country, "ppp");
 
   useEffect(() => {
     const svgElement = document.querySelector("#flagContainer svg");
@@ -23,12 +28,28 @@ const StepFour = ({ setStepper }) => {
       svgElement.style.borderRadius = "100%";
     }
   }, [country]);
+
+  const handleInputChange = (event) => {
+    setDollar(event.target.value);
+  };
+
+  const handleContinue = () => {
+    setPropertyData((prevData) => ({
+      ...prevData,
+      purchaseYear: purchaseYear,
+      serviceYear: serviceYear,
+      country: country?.name,
+      dollar: dollarvalue,
+    }));
+    setStepper(5);
+  };
+
   return (
     <div>
       <p className="text-primary font-bold text-sm mb-3">Step 04</p>
       <AuthTitle>Purchase Information </AuthTitle>
 
-      <form>
+      <div>
         <div className="mt-5 lg:mt-10 flex flex-col lg:flex-row items-center gap-4 mb-4">
           <div className="w-full">
             <label>
@@ -37,7 +58,11 @@ const StepFour = ({ setStepper }) => {
             <div className="flex justify-between year">
               <button
                 type="button"
-                onClick={() => setPurchaseYear(purchaseYear + 1)}
+                onClick={() => {
+                  if (purchaseYear + 1 <= currentYear) {
+                    setPurchaseYear(purchaseYear + 1);
+                  }
+                }}
                 className="icon h-8 w-8"
               >
                 <FaPlus />
@@ -66,7 +91,11 @@ const StepFour = ({ setStepper }) => {
               </button>
               <p>{serviceYear}</p>
               <button
-                onClick={() => setServiceYear(serviceYear + 1)}
+                onClick={() => {
+                  if (serviceYear + 1 <= currentYear) {
+                    setPurchaseYear(serviceYear + 1);
+                  }
+                }}
                 type="button"
                 className="icon h-8 w-8"
               >
@@ -157,6 +186,11 @@ const StepFour = ({ setStepper }) => {
               style={{ paddingLeft: "30px" }}
               type="number"
               placeholder="0.00"
+              value={dollarvalue}
+              onChange={handleInputChange}
+              onKeyDown={(e) =>
+                ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
+              }
             />
             <img
               style={{ top: "50%", transform: "translateY(-50%" }}
@@ -168,14 +202,14 @@ const StepFour = ({ setStepper }) => {
         </div>
 
         <div className="flex flex-col lg:flex-row items-center gap-4 mt-5 lg:mt-10">
-          <div onClick={() => setStepper(5)} className="w-full">
-            <PrimaryBtn>Continue</PrimaryBtn>
-          </div>
           <div onClick={() => setStepper(3)} className="w-full">
             <OutLineBtn>Go Back</OutLineBtn>
           </div>
+          <div onClick={handleContinue} className="w-full">
+            <PrimaryBtn>Continue</PrimaryBtn>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
