@@ -14,13 +14,13 @@ const BannerList = () => {
     },
     {
       title: "Top category",
-      value: "December",
+      value: "Repairs",
       percentage: "193 Hrs 53 Min",
       color: "slate-500",
     },
     {
       title: "Most active month",
-      value: "Repairs",
+      value: " December",
       percentage: "72 Hrs 9 Min",
       color: "slate-500",
     },

@@ -145,7 +145,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     setShowEventModal(false);
   };
   return (
-    <div className="h-screen w-full  fixed z-10 left-0 top-0 flex justify-center items-center hour_spent ">
+    <div className="h-screen w-full  fixed z-50 left-0 top-0 flex justify-center items-center hour_spent ">
       <div className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">
         <header className="flex justify-between items-center mb-2">
           <p className="text-xl font-medium text-slate-950">Add Hours Spent</p>

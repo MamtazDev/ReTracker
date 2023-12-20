@@ -141,7 +141,12 @@ const HourSpent = () => {
             }}
           >
             <CartesianGrid vertical={false} strokeDasharray="" />
-            <XAxis dataKey="name" tickLine={false} tick={{ fontSize: 12 }} />
+            <XAxis
+              dataKey="name"
+              tickLine={false}
+              tick={{ fontSize: 12, textAnchor: "right" }}
+            />
+
             <YAxis
               axisLine={false}
               tickLine={false}

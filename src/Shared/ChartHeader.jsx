@@ -11,7 +11,7 @@ const ChartHeader = ({ title }) => {
           className={`${
             active === 12
               ? "text-primary border border-primary rounded-full"
-              : "text-slate-500 "
+              : "text-slate-500 border border-transparent"
           } px-5 py-2 whitespace-nowrap  text-sm font-medium`}
         >
           12 Months
@@ -21,7 +21,7 @@ const ChartHeader = ({ title }) => {
           className={`${
             active === 6
               ? "text-primary border border-primary rounded-full"
-              : "text-slate-500 "
+              : "text-slate-500 border border-transparent"
           } px-5 py-2 whitespace-nowrap  text-sm font-medium`}
         >
           6 Months
@@ -31,7 +31,7 @@ const ChartHeader = ({ title }) => {
           className={`${
             active === 30
               ? "text-primary border border-primary rounded-full"
-              : "text-slate-500 "
+              : "text-slate-500 border border-transparent"
           } px-5 py-2 whitespace-nowrap  text-sm font-medium`}
         >
           30 Days

@@ -29,7 +29,7 @@ const ActivityDetails = ({ setOpen }) => {
 
   console.log("selectedEvent: ", selectedEvent)
   return (
-    <div >
+    <div>
       <div className=" px-6 py-4 flex items-center gap-3 border-b border-slate-200 ">
         <button className="cursor-pointer" onClick={() => setOpen(false)}>
           <img src={back} alt="" />
@@ -107,7 +107,12 @@ const ActivityDetails = ({ setOpen }) => {
           </div>
           <div className="flex items-center gap-4">
             <OutLineBtn>Delete</OutLineBtn>
-            <div className="w-full" onClick={() => setShowEventModal(true)}>
+            <div
+              className="w-full"
+              onClick={() => {
+                setShowEventModal(true), setOpen(false);
+              }}
+            >
               <PrimaryBtn>Edit</PrimaryBtn>
             </div>
           </div>
