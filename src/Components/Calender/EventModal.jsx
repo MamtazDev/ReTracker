@@ -1,70 +1,139 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
+import close from "../../assets/close.png";
+import imgGrp from "../../assets/img-grp.png";
+import pdf from "../../assets/pdf.png";
+import "../../Styles/Auth.css";
+import OutLineBtn from "../../Shared/OutLineBtn";
+import PrimaryBtn from "../../Shared/PrimaryBtn";
+import cross from "../../assets/cross.png";
+import dollar from "../../assets/dollar.png";
 
-const labelsClasses = [
-  "indigo",
-  "gray",
-  "green",
-  "blue",
-  "red",
-  "purple",
-];
+export default function EventModal({ setSuccessfullOpen, setEventData }) {
+  const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
+  const fileRef = useRef();
+  const [selectedImages, setSelectedImages] = useState([]);
+  const [upload, setUpload] = useState(25);
 
-export default function EventModal() {
-  const {
-    setShowEventModal,
-    daySelected,
-    dispatchCalEvent,
-    selectedEvent,
-  } = useContext(GlobalContext);
+  console.log(selectedImages, "dd");
+  const handleFileChange = (event) => {
+    const files = event.target.files;
+    const imagesArray = Array.from(files).filter((file) => file.name);
+    // const imagesArray = Array.from(files).map((file) =>
+    //   URL.createObjectURL(file)
+    // );
+    // console.log(files,"dd")
+    setSelectedImages((prevImages) => [...prevImages, ...imagesArray]);
+  };
 
-  const [title, setTitle] = useState(
-    selectedEvent ? selectedEvent.title : ""
-  );
-  const [startTime, setStartTime] = useState(
-    selectedEvent ? selectedEvent.startTime : ""
-  );
-  const [endTime, setEndTime] = useState(
-    selectedEvent ? selectedEvent.endTime : ""
-  );
-  const [description, setDescription] = useState(
-    selectedEvent ? selectedEvent.description : ""
-  );
-  const [selectedLabel, setSelectedLabel] = useState(
-    selectedEvent
-      ? labelsClasses.find((lbl) => lbl === selectedEvent.label)
-      : labelsClasses[0]
-  );
+  const handleDrop = (event) => {
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+    handleFiles(files);
+  };
+
+  const handleFiles = (files) => {
+    const imagesArray = Array.from(files).map((file) =>
+      URL.createObjectURL(file)
+    );
+    setSelectedImages((prevImages) => [...prevImages, ...imagesArray]);
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
+
+  const handleRemoveImage = (index) => {
+    event.preventDefault();
+    const updatedImages = [...selectedImages];
+    updatedImages.splice(index, 1);
+    setSelectedImages(updatedImages);
+  };
+
+  const [isChecked, setChecked] = useState(false);
+
+  const { setShowEventModal, daySelected, dispatchCalEvent, selectedEvent } =
+    useContext(GlobalContext);
+
+  // const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
+  // const [startTime, setStartTime] = useState(
+  //   selectedEvent ? selectedEvent.startTime : ""
+  // );
+  // const [endTime, setEndTime] = useState(
+  //   selectedEvent ? selectedEvent.endTime : ""
+  // );
+  // const [description, setDescription] = useState(
+  //   selectedEvent ? selectedEvent.description : ""
+  // );
+  // const [selectedLabel, setSelectedLabel] = useState(
+  //   selectedEvent
+  //     ? labelsClasses.find((lbl) => lbl === selectedEvent.label)
+  //     : labelsClasses[0]
+  // );
 
   function handleSubmit(e) {
     e.preventDefault();
-    const calendarEvent = {
-      title, 
-      startTime, 
-      endTime,
-      description,
-      label: selectedLabel,
-      day: daySelected.valueOf(),
-      id: selectedEvent ? selectedEvent.id : Date.now(),
-    };
-    if (selectedEvent) {
-      dispatchCalEvent({ type: "update", payload: calendarEvent });
-    } else {
-      dispatchCalEvent({ type: "push", payload: calendarEvent });
-    }
+    // const calendarEvent = {
+    //   title,
+    //   startTime,
+    //   endTime,
+    //   description,
+    //   label: selectedLabel,
+    //   day: daySelected.valueOf(),
+    //   id: selectedEvent ? selectedEvent.id : Date.now(),
+    // };
+    // if (selectedEvent) {
+    //   dispatchCalEvent({ type: "update", payload: calendarEvent });
+    // } else {
+    //   dispatchCalEvent({ type: "push", payload: calendarEvent });
+    // }
 
+    // setShowEventModal(false);
+
+    const form = e.target;
+
+    const category = form.category.value;
+    const subcategory = form.subcategory.value;
+    const cost = form.cost.value;
+    const date = form.date.value;
+    const startTime = form.startTime.value;
+    const endTime = form.endTime.value;
+    const isWorking = isChecked;
+    const files = selectedImages;
+
+    const data = {
+      category,
+      subcategory,
+      cost,
+      date,
+      startTime,
+      endTime,
+      isWorking,
+      files,
+    };
+
+    console.log(data, "data");
+    setEventData(data);
+    setSuccessfullOpen(true);
     setShowEventModal(false);
   }
-  return (
-    <div className="h-screen w-full fixed left-0 top-0 flex justify-center items-center">
-      <form className="bg-white rounded-lg shadow-2xl w-1/4">
-        <header className="bg-gray-100 px-4 py-2 flex justify-between items-center">
-          <span className="material-icons-outlined text-gray-400">
-            drag_handle
-          </span>
 
-          <div>
-            {selectedEvent && (
+  const handleFile = (name) => {
+    const newFiles = selectedImages.filter((item) => item?.name !== name);
+    setSelectedImages(newFiles);
+  };
+
+  const handleClick = () => {
+    setSuccessfullOpen(true);
+    setShowEventModal(false);
+  };
+  return (
+    <div className="h-screen w-full  fixed z-10 left-0 top-0 flex justify-center items-center hour_spent ">
+      <div className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">
+        <header className="flex justify-between items-center mb-2">
+          <p className="text-xl font-medium text-slate-950">Add Hours Spent</p>
+
+          {/* {selectedEvent && (
               <span
                 onClick={() => {
                   dispatchCalEvent({
@@ -77,15 +146,167 @@ export default function EventModal() {
               >
                 delete
               </span>
-            )}
-            <button onClick={() => setShowEventModal(false)}>
-              <span className="material-icons-outlined text-gray-400">
-                close
-              </span>
-            </button>
-          </div>
+            )} */}
+          <button onClick={() => setShowEventModal(false)}>
+            <img src={close} alt="" />
+          </button>
         </header>
-        <div className="p-3">
+        <p className="text-slate-500 text-base mb-6">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sit
+          senectus.
+        </p>
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label>Select Category</label>
+            <select name="category" required>
+              <option value="Repairs">Repairs</option>
+              <option value="Management">Management</option>
+              <option value="Analysis">Analysis</option>
+              <option value="Consultation">Consultation</option>
+            </select>
+          </div>
+          <div className="mb-4">
+            <label>
+              Select Subcategory <span> (Optional)</span>
+            </label>
+            <select name="subcategory">
+              <option value="Plumbing">Plumbing</option>
+              <option value="Plumbing 2">Plumbing 2</option>
+            </select>
+          </div>
+          <div className="mb-4">
+            <label>Total Cost</label>
+            <div className="relative">
+              <input
+                name="cost"
+                style={{ paddingLeft: "30px" }}
+                type="number"
+                placeholder="0.00"
+                required
+              />
+              <img
+                style={{ top: "50%", transform: "translateY(-50%" }}
+                className="absolute left-3"
+                src={dollar}
+                alt=""
+              />
+            </div>
+          </div>
+          <div className="mb-4">
+            <label>Select Date</label>
+            <input type="date" name="date" required />
+          </div>
+          <div className="flex items-center gap-4 mb-4 ">
+            <div className="w-full">
+              <label>Start Time </label>
+              <input type="time" name="startTime" required />
+            </div>
+            <div className="w-full">
+              <label>End Time </label>
+              <input type="time" name="endTime" required />
+            </div>
+          </div>
+          <label
+            style={{ display: "flex" }}
+            className="flex items-center gap-4 mb-4"
+          >
+            <input
+              className="hidden"
+              type="checkbox"
+              checked={isChecked}
+              onClick={() => setChecked(!isChecked)}
+            />
+            <span
+              className={`${
+                isChecked && "bg-slate-200"
+              } border  border-slate-200 rounded-sm h-[18px] w-[18px] flex items-center justify-center`}
+            >
+              {isChecked ? "✔" : ""}
+            </span>
+            <p>Currently Working</p>
+          </label>
+          <div>
+            <label>
+              Upload Attachment <span> (Optional)</span>
+            </label>
+            <input
+              ref={fileRef}
+              type="file"
+              className="hidden"
+              accept="image/*"
+              onChange={handleFileChange}
+              multiple
+            />
+            <div
+              onClick={() => fileRef.current.click()}
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+              className="cursor-pointer border rounded-xl border-dashed border-[#E5E7EB] text-center p-6"
+            >
+              <img className="mx-auto mb-5" src={imgGrp} alt="" />
+              <p className="text-base font-medium text-[#1F2937] mb-1">
+                Drop your files here or{" "}
+                <span className="text-primary">browse</span>
+              </p>
+              <p className="text-[#9CA3AF] text-sm font-normal">
+                Maximum size: 2MB
+              </p>
+            </div>
+          </div>
+
+          <div className="mb-6 flex flex-col gap-4 mt-[6px]">
+            {selectedImages &&
+              selectedImages.length > 0 &&
+              selectedImages.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="border border-slate-200 rounded-xl p-4 "
+                >
+                  <div className="flex items-start gap-3 justify-between">
+                    <div className="flex items-center gap-3 mb-2">
+                      <img src={pdf} alt="" />
+                      <div>
+                        <p className="text-[#323539] text-sm font-medium">
+                          {item?.name}
+                        </p>
+                        <p className="text-[#858C95] text-xs font-normal">
+                          {(item?.size / 1024).toFixed(2)} kb
+                        </p>
+                      </div>
+                    </div>
+                    <button
+                      className="text-red-500"
+                      type="button"
+                      onClick={() => handleFile(item?.name)}
+                    >
+                      <img src={cross} alt="" />
+                    </button>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="bg-violet-50 h-2 w-full rounded-md">
+                      <div
+                        style={{ width: `${upload}%` }}
+                        className=" bg-primary rounded-md h-2"
+                      ></div>
+                    </div>
+                    <p className="text-xs font-medium">{upload}%</p>
+                  </div>
+                </div>
+              ))}
+          </div>
+
+          <div className="flex flex-col lg:flex-row items-center gap-4 mt-6">
+            <OutLineBtn onClick={() => setShowEventModal(false)} type="button">
+              Cancel
+            </OutLineBtn>
+            <div className="w-full">
+              <PrimaryBtn type="submit">Add Task</PrimaryBtn>
+            </div>
+          </div>
+        </form>
+
+        {/* <div className="p-3">
           <div className="grid items-end gap-y-7">
             <div></div>
             <input
@@ -108,7 +329,6 @@ export default function EventModal() {
                 className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
                 onChange={(e) => setStartTime(e.target.value)}
               />
-
             </div>
             <div>
               <label>End Time</label>
@@ -121,15 +341,14 @@ export default function EventModal() {
                 className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
                 onChange={(e) => setEndTime(e.target.value)}
               />
-
             </div>
-            {/* <span className="material-icons-outlined text-gray-400">
+            <span className="material-icons-outlined text-gray-400">
               schedule
-            </span> */}
+            </span>
             <p>{daySelected.format("dddd, MMMM DD")}</p>
-            {/* <span className="material-icons-outlined text-gray-400">
+            <span className="material-icons-outlined text-gray-400">
               segment
-            </span> */}
+            </span>
             <input
               type="text"
               name="description"
@@ -139,9 +358,9 @@ export default function EventModal() {
               className="pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
               onChange={(e) => setDescription(e.target.value)}
             />
-            {/* <span className="material-icons-outlined text-gray-400">
+            <span className="material-icons-outlined text-gray-400">
               bookmark_border
-            </span> */}
+            </span>
             <div className="flex gap-x-2">
               {labelsClasses.map((lblClass, i) => (
                 <span
@@ -158,8 +377,8 @@ export default function EventModal() {
               ))}
             </div>
           </div>
-        </div>
-        <footer className="flex justify-end border-t p-3 mt-5">
+        </div> */}
+        {/* <footer className="flex justify-end border-t p-3 mt-5">
           <button
             type="submit"
             onClick={handleSubmit}
@@ -167,8 +386,8 @@ export default function EventModal() {
           >
             Save
           </button>
-        </footer>
-      </form>
+        </footer> */}
+      </div>
     </div>
   );
 }

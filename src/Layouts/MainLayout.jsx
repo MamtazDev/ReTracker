@@ -1,6 +1,7 @@
 import { useEffect } from "react";
-import Footer from "../Shared/Footer";
 import { Outlet, useLocation } from "react-router-dom";
+import BottomToTop from "../Components/BottomToTop/BottomToTop";
+import Footer from "../Shared/Footer";
 
 const MainLayout = () => {
   const { pathname } = useLocation();
@@ -12,6 +13,7 @@ const MainLayout = () => {
     <div>
       <Outlet />
       <Footer />
+      <BottomToTop/>
     </div>
   );
 };

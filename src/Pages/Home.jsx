@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../Shared/Header'
 import Banner from '../Components/Home/Banner'
 import HowItsWorks from '../Components/Home/HowItsWorks'
@@ -8,8 +8,13 @@ import Pricing from '../Components/Home/Pricing'
 import Faq from '../Components/Home/Faq'
 import Intregations from '../Components/Home/Intregations'
 import GetStartdToday from '../Components/Home/GetStartdToday'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const Home = () => {
+    useEffect(() => {
+        Aos.init();
+    }, [])
     return (
         <>
             <Banner />

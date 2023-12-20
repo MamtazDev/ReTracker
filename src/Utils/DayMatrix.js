@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 
 export function getMonth(month = dayjs().month()) {
 
-  console.log("|dayjs().month()", dayjs().month())
+  // console.log("|dayjs().month()", dayjs().month())
 
   month = Math.floor(month);
   const year = dayjs().year();
@@ -15,6 +15,6 @@ export function getMonth(month = dayjs().month()) {
     });
   });
 
-  console.log("daysMatrix", daysMatrix)
+  // console.log("daysMatrix", daysMatrix)
   return daysMatrix;
 }

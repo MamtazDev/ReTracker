@@ -3,7 +3,7 @@ import React, { useContext, useState, useEffect } from "react";
 import CountDown from "./CountDown";
 import GlobalContext from "../../context/GlobalContext";
 
-export default function Day({ day, rowIdx }) {
+export default function Day({ day, rowIdx, setOpen, eventData }) {
   const [dayEvents, setDayEvents] = useState([]);
   const {
     setDaySelected,
@@ -14,54 +14,92 @@ export default function Day({ day, rowIdx }) {
 
   useEffect(() => {
     const events = filteredEvents.filter(
-      (evt) =>
-        dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
+      (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
     );
     setDayEvents(events);
   }, [filteredEvents, day]);
 
   function getCurrentDayClass() {
     return day.format("DD-MM-YY") === dayjs().format("DD-MM-YY")
-      ? "bg-blue-600 text-white rounded-full w-7"
-      : "";
+      ? "bg-primary text-white rounded-full w-6 h-6 text-xs font-normal flex items-center justify-center"
+      : "text-xs font-normal text-slate-950";
   }
 
-  dayEvents.length &&  console.log("DayEvents:", dayEvents)
+  // dayEvents.length && console.log("DayEvents:", dayEvents);
+
+  const handleOpen = (e, idx) => {
+    e.stopPropagation();
+    setOpen(true);
+    console.log("clicked");
+    // setSelectedEvent(idx);
+  };
 
   return (
-    <div className="border border-gray-200 flex flex-col">
-      <header className="flex flex-col items-center">
-        {rowIdx === 0 && (
-          <p className="text-sm mt-1">
-            {day.format("ddd").toUpperCase()}
-          </p>
-        )}
+    <div className="border-r border-t border-gray-200 flex gap-2 flex-row lg:flex-col p-0 lg:p-2 min-h-16 h-auto lg:h-[138px]">
+      <header
+        onClick={() => setShowEventModal(true)}
+        className="w-16 lg:w-auto border-r lg:border-none flex flex-col items-center justify-center"
+      >
+        <p className="lg:hidden text-sm ">{day.format("ddd").toUpperCase()}</p>
+
         <p
-          className={`text-sm p-1 my-1 text-center  ${getCurrentDayClass()}`}
+          className={`text-sm text-slate-950 font-normal text-center  ${getCurrentDayClass()}`}
         >
           {day.format("DD")}
         </p>
       </header>
       <div
-        className="flex-1 cursor-pointer"
+        className="flex-1 cursor-pointer w-full p-2 lg:p-0"
         onClick={() => {
           setDaySelected(day);
           setShowEventModal(true);
         }}
       >
-        {dayEvents?.map((evt, idx) => (
-          <div
-            key={idx}
-            onClick={() => setSelectedEvent(evt)}
-            className={`bg-${evt.label}-200 p-1 mr-3 text-gray-600 text-sm rounded mb-1 truncate`}
-          >
-            Data {evt.title}
-            <p>Data {evt.label}</p>
-            <p>Data {evt.startTime}</p>
-            <p>Data {evt.startTime}</p>
-            <CountDown evt={evt}/>
+        <div className="">
+          <div className="flex flex-col gap-1 h-[90px] overflow-y-scroll no-scrollbar">
+            {dayEvents?.map((evt, idx) =>
+              dayEvents.length === 1 ? (
+                <div
+                  key={idx}
+                  style={{ borderLeft: `3px solid ${evt.label}` }}
+                  // onClick={() => setSelectedEvent(evt)}
+                  onClick={(e) => handleOpen(e, idx)}
+                  className={` text-center min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                >
+                  <CountDown evt={evt} />
+
+                  {/* Data {evt.title} */}
+                  {/* <p>Data {evt.label}</p> */}
+
+                  {/* <p>Data {evt.startTime}</p> */}
+
+                  <p className="text-sm font-bold text-slate-950 mb-1">
+                    Consultation
+                  </p>
+                  <p className="text-xs font-normal text-slate-500">9 Hours</p>
+                  {/* <p>Data {evt.startTime}</p> */}
+                </div>
+              ) : (
+                <div
+                  style={{ borderLeft: `3px solid ${evt.label}` }}
+                  key={idx}
+                  onClick={(e) => handleOpen(e, idx)}
+                  className={`flex items-center justify-between   min-h-[43px]  h-full bg-${evt.label}-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                >
+                  <div>
+                    <p className="text-xs font-bold text-slate-950 mb-1">
+                      Consultation
+                    </p>
+                    <p className="text-xs font-normal text-slate-500">
+                      9 Hours
+                    </p>
+                  </div>
+                  <CountDown evt={evt} />
+                </div>
+              )
+            )}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );

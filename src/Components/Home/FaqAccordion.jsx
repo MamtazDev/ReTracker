@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import plus from "../../assets/accordion-plus.png";
 import minus from "../../assets/accordion-minus.png";
+import Aos from 'aos';
 
-const FaqAccordion = () => {
+const FaqAccordion = ({ dataAos, dataDuration }) => {
     const [isOpen, setIsOpen] = useState(0);
     const accoprdionData = [
         {
@@ -59,6 +60,10 @@ const FaqAccordion = () => {
             ans: "To add a property, simply click 'Add Property' on the main dashboard, fill in details like address and type, and hit 'Save.' Your new property is now part of your RE Tracker account, streamlining your real estate management effortlessly.",
         },
     ];
+
+    useEffect(() => {
+        Aos.init();
+    }, [])
     return (
 
         <div className="faq">
@@ -66,27 +71,29 @@ const FaqAccordion = () => {
                 <div className='grid grid-cols-12 gap-6'>
                     <div className="col-span-12 md:col-span-6">
 
-                        {accoprdionData.slice(0, 5).map((data, index) => (
-                            <div key={index} className={"bg-btnGroup rounded-2xl mb-6"}>
-                                <div onClick={() => setIsOpen(index === isOpen ? null : index)} className={index === isOpen ? "flex border-b border-darkTwo justify-between cursor-pointer p-5" : "flex justify-between border-0 cursor-pointer p-5"}>
-                                    <p className="text-base text-white font-semibold">
-                                        {data.ques}
-                                    </p>
+                        {
+                            accoprdionData.slice(0, 5).map((data, index) => (
+                                <div key={index} className={"bg-btnGroup rounded-2xl mb-6"} data-aos={dataAos} data-aos-duration={dataDuration}>
+                                    <div onClick={() => setIsOpen(index === isOpen ? null : index)} className={index === isOpen ? "flex border-b border-darkTwo justify-between cursor-pointer p-5" : "flex justify-between border-0 cursor-pointer p-5"}>
+                                        <p className="text-base text-white font-semibold">
+                                            {data.ques}
+                                        </p>
 
-                                    <span className='flex-shrink-0'>
+                                        <span className='flex-shrink-0'>
 
-                                        <img className="" src={isOpen === index ? minus : plus} alt="icon" />
-                                    </span>
+                                            <img className="" src={isOpen === index ? minus : plus} alt="icon" />
+                                        </span>
+                                    </div>
+
+                                    {isOpen === index && (
+                                        <p className="text-white text-sm font-normal p-5">
+                                            {data.ans}
+                                        </p>
+                                    )}
                                 </div>
 
-                                {isOpen === index && (
-                                    <p className="text-white text-sm font-normal p-5">
-                                        {data.ans}
-                                    </p>
-                                )}
-                            </div>
-
-                        ))}
+                            ))
+                        }
 
                     </div>
                     <div className="col-span-12 md:col-span-6">

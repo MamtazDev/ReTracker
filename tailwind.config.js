@@ -17,15 +17,14 @@ export default {
       fontFamily: {
         sans: ["Open Sans"],
       },
-      gridTemplateColumns: {
-        "1/5": "1fr 5fr",
-      },
+      // gridTemplateColumns: {
+      //   "1/5": "1fr 5fr",
+      // },
       colors: {
         primary: "#6E51E0",
         lightPrimary: "#F5F3FF",
         secondary: "#64748B",
         "primary-dark": "#7f65e6",
-        "slate-black": "#020617",
         lightGray: "#DBDBDB",
         drakWhite: "#F8FAFC",
         primaryGreen: "#10B981",

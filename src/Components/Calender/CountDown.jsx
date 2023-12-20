@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import moment from 'moment';
+import React, { useEffect, useState } from "react";
+import moment from "moment";
+import lock from "../../assets/lock.png";
 
-
-
-function CountDown({evt}) {
-
+function CountDown({ evt }) {
   const startTime = moment(); // Set your start time here
-  const endTime = startTime.clone().add(48, 'hours');
+  const endTime = startTime.clone().add(48, "hours");
 
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
 
@@ -28,18 +26,18 @@ function CountDown({evt}) {
     };
     return remaining;
   }
-
-
-    console.log("evt.startTime:", evt.startTime);
-    console.log("evt.startTime:", evt.endTime);
+  // console.log("evt.startTime:", evt.startTime);
+  // console.log("evt.startTime:", evt.endTime);
 
   return (
-    <div>
-      <h1>Countdown Timer</h1>
-      <button className=''>
-      {timeRemaining.hours}h:{timeRemaining.minutes}m:{timeRemaining.seconds}s</button>
+    <div className="flex justify-center">
+      <button className="text-white text-xs font-normal flex gap-[2px] rounded-full items-center bg-red-500 mb-1 py-[2px] px-2">
+        <img src={lock} alt="" />
+        {timeRemaining.hours}h:{timeRemaining.minutes}m
+      </button>
+      {/* {timeRemaining.hours}h:{timeRemaining.minutes}m:{timeRemaining.seconds}s</button> */}
     </div>
-  )
+  );
 }
 
-export default CountDown
+export default CountDown;

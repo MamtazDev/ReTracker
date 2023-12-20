@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useReducer,
-  useMemo,
-} from "react";
+import React, { useState, useEffect, useReducer, useMemo } from "react";
 import GlobalContext from "./GlobalContext";
 import dayjs from "dayjs";
 
@@ -12,9 +7,7 @@ function savedEventsReducer(state, { type, payload }) {
     case "push":
       return [...state, payload];
     case "update":
-      return state.map((evt) =>
-        evt.id === payload.id ? payload : evt
-      );
+      return state.map((evt) => (evt.id === payload.id ? payload : evt));
     case "delete":
       return state.filter((evt) => evt.id !== payload.id);
     default:
@@ -34,6 +27,7 @@ export default function ContextWrapper(props) {
   const [showEventModal, setShowEventModal] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [labels, setLabels] = useState([]);
+  const [propertyData, setPropertyData] = useState({});
   const [savedEvents, dispatchCalEvent] = useReducer(
     savedEventsReducer,
     [],
@@ -55,17 +49,13 @@ export default function ContextWrapper(props) {
 
   useEffect(() => {
     setLabels((prevLabels) => {
-      return [...new Set(savedEvents.map((evt) => evt.label))].map(
-        (label) => {
-          const currentLabel = prevLabels.find(
-            (lbl) => lbl.label === label
-          );
-          return {
-            label,
-            checked: currentLabel ? currentLabel.checked : true,
-          };
-        }
-      );
+      return [...new Set(savedEvents.map((evt) => evt.label))].map((label) => {
+        const currentLabel = prevLabels.find((lbl) => lbl.label === label);
+        return {
+          label,
+          checked: currentLabel ? currentLabel.checked : true,
+        };
+      });
     });
   }, [savedEvents]);
 
@@ -82,11 +72,9 @@ export default function ContextWrapper(props) {
   }, [showEventModal]);
 
   function updateLabel(label) {
-    setLabels(
-      labels.map((lbl) => (lbl.label === label.label ? label : lbl))
-    );
+    setLabels(labels.map((lbl) => (lbl.label === label.label ? label : lbl)));
   }
-
+console.log(propertyData,'oooo');
   return (
     <GlobalContext.Provider
       value={{
@@ -106,6 +94,8 @@ export default function ContextWrapper(props) {
         labels,
         updateLabel,
         filteredEvents,
+        propertyData,
+        setPropertyData,
       }}
     >
       {props.children}

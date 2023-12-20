@@ -2,6 +2,8 @@ import dayjs from "dayjs";
 import React, { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 import { getMonth } from "../../Utils/DayMatrix";
+import { MdNavigateNext } from "react-icons/md";
+import { GrFormPrevious } from "react-icons/gr";
 
 export default function SmallCalendar() {
   const [currentMonthIdx, setCurrentMonthIdx] = useState(dayjs().month());
@@ -37,23 +39,24 @@ export default function SmallCalendar() {
     }
   }
   return (
-    <div className="mt-9">
-      <header className="flex justify-between">
+    <div>
+      <header className="flex justify-between items-center gap-5 mb-3 w-64">
+        <button
+          className="w-9 h-9 border border-slate-200 rounded-full flex justify-center items-center text-primary text-2xl"
+          onClick={handlePrevMonth}
+        >
+          <GrFormPrevious />
+        </button>
+
         <p className="text-gray-500 font-bold">
           {dayjs(new Date(dayjs().year(), currentMonthIdx)).format("MMMM YYYY")}
         </p>
-        <div>
-          <button onClick={handlePrevMonth}>
-            <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-              chevron_left
-            </span>
-          </button>
-          <button onClick={handleNextMonth}>
-            <span className="material-icons-outlined cursor-pointer text-gray-600 mx-2">
-              chevron_right
-            </span>
-          </button>
-        </div>
+        <button
+          className="w-9 h-9 border border-slate-200 rounded-full flex justify-center items-center text-primary text-2xl"
+          onClick={handleNextMonth}
+        >
+          <MdNavigateNext />
+        </button>
       </header>
       <div className="grid grid-cols-7 grid-rows-6">
         {currentMonth[0].map((day, i) => (

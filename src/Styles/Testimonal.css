@@ -2,6 +2,7 @@
     .testimonal_bg {
         background-image: url(../assets/customer-saying-bg.png);
         background-repeat: no-repeat;
+        background-size: cover;
     }
 }
 
