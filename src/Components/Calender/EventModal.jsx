@@ -74,7 +74,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-
     const form = e.target;
 
     const category = form.category.value;
@@ -85,7 +84,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     const endTime = form.endTime.value;
     const isWorking = isChecked;
     const files = selectedImages;
-
 
     const calendarEvent = {
       // title,
@@ -105,8 +103,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
       isWorking,
       files,
       day: daySelected.valueOf(),
-
-
     };
     if (selectedEvent) {
       dispatchCalEvent({ type: "update", payload: calendarEvent });
@@ -115,8 +111,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     }
 
     setShowEventModal(false);
-
-
 
     const data = {
       category,
@@ -144,7 +138,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     setSuccessfullOpen(true);
     setShowEventModal(false);
   };
-  console.log(selectedImages, "ppp");
   return (
     <div className="h-screen w-full  fixed z-50 left-0 top-0 flex justify-center items-center hour_spent ">
       <div className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">
@@ -202,9 +195,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
                 type="number"
                 placeholder="0.00"
                 required
-                onKeyDown={(e) =>
-                  ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
-                }
               />
               <img
                 style={{ top: "50%", transform: "translateY(-50%" }}
@@ -218,14 +208,11 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
             <label>Select Date</label>
             <input type="date" name="date" required />
           </div>
-
           <div className="flex items-center gap-4 mb-4 ">
             <div className="w-full">
               <label>Start Time </label>
-
               <input type="time" name="startTime" required />
             </div>
-
             <div className="w-full">
               <label>End Time </label>
               <input type="time" name="endTime" required />
@@ -242,8 +229,9 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
               onClick={() => setChecked(!isChecked)}
             />
             <span
-              className={`${isChecked && "bg-slate-200"
-                } border  border-slate-200 rounded-sm h-[18px] w-[18px] flex items-center justify-center`}
+              className={`${
+                isChecked && "bg-slate-200"
+              } border  border-slate-200 rounded-sm h-[18px] w-[18px] flex items-center justify-center`}
             >
               {isChecked ? "✔" : ""}
             </span>
@@ -257,22 +245,21 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
               ref={fileRef}
               type="file"
               className="hidden"
-              accept="image/*,application/pdf"
+              accept="image/*"
               onChange={handleFileChange}
               multiple
             />
-
           </div>
 
           <ImageDrop
-            fileRef={fileRef} handleDrop={handleDrop}
+            fileRef={fileRef}
+            handleDrop={handleDrop}
             handleDragOver={handleDragOver}
             imgGrp={imgGrp}
             selectedImages={selectedImages}
             handleFile={handleFile}
             upload={upload}
           />
-
 
           {/* <div
               onClick={() => fileRef.current.click()}
@@ -300,12 +287,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
                 >
                   <div className="flex items-start gap-3 justify-between">
                     <div className="flex items-center gap-3 mb-2">
-                      {/* <img src={pdf} alt="" /> */}
-                      <img
-                        className="w-8 h-8 rounded-full"
-                        src={URL.createObjectURL(item)}
-                        alt=""
-                      />
+                      <img src={pdf} alt="" />
                       <div>
                         <p className="text-[#323539] text-sm font-medium">
                           {item?.name}
@@ -432,14 +414,15 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
   );
 }
 
-
-
-function ImageDrop({ fileRef,
+function ImageDrop({
+  fileRef,
   handleDrop,
   handleDragOver,
   imgGrp,
   selectedImages,
-  handleFile,upload }) {
+  handleFile,
+  upload,
+}) {
   return (
     <>
       <div
@@ -450,25 +433,20 @@ function ImageDrop({ fileRef,
       >
         <img className="mx-auto mb-5" src={imgGrp} alt="" />
         <p className="text-base font-medium text-[#1F2937] mb-1">
-          Drop your files here or{" "}
-          <span className="text-primary">browse</span>
+          Drop your files here or <span className="text-primary">browse</span>
         </p>
-        <p className="text-[#9CA3AF] text-sm font-normal">
-          Maximum size: 2MB
-        </p>
+        <p className="text-[#9CA3AF] text-sm font-normal">Maximum size: 2MB</p>
       </div>
 
       <div className="mb-6 flex flex-col gap-4 mt-[6px]">
         {selectedImages &&
           selectedImages.length > 0 &&
           selectedImages.map((item, idx) => (
-            <div
-              key={idx}
-              className="border border-slate-200 rounded-xl p-4 "
-            >
+            <div key={idx} className="border border-slate-200 rounded-xl p-4 ">
               <div className="flex items-start gap-3 justify-between">
                 <div className="flex items-center gap-3 mb-2">
-                  <img src={pdf} alt="" />
+                  {/* <img src={pdf} alt="" /> */}
+                  <img className="h-10 w-10 rounded-full" src={URL.createObjectURL(item)}alt="" />
                   <div>
                     <p className="text-[#323539] text-sm font-medium">
                       {item?.name}
@@ -499,6 +477,5 @@ function ImageDrop({ fileRef,
           ))}
       </div>
     </>
-  )
+  );
 }
-

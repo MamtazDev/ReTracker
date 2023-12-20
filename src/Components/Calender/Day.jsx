@@ -5,6 +5,7 @@ import GlobalContext from "../../context/GlobalContext";
 
 export default function Day({ day, rowIdx, setOpen, eventData }) {
   const [dayEvents, setDayEvents] = useState([]);
+  const [locked, setLocked] = useState(null);
   const {
     setDaySelected,
     setShowEventModal,
@@ -17,7 +18,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
       (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
     );
     setDayEvents(events);
-    console.log("events", events)
+    console.log("events", events);
   }, [filteredEvents, day]);
 
   function getCurrentDayClass() {
@@ -30,6 +31,10 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
 
   const handleOpen = (e, idx, evt) => {
     e.stopPropagation();
+    if (locked !== null) {
+      setLocked(null);
+    }
+    setLocked(idx);
     setOpen(true);
     console.log("clicked");
     setSelectedEvent(evt);
@@ -63,37 +68,56 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
               dayEvents.length === 1 ? (
                 <div
                   key={idx}
-                  style={{ borderLeft: `3px solid ${colorPalate[evt.category]}` }}
+                  style={{
+                    borderLeft: `3px solid ${
+                      evt.category === "Analysis"
+                        ? "#F59E0B"
+                        : evt.category === "Consultation"
+                        ? "#6366F1"
+                        : evt.category === "Repairs"
+                        ? "#10B981"
+                        : "#3B82F6"
+                    }`,
+                  }}
                   // onClick={() => setSelectedEvent(evt)}
-                  onClick={(e) =>{
+                  onClick={(e) => {
                     setSelectedEvent(evt);
-                    handleOpen(e, idx, evt)}}
-                  className={` text-center min-h-[43px]  h-full bg-purple-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                    handleOpen(e, idx, evt);
+                  }}
+                  className={`text-center min-h-[43px] h-full ${
+                    evt.category === "Analysis"
+                      ? "bg-[#FEF3C7]"
+                      : evt.category === "Consultation"
+                      ? "bg-[#E0E7FF]"
+                      : evt.category === "Repairs"
+                      ? "bg-[#D1FAE5]"
+                      : "bg-[#DBEAFE]"
+                  } w-full py-3 px-6 text-gray-600 text-sm rounded-4px overflow-hidden truncate rounded`}
                 >
                   <CountDown evt={evt} />
 
-                
                   {/* <p>Data {evt.label}</p> */}
 
                   {/* <p>Data {evt.startTime}</p> */}
 
                   <p className="text-sm font-bold text-slate-950 mb-1">
-                  {evt.category}
+                    {evt.category}
                   </p>
-                 
+
                   <StartEndDiff evt={evt} />
-                  
                 </div>
               ) : (
                 <div
-                  style={{ borderLeft: `3px solid ${colorPalate["Repairs"]}-500` }}
+                  style={{
+                    borderLeft: `3px solid ${colorPalate["Repairs"]}-500`,
+                  }}
                   key={idx}
                   onClick={(e) => handleOpen(e, idx)}
                   className={`flex items-center justify-between   min-h-[43px]  h-full bg-purple-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
                 >
                   <div>
                     <p className="text-xs font-bold text-slate-950 mb-1">
-                      Consultation s
+                      Consultation
                     </p>
                     <p className="text-xs font-normal text-slate-500">
                       9 Hours
@@ -111,17 +135,16 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
 }
 
 const colorPalate = {
-  "Consultation":"Purple",
-  "Repairs":"Pink",
-  "Management":"Green",
-  "Analysis":"Yellow",
-}
+  Consultation: ["[#6366F1]", "[#E0E7FF]"],
+  Repairs: ["#10B981", "#e0E7FF"],
+  Management: ["#3B82F6", "#DBEAFE"],
+  Analysis: ["#F59E0B", "#FEF3C7"],
+};
 
-
-function StartEndDiff({evt}) {
+function StartEndDiff({ evt }) {
   return (
     <>
-     <p className="text-xs font-normal text-slate-500">9 Hours</p>
+      <p className="text-xs font-normal text-slate-500">9 Hours</p>
     </>
-  )
+  );
 }
