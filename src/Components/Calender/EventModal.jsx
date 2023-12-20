@@ -127,6 +127,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     setSuccessfullOpen(true);
     setShowEventModal(false);
   };
+  console.log(selectedImages, "ppp");
   return (
     <div className="h-screen w-full  fixed z-50 left-0 top-0 flex justify-center items-center hour_spent ">
       <div className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">
@@ -184,6 +185,9 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
                 type="number"
                 placeholder="0.00"
                 required
+                onKeyDown={(e) =>
+                  ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
+                }
               />
               <img
                 style={{ top: "50%", transform: "translateY(-50%" }}
@@ -197,11 +201,14 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
             <label>Select Date</label>
             <input type="date" name="date" required />
           </div>
+
           <div className="flex items-center gap-4 mb-4 ">
             <div className="w-full">
               <label>Start Time </label>
+
               <input type="time" name="startTime" required />
             </div>
+
             <div className="w-full">
               <label>End Time </label>
               <input type="time" name="endTime" required />
@@ -234,7 +241,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
               ref={fileRef}
               type="file"
               className="hidden"
-              accept="image/*"
+              accept="image/*,application/pdf"
               onChange={handleFileChange}
               multiple
             />
@@ -265,7 +272,12 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
                 >
                   <div className="flex items-start gap-3 justify-between">
                     <div className="flex items-center gap-3 mb-2">
-                      <img src={pdf} alt="" />
+                      {/* <img src={pdf} alt="" /> */}
+                      <img
+                        className="w-8 h-8 rounded-full"
+                        src={URL.createObjectURL(item)}
+                        alt=""
+                      />
                       <div>
                         <p className="text-[#323539] text-sm font-medium">
                           {item?.name}

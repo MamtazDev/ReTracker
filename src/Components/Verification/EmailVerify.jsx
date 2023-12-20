@@ -29,7 +29,9 @@ const EmailVerify = () => {
       <form>
         <div className="flex items-center gap-3 lg:gap-4 mb-3 lg:mb-5">
           {[1, 2, 3, 4, 5, 6].map((index) => (
-            <input style={{ padding: "10px" }} key={index} type="number" />
+            <input style={{ padding: "10px" }} key={index} type="number"  onKeyDown={(e) =>
+              ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
+            } />
           ))}
         </div>
         <p className="text-secondary font-medium text-base mb-5 lg:mb-10">

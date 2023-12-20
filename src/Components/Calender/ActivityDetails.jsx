@@ -116,7 +116,7 @@ const ActivityDetails = ({ setOpen }) => {
           </div>
         </div>
       </div>
-      <button className="icon h-16 w-16 fixed bottom-2 right-2">
+      <button className="icon h-16 w-16 fixed bottom-6 right-6">
         <img src={user} alt="" />
       </button>
     </div>
