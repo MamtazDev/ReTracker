@@ -15,7 +15,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
   const [selectedImages, setSelectedImages] = useState([]);
   const [upload, setUpload] = useState(25);
 
-
   const handleFileChange = (event) => {
     const files = event.target.files;
     const imagesArray = Array.from(files).filter((file) => file.name);
@@ -123,9 +122,8 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
       files,
     };
 
-
     setEventData(data);
-    setSuccessfullOpen(true);
+    // setSuccessfullOpen(true);
     setShowEventModal(false);
   }
 
@@ -215,7 +213,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
             </div>
             <div className="w-full">
               <label>End Time </label>
-              <input type="time" name="endTime" required />
+              <input type="time" disabled={isChecked} name="endTime" required />
             </div>
           </div>
           <label
@@ -446,7 +444,11 @@ function ImageDrop({
               <div className="flex items-start gap-3 justify-between">
                 <div className="flex items-center gap-3 mb-2">
                   {/* <img src={pdf} alt="" /> */}
-                  <img className="h-10 w-10 rounded-full" src={URL.createObjectURL(item)}alt="" />
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src={URL.createObjectURL(item)}
+                    alt=""
+                  />
                   <div>
                     <p className="text-[#323539] text-sm font-medium">
                       {item?.name}
