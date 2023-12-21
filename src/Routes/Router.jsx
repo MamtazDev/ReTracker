@@ -14,6 +14,7 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import YearlyDashboard from "../Pages/YearlyDashboard";
 import Consulting from "../Pages/Consulting";
 import ConsultingNew from "../Pages/ConsultingNew";
+import ConsultingUpsell from "../Pages/ConsultingUpsell";
 
 export const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
       {
         path: "/consulting-new",
         element: <ConsultingNew />,
+      },
+      {
+        path: "/consulting-upsell",
+        element: <ConsultingUpsell />,
       },
     ],
   },
