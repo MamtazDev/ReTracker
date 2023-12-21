@@ -27,6 +27,8 @@ const ActivityDetails = ({ setOpen }) => {
   };
   const { setShowEventModal, selectedEvent } = useContext(GlobalContext);
 
+  console.log("selectedEvent:", selectedEvent)
+
 
   return (
     <div>
