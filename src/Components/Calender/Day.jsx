@@ -2,11 +2,13 @@ import dayjs from "dayjs";
 import React, { useContext, useState, useEffect } from "react";
 import CountDown from "./CountDown";
 import GlobalContext from "../../context/GlobalContext";
+import lockedblack from "../../assets/lockblack.png";
 
 export default function Day({ day, rowIdx, setOpen, eventData }) {
   const [dayEvents, setDayEvents] = useState([]);
   const [locked, setLocked] = useState(null);
   const {
+    daySelected,
     setDaySelected,
     setShowEventModal,
     filteredEvents,
@@ -18,7 +20,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
       (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
     );
     setDayEvents(events);
-    console.log("events", events);
+    // console.log("events", events);
   }, [filteredEvents, day]);
 
   function getCurrentDayClass() {
@@ -36,9 +38,11 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
     }
     setLocked(idx);
     setOpen(true);
-    console.log("clicked");
+    console.log("clicked", evt);
     setSelectedEvent(evt);
   };
+
+  // console.log("dayEvents",dayEvents)
 
   return (
     <div className="border-r border-t border-gray-200 flex gap-2 flex-row lg:flex-col p-0 lg:p-2 min-h-16 h-auto lg:h-[138px]">
@@ -83,6 +87,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                   onClick={(e) => {
                     setSelectedEvent(evt);
                     handleOpen(e, idx, evt);
+                    setDaySelected(day);
                   }}
                   className={`text-center min-h-[43px] h-full ${
                     evt.category === "Analysis"
@@ -92,19 +97,38 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                       : evt.category === "Repairs"
                       ? "bg-[#D1FAE5]"
                       : "bg-[#DBEAFE]"
+                  } ${
+                    daySelected === day && "bg-[#064E3B]"
                   } w-full py-3 px-6 text-gray-600 text-sm rounded-4px overflow-hidden truncate rounded`}
                 >
-                  <CountDown evt={evt} />
+                  {daySelected === day ? (
+                    <button className="m-auto mb-1 bg-white rounded-full py-[2px] px-2 flex items-center gap-[2px] text-slate-950 text-xs font-normal ">
+                      <img src={lockedblack} alt="" />
+                      Locked
+                    </button>
+                  ) : (
+                    <CountDown evt={evt} />
+                  )}
 
                   {/* <p>Data {evt.label}</p> */}
 
                   {/* <p>Data {evt.startTime}</p> */}
 
-                  <p className="text-sm font-bold text-slate-950 mb-1">
+                  <p
+                    className={`${
+                      daySelected === day && "text-white"
+                    } text-sm font-bold text-slate-950 mb-1`}
+                  >
                     {evt.category}
                   </p>
 
-                  <StartEndDiff evt={evt} />
+                  <p
+                    className={`${
+                      daySelected === day ? "text-white" : "text-slate-950"
+                    } text-sm font-bold  mb-1`}
+                  >
+                    9 Hours
+                  </p>
                 </div>
               ) : (
                 <div
@@ -119,7 +143,11 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                     <p className="text-xs font-bold text-slate-950 mb-1">
                       Consultation
                     </p>
-                    <p className="text-xs font-normal text-slate-500">
+                    <p
+                      className={`${
+                        daySelected === day ? "text-white" : "text-slate-950"
+                      } text-sm font-bold  mb-1`}
+                    >
                       9 Hours
                     </p>
                   </div>
@@ -142,9 +170,17 @@ const colorPalate = {
 };
 
 function StartEndDiff({ evt }) {
+  console.log(evt, "diff");
   return (
     <>
-      <p className="text-xs font-normal text-slate-500">9 Hours</p>
+      <p
+        className={`${
+          "bg-[#064E3B]" ? "text-white" : "text-slate-950"
+        } text-sm font-bold  mb-1`}
+        //  className="text-xs font-normal text-slate-500"
+      >
+        9 Hours
+      </p>
     </>
   );
 }

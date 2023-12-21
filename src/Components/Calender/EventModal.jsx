@@ -15,14 +15,14 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
   const [selectedImages, setSelectedImages] = useState([]);
   const [upload, setUpload] = useState(25);
 
-  console.log(selectedImages, "dd");
+
   const handleFileChange = (event) => {
     const files = event.target.files;
     const imagesArray = Array.from(files).filter((file) => file.name);
     // const imagesArray = Array.from(files).map((file) =>
     //   URL.createObjectURL(file)
     // );
-    // console.log(files,"dd")
+
     setSelectedImages((prevImages) => [...prevImages, ...imagesArray]);
   };
 
@@ -123,7 +123,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
       files,
     };
 
-    console.log(data, "data");
+
     setEventData(data);
     setSuccessfullOpen(true);
     setShowEventModal(false);
