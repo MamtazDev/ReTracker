@@ -27,8 +27,7 @@ const ActivityDetails = ({ setOpen }) => {
   };
   const { setShowEventModal, selectedEvent } = useContext(GlobalContext);
 
-  console.log("selectedEvent:", selectedEvent)
-
+  console.log("selectedEvent:", selectedEvent);
 
   return (
     <div>
@@ -75,12 +74,12 @@ const ActivityDetails = ({ setOpen }) => {
             </button>
             <p className="flex items-center gap-2">
               <span className="bg-emerald-500 w-3 h-3 rounded-full block"></span>
-              Repairs
+              {selectedEvent?.category}
             </p>
-            <p>Plumbing</p>
-            <p>Dec 01, 2023</p>
-            <p>9:00 AM</p>
-            <p>6:00 PM</p>
+            <p> {selectedEvent?.subcategory}</p>
+            <p> {selectedEvent?.date}</p>
+            <p>   {selectedEvent?.startTime}</p>
+            <p>   {selectedEvent?.endTime}</p>
             <button className="bg-emerald-50 px-2 py-[2px] rounded-full text-emerald-500 text-xs font-medium">
               Completed
             </button>
