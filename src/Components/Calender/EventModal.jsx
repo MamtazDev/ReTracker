@@ -13,16 +13,40 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
   const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
+  const [individualUploadProgress, setIndividualUploadProgress] = useState({});
+  const [loading, setLoading] = useState(false);
   const [upload, setUpload] = useState(25);
 
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
+    setLoading(true);
+
     const files = event.target.files;
     const imagesArray = Array.from(files).filter((file) => file.name);
-    // const imagesArray = Array.from(files).map((file) =>
-    //   URL.createObjectURL(file)
-    // );
 
     setSelectedImages((prevImages) => [...prevImages, ...imagesArray]);
+
+    const initialProgress = Object.fromEntries(
+      imagesArray.map((file) => [file.name, 0])
+    );
+    setIndividualUploadProgress(initialProgress);
+
+    for (const image of imagesArray) {
+      await uploadImage(image);
+    }
+  };
+
+  const uploadImage = async (image) => {
+    const totalSteps = 100;
+    const stepDuration = 20;
+
+    for (let step = 1; step <= totalSteps; step++) {
+      await new Promise((resolve) => setTimeout(resolve, stepDuration));
+
+      setIndividualUploadProgress((prevProgress) => ({
+        ...prevProgress,
+        [image.name]: step * (100 / totalSteps),
+      }));
+    }
   };
 
   const handleDrop = (event) => {
@@ -273,8 +297,10 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
             handleDragOver={handleDragOver}
             imgGrp={imgGrp}
             selectedImages={selectedImages}
-            handleFile={handleFile}
-            upload={upload}
+            handleFileChange={handleFileChange}
+            individualUploadProgress={individualUploadProgress}
+            handleRemoveImage={handleRemoveImage}
+            loading={loading}
           />
 
           {/* <div
@@ -436,8 +462,10 @@ function ImageDrop({
   handleDragOver,
   imgGrp,
   selectedImages,
-  handleFile,
-  upload,
+  handleFileChange,
+  individualUploadProgress,
+  handleRemoveImage,
+  loading,
 }) {
   return (
     <>
@@ -457,45 +485,63 @@ function ImageDrop({
       <div className="mb-6 flex flex-col gap-4 mt-[6px]">
         {selectedImages &&
           selectedImages.length > 0 &&
-          selectedImages.map((item, idx) => (
-            <div key={idx} className="border border-slate-200 rounded-xl p-4 ">
-              <div className="flex items-start gap-3 justify-between">
-                <div className="flex items-center gap-3 mb-2">
-                  {/* <img src={pdf} alt="" /> */}
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src={URL?.createObjectURL(item)}
-                    alt=""
-                  />
-                  <div>
-                    <p className="text-[#323539] text-sm font-medium">
-                      {item?.name}
-                    </p>
-                    <p className="text-[#858C95] text-xs font-normal">
-                      {(item?.size / 1024).toFixed(2)} kb
-                    </p>
-                  </div>
-                </div>
-                <button
-                  className="text-red-500"
-                  type="button"
-                  onClick={() => handleFile(item?.name)}
-                >
-                  <img src={cross} alt="" />
-                </button>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="bg-violet-50 h-2 w-full rounded-md">
-                  <div
-                    style={{ width: `${upload}%` }}
-                    className=" bg-primary rounded-md h-2"
-                  ></div>
-                </div>
-                <p className="text-xs font-medium">{upload}%</p>
-              </div>
-            </div>
+          selectedImages?.map((item, idx) => (
+            <ImageContainer
+              key={idx}
+              idx={idx}
+              item={item}
+              handleRemoveImage={handleRemoveImage}
+              individualUploadProgress={individualUploadProgress}
+            />
           ))}
       </div>
     </>
+  );
+}
+
+function ImageContainer({
+  idx,
+  item,
+  individualUploadProgress,
+  handleRemoveImage,
+}) {
+  return (
+    <div className="border border-slate-200 rounded-xl p-4 ">
+      <div className="flex items-start gap-3 justify-between">
+        <div className="flex items-center gap-3 mb-2">
+          <img
+            className="h-10 w-10 rounded-full"
+            src={URL?.createObjectURL(item)}
+            alt=""
+          />
+          <div>
+            <p className="text-[#323539] text-sm font-medium">{item?.name}</p>
+            <p className="text-[#858C95] text-xs font-normal">
+              {(item?.size / 1024).toFixed(2)} kb
+            </p>
+          </div>
+        </div>
+        <button
+          className="text-red-500"
+          type="button"
+          onClick={() => handleRemoveImage(idx)}
+        >
+          <img src={cross} alt="" />
+        </button>
+      </div>
+      <div className="flex items-center gap-2">
+        <div className="bg-violet-50 h-2 w-full rounded-md">
+          <div
+            style={{
+              width: `${individualUploadProgress[item?.name] || 100}%`,
+            }}
+            className="bg-primary rounded-md h-2"
+          ></div>
+        </div>
+        <p className="text-xs font-medium">
+          {Math.round(individualUploadProgress[item?.name] || 100)}%
+        </p>
+      </div>
+    </div>
   );
 }
