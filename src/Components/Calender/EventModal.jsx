@@ -104,7 +104,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
       // description,
       // label: selectedLabel,
       // day: daySelected.valueOf(),
-      // id: selectedEvent ? selectedEvent.id : Date.now(),
+      id: Date.now(),
 
       category,
       subcategory,
@@ -137,6 +137,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
       endTime,
       isWorking,
       files,
+      id: Date.now(),
     };
     if (isChecked) {
       data.inProgress = true;
@@ -155,6 +156,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     setSuccessfullOpen(true);
     setShowEventModal(false);
   };
+
   return (
     <div className="h-screen w-full  fixed z-50 left-0 top-0 flex justify-center items-center hour_spent ">
       <div className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">
@@ -209,7 +211,13 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
           </div>
           <div className="mb-4">
             <label>Select Date</label>
-            <input type="date" name="date" required />
+            <input
+              type="date"
+              name="date"
+              value={daySelected.format("YYYY-MM-DD")}
+              required
+              disabled
+            />
           </div>
           <div className="flex items-center gap-4 mb-4 ">
             <div className="w-full">
