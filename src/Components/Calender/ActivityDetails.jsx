@@ -78,8 +78,8 @@ const ActivityDetails = ({ setOpen }) => {
             </p>
             <p> {selectedEvent?.subcategory}</p>
             <p> {selectedEvent?.date}</p>
-            <p>   {selectedEvent?.startTime}</p>
-            <p>   {selectedEvent?.endTime}</p>
+            <p> {selectedEvent?.startTime}</p>
+            <p> {selectedEvent?.endTime}</p>
             <button className="bg-emerald-50 px-2 py-[2px] rounded-full text-emerald-500 text-xs font-medium">
               Completed
             </button>
@@ -91,20 +91,32 @@ const ActivityDetails = ({ setOpen }) => {
             Attachments
           </p>
           <div className="mb-6 flex flex-col gap-4">
-            <div className="border border-slate-200 rounded-xl p-4 flex items-center gap-3 justify-between">
-              <div className="flex items-center gap-3">
-                <img src={pdf} alt="" />
-                <div>
-                  <p className="text-[#323539] text-sm font-medium">
-                    Invoice002.pdf
-                  </p>
-                  <p className="text-[#858C95] text-xs font-normal">500 kb</p>
+            {selectedEvent?.files &&
+              selectedEvent?.files.map((pic, index) => (
+                <div
+                  key={index}
+                  className="border border-slate-200 rounded-xl p-4 flex items-center gap-3 justify-between"
+                >
+                  <div className="flex items-center gap-3">
+                    <img
+                      className="h-10 w-10 rounded-full"
+                      src={pic?.name ?URL?.createObjectURL(pic):""}
+                      alt=""
+                    />
+                    <div>
+                      <p className="text-[#323539] text-sm font-medium">
+                        {pic?.name}
+                      </p>
+                      <p className="text-[#858C95] text-xs font-normal">
+                        {(pic?.size / 1024).toFixed(2)} kb
+                      </p>
+                    </div>
+                  </div>
+                  <button onClick={handleDownload}>
+                    <img src={download} alt="" />
+                  </button>
                 </div>
-              </div>
-              <button onClick={handleDownload}>
-                <img src={download} alt="" />
-              </button>
-            </div>
+              ))}
           </div>
           <div className="flex items-center gap-4">
             <OutLineBtn>Delete</OutLineBtn>

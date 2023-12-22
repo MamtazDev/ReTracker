@@ -20,7 +20,7 @@ const Calender = () => {
   }, [monthIndex]);
 
   // console.log("currenMonth:", currenMonth);
-  // console.log(eventData,'eventdata');
+  console.log(eventData,'eventdata');
 
   return (
     <div >

@@ -11,7 +11,7 @@ const Banner = () => {
   };
 
   return (
-    <div style={bannerStyle} className="pt-28 lg:pt-[292.5px ] pb-24 lg:pb-[212.5px]  ">
+    <div style={bannerStyle} className="pt-28 lg:pt-[292.5px] pb-24 lg:pb-[212.5px]  ">
       <div className="max-w-[1280px] m-auto">
         <div className="max-w-[576px] p-5 lg:p-0">
           <p className="text-white text-lg font-semibold mb-4">

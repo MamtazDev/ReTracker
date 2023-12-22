@@ -103,6 +103,10 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
       files,
       day: daySelected.valueOf(),
     };
+    if (isChecked) {
+      calendarEvent.inProgress = true;
+    }
+
     if (selectedEvent) {
       dispatchCalEvent({ type: "update", payload: calendarEvent });
     } else {
@@ -121,7 +125,9 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
       isWorking,
       files,
     };
-
+    if (isChecked) {
+      data.inProgress = true;
+    }
     setEventData(data);
     // setSuccessfullOpen(true);
     setShowEventModal(false);
@@ -213,7 +219,13 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
             </div>
             <div className="w-full">
               <label>End Time </label>
-              <input type="time" disabled={isChecked} name="endTime" required />
+              <input
+                className={isChecked && "opacity-30"}
+                type="time"
+                disabled={isChecked}
+                name="endTime"
+                required
+              />
             </div>
           </div>
           <label
@@ -446,7 +458,7 @@ function ImageDrop({
                   {/* <img src={pdf} alt="" /> */}
                   <img
                     className="h-10 w-10 rounded-full"
-                    src={URL.createObjectURL(item)}
+                    src={URL?.createObjectURL(item)}
                     alt=""
                   />
                   <div>
