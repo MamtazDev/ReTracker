@@ -4,7 +4,7 @@ import mark from "../../assets/mark2.png";
 
 const Packages = () => {
   return (
-    <div className="max-w-[1536px] mx-auto my-24">
+    <div className="max-w-[1536px] mx-auto my-24 p-5 lg:p-0">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {["A", "B"].map((data, index) => (
           <div

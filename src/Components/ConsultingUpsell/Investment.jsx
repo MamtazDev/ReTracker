@@ -34,7 +34,7 @@ const Investment = () => {
     },
   ];
   return (
-    <div className="bg-slate-50 py-24">
+    <div className="bg-slate-50 py-24 px-5 lg:px-0">
       <div className="max-w-[1536px] m-auto">
         <div className="text-5xl font-semibold text-center mb-12">
           <p className="text-slate-950 mb-3">Unlock the Potential of</p>
@@ -51,7 +51,7 @@ const Investment = () => {
                 <div className="flex flex-col gap-[10px]">
                   {data.list.map((idx) => (
                     <div className="flex items-start gap-[10px]" key={idx}>
-                      <img src={mark} alt="" />
+                      <img className="flex-shrink-0" src={mark} alt="" />
                       <p className="text-sm font-medium">{idx}</p>
                     </div>
                   ))}
