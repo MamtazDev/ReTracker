@@ -7,17 +7,17 @@ const Banner = () => {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
-    padding: "292.5px 0 212.5px",
+   
   };
 
   return (
-    <div style={bannerStyle}>
+    <div style={bannerStyle} className="pt-28 lg:pt-[292.5px ] pb-24 lg:pb-[212.5px]  ">
       <div className="max-w-[1280px] m-auto">
-        <div className="max-w-[576px]">
+        <div className="max-w-[576px] p-5 lg:p-0">
           <p className="text-white text-lg font-semibold mb-4">
             Consulting Upsell
           </p>
-          <p className="text-violet-300 text-5xl font-bold mb-1">
+          <p className="text-violet-300 text-3xl lg:text-5xl font-bold mb-1">
             RE Tracker Consulting
           </p>
           <p className="text-white text-5xl font-bold mb-4">Only for $299</p>
