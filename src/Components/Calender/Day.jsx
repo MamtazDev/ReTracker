@@ -42,9 +42,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
     setSelectedEvent(evt);
   };
 
-
-  const [activeDay, setActiveDay] = useState(null)
-
+  const [activeDay, setActiveDay] = useState(null);
 
   // console.log("dayEvents",dayEvents)
 
@@ -64,7 +62,6 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
       </header>
       <div
         className="flex-1 cursor-pointer w-full p-2 lg:p-0"
-
         //handler for clicking outside of day event
         onClick={() => {
           setDaySelected(day);
@@ -106,16 +103,13 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                       : evt.category === "Repairs"
                       ? "bg-[#D1FAE5]"
                       : "bg-[#DBEAFE]"
-
-                      
                   } 
 
-                  // ${activeDay === day && "bg-black" }
+                  // ${activeDay === day && "bg-black"}
                   
                    w-full py-3 px-6 text-gray-600 text-sm rounded-4px overflow-hidden truncate rounded`}
                 >
-
-                  <p>{activeDay === day && "day is selected" }</p>
+                  <p>{activeDay === day && "day is selected"}</p>
                   <CountDown evt={evt} />
 
                   {/* <p>Data {evt.label}</p> */}
@@ -150,12 +144,13 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                   key={idx}
                   onClick={(e) =>
                     //  handleOpen(e, idx)
-                     { setSelectedEvent(evt);
-                     handleOpen(e, idx, evt);
-                     setDaySelected(day);
-                    //  activeDay === null ?  setActiveDay(day) : setActiveDay(null);
-                  }
+                    {
+                      setSelectedEvent(evt);
+                      handleOpen(e, idx, evt);
+                      setDaySelected(day);
+                      //  activeDay === null ?  setActiveDay(day) : setActiveDay(null);
                     }
+                  }
                   className={`flex items-center justify-between   min-h-[43px]  h-full ${
                     evt.category === "Analysis"
                       ? "bg-[#FEF3C7]"
