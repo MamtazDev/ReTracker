@@ -32,9 +32,9 @@ const ActivityDetails = ({ setOpen }) => {
 
   //     const startTime = new Date(`2000-01-01T${selectedEvent.startTime}`);
   //     const endTime = new Date(`2000-01-01T${selectedEvent.endTime}`);
-
+      
   //     const timeDifference = endTime - startTime;
-
+      
   //     const hours = Math.floor(timeDifference / (60 * 60 * 1000));
   //     const minutes = Math.floor((timeDifference % (60 * 60 * 1000)) / (60 * 1000));
 
@@ -128,7 +128,13 @@ const ActivityDetails = ({ setOpen }) => {
                     </div>
                   </div>
                   <button onClick={handleDownload}>
-                    <img src={download} alt="" />
+                  <a
+                    href={pic?.name ?URL?.createObjectURL(pic):""}
+                    download
+                  >
+                     <img src={download} alt="" /> 
+                  </a>
+                    {/* <img src={download} alt="" /> */}
                   </button>
                 </div>
               ))}
