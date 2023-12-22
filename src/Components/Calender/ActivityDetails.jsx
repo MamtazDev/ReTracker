@@ -27,19 +27,14 @@ const ActivityDetails = ({ setOpen }) => {
   };
   const { setShowEventModal, selectedEvent } = useContext(GlobalContext);
 
-  console.log("selectedEvent:", selectedEvent.startTime);
-
-
   // useEffect(() => {
   //   const calculateTimeDifference = () => {
-      
+
   //     const startTime = new Date(`2000-01-01T${selectedEvent.startTime}`);
   //     const endTime = new Date(`2000-01-01T${selectedEvent.endTime}`);
 
-      
   //     const timeDifference = endTime - startTime;
 
-      
   //     const hours = Math.floor(timeDifference / (60 * 60 * 1000));
   //     const minutes = Math.floor((timeDifference % (60 * 60 * 1000)) / (60 * 1000));
 
@@ -120,7 +115,7 @@ const ActivityDetails = ({ setOpen }) => {
                   <div className="flex items-center gap-3">
                     <img
                       className="h-10 w-10 rounded-full"
-                      src={pic?.name ?URL?.createObjectURL(pic):""}
+                      src={pic?.name ? URL?.createObjectURL(pic) : ""}
                       alt=""
                     />
                     <div>
