@@ -5,9 +5,7 @@ import { useContext, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 
 const AddHoursModal = ({ setOpen }) => {
-
   const { setShowEventModal } = useContext(GlobalContext);
-
 
   const handleClick = () => {
     setOpen(false);

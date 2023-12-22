@@ -2,11 +2,13 @@ import dayjs from "dayjs";
 import React, { useContext, useState, useEffect } from "react";
 import CountDown from "./CountDown";
 import GlobalContext from "../../context/GlobalContext";
+import lockedblack from "../../assets/lockblack.png";
 
 export default function Day({ day, rowIdx, setOpen, eventData }) {
   const [dayEvents, setDayEvents] = useState([]);
   const [locked, setLocked] = useState(null);
   const {
+    daySelected,
     setDaySelected,
     setShowEventModal,
     filteredEvents,
@@ -18,7 +20,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
       (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
     );
     setDayEvents(events);
-    console.log("events", events);
+    // cons ole.log("events", events);
   }, [filteredEvents, day]);
 
   function getCurrentDayClass() {
@@ -31,14 +33,18 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
 
   const handleOpen = (e, idx, evt) => {
     e.stopPropagation();
-    if (locked !== null) {
-      setLocked(null);
-    }
-    setLocked(idx);
+    // if (locked !== null) {
+    //   setLocked(null);
+    // }
+    // setLocked(idx);
     setOpen(true);
-    console.log("clicked");
+    console.log("clicked", evt);
     setSelectedEvent(evt);
   };
+
+  const [activeDay, setActiveDay] = useState(null);
+
+  // console.log("dayEvents",dayEvents)
 
   return (
     <div className="border-r border-t border-gray-200 flex gap-2 flex-row lg:flex-col p-0 lg:p-2 min-h-16 h-auto lg:h-[138px]">
@@ -56,6 +62,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
       </header>
       <div
         className="flex-1 cursor-pointer w-full p-2 lg:p-0"
+        //handler for clicking outside of day event
         onClick={() => {
           setDaySelected(day);
           setShowEventModal(true);
@@ -80,9 +87,13 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                     }`,
                   }}
                   // onClick={() => setSelectedEvent(evt)}
+
+                  //handler for clicking outside of day event
                   onClick={(e) => {
                     setSelectedEvent(evt);
                     handleOpen(e, idx, evt);
+                    setDaySelected(day);
+                    // activeDay === null ?  setActiveDay(day) : setActiveDay(null);
                   }}
                   className={`text-center min-h-[43px] h-full ${
                     evt.category === "Analysis"
@@ -92,34 +103,72 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                       : evt.category === "Repairs"
                       ? "bg-[#D1FAE5]"
                       : "bg-[#DBEAFE]"
-                  } w-full py-3 px-6 text-gray-600 text-sm rounded-4px overflow-hidden truncate rounded`}
+                  } 
+
+                  // ${activeDay === day && "bg-black"}
+                  
+                   w-full py-3 px-6 text-gray-600 text-sm rounded-4px overflow-hidden truncate rounded`}
                 >
+                  <p>{activeDay === day && "day is selected"}</p>
                   <CountDown evt={evt} />
 
                   {/* <p>Data {evt.label}</p> */}
 
                   {/* <p>Data {evt.startTime}</p> */}
 
-                  <p className="text-sm font-bold text-slate-950 mb-1">
+                  <p className={` text-sm font-bold text-slate-950 mb-1`}>
                     {evt.category}
                   </p>
 
-                  <StartEndDiff evt={evt} />
+                  <p
+                    className={`
+                     "text-slate-950"
+                     text-sm font-bold  mb-1`}
+                  >
+                    9 Hours
+                  </p>
                 </div>
               ) : (
                 <div
                   style={{
-                    borderLeft: `3px solid ${colorPalate["Repairs"]}-500`,
+                    borderLeft: `3px solid ${
+                      evt.category === "Analysis"
+                        ? "#F59E0B"
+                        : evt.category === "Consultation"
+                        ? "#6366F1"
+                        : evt.category === "Repairs"
+                        ? "#10B981"
+                        : "#3B82F6"
+                    }`,
                   }}
                   key={idx}
-                  onClick={(e) => handleOpen(e, idx)}
-                  className={`flex items-center justify-between   min-h-[43px]  h-full bg-purple-200 w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
+                  onClick={(e) =>
+                    //  handleOpen(e, idx)
+                    {
+                      setSelectedEvent(evt);
+                      handleOpen(e, idx, evt);
+                      setDaySelected(day);
+                      //  activeDay === null ?  setActiveDay(day) : setActiveDay(null);
+                    }
+                  }
+                  className={`flex items-center justify-between   min-h-[43px]  h-full ${
+                    evt.category === "Analysis"
+                      ? "bg-[#FEF3C7]"
+                      : evt.category === "Consultation"
+                      ? "bg-[#E0E7FF]"
+                      : evt.category === "Repairs"
+                      ? "bg-[#D1FAE5]"
+                      : "bg-[#DBEAFE]"
+                  }  w-full py-3 px-[6px]  text-gray-600 text-sm rounded-[4px] overflow-hidden truncate`}
                 >
                   <div>
-                    <p className="text-xs font-bold text-slate-950 mb-1">
-                      Consultation
+                    <p className="text-xs font-bold text-slate-950">
+                      {evt.category}
                     </p>
-                    <p className="text-xs font-normal text-slate-500">
+                    <p
+                      className={` "text-slate-950"
+                      text-sm font-bold `}
+                    >
                       9 Hours
                     </p>
                   </div>
@@ -142,6 +191,7 @@ const colorPalate = {
 };
 
 function StartEndDiff({ evt }) {
+  console.log(evt, "diff");
   return (
     <>
       <p className="text-xs font-normal text-slate-500">9 Hours</p>

@@ -13,17 +13,40 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
   const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
+  const [individualUploadProgress, setIndividualUploadProgress] = useState({});
+  const [loading, setLoading] = useState(false);
   const [upload, setUpload] = useState(25);
 
-  console.log(selectedImages, "dd");
-  const handleFileChange = (event) => {
+  const handleFileChange = async (event) => {
+    setLoading(true);
+
     const files = event.target.files;
     const imagesArray = Array.from(files).filter((file) => file.name);
-    // const imagesArray = Array.from(files).map((file) =>
-    //   URL.createObjectURL(file)
-    // );
-    // console.log(files,"dd")
+
     setSelectedImages((prevImages) => [...prevImages, ...imagesArray]);
+
+    const initialProgress = Object.fromEntries(
+      imagesArray.map((file) => [file.name, 0])
+    );
+    setIndividualUploadProgress(initialProgress);
+
+    for (const image of imagesArray) {
+      await uploadImage(image);
+    }
+  };
+
+  const uploadImage = async (image) => {
+    const totalSteps = 100;
+    const stepDuration = 20;
+
+    for (let step = 1; step <= totalSteps; step++) {
+      await new Promise((resolve) => setTimeout(resolve, stepDuration));
+
+      setIndividualUploadProgress((prevProgress) => ({
+        ...prevProgress,
+        [image.name]: step * (100 / totalSteps),
+      }));
+    }
   };
 
   const handleDrop = (event) => {
@@ -55,22 +78,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
   const { setShowEventModal, daySelected, dispatchCalEvent, selectedEvent } =
     useContext(GlobalContext);
 
-  // const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
-  // const [startTime, setStartTime] = useState(
-  //   selectedEvent ? selectedEvent.startTime : ""
-  // );
-  // const [endTime, setEndTime] = useState(
-  //   selectedEvent ? selectedEvent.endTime : ""
-  // );
-  // const [description, setDescription] = useState(
-  //   selectedEvent ? selectedEvent.description : ""
-  // );
-  // const [selectedLabel, setSelectedLabel] = useState(
-  //   selectedEvent
-  //     ? labelsClasses.find((lbl) => lbl === selectedEvent.label)
-  //     : labelsClasses[0]
-  // );
-
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -80,19 +87,26 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     const subcategory = form.subcategory.value;
     const cost = form.cost.value;
     const date = form.date.value;
-    const startTime = form.startTime.value;
-    const endTime = form.endTime.value;
+    const startTime = new Date(
+      `2000-01-01T${form.startTime.value}`
+    ).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+    const endTime = new Date(
+      `2000-01-01T${form.endTime.value}`
+    ).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+
     const isWorking = isChecked;
     const files = selectedImages;
 
     const calendarEvent = {
-      // title,
-      // startTime,
-      // endTime,
-      // description,
-      // label: selectedLabel,
-      // day: daySelected.valueOf(),
-      // id: selectedEvent ? selectedEvent.id : Date.now(),
+      id: Date.now(),
 
       category,
       subcategory,
@@ -104,6 +118,10 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
       files,
       day: daySelected.valueOf(),
     };
+    if (isChecked) {
+      calendarEvent.inProgress = true;
+    }
+
     if (selectedEvent) {
       dispatchCalEvent({ type: "update", payload: calendarEvent });
     } else {
@@ -112,20 +130,22 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
 
     setShowEventModal(false);
 
-    const data = {
-      category,
-      subcategory,
-      cost,
-      date,
-      startTime,
-      endTime,
-      isWorking,
-      files,
-    };
-
-    console.log(data, "data");
-    setEventData(data);
-    setSuccessfullOpen(true);
+    // const data = {
+    //   category,
+    //   subcategory,
+    //   cost,
+    //   date,
+    //   startTime,
+    //   endTime,
+    //   isWorking,
+    //   files,
+    //   id: Date.now(),
+    // };
+    // if (isChecked) {
+    //   data.inProgress = true;
+    // }
+    // setEventData(data);
+    // setSuccessfullOpen(true);
     setShowEventModal(false);
   }
 
@@ -138,26 +158,13 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     setSuccessfullOpen(true);
     setShowEventModal(false);
   };
+
   return (
     <div className="h-screen w-full  fixed z-50 left-0 top-0 flex justify-center items-center hour_spent ">
       <div className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">
         <header className="flex justify-between items-center mb-2">
           <p className="text-xl font-medium text-slate-950">Add Hours Spent</p>
 
-          {/* {selectedEvent && (
-              <span
-                onClick={() => {
-                  dispatchCalEvent({
-                    type: "delete",
-                    payload: selectedEvent,
-                  });
-                  setShowEventModal(false);
-                }}
-                className="material-icons-outlined text-gray-400 cursor-pointer"
-              >
-                delete
-              </span>
-            )} */}
           <button onClick={() => setShowEventModal(false)}>
             <img src={close} alt="" />
           </button>
@@ -206,7 +213,13 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
           </div>
           <div className="mb-4">
             <label>Select Date</label>
-            <input type="date" name="date" required />
+            <input
+              type="date"
+              name="date"
+              value={daySelected.format("YYYY-MM-DD")}
+              required
+              disabled
+            />
           </div>
           <div className="flex items-center gap-4 mb-4 ">
             <div className="w-full">
@@ -215,7 +228,13 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
             </div>
             <div className="w-full">
               <label>End Time </label>
-              <input type="time" name="endTime" required />
+              <input
+                className={isChecked && "opacity-30"}
+                type="time"
+                disabled={isChecked}
+                name="endTime"
+                required
+              />
             </div>
           </div>
           <label
@@ -257,8 +276,10 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
             handleDragOver={handleDragOver}
             imgGrp={imgGrp}
             selectedImages={selectedImages}
-            handleFile={handleFile}
-            upload={upload}
+            handleFileChange={handleFileChange}
+            individualUploadProgress={individualUploadProgress}
+            handleRemoveImage={handleRemoveImage}
+            loading={loading}
           />
 
           {/* <div
@@ -420,8 +441,10 @@ function ImageDrop({
   handleDragOver,
   imgGrp,
   selectedImages,
-  handleFile,
-  upload,
+  handleFileChange,
+  individualUploadProgress,
+  handleRemoveImage,
+  loading,
 }) {
   return (
     <>
@@ -441,41 +464,63 @@ function ImageDrop({
       <div className="mb-6 flex flex-col gap-4 mt-[6px]">
         {selectedImages &&
           selectedImages.length > 0 &&
-          selectedImages.map((item, idx) => (
-            <div key={idx} className="border border-slate-200 rounded-xl p-4 ">
-              <div className="flex items-start gap-3 justify-between">
-                <div className="flex items-center gap-3 mb-2">
-                  {/* <img src={pdf} alt="" /> */}
-                  <img className="h-10 w-10 rounded-full" src={URL.createObjectURL(item)}alt="" />
-                  <div>
-                    <p className="text-[#323539] text-sm font-medium">
-                      {item?.name}
-                    </p>
-                    <p className="text-[#858C95] text-xs font-normal">
-                      {(item?.size / 1024).toFixed(2)} kb
-                    </p>
-                  </div>
-                </div>
-                <button
-                  className="text-red-500"
-                  type="button"
-                  onClick={() => handleFile(item?.name)}
-                >
-                  <img src={cross} alt="" />
-                </button>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="bg-violet-50 h-2 w-full rounded-md">
-                  <div
-                    style={{ width: `${upload}%` }}
-                    className=" bg-primary rounded-md h-2"
-                  ></div>
-                </div>
-                <p className="text-xs font-medium">{upload}%</p>
-              </div>
-            </div>
+          selectedImages?.map((item, idx) => (
+            <ImageContainer
+              key={idx}
+              idx={idx}
+              item={item}
+              handleRemoveImage={handleRemoveImage}
+              individualUploadProgress={individualUploadProgress}
+            />
           ))}
       </div>
     </>
+  );
+}
+
+function ImageContainer({
+  idx,
+  item,
+  individualUploadProgress,
+  handleRemoveImage,
+}) {
+  return (
+    <div className="border border-slate-200 rounded-xl p-4 ">
+      <div className="flex items-start gap-3 justify-between">
+        <div className="flex items-center gap-3 mb-2">
+          <img
+            className="h-10 w-10 rounded-full"
+            src={URL?.createObjectURL(item)}
+            alt=""
+          />
+          <div>
+            <p className="text-[#323539] text-sm font-medium">{item?.name}</p>
+            <p className="text-[#858C95] text-xs font-normal">
+              {(item?.size / 1024).toFixed(2)} kb
+            </p>
+          </div>
+        </div>
+        <button
+          className="text-red-500"
+          type="button"
+          onClick={() => handleRemoveImage(idx)}
+        >
+          <img src={cross} alt="" />
+        </button>
+      </div>
+      <div className="flex items-center gap-2">
+        <div className="bg-violet-50 h-2 w-full rounded-md">
+          <div
+            style={{
+              width: `${individualUploadProgress[item?.name] || 100}%`,
+            }}
+            className="bg-primary rounded-md h-2"
+          ></div>
+        </div>
+        <p className="text-xs font-medium">
+          {Math.round(individualUploadProgress[item?.name] || 100)}%
+        </p>
+      </div>
+    </div>
   );
 }

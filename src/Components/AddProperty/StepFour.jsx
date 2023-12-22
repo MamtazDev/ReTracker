@@ -16,7 +16,7 @@ const StepFour = ({ setStepper }) => {
   const [showDropdown, setShowDropDown] = useState(false);
   const [country, setCountry] = useState();
   const [dollarvalue, setDollar] = useState("");
-  console.log(country, "ppp");
+
 
   useEffect(() => {
     const svgElement = document.querySelector("#flagContainer svg");

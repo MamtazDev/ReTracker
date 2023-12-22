@@ -1,33 +1,97 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import download from "../../assets/download.png";
-import pdf from "../../assets/pdf.png";
 import user from "../../assets/user.png";
 import back from "../../assets/back.png";
 import GlobalContext from "../../context/GlobalContext";
 
 const ActivityDetails = ({ setOpen }) => {
-  const handleDownload = async () => {
-    try {
-      const response = await fetch(
-        "https://www.africau.edu/images/default/sample.pdf"
-      );
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "downloaded_file.pdf";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    } catch (error) {
-      console.error("Error downloading the file:", error);
-    }
-  };
-  const { setShowEventModal, selectedEvent } = useContext(GlobalContext);
+  const {
+    setShowEventModal,
+    selectedEvent,
+    dispatchCalEvent,
+    setSelectedEvent,
+  } = useContext(GlobalContext);
 
   console.log("selectedEvent: ", selectedEvent);
+
+  const [timeElapsed, setTimeElapsed] = useState({ hours: 0, minutes: 0 });
+
+  useEffect(() => {
+    const startDateTime = new Date(`${selectedEvent.date} UTC`);
+
+    const calculateTimeElapsed = () => {
+      // console.log("selectedEvent", selectedEvent)
+
+      const currentDateTime = new Date();
+
+      const timeDifference = currentDateTime - startDateTime;
+
+      // console.log("startDateTime", currentDateTime)
+
+      const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+      const minutes = Math.floor(
+        (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+      );
+
+      setTimeElapsed({ hours, minutes });
+    };
+
+    const intervalId = setInterval(calculateTimeElapsed, 1000);
+
+    // Cleanup function to clear the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, [selectedEvent.startTime]);
+
+  // for blocking edit button baed on 48h time stamp
+
+  const [spendHour, setSpendHour] = useState(0);
+  const [eventDetails, setEventDetails] = useState(null);
+
+  const removeHandler = () => {
+    dispatchCalEvent({ type: "delete", payload: selectedEvent });
+  };
+
+  useEffect(() => {
+    setEventDetails(selectedEvent);
+
+    const calculateTimeDifference = () => {
+      const startTimeParts = selectedEvent.startTime.match(
+        /(\d+):(\d+) ([APMapm]{2})/
+      );
+      const startTime = new Date();
+      startTime.setHours(
+        parseInt(startTimeParts[1]),
+        parseInt(startTimeParts[2]),
+        startTimeParts[3].toUpperCase() === "PM" ? 12 : 0
+      );
+
+      let endTime;
+      if (selectedEvent.endTime !== "Invalid Date") {
+        const endTimeParts = selectedEvent?.endTime.match(
+          /(\d+):(\d+) ([APMapm]{2})/
+        );
+        endTime = new Date();
+        endTime.setHours(
+          parseInt(endTimeParts[1]),
+          parseInt(endTimeParts[2]),
+          endTimeParts[3].toUpperCase() === "PM" ? 12 : 0
+        );
+      } else {
+        endTime = new Date(); // Use current time
+      }
+
+      const timeDifference = endTime - startTime;
+
+      // Convert milliseconds to hours and minutes
+      const hours = Math.floor(timeDifference / (60 * 60 * 1000));
+      setSpendHour(hours);
+    };
+
+    calculateTimeDifference();
+  }, [selectedEvent, eventDetails]);
+
   return (
     <div>
       <div className=" px-6 py-4 flex items-center gap-3 border-b border-slate-200 ">
@@ -40,7 +104,7 @@ const ActivityDetails = ({ setOpen }) => {
       </div>
       <div className="p-6">
         <div className="icon h-[120px] w-[120px]  flex flex-col mx-auto mb-6">
-          <p className="text-4xl font-bold mb-1">9</p>
+          <p className="text-4xl font-bold mb-1">{spendHour}</p>
           <p className="text-xs font-medium">Hours Spent</p>
         </div>
         <div className="flex justify-between gap-16 items-center mb-6">
@@ -73,12 +137,12 @@ const ActivityDetails = ({ setOpen }) => {
             </button>
             <p className="flex items-center gap-2">
               <span className="bg-emerald-500 w-3 h-3 rounded-full block"></span>
-              Repairs
+              {eventDetails?.category}
             </p>
-            <p>Plumbing</p>
-            <p>Dec 01, 2023</p>
-            <p>9:00 AM</p>
-            <p>6:00 PM</p>
+            <p> {eventDetails?.subcategory}</p>
+            <p> {eventDetails?.date}</p>
+            <p> {eventDetails?.startTime}</p>
+            <p> {eventDetails?.endTime}</p>
             <button className="bg-emerald-50 px-2 py-[2px] rounded-full text-emerald-500 text-xs font-medium">
               Completed
             </button>
@@ -90,31 +154,55 @@ const ActivityDetails = ({ setOpen }) => {
             Attachments
           </p>
           <div className="mb-6 flex flex-col gap-4">
-            <div className="border border-slate-200 rounded-xl p-4 flex items-center gap-3 justify-between">
-              <div className="flex items-center gap-3">
-                <img src={pdf} alt="" />
-                <div>
-                  <p className="text-[#323539] text-sm font-medium">
-                    Invoice002.pdf
-                  </p>
-                  <p className="text-[#858C95] text-xs font-normal">500 kb</p>
+            {eventDetails?.files &&
+              eventDetails?.files.map((pic, index) => (
+                <div
+                  key={index}
+                  className="border border-slate-200 rounded-xl p-4 flex items-center gap-3 justify-between"
+                >
+                  <div className="flex items-center gap-3">
+                    <img
+                      className="h-10 w-10 rounded-full"
+                      src={pic?.name ? URL?.createObjectURL(pic) : ""}
+                      alt=""
+                    />
+                    <div>
+                      <p className="text-[#323539] text-sm font-medium">
+                        {pic?.name}
+                      </p>
+                      <p className="text-[#858C95] text-xs font-normal">
+                        {(pic?.size / 1024).toFixed(2)} kb
+                      </p>
+                    </div>
+                  </div>
+                  <button>
+                    <a
+                      href={pic?.name ? URL?.createObjectURL(pic) : ""}
+                      download
+                    >
+                      <img src={download} alt="" />
+                    </a>
+                    {/* <img src={download} alt="" /> */}
+                  </button>
                 </div>
-              </div>
-              <button onClick={handleDownload}>
-                <img src={download} alt="" />
-              </button>
-            </div>
+              ))}
           </div>
           <div className="flex items-center gap-4">
-            <OutLineBtn>Delete</OutLineBtn>
-            <div
-              className="w-full"
-              onClick={() => {
-                setShowEventModal(true), setOpen(false);
-              }}
-            >
-              <PrimaryBtn>Edit</PrimaryBtn>
-            </div>
+            <OutLineBtn onClick={removeHandler}>Delete</OutLineBtn>
+            {timeElapsed.hours > 48 ? (
+              <div className="w-full">
+                <PrimaryBtn>Expired</PrimaryBtn>
+              </div>
+            ) : (
+              <div
+                className="w-full"
+                onClick={() => {
+                  setShowEventModal(true), setOpen(false);
+                }}
+              >
+                <PrimaryBtn>Edit</PrimaryBtn>
+              </div>
+            )}
           </div>
         </div>
       </div>
