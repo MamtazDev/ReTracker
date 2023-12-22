@@ -7,27 +7,59 @@ import back from "../../assets/back.png";
 import GlobalContext from "../../context/GlobalContext";
 
 const ActivityDetails = ({ setOpen }) => {
+  const {
+    setShowEventModal,
+    selectedEvent,
+    dispatchCalEvent,
+    setSelectedEvent,
+  } = useContext(GlobalContext);
 
-  const [spendHour, setSpendHour] = useState(0)
-  const [eventDetails, setEventDetails] = useState(null)
+  console.log("selectedEvent: ", selectedEvent);
 
-
-
-  const { setShowEventModal, selectedEvent,dispatchCalEvent, setSelectedEvent } = useContext(GlobalContext);
-
-
-  const removeHandler = () => {
-    dispatchCalEvent({ type: "delete", payload: selectedEvent }); 
-  }
-
-
+  const [timeElapsed, setTimeElapsed] = useState({ hours: 0, minutes: 0 });
 
   useEffect(() => {
+    const startDateTime = new Date(`${selectedEvent.date} UTC`);
 
-    setEventDetails(selectedEvent)
+    const calculateTimeElapsed = () => {
+      // console.log("selectedEvent", selectedEvent)
+
+      const currentDateTime = new Date();
+
+      const timeDifference = currentDateTime - startDateTime;
+
+      // console.log("startDateTime", currentDateTime)
+
+      const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+      const minutes = Math.floor(
+        (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+      );
+
+      setTimeElapsed({ hours, minutes });
+    };
+
+    const intervalId = setInterval(calculateTimeElapsed, 1000);
+
+    // Cleanup function to clear the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, [selectedEvent.startTime]);
+
+  // for blocking edit button baed on 48h time stamp
+
+  const [spendHour, setSpendHour] = useState(0);
+  const [eventDetails, setEventDetails] = useState(null);
+
+  const removeHandler = () => {
+    dispatchCalEvent({ type: "delete", payload: selectedEvent });
+  };
+
+  useEffect(() => {
+    setEventDetails(selectedEvent);
 
     const calculateTimeDifference = () => {
-      const startTimeParts = selectedEvent.startTime.match(/(\d+):(\d+) ([APMapm]{2})/);
+      const startTimeParts = selectedEvent.startTime.match(
+        /(\d+):(\d+) ([APMapm]{2})/
+      );
       const startTime = new Date();
       startTime.setHours(
         parseInt(startTimeParts[1]),
@@ -37,7 +69,9 @@ const ActivityDetails = ({ setOpen }) => {
 
       let endTime;
       if (selectedEvent.endTime !== "Invalid Date") {
-        const endTimeParts = selectedEvent?.endTime.match(/(\d+):(\d+) ([APMapm]{2})/);
+        const endTimeParts = selectedEvent?.endTime.match(
+          /(\d+):(\d+) ([APMapm]{2})/
+        );
         endTime = new Date();
         endTime.setHours(
           parseInt(endTimeParts[1]),
@@ -48,21 +82,15 @@ const ActivityDetails = ({ setOpen }) => {
         endTime = new Date(); // Use current time
       }
 
-
       const timeDifference = endTime - startTime;
 
       // Convert milliseconds to hours and minutes
       const hours = Math.floor(timeDifference / (60 * 60 * 1000));
-      setSpendHour(hours)
+      setSpendHour(hours);
     };
 
     calculateTimeDifference();
   }, [selectedEvent, eventDetails]);
-
-
-
-  
-
 
   return (
     <div>
@@ -160,15 +188,21 @@ const ActivityDetails = ({ setOpen }) => {
               ))}
           </div>
           <div className="flex items-center gap-4">
-            <OutLineBtn onClick={removeHandler} >Delete</OutLineBtn>
-            <div
-              className="w-full"
-              onClick={() => {
-                setShowEventModal(true), setOpen(false);
-              }}
-            >
-              <PrimaryBtn>Edit</PrimaryBtn>
-            </div>
+            <OutLineBtn onClick={removeHandler}>Delete</OutLineBtn>
+            {timeElapsed.hours > 48 ? (
+              <div className="w-full">
+                <PrimaryBtn>Expired</PrimaryBtn>
+              </div>
+            ) : (
+              <div
+                className="w-full"
+                onClick={() => {
+                  setShowEventModal(true), setOpen(false);
+                }}
+              >
+                <PrimaryBtn>Edit</PrimaryBtn>
+              </div>
+            )}
           </div>
         </div>
       </div>
