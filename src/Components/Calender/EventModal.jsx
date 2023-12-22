@@ -79,8 +79,21 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     const subcategory = form.subcategory.value;
     const cost = form.cost.value;
     const date = form.date.value;
-    const startTime = form.startTime.value;
-    const endTime = form.endTime.value;
+    const startTime = new Date(
+      `2000-01-01T${form.startTime.value}`
+    ).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+    const endTime = new Date(
+      `2000-01-01T${form.endTime.value}`
+    ).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+
     const isWorking = isChecked;
     const files = selectedImages;
 
@@ -147,7 +160,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
       <div className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">
         <header className="flex justify-between items-center mb-2">
           <p className="text-xl font-medium text-slate-950">Add Hours Spent</p>
-
 
           <button onClick={() => setShowEventModal(false)}>
             <img src={close} alt="" />
