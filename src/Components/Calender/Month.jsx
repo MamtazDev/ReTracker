@@ -1,7 +1,6 @@
 import React from "react";
 import Day from "./Day";
-export default function Month({ month, setOpen, rowIdx,eventData ,setEventData}) {
-
+export default function Month({ month, setOpen, rowIdx, eventData ,setEventData}) {
 
 
   return (

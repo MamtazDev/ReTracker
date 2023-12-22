@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import download from "../../assets/download.png";
@@ -27,7 +27,27 @@ const ActivityDetails = ({ setOpen }) => {
   };
   const { setShowEventModal, selectedEvent } = useContext(GlobalContext);
 
-  console.log("selectedEvent:", selectedEvent);
+  console.log("selectedEvent:", selectedEvent.startTime);
+
+
+  // useEffect(() => {
+  //   const calculateTimeDifference = () => {
+      
+  //     const startTime = new Date(`2000-01-01T${selectedEvent.startTime}`);
+  //     const endTime = new Date(`2000-01-01T${selectedEvent.endTime}`);
+
+      
+  //     const timeDifference = endTime - startTime;
+
+      
+  //     const hours = Math.floor(timeDifference / (60 * 60 * 1000));
+  //     const minutes = Math.floor((timeDifference % (60 * 60 * 1000)) / (60 * 1000));
+
+  //     console.log(`Time Difference: ${hours} hours and ${minutes} minutes`);
+  //   };
+
+  //   calculateTimeDifference();
+  // }, [selectedEvent]);
 
   return (
     <div>
