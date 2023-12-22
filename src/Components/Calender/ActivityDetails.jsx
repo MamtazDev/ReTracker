@@ -17,14 +17,7 @@ const ActivityDetails = ({ setOpen }) => {
 
 
   const removeHandler = () => {
-    //  const allSelectedEvent = JSON.parse(localStorage.getItem("savedEvents"))
-    //  const restEvent = selectedEvent.filter((item) => item.id === id )
-    // //  localStorage.setItem("savedEvents", restEvent)
-    // setSelectedEvent(restEvent)
-    // setEventDetails(restEvent)
-
-    dispatchCalEvent({ type: "delete", payload: selectedEvent });
-    
+    dispatchCalEvent({ type: "delete", payload: selectedEvent }); 
   }
 
 
@@ -65,6 +58,10 @@ const ActivityDetails = ({ setOpen }) => {
 
     calculateTimeDifference();
   }, [selectedEvent, eventDetails]);
+
+
+
+  
 
 
   return (

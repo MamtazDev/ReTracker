@@ -54,22 +54,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
   const { setShowEventModal, daySelected, dispatchCalEvent, selectedEvent } =
     useContext(GlobalContext);
 
-  // const [title, setTitle] = useState(selectedEvent ? selectedEvent.title : "");
-  // const [startTime, setStartTime] = useState(
-  //   selectedEvent ? selectedEvent.startTime : ""
-  // );
-  // const [endTime, setEndTime] = useState(
-  //   selectedEvent ? selectedEvent.endTime : ""
-  // );
-  // const [description, setDescription] = useState(
-  //   selectedEvent ? selectedEvent.description : ""
-  // );
-  // const [selectedLabel, setSelectedLabel] = useState(
-  //   selectedEvent
-  //     ? labelsClasses.find((lbl) => lbl === selectedEvent.label)
-  //     : labelsClasses[0]
-  // );
-
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -98,12 +82,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     const files = selectedImages;
 
     const calendarEvent = {
-      // title,
-      // startTime,
-      // endTime,
-      // description,
-      // label: selectedLabel,
-      // day: daySelected.valueOf(),
       id: Date.now(),
 
       category,
@@ -128,21 +106,21 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
 
     setShowEventModal(false);
 
-    const data = {
-      category,
-      subcategory,
-      cost,
-      date,
-      startTime,
-      endTime,
-      isWorking,
-      files,
-      id: Date.now(),
-    };
-    if (isChecked) {
-      data.inProgress = true;
-    }
-    setEventData(data);
+    // const data = {
+    //   category,
+    //   subcategory,
+    //   cost,
+    //   date,
+    //   startTime,
+    //   endTime,
+    //   isWorking,
+    //   files,
+    //   id: Date.now(),
+    // };
+    // if (isChecked) {
+    //   data.inProgress = true;
+    // }
+    // setEventData(data);
     // setSuccessfullOpen(true);
     setShowEventModal(false);
   }
