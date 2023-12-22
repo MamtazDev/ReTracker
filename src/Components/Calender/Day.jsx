@@ -20,7 +20,7 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
       (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
     );
     setDayEvents(events);
-    // console.log("events", events);
+    // cons ole.log("events", events);
   }, [filteredEvents, day]);
 
   function getCurrentDayClass() {

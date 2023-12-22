@@ -142,20 +142,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
         <header className="flex justify-between items-center mb-2">
           <p className="text-xl font-medium text-slate-950">Add Hours Spent</p>
 
-          {/* {selectedEvent && (
-              <span
-                onClick={() => {
-                  dispatchCalEvent({
-                    type: "delete",
-                    payload: selectedEvent,
-                  });
-                  setShowEventModal(false);
-                }}
-                className="material-icons-outlined text-gray-400 cursor-pointer"
-              >
-                delete
-              </span>
-            )} */}
+
           <button onClick={() => setShowEventModal(false)}>
             <img src={close} alt="" />
           </button>
