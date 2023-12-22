@@ -128,7 +128,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
       // description,
       // label: selectedLabel,
       // day: daySelected.valueOf(),
-      // id: selectedEvent ? selectedEvent.id : Date.now(),
+      id: Date.now(),
 
       category,
       subcategory,
@@ -161,6 +161,7 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
       endTime,
       isWorking,
       files,
+      id: Date.now(),
     };
     if (isChecked) {
       data.inProgress = true;

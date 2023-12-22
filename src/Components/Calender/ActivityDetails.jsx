@@ -1,48 +1,71 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import download from "../../assets/download.png";
-import pdf from "../../assets/pdf.png";
 import user from "../../assets/user.png";
 import back from "../../assets/back.png";
 import GlobalContext from "../../context/GlobalContext";
 
 const ActivityDetails = ({ setOpen }) => {
-  const handleDownload = async () => {
-    try {
-      const response = await fetch(
-        "https://www.africau.edu/images/default/sample.pdf"
+
+  const [spendHour, setSpendHour] = useState(0)
+  const [eventDetails, setEventDetails] = useState(null)
+
+
+
+  const { setShowEventModal, selectedEvent,dispatchCalEvent, setSelectedEvent } = useContext(GlobalContext);
+
+
+  const removeHandler = () => {
+    //  const allSelectedEvent = JSON.parse(localStorage.getItem("savedEvents"))
+    //  const restEvent = selectedEvent.filter((item) => item.id === id )
+    // //  localStorage.setItem("savedEvents", restEvent)
+    // setSelectedEvent(restEvent)
+    // setEventDetails(restEvent)
+
+    dispatchCalEvent({ type: "delete", payload: selectedEvent });
+    
+  }
+
+
+
+  useEffect(() => {
+
+    setEventDetails(selectedEvent)
+
+    const calculateTimeDifference = () => {
+      const startTimeParts = selectedEvent.startTime.match(/(\d+):(\d+) ([APMapm]{2})/);
+      const startTime = new Date();
+      startTime.setHours(
+        parseInt(startTimeParts[1]),
+        parseInt(startTimeParts[2]),
+        startTimeParts[3].toUpperCase() === "PM" ? 12 : 0
       );
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "downloaded_file.pdf";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    } catch (error) {
-      console.error("Error downloading the file:", error);
-    }
-  };
-  const { setShowEventModal, selectedEvent } = useContext(GlobalContext);
 
-  // useEffect(() => {
-  //   const calculateTimeDifference = () => {
+      let endTime;
+      if (selectedEvent.endTime !== "Invalid Date") {
+        const endTimeParts = selectedEvent?.endTime.match(/(\d+):(\d+) ([APMapm]{2})/);
+        endTime = new Date();
+        endTime.setHours(
+          parseInt(endTimeParts[1]),
+          parseInt(endTimeParts[2]),
+          endTimeParts[3].toUpperCase() === "PM" ? 12 : 0
+        );
+      } else {
+        endTime = new Date(); // Use current time
+      }
 
-  //     const startTime = new Date(`2000-01-01T${selectedEvent.startTime}`);
-  //     const endTime = new Date(`2000-01-01T${selectedEvent.endTime}`);
-      
-  //     const timeDifference = endTime - startTime;
-      
-  //     const hours = Math.floor(timeDifference / (60 * 60 * 1000));
-  //     const minutes = Math.floor((timeDifference % (60 * 60 * 1000)) / (60 * 1000));
 
-  //     console.log(`Time Difference: ${hours} hours and ${minutes} minutes`);
-  //   };
+      const timeDifference = endTime - startTime;
 
-  //   calculateTimeDifference();
-  // }, [selectedEvent]);
+      // Convert milliseconds to hours and minutes
+      const hours = Math.floor(timeDifference / (60 * 60 * 1000));
+      setSpendHour(hours)
+    };
+
+    calculateTimeDifference();
+  }, [selectedEvent, eventDetails]);
+
 
   return (
     <div>
@@ -56,7 +79,7 @@ const ActivityDetails = ({ setOpen }) => {
       </div>
       <div className="p-6">
         <div className="icon h-[120px] w-[120px]  flex flex-col mx-auto mb-6">
-          <p className="text-4xl font-bold mb-1">9</p>
+          <p className="text-4xl font-bold mb-1">{spendHour}</p>
           <p className="text-xs font-medium">Hours Spent</p>
         </div>
         <div className="flex justify-between gap-16 items-center mb-6">
@@ -89,12 +112,12 @@ const ActivityDetails = ({ setOpen }) => {
             </button>
             <p className="flex items-center gap-2">
               <span className="bg-emerald-500 w-3 h-3 rounded-full block"></span>
-              {selectedEvent?.category}
+              {eventDetails?.category}
             </p>
-            <p> {selectedEvent?.subcategory}</p>
-            <p> {selectedEvent?.date}</p>
-            <p> {selectedEvent?.startTime}</p>
-            <p> {selectedEvent?.endTime}</p>
+            <p> {eventDetails?.subcategory}</p>
+            <p> {eventDetails?.date}</p>
+            <p> {eventDetails?.startTime}</p>
+            <p> {eventDetails?.endTime}</p>
             <button className="bg-emerald-50 px-2 py-[2px] rounded-full text-emerald-500 text-xs font-medium">
               Completed
             </button>
@@ -106,8 +129,8 @@ const ActivityDetails = ({ setOpen }) => {
             Attachments
           </p>
           <div className="mb-6 flex flex-col gap-4">
-            {selectedEvent?.files &&
-              selectedEvent?.files.map((pic, index) => (
+            {eventDetails?.files &&
+              eventDetails?.files.map((pic, index) => (
                 <div
                   key={index}
                   className="border border-slate-200 rounded-xl p-4 flex items-center gap-3 justify-between"
@@ -127,20 +150,20 @@ const ActivityDetails = ({ setOpen }) => {
                       </p>
                     </div>
                   </div>
-                  <button onClick={handleDownload}>
-                  <a
-                    href={pic?.name ?URL?.createObjectURL(pic):""}
-                    download
-                  >
-                     <img src={download} alt="" /> 
-                  </a>
+                  <button>
+                    <a
+                      href={pic?.name ? URL?.createObjectURL(pic) : ""}
+                      download
+                    >
+                      <img src={download} alt="" />
+                    </a>
                     {/* <img src={download} alt="" /> */}
                   </button>
                 </div>
               ))}
           </div>
           <div className="flex items-center gap-4">
-            <OutLineBtn>Delete</OutLineBtn>
+            <OutLineBtn onClick={removeHandler} >Delete</OutLineBtn>
             <div
               className="w-full"
               onClick={() => {
