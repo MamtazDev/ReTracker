@@ -20,7 +20,7 @@ const Packages = () => {
             <div className="flex flex-col gap-4 mt-8">
               {[1, 2, 3].map((index) => (
                 <div key={index} className="flex items-start gap-[10px]">
-                  <img src={mark} alt="" />
+                  <img className="flex-shrink-0" src={mark} alt="" />
                   <p>
                     Lorem ipsum dolor sit amet consectetur. Sem sagittis lorem
                     ac eros suspendisse accumsan sodales. Lorem ipsum dolor sit

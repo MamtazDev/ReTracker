@@ -3,6 +3,7 @@ import Auth from "../Shared/Auth";
 import Banner from "../Components/ConsultingUpsell/Banner";
 import Header from "../Shared/Header";
 import Packages from "../Components/ConsultingUpsell/Packages";
+import Investment from "../Components/ConsultingUpsell/Investment";
 
 const ConsultingUpsell = () => {
   return (
@@ -14,6 +15,7 @@ const ConsultingUpsell = () => {
         <Banner />
       </div>
       <Packages />
+      <Investment />
     </div>
   );
 };
