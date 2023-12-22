@@ -46,6 +46,7 @@ const ActivityDetails = ({ setOpen }) => {
   //     console.log(`Time Difference: ${hours} hours and ${minutes} minutes`);
   //   };
 
+
   //   calculateTimeDifference();
   // }, [selectedEvent]);
 
