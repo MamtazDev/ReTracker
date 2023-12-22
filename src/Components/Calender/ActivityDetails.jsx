@@ -25,28 +25,52 @@ const ActivityDetails = ({ setOpen }) => {
       console.error("Error downloading the file:", error);
     }
   };
+
   const { setShowEventModal, selectedEvent } = useContext(GlobalContext);
 
   console.log("selectedEvent:", selectedEvent.startTime);
 
 
-  // useEffect(() => {
-  //   const calculateTimeDifference = () => {
-      
-  //     const startTime = new Date(`2000-01-01T${selectedEvent.startTime}`);
-  //     const endTime = new Date(`2000-01-01T${selectedEvent.endTime}`);
-      
-  //     const timeDifference = endTime - startTime;
-      
-  //     const hours = Math.floor(timeDifference / (60 * 60 * 1000));
-  //     const minutes = Math.floor((timeDifference % (60 * 60 * 1000)) / (60 * 1000));
 
-  //     console.log(`Time Difference: ${hours} hours and ${minutes} minutes`);
-  //   };
+  useEffect(() => {
+    const calculateTimeDifference = () => {
+      // Parse the start time string into a Date object
+      const startTimeParts = selectedEvent.startTime.match(/(\d+):(\d+) ([APMapm]{2})/);
+      const startTime = new Date();
+      startTime.setHours(
+        parseInt(startTimeParts[1]),
+        parseInt(startTimeParts[2]),
+        startTimeParts[3].toUpperCase() === "PM" ? 12 : 0
+      );
 
-  //   calculateTimeDifference();
-  // }, [selectedEvent]);
+      // Parse the end time string into a Date object or use the current time if endTime is null
+      let endTime;
+      if (selectedEvent.endTime) {
+        const endTimeParts = selectedEvent.endTime.match(/(\d+):(\d+) ([APMapm]{2})/);
+        endTime = new Date();
+        endTime.setHours(
+          parseInt(endTimeParts[1]),
+          parseInt(endTimeParts[2]),
+          endTimeParts[3].toUpperCase() === "PM" ? 12 : 0
+        );
+      } else {
+        endTime = new Date(); // Use current time
+      }
 
+      // Calculate the time difference in milliseconds
+      const timeDifference = endTime - startTime;
+
+      // Convert milliseconds to hours and minutes
+      const hours = Math.floor(timeDifference / (60 * 60 * 1000));
+      const minutes = Math.floor((timeDifference % (60 * 60 * 1000)) / (60 * 1000));
+
+      console.log(`Time Difference: ${hours} hours and ${minutes} minutes`);
+    };
+
+    calculateTimeDifference();
+  }, [selectedEvent]);
+
+  
   return (
     <div>
       <div className=" px-6 py-4 flex items-center gap-3 border-b border-slate-200 ">
@@ -118,7 +142,7 @@ const ActivityDetails = ({ setOpen }) => {
                   <div className="flex items-center gap-3">
                     <img
                       className="h-10 w-10 rounded-full"
-                      src={pic?.name ?URL?.createObjectURL(pic):""}
+                      src={pic?.name ? URL?.createObjectURL(pic) : ""}
                       alt=""
                     />
                     <div>
@@ -130,13 +154,13 @@ const ActivityDetails = ({ setOpen }) => {
                       </p>
                     </div>
                   </div>
-                  <button onClick={handleDownload}>
-                  <a
-                    href={pic?.name ?URL?.createObjectURL(pic):""}
-                    download
-                  >
-                     <img src={download} alt="" /> 
-                  </a>
+                  <button>
+                    <a
+                      href={pic?.name ? URL?.createObjectURL(pic) : ""}
+                      download
+                    >
+                      <img src={download} alt="" />
+                    </a>
                     {/* <img src={download} alt="" /> */}
                   </button>
                 </div>
