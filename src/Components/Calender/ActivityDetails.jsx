@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
+import GlobalContext from "../../context/GlobalContext";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import download from "../../assets/download.png";
 import user from "../../assets/user.png";
 import back from "../../assets/back.png";
-import GlobalContext from "../../context/GlobalContext";
 
 const ActivityDetails = ({ setOpen }) => {
   const { setShowEventModal, selectedEvent, dispatchCalEvent } =
@@ -79,7 +79,7 @@ const ActivityDetails = ({ setOpen }) => {
   }, [selectedEvent, eventDetails]);
 
   return (
-    <div>
+    <>
       <div className=" px-6 py-4 flex items-center gap-3 border-b border-slate-200 ">
         <button className="cursor-pointer" onClick={() => setOpen(false)}>
           <img src={back} alt="" />
@@ -203,7 +203,7 @@ const ActivityDetails = ({ setOpen }) => {
       <button className="icon h-16 w-16 fixed bottom-6 right-6">
         <img src={user} alt="" />
       </button>
-    </div>
+    </>
   );
 };
 

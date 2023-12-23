@@ -1,10 +1,10 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import AuthTitle from "../../Shared/AuthTitle";
 import Divider from "../../Shared/Divider";
 import SocialBtn from "../../Shared/SocialBtn";
-import { useState } from "react";
 import eye from "../../assets/passwortd_eye.png";
-import { Link } from "react-router-dom";
 
 const Login = () => {
   const [isChecked, setChecked] = useState(false);

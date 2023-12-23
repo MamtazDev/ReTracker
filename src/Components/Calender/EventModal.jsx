@@ -1,14 +1,14 @@
 import { useContext, useRef, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
-import close from "../../assets/close.png";
-import imgGrp from "../../assets/img-grp.png";
 import "../../Styles/Auth.css";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
+import close from "../../assets/close.png";
+import imgGrp from "../../assets/img-grp.png";
 import cross from "../../assets/cross.png";
 import dollar from "../../assets/dollar.png";
 
-export default function EventModal({ setSuccessfullOpen }) {
+export default function EventModal() {
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
   const [individualUploadProgress, setIndividualUploadProgress] = useState({});
@@ -170,6 +170,9 @@ export default function EventModal({ setSuccessfullOpen }) {
                 name="cost"
                 style={{ paddingLeft: "30px" }}
                 type="number"
+                onKeyDown={(e) =>
+                  ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
+                }
                 placeholder="0.00"
                 required
               />
@@ -272,10 +275,8 @@ function ImageDrop({
   handleDragOver,
   imgGrp,
   selectedImages,
-  handleFileChange,
   individualUploadProgress,
   handleRemoveImage,
-  loading,
 }) {
   return (
     <>

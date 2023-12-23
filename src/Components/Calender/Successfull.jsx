@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
+import { RxCross2 } from "react-icons/rx";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import successfull from "../../assets/successfull.png";
-import { RxCross2 } from "react-icons/rx";
 
 const Successfull = ({ setSuccessfullOpen }) => {
   return (

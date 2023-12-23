@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import AuthTitle from "../../Shared/AuthTitle";
-import PrimaryBtn from "../../Shared/PrimaryBtn";
 import { MdOutlineEmail } from "react-icons/md";
 import { TbBrandTelegram } from "react-icons/tb";
+import AuthTitle from "../../Shared/AuthTitle";
+import PrimaryBtn from "../../Shared/PrimaryBtn";
 
 const EmailVerify = () => {
   return (
@@ -29,9 +29,14 @@ const EmailVerify = () => {
       <form>
         <div className="flex items-center gap-3 lg:gap-4 mb-3 lg:mb-5">
           {[1, 2, 3, 4, 5, 6].map((index) => (
-            <input style={{ padding: "10px" }} key={index} type="number"  onKeyDown={(e) =>
-              ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
-            } />
+            <input
+              style={{ padding: "10px" }}
+              key={index}
+              type="number"
+              onKeyDown={(e) =>
+                ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
+              }
+            />
           ))}
         </div>
         <p className="text-secondary font-medium text-base mb-5 lg:mb-10">

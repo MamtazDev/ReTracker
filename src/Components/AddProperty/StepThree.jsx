@@ -1,16 +1,15 @@
 import { useContext, useRef, useState } from "react";
+import { RxCross2 } from "react-icons/rx";
+import GlobalContext from "../../context/GlobalContext";
 import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import imgGrp from "../../assets/img-grp.png";
-import { RxCross2 } from "react-icons/rx";
-import GlobalContext from "../../context/GlobalContext";
 
 const StepThree = ({ setStepper }) => {
   const { setPropertyData } = useContext(GlobalContext);
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
-
 
   const handleFileChange = (event) => {
     const files = event.target.files;
@@ -52,7 +51,7 @@ const StepThree = ({ setStepper }) => {
   };
 
   return (
-    <div>
+    <>
       <p className="text-primary font-bold text-sm mb-3">Step 03</p>
       <AuthTitle>Upload Image </AuthTitle>
 
@@ -107,7 +106,7 @@ const StepThree = ({ setStepper }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,10 +1,10 @@
-import  { useContext, useState } from "react";
+import { useContext, useState } from "react";
+import GlobalContext from "../../context/GlobalContext";
 import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
-import GlobalContext from "../../context/GlobalContext";
 
-const StepTwo = ({setStepper }) => {
+const StepTwo = ({ setStepper }) => {
   const { setPropertyData } = useContext(GlobalContext);
   const options = [
     {
@@ -37,7 +37,7 @@ const StepTwo = ({setStepper }) => {
   };
 
   return (
-    <div>
+    <>
       <p className="text-primary font-bold text-sm mb-3">Step 02</p>
       <AuthTitle>Property Type </AuthTitle>
 
@@ -81,7 +81,7 @@ const StepTwo = ({setStepper }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

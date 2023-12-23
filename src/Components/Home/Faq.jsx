@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import SectionHeader from './SectionHeader'
 import FaqAccordion from './FaqAccordion'
 import faqBackground from '../../assets/faq-background.png'
