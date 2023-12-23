@@ -13,21 +13,21 @@ import plus from "../../assets/add.png";
 
 
 export default function CalendarHeader() {
-  const { monthIndex, setMonthIndex, setShowEventModal } =
-    useContext(GlobalContext);
+  const { monthIndex, setMonthIndex, setShowEventModal } = useContext(GlobalContext);
 
   const [isSmallCallenderActive, setIsSmallCallenderActive] = useState(false);
 
   function handlePrevMonth() {
     setMonthIndex(monthIndex - 1);
   }
+
   function handleNextMonth() {
     setMonthIndex(monthIndex + 1);
   }
 
   return (
     <header className="flex items-center w-full mx-auto mb-8 relative">
- 
+
 
       <div className="flex flex-col lg:flex-row justify-between w-full items-center gap-3">
         <div className="flex items-center gap-5">
