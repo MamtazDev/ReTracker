@@ -38,6 +38,7 @@ const ActivityDetails = ({ setOpen }) => {
 
   const removeHandler = () => {
     dispatchCalEvent({ type: "delete", payload: selectedEvent });
+    setOpen(false);
   };
 
   useEffect(() => {
