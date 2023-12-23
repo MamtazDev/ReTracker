@@ -1,4 +1,3 @@
-
 import Banner from "../Components/ConsultingUpsell/Banner";
 import Header from "../Shared/Header";
 import Packages from "../Components/ConsultingUpsell/Packages";
@@ -6,7 +5,7 @@ import Investment from "../Components/ConsultingUpsell/Investment";
 
 const ConsultingUpsell = () => {
   return (
-    <div>
+    <>
       <div className="relative">
         <div className="absolute w-full top-7 lg:top-16 z-10">
           <Header />
@@ -15,7 +14,7 @@ const ConsultingUpsell = () => {
       </div>
       <Packages />
       <Investment />
-    </div>
+    </>
   );
 };
 
