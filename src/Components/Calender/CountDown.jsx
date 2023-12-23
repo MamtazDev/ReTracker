@@ -1,5 +1,4 @@
 import  { useEffect, useState } from "react";
-
 import lock from "../../assets/lock.png";
 
 function CountDown({ evt }) {

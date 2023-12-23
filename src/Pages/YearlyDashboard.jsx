@@ -1,12 +1,11 @@
 
-import CalendarHeader from "../Components/Calender/CalendarHeader";
 import BannerList from "../Components/YearlyDashboard/BannerList";
 import HourSpent from "../Components/YearlyDashboard/HourSpent";
 import Category from "../Components/YearlyDashboard/Category";
 import ExpenseGraph from "../Components/YearlyDashboard/ExpenseGraph";
 import TaskCompletion from "../Components/YearlyDashboard/TaskCompletion";
-import user from "../assets/user.png";
 import YearlyHeader from "../Components/Calender/YearlyHeader";
+import user from "../assets/user.png";
 
 const YearlyDashboard = () => {
   return (

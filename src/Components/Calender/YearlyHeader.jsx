@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import dayjs from "dayjs";
-
 import filter from "../../assets/filter.png";
 import SmallCalendar from "./SmallCalendar";
 

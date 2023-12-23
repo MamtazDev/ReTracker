@@ -1,7 +1,7 @@
-import dayjs from "dayjs";
 import { useContext, useState, useEffect } from "react";
-import CountDown from "./CountDown";
+import dayjs from "dayjs";
 import GlobalContext from "../../context/GlobalContext";
+import CountDown from "./CountDown";
 
 export default function Day({ day, setOpen }) {
   const [dayEvents, setDayEvents] = useState([]);

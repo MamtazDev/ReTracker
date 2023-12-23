@@ -1,5 +1,5 @@
-import Aos from "aos";
 import { useEffect } from "react";
+import Aos from "aos";
 import Banner from "../Components/ConsultingNew/Banner";
 import ConsultingOptions from "../Components/ConsultingNew/ConsultingOptions";
 import GetStartedToday from "../Components/ConsultingNew/GetStartedToday";

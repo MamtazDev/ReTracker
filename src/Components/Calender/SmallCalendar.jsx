@@ -1,9 +1,9 @@
-import dayjs from "dayjs";
 import React, { useContext, useEffect, useState } from "react";
+import { GrFormPrevious } from "react-icons/gr";
+import { MdNavigateNext } from "react-icons/md";
+import dayjs from "dayjs";
 import GlobalContext from "../../context/GlobalContext";
 import { getMonth } from "../../Utils/DayMatrix";
-import { MdNavigateNext } from "react-icons/md";
-import { GrFormPrevious } from "react-icons/gr";
 
 export default function SmallCalendar() {
   const [currentMonthIdx, setCurrentMonthIdx] = useState(dayjs().month());

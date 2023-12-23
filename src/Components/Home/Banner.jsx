@@ -1,4 +1,4 @@
-import React from "react";
+
 import Auth from "../../Shared/Auth";
 import heroImg from "../../assets/banner-img.png"
 

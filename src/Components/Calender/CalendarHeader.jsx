@@ -1,12 +1,12 @@
-import dayjs from "dayjs";
 import { useContext, useState } from "react";
-
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
+import dayjs from "dayjs";
+import GlobalContext from "../../context/GlobalContext";
+import SmallCalendar from "./SmallCalendar";
 import filter from "../../assets/filter.png";
 import plus from "../../assets/add.png";
-import SmallCalendar from "./SmallCalendar";
-import GlobalContext from "../../context/GlobalContext";
+
 export default function CalendarHeader() {
   const { monthIndex, setMonthIndex, setShowEventModal } =
     useContext(GlobalContext);
