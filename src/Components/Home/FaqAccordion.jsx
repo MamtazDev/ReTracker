@@ -1,14 +1,10 @@
-import Aos from "aos";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from 'react'
 import minus from "../../assets/accordion-minus.png";
 import plus from "../../assets/accordion-plus.png";
 
 const FaqAccordion = ({ index, ques, ans }) => {
   const [isOpen, setIsOpen] = useState(0);
 
-  useEffect(() => {
-    Aos.init();
-  }, []);
   return (
     <div className="faq">
       <div className="container">

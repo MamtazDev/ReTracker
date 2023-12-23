@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import MainLayout from "../Layouts/MainLayout";
+import DashboardLayout from "../Layouts/DashboardLayout";
 import Home from "../Pages/Home";
 import LoginPage from "../Pages/Login";
 import ForgetPassword from "../Pages/ForgetPassword";
@@ -10,12 +11,8 @@ import EmailVerification from "../Pages/EmailVerification";
 import VerifyEmail from "../Pages/VerifyEmail";
 import AddProperty from "../Pages/AddProperty";
 import Calender from "../Pages/Calender";
-import DashboardLayout from "../Layouts/DashboardLayout";
 import YearlyDashboard from "../Pages/YearlyDashboard";
-import Consulting from "../Pages/Consulting";
-import ConsultingNew from "../Pages/ConsultingNew";
 import ConsultingUpsell from "../Pages/ConsultingUpsell";
-
 
 export const router = createBrowserRouter([
   {
@@ -63,19 +60,9 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "/consulting",
-        element: <Consulting />,
-      },
-
-      {
-        path: "/consulting-new",
-        element: <ConsultingNew />,
-      },
-      {
         path: "/consulting-upsell",
         element: <ConsultingUpsell />,
       },
- 
     ],
   },
   {

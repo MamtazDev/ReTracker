@@ -1,6 +1,6 @@
-import { useLocation, useNavigate } from "react-router";
-import "../Styles/Auth.css";
+import { useLocation } from "react-router";
 import Header from "./Header";
+import "../Styles/Auth.css";
 
 const Auth = ({ children }) => {
   const location = useLocation();

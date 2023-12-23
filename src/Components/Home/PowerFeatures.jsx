@@ -110,3 +110,86 @@ const PowerFeatures = () => {
 };
 
 export default PowerFeatures;
+
+
+
+// import React from "react";
+// import powerfulPattern from "../../assets/pattern_one.png";
+// import PowerFeaturesCard from "./PowerFeaturesCard";
+// import SectionHeader from "./SectionHeader";
+
+// const PowerFeatures = () => {
+//   const powerFeaturesData = [
+//     {
+//       cardImg: "../../assets/card_img1.png",
+//       cardTitle: "Intuitive Dashboard",
+//       cardContent: "Effortlessly navigate through a user-friendly dashboard...",
+//       bgColor: "bg-primary",
+//     },
+//     {
+//       cardImg: "../../assets/card_img2.png",
+//       cardTitle: "Property Management",
+//       cardContent: "Add, edit, and manage your properties with just a few clicks...",
+//       bgColor: "bg-emerald-500",
+//     },
+//     {
+//       cardImg: "../../assets/card_img3.png",
+//       cardTitle: "Calendar View",
+//       cardContent: "Log hours spent on property-related tasks and gain a visual perspective...",
+//       bgColor: "bg-amber",
+//     },
+//     {
+//       cardImg: "../../assets/card_img4.png",
+//       cardTitle: "Customizable Categories",
+//       cardContent: "Tailor RE Tracker to fit your unique needs by customizing task categories...",
+//       bgColor: "bg-orange",
+//     },
+//     {
+//       cardImg: "../../assets/card_img5.png",
+//       cardTitle: "Smart Analytics",
+//       cardContent: "Make informed decisions with our analytics dashboard. Gain valuable insights...",
+//       bgColor: "bg-blue-500",
+//     },
+//     {
+//       cardImg: "../../assets/card_img6.png",
+//       cardTitle: "Collaborate Seamlessly",
+//       cardContent: "Enhance teamwork by inviting coworkers to collaborate on your properties...",
+//       bgColor: "bg-pink-500",
+//     },
+//   ];
+
+//   return (
+//     <section
+//       className="powerful_features py-7 md:py-32"
+//       style={{
+//         backgroundImage: `url(${powerfulPattern})`,
+//         backgroundRepeat: "no-repeat",
+//       }}
+//     >
+//       <SectionHeader
+//         sectionTag="Powerful Features"
+//         sectionTagColor="text-primary"
+//         sectionTagColorTwo="text-primary"
+//         sectionTitle="Streamline your property management"
+//         sectionTitleTwo="with powerful features"
+//         section_pb="pb-7 md:pb-16"
+//       />
+
+//       <div className="container px-5">
+//         <div className="card flex justify-center">
+//           <div className="power_features_wrapper max-w-twelveEighty">
+//             <div className="grid grid-cols-12 sm:grid-cols-6 lg:grid-cols-4 md:gap-8 gap-4">
+//               {powerFeaturesData.map((data, index) => (
+//                 <div key={`power-feature-${index}`} className="col-span-12 sm:col-span-6 lg:col-span-4">
+//                   <PowerFeaturesCard {...data} dataAos="fade-up" dataDuration="1000" />
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default PowerFeatures;

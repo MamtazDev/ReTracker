@@ -1,8 +1,7 @@
 import React from "react";
 import Day from "./Day";
-export default function Month({ month, setOpen, rowIdx, eventData ,setEventData}) {
 
-
+export default function Month({ month, setOpen,  eventData ,setEventData}) {
   return (
     <div className="border rounded-xl">
       <div className="hidden flex-1 lg:grid grid-cols-1 lg:grid-cols-7 text-center ">

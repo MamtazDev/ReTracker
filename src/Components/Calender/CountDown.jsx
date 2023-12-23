@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import moment from "moment";
+import  { useEffect, useState } from "react";
 import lock from "../../assets/lock.png";
 
 function CountDown({ evt }) {
@@ -9,13 +8,13 @@ function CountDown({ evt }) {
     const startDateTime = new Date(`${evt.date} UTC`);
 
     const calculateTimeElapsed = () => {
-      // console.log("evt", evt)
+
 
       const currentDateTime = new Date();
 
       const timeDifference = currentDateTime - startDateTime;
 
-      // console.log("startDateTime", currentDateTime)
+   
 
       const hours = Math.floor(timeDifference / (1000 * 60 * 60));
       const minutes = Math.floor(
@@ -26,8 +25,6 @@ function CountDown({ evt }) {
     };
 
     const intervalId = setInterval(calculateTimeElapsed, 1000);
-
-    // Cleanup function to clear the interval when the component is unmounted
     return () => clearInterval(intervalId);
   }, [evt.startTime]);
 

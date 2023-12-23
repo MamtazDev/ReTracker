@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import  { useState } from "react";
+import { Link } from "react-router-dom";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import Divider from "../../Shared/Divider";
 import SocialBtn from "../../Shared/SocialBtn";
 import AuthTitle from "../../Shared/AuthTitle";
-import { Link } from "react-router-dom";
 import eye from "../../assets/passwortd_eye.png";
 
 const SignUp = () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Auth from '../Shared/Auth';
 import SignUp from '../Components/SignUp/SignUp';
 

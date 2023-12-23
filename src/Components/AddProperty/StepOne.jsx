@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
-import AuthTitle from "../../Shared/AuthTitle";
-import PrimaryBtn from "../../Shared/PrimaryBtn";
-import StepLines from "../../Shared/StepLines";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import GlobalContext from "../../context/GlobalContext";
+import AuthTitle from "../../Shared/AuthTitle";
+import PrimaryBtn from "../../Shared/PrimaryBtn";
 
 const StepOne = ({ setStepper }) => {
   const { setPropertyData } = useContext(GlobalContext);
@@ -23,7 +22,7 @@ const StepOne = ({ setStepper }) => {
     }));
   };
   return (
-    <div>
+    <>
       <p className="text-primary font-bold text-sm mb-3">Step 01</p>
       <AuthTitle>Add Property</AuthTitle>
 
@@ -51,7 +50,7 @@ const StepOne = ({ setStepper }) => {
           Skip for now
         </Link>
       </div>
-    </div>
+    </>
   );
 };
 

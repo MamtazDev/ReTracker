@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import location from "../../assets/location.png";
 import arrow from "../../assets/downarrow.png";
 import bell from "../../assets/bell.png";
@@ -5,7 +6,6 @@ import ques from "../../assets/ques.png";
 import profile from "../../assets/profile.png";
 import logo from "../../assets/favicon.png";
 import hamburger from "../../assets/hambergur.png";
-import { Link } from "react-router-dom";
 
 const Header = ({setOffcanvas}) => {
   return (

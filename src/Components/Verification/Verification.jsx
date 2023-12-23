@@ -1,17 +1,14 @@
-import React from "react";
-import AuthTitle from "../../Shared/AuthTitle";
-import PrimaryBtn from "../../Shared/PrimaryBtn";
+import { Link } from "react-router-dom";
 import { IoMdCheckmark } from "react-icons/io";
 import Confetti from "react-confetti";
-import { Link } from "react-router-dom";
+import AuthTitle from "../../Shared/AuthTitle";
+import PrimaryBtn from "../../Shared/PrimaryBtn";
 
 const Verification = () => {
   return (
     <div className=" pb-20 lg:pb-p_188 pt-[100px] lg:pt-p_228 max-w-authWidth mx-auto text-center">
       <Confetti />
-      <div
-        className="icon h-16 w-16 mx-auto mb-5 lg:mb-10"
-      >
+      <div className="icon h-16 w-16 mx-auto mb-5 lg:mb-10">
         <IoMdCheckmark className="text-3xl" />
       </div>
 

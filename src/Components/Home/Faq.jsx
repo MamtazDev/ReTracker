@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-import faqBackground from "../../assets/faq-background.png";
-import FaqAccordion from "./FaqAccordion";
-import SectionHeader from "./SectionHeader";
+import  { useState } from 'react'
+import SectionHeader from './SectionHeader'
+import FaqAccordion from './FaqAccordion'
+import faqBackground from '../../assets/faq-background.png'
+import FaqAccordionTwo from './FaqAccordionTwo'
+import FaqAccordionThree from './FaqAccordionThree'
+import FaqAccordionFour from './FaqAccordionFour'
+import FaqAccordionFive from './FaqAccordionFive'
 
 const Faq = () => {
   const [activeTab, setActiveTab] = useState("Basics");

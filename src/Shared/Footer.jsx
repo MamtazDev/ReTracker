@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import logo from "../assets/footer-logo.png";
 
@@ -27,30 +27,20 @@ const Footer = () => {
   const handleEmailChange = (e) => {
     const newEmail = e.target.value;
     setEmail(newEmail);
-
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setIsEmailValid(emailRegex.test(newEmail));
   };
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
-
-    // Check if the email is valid before clearing the input field
     if (isEmailValid) {
-      // Perform your subscribe logic here
-
       setTimeout(() => {
         Swal.fire({
           position: "top-end",
-          // icon: "success",
-          title: "Successfully Subscribed",
           showConfirmButton: false,
           timer: 1000,
         });
       }, []);
-
-      // After successful subscription, clear the input field
       setEmail("");
     }
   };
@@ -72,7 +62,8 @@ const Footer = () => {
                     target="_blank"
                     to={data.link}
                     key={index}
-                    className="border border-slate-200 text-primary  hover:text-white rounded-full h-10 w-10 flex justify-center items-center transition duration-600 ease-in-out hover:bg-primary">
+                    className="border border-slate-200 text-primary  hover:text-white rounded-full h-10 w-10 flex justify-center items-center transition duration-600 ease-in-out hover:bg-primary"
+                  >
                     {data.pic}
                   </Link>
                 ))}
@@ -86,7 +77,8 @@ const Footer = () => {
 
             <form
               className="hidden mb-4 w-full lg:flex items-center gap-2 border border-slate-200 rounded-full bg-slate-50 py-2 pl-6 pr-2"
-              onSubmit={handleEmailSubmit}>
+              onSubmit={handleEmailSubmit}
+            >
               <input
                 className={`bg-transparent w-full ${
                   isEmailValid ? "" : "border-red-500"

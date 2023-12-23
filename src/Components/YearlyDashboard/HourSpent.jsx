@@ -1,15 +1,14 @@
 import React from "react";
-import ChartHeader from "../../Shared/ChartHeader";
 import {
   Area,
   AreaChart,
   CartesianGrid,
-  Legend,
   ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
+import ChartHeader from "../../Shared/ChartHeader";
 import GraphLegend from "./GraphLegend";
 
 const HourSpent = () => {

@@ -1,7 +1,7 @@
 import timer from "../../assets/timer.png";
 import { RxCross2 } from "react-icons/rx";
 import { FaPlus } from "react-icons/fa";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import GlobalContext from "../../context/GlobalContext";
 
 const AddHoursModal = ({ setOpen }) => {

@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
+import AddHoursModal from "./AddHoursModal";
 import logo from "../../assets/dashboardLogo.png";
 import calender from "../../assets/calender.png";
 import dashboard from "../../assets/dashboard.png";
@@ -7,10 +11,6 @@ import properties from "../../assets/properties.png";
 import workers from "../../assets/workers.png";
 import profile from "../../assets/userProfile.png";
 import settings from "../../assets/settings.png";
-import { Link, useLocation } from "react-router-dom";
-import { FaPlus } from "react-icons/fa";
-import AddHoursModal from "./AddHoursModal";
-import { RxCross2 } from "react-icons/rx";
 
 const DashboardSidebar = ({ setOffcanvas, offcanvas }) => {
   let location = useLocation();

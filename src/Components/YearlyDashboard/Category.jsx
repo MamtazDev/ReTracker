@@ -1,4 +1,4 @@
-import React from "react";
+
 import ChartHeader from "../../Shared/ChartHeader";
 
 const Category = () => {

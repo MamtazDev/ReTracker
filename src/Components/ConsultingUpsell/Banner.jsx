@@ -6,8 +6,7 @@ const Banner = () => {
     backgroundImage: `url(${bg})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-   
+    backgroundPosition: "center",   
   };
 
   return (

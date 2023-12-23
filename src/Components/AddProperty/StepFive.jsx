@@ -1,10 +1,13 @@
-import React, { useContext, useRef, useState } from "react";
-import PrimaryBtn from "../../Shared/PrimaryBtn";
-import AuthTitle from "../../Shared/AuthTitle";
+import { useContext, useRef, useState } from "react";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
 import GlobalContext from "../../context/GlobalContext";
+import PrimaryBtn from "../../Shared/PrimaryBtn";
+import AuthTitle from "../../Shared/AuthTitle";
 
 const StepFive = () => {
+  const navigate = useNavigate();
   const { setPropertyData } = useContext(GlobalContext);
   const labelRef = useRef(null);
   const [isTooltipVisible, setTooltipVisible] = useState(false);
@@ -54,10 +57,11 @@ const StepFive = () => {
       ...prevData,
       emails: emailList,
     }));
+    navigate("/");
   };
 
   return (
-    <div>
+    <>
       <AuthTitle>Invite Coworkers </AuthTitle>
       <p className="text-secondary font-normal text-base mt-3 mb-5 lg:mb-10">
         If you have coworkers, you add them to collaborate on this property.
@@ -124,15 +128,16 @@ const StepFive = () => {
           <PrimaryBtn onClick={handleContinue} type="button">
             Send Invites
           </PrimaryBtn>
-          <button
+          <Link
+            to="/"
             className="text-primary font-bold text-base  text-center mt-4 w-full"
             type="button"
           >
             Skip for now
-          </button>
+          </Link>
         </div>
       </form>
-    </div>
+    </>
   );
 };
 

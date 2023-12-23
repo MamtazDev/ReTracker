@@ -2,8 +2,8 @@ import { useState } from "react";
 import countryCodes from "../../Utils/CountryCode";
 import { FaChevronDown } from "react-icons/fa";
 const CountrySelect = () => {
-  const [showDropdown, setShowDropDown] = useState(false);
   const [country, setCountry] = useState();
+  const [showDropdown, setShowDropDown] = useState(false);
   return (
     <div
       onClick={() => setShowDropDown(!showDropdown)}
