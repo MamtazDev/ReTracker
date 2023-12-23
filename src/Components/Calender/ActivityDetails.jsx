@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import download from "../../assets/download.png";
@@ -7,14 +7,8 @@ import back from "../../assets/back.png";
 import GlobalContext from "../../context/GlobalContext";
 
 const ActivityDetails = ({ setOpen }) => {
-  const {
-    setShowEventModal,
-    selectedEvent,
-    dispatchCalEvent,
-    setSelectedEvent,
-  } = useContext(GlobalContext);
-
-  console.log("selectedEvent: ", selectedEvent);
+  const { setShowEventModal, selectedEvent, dispatchCalEvent } =
+    useContext(GlobalContext);
 
   const [timeElapsed, setTimeElapsed] = useState({ hours: 0, minutes: 0 });
 
@@ -22,13 +16,9 @@ const ActivityDetails = ({ setOpen }) => {
     const startDateTime = new Date(`${selectedEvent.date} UTC`);
 
     const calculateTimeElapsed = () => {
-      // console.log("selectedEvent", selectedEvent)
-
       const currentDateTime = new Date();
 
       const timeDifference = currentDateTime - startDateTime;
-
-      // console.log("startDateTime", currentDateTime)
 
       const hours = Math.floor(timeDifference / (1000 * 60 * 60));
       const minutes = Math.floor(
@@ -40,11 +30,8 @@ const ActivityDetails = ({ setOpen }) => {
 
     const intervalId = setInterval(calculateTimeElapsed, 1000);
 
-    // Cleanup function to clear the interval when the component is unmounted
     return () => clearInterval(intervalId);
   }, [selectedEvent.startTime]);
-
-  // for blocking edit button baed on 48h time stamp
 
   const [spendHour, setSpendHour] = useState(0);
   const [eventDetails, setEventDetails] = useState(null);
@@ -79,12 +66,11 @@ const ActivityDetails = ({ setOpen }) => {
           endTimeParts[3].toUpperCase() === "PM" ? 12 : 0
         );
       } else {
-        endTime = new Date(); // Use current time
+        endTime = new Date();
       }
 
       const timeDifference = endTime - startTime;
 
-      // Convert milliseconds to hours and minutes
       const hours = Math.floor(timeDifference / (60 * 60 * 1000));
       setSpendHour(hours);
     };
@@ -114,7 +100,11 @@ const ActivityDetails = ({ setOpen }) => {
             <p>Subcategory</p>
             <p>Date</p>
             <p>Start Time</p>
-            <p>End Time</p>
+            <p>
+              {eventDetails?.endTime === "Invalid Date"
+                ? "In Progress!"
+                : "End Time"}
+            </p>
             <p>Status</p>
           </div>
           <div className="flex flex-col gap-4 items-end text-slate-950 text-sm font-normal">
@@ -142,7 +132,12 @@ const ActivityDetails = ({ setOpen }) => {
             <p> {eventDetails?.subcategory}</p>
             <p> {eventDetails?.date}</p>
             <p> {eventDetails?.startTime}</p>
-            <p> {eventDetails?.endTime}</p>
+            <p>
+              {" "}
+              {eventDetails?.endTime === "Invalid Date"
+                ? "--"
+                : eventDetails?.endTime}
+            </p>
             <button className="bg-emerald-50 px-2 py-[2px] rounded-full text-emerald-500 text-xs font-medium">
               Completed
             </button>
@@ -182,7 +177,6 @@ const ActivityDetails = ({ setOpen }) => {
                     >
                       <img src={download} alt="" />
                     </a>
-                    {/* <img src={download} alt="" /> */}
                   </button>
                 </div>
               ))}

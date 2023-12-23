@@ -1,4 +1,3 @@
-import React from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import mark from "../../assets/mark2.png";
 

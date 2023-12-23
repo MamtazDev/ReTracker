@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import Divider from "../../Shared/Divider";
 import SocialBtn from "../../Shared/SocialBtn";

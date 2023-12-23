@@ -1,4 +1,4 @@
-import React from "react";
+
 import ConsultancyImg from "../../assets/consultancy.png";
 
 const Banner = () => {

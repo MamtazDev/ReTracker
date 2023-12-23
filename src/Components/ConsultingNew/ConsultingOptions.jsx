@@ -1,4 +1,4 @@
-import React from "react";
+
 import markImg3 from "../../assets/mark3.png";
 import SectionHeader from "./../Home/SectionHeader";
 

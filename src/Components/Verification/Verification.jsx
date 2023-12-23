@@ -1,4 +1,3 @@
-import React from "react";
 import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import { IoMdCheckmark } from "react-icons/io";

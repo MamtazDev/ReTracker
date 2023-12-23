@@ -1,13 +1,12 @@
 import dayjs from "dayjs";
 import { useContext, useState } from "react";
+
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import filter from "../../assets/filter.png";
 import plus from "../../assets/add.png";
-
 import SmallCalendar from "./SmallCalendar";
 import GlobalContext from "../../context/GlobalContext";
-import CreateEventButton from "./CreateEventButton";
 export default function CalendarHeader() {
   const { monthIndex, setMonthIndex, setShowEventModal } =
     useContext(GlobalContext);
@@ -17,26 +16,13 @@ export default function CalendarHeader() {
   function handlePrevMonth() {
     setMonthIndex(monthIndex - 1);
   }
+
   function handleNextMonth() {
     setMonthIndex(monthIndex + 1);
   }
-  function handleReset() {
-    setMonthIndex(
-      monthIndex === dayjs().month()
-        ? monthIndex + Math.random()
-        : dayjs().month()
-    );
-  }
+
   return (
     <header className="flex items-center w-full mx-auto mb-8 relative">
-      {/* <img src={logo} alt="calendar" className="mr-2 w-12 h-12" /> */}
-
-      {/* <h1 className="mr-10 text-xl text-gray-500 fond-bold">Calendar</h1>
-
-      <button onClick={handleReset} className="border rounded py-2 px-4 mr-5">
-        Today
-      </button> */}
-
       <div className="flex flex-col lg:flex-row justify-between w-full items-center gap-3">
         <div className="flex items-center gap-5">
           <button

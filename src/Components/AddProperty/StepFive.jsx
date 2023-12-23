@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import  { useContext, useRef, useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import AuthTitle from "../../Shared/AuthTitle";
 import { RxCross2 } from "react-icons/rx";

@@ -1,14 +1,12 @@
 import dayjs from "dayjs";
-import React, { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import CountDown from "./CountDown";
 import GlobalContext from "../../context/GlobalContext";
-import lockedblack from "../../assets/lockblack.png";
 
-export default function Day({ day, rowIdx, setOpen, eventData }) {
+export default function Day({ day, setOpen }) {
   const [dayEvents, setDayEvents] = useState([]);
-  const [locked, setLocked] = useState(null);
+
   const {
-    daySelected,
     setDaySelected,
     setShowEventModal,
     filteredEvents,
@@ -20,7 +18,6 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
       (evt) => dayjs(evt.day).format("DD-MM-YY") === day.format("DD-MM-YY")
     );
     setDayEvents(events);
-    // cons ole.log("events", events);
   }, [filteredEvents, day]);
 
   function getCurrentDayClass() {
@@ -29,22 +26,13 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
       : "text-xs font-normal text-slate-950";
   }
 
-  // dayEvents.length && console.log("DayEvents:", dayEvents);
-
   const handleOpen = (e, idx, evt) => {
     e.stopPropagation();
-    // if (locked !== null) {
-    //   setLocked(null);
-    // }
-    // setLocked(idx);
+
     setOpen(true);
-    console.log("clicked", evt);
+
     setSelectedEvent(evt);
   };
-
-  const [activeDay, setActiveDay] = useState(null);
-
-  // console.log("dayEvents",dayEvents)
 
   return (
     <div className="border-r border-t border-gray-200 flex gap-2 flex-row lg:flex-col p-0 lg:p-2 min-h-16 h-auto lg:h-[138px]">
@@ -62,7 +50,6 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
       </header>
       <div
         className="flex-1 cursor-pointer w-full p-2 lg:p-0"
-        //handler for clicking outside of day event
         onClick={() => {
           setDaySelected(day);
           setShowEventModal(true);
@@ -86,14 +73,10 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                         : "#3B82F6"
                     }`,
                   }}
-                  // onClick={() => setSelectedEvent(evt)}
-
-                  //handler for clicking outside of day event
                   onClick={(e) => {
                     setSelectedEvent(evt);
                     handleOpen(e, idx, evt);
                     setDaySelected(day);
-                    // activeDay === null ?  setActiveDay(day) : setActiveDay(null);
                   }}
                   className={`text-center min-h-[43px] h-full ${
                     evt.category === "Analysis"
@@ -104,17 +87,10 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                       ? "bg-[#D1FAE5]"
                       : "bg-[#DBEAFE]"
                   } 
-
-                  // ${activeDay === day && "bg-black"}
                   
                    w-full py-3 px-6 text-gray-600 text-sm rounded-4px overflow-hidden truncate rounded`}
                 >
-                  <p>{activeDay === day && "day is selected"}</p>
                   <CountDown evt={evt} />
-
-                  {/* <p>Data {evt.label}</p> */}
-
-                  {/* <p>Data {evt.startTime}</p> */}
 
                   <p className={` text-sm font-bold text-slate-950 mb-1`}>
                     {evt.category}
@@ -142,15 +118,11 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                     }`,
                   }}
                   key={idx}
-                  onClick={(e) =>
-                    //  handleOpen(e, idx)
-                    {
-                      setSelectedEvent(evt);
-                      handleOpen(e, idx, evt);
-                      setDaySelected(day);
-                      //  activeDay === null ?  setActiveDay(day) : setActiveDay(null);
-                    }
-                  }
+                  onClick={(e) => {
+                    setSelectedEvent(evt);
+                    handleOpen(e, idx, evt);
+                    setDaySelected(day);
+                  }}
                   className={`flex items-center justify-between   min-h-[43px]  h-full ${
                     evt.category === "Analysis"
                       ? "bg-[#FEF3C7]"
@@ -180,21 +152,5 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
         </div>
       </div>
     </div>
-  );
-}
-
-const colorPalate = {
-  Consultation: ["[#6366F1]", "[#E0E7FF]"],
-  Repairs: ["#10B981", "#e0E7FF"],
-  Management: ["#3B82F6", "#DBEAFE"],
-  Analysis: ["#F59E0B", "#FEF3C7"],
-};
-
-function StartEndDiff({ evt }) {
-  console.log(evt, "diff");
-  return (
-    <>
-      <p className="text-xs font-normal text-slate-500">9 Hours</p>
-    </>
   );
 }

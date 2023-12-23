@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
@@ -6,7 +6,7 @@ import imgGrp from "../../assets/img-grp.png";
 import { RxCross2 } from "react-icons/rx";
 import GlobalContext from "../../context/GlobalContext";
 
-const StepThree = ({ stepper, setStepper }) => {
+const StepThree = ({ setStepper }) => {
   const { setPropertyData } = useContext(GlobalContext);
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
