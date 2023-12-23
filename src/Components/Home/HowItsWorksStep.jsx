@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import markIcon from "../../assets/mark.png";
-import { Link } from "react-router-dom";
 import Aos from "aos";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import markIcon from "../../assets/mark.png";
 
-const HowItsWorksStep = ({
+const HowItsWorksStep = (
+  {
   stepNumber,
   createAccount,
   cardDes,
@@ -15,7 +16,8 @@ const HowItsWorksStep = ({
   cardImg,
   btnName,
   btnLink,
-}) => {
+}
+) => {
   useEffect(() => {
     Aos.init();
   }, [])
@@ -24,7 +26,7 @@ const HowItsWorksStep = ({
       <div className="howitworks-card p-2 bg-white rounded-2xl mb-7 md:card_wrapper">
         <div className="border rounded-2xl p-4 md:card_border">
           <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-12 md:col-span-5">
+            <div className="col-span-12 md:col-span-7">
               <div className="flex flex-col justify-between h-full">
                 <div>
                   <div className="card_info pb-8">
@@ -113,7 +115,7 @@ const HowItsWorksStep = ({
               </div>
             </div>
 
-            <div className="col-span-12 md:col-span-7 flex justify-end items-center">
+            <div className="col-span-12 md:col-span-5 flex justify-end items-center">
               <div className="card_img" data-aos="fade-left"
                 data-aos-duration="1500">
                 <img className="" src={cardImg} alt="card-img" />

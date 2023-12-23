@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import brandLogo from "../assets/logo.png";
 import responsiveBtn from "../assets/res-btn.png";
 
@@ -73,19 +73,19 @@ const Header = () => {
               </li>
 
               <li className={isOpen ? "nav-items mb-8" : "nav-items"}>
-                <Link
-                  to={"/"}
+                <a
+                  href={"#powerful_features"}
                   className="nav-link text-base font-semibold text-white capitalize">
                   Features
-                </Link>
+                </a>
               </li>
 
               <li className={isOpen ? "nav-items mb-8" : "nav-items"}>
-                <Link
-                  to={"/"}
+                <a
+                  href={"#pricing"}
                   className="nav-link text-base font-semibold text-white capitalize">
                   Pricing
-                </Link>
+                </a>
               </li>
 
               <li className={isOpen ? "nav-items mb-8" : "nav-items"}>
@@ -100,7 +100,6 @@ const Header = () => {
 
           <div className={isOpen ? "block" : "userBtn hidden md:block"}>
             <div className="flex flex-wrap gap-4 ">
-
               {location.pathname !== "/login" &&
                 location.pathname !== "/forget-password" &&
                 location.pathname !== "/reset-password" &&

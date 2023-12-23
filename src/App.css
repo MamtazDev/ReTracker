@@ -1,6 +1,9 @@
 body {
     font-family: 'Inter', sans-serif;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 input:focus-visible,
 select:focus-visible {
@@ -78,4 +81,3 @@ input[type="checkbox"] {
     font-weight: 700;
     line-height: 36px;
 }
-

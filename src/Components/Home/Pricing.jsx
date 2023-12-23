@@ -12,7 +12,7 @@ const Pricing = () => {
   };
 
   return (
-    <section className="pricing py-7 md:py-32 bg-drakWhite overflow-x-hidden">
+    <section id="pricing" className="pricing py-7 md:py-32 bg-drakWhite overflow-x-hidden">
       <div className="container px-5">
         <SectionHeader
           sectionTag={"Pricing"}
@@ -31,8 +31,7 @@ const Pricing = () => {
                   ? "bg-lightPrimary text-primary font-bold"
                   : "text-base font-bold"
               }`}
-              onClick={() => handleSubtime("monthly")}
-            >
+              onClick={() => handleSubtime("monthly")}>
               Monthly
             </button>
 
@@ -42,8 +41,7 @@ const Pricing = () => {
                   ? "bg-lightPrimary text-primary font-bold"
                   : "text-base font-bold"
               }`}
-              onClick={() => handleSubtime("yearly")}
-            >
+              onClick={() => handleSubtime("yearly")}>
               Yearly
             </button>
           </div>
