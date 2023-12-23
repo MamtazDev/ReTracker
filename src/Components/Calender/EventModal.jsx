@@ -1,21 +1,18 @@
-import React, { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 import close from "../../assets/close.png";
 import imgGrp from "../../assets/img-grp.png";
-import pdf from "../../assets/pdf.png";
 import "../../Styles/Auth.css";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import cross from "../../assets/cross.png";
 import dollar from "../../assets/dollar.png";
 
-export default function EventModal({ setSuccessfullOpen, setEventData }) {
-  const labelsClasses = ["indigo", "gray", "green", "blue", "red", "purple"];
+export default function EventModal({ setSuccessfullOpen }) {
   const fileRef = useRef();
   const [selectedImages, setSelectedImages] = useState([]);
   const [individualUploadProgress, setIndividualUploadProgress] = useState({});
   const [loading, setLoading] = useState(false);
-  const [upload, setUpload] = useState(25);
 
   const handleFileChange = async (event) => {
     setLoading(true);
@@ -129,35 +126,8 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
     }
 
     setShowEventModal(false);
-
-    // const data = {
-    //   category,
-    //   subcategory,
-    //   cost,
-    //   date,
-    //   startTime,
-    //   endTime,
-    //   isWorking,
-    //   files,
-    //   id: Date.now(),
-    // };
-    // if (isChecked) {
-    //   data.inProgress = true;
-    // }
-    // setEventData(data);
-    // setSuccessfullOpen(true);
     setShowEventModal(false);
   }
-
-  const handleFile = (name) => {
-    const newFiles = selectedImages.filter((item) => item?.name !== name);
-    setSelectedImages(newFiles);
-  };
-
-  const handleClick = () => {
-    setSuccessfullOpen(true);
-    setShowEventModal(false);
-  };
 
   return (
     <div className="h-screen w-full  fixed z-50 left-0 top-0 flex justify-center items-center hour_spent ">
@@ -282,63 +252,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
             loading={loading}
           />
 
-          {/* <div
-              onClick={() => fileRef.current.click()}
-              onDrop={handleDrop}
-              onDragOver={handleDragOver}
-              className="cursor-pointer border rounded-xl border-dashed border-[#E5E7EB] text-center p-6"
-            >
-              <img className="mx-auto mb-5" src={imgGrp} alt="" />
-              <p className="text-base font-medium text-[#1F2937] mb-1">
-                Drop your files here or{" "}
-                <span className="text-primary">browse</span>
-              </p>
-              <p className="text-[#9CA3AF] text-sm font-normal">
-                Maximum size: 2MB
-              </p>
-            </div>
-
-          <div className="mb-6 flex flex-col gap-4 mt-[6px]">
-            {selectedImages &&
-              selectedImages.length > 0 &&
-              selectedImages.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="border border-slate-200 rounded-xl p-4 "
-                >
-                  <div className="flex items-start gap-3 justify-between">
-                    <div className="flex items-center gap-3 mb-2">
-                      <img src={pdf} alt="" />
-                      <div>
-                        <p className="text-[#323539] text-sm font-medium">
-                          {item?.name}
-                        </p>
-                        <p className="text-[#858C95] text-xs font-normal">
-                          {(item?.size / 1024).toFixed(2)} kb
-                        </p>
-                      </div>
-                    </div>
-                    <button
-                      className="text-red-500"
-                      type="button"
-                      onClick={() => handleFile(item?.name)}
-                    >
-                      <img src={cross} alt="" />
-                    </button>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="bg-violet-50 h-2 w-full rounded-md">
-                      <div
-                        style={{ width: `${upload}%` }}
-                        className=" bg-primary rounded-md h-2"
-                      ></div>
-                    </div>
-                    <p className="text-xs font-medium">{upload}%</p>
-                  </div>
-                </div>
-              ))}
-          </div> */}
-
           <div className="flex flex-col lg:flex-row items-center gap-4 mt-6">
             <OutLineBtn onClick={() => setShowEventModal(false)} type="button">
               Cancel
@@ -348,88 +261,6 @@ export default function EventModal({ setSuccessfullOpen, setEventData }) {
             </div>
           </div>
         </form>
-
-        {/* <div className="p-3">
-          <div className="grid items-end gap-y-7">
-            <div></div>
-            <input
-              type="text"
-              name="title"
-              placeholder="Add title"
-              value={title}
-              required
-              className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <div>
-              <label>Start Time</label>
-              <input
-                type="text"
-                name="star_time"
-                placeholder="Start Time"
-                value={startTime}
-                required
-                className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
-                onChange={(e) => setStartTime(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>End Time</label>
-              <input
-                type="text"
-                name="end_time"
-                placeholder="End Time"
-                value={endTime}
-                required
-                className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
-                onChange={(e) => setEndTime(e.target.value)}
-              />
-            </div>
-            <span className="material-icons-outlined text-gray-400">
-              schedule
-            </span>
-            <p>{daySelected.format("dddd, MMMM DD")}</p>
-            <span className="material-icons-outlined text-gray-400">
-              segment
-            </span>
-            <input
-              type="text"
-              name="description"
-              placeholder="Add a description"
-              value={description}
-              required
-              className="pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <span className="material-icons-outlined text-gray-400">
-              bookmark_border
-            </span>
-            <div className="flex gap-x-2">
-              {labelsClasses.map((lblClass, i) => (
-                <span
-                  key={i}
-                  onClick={() => setSelectedLabel(lblClass)}
-                  className={`bg-${lblClass}-500 w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
-                >
-                  {selectedLabel === lblClass && (
-                    <span className="material-icons-outlined text-white text-sm">
-                      check
-                    </span>
-                  )}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div> */}
-        {/* <footer className="flex justify-end border-t p-3 mt-5">
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white"
-          >
-            Save
-          </button>
-        </footer> */}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import  { useContext, useEffect, useState } from "react";
 import CalendarHeader from "../Components/Calender/CalendarHeader";
 import Month from "../Components/Calender/Month";
 import EventModal from "../Components/Calender/EventModal";
@@ -18,11 +18,6 @@ const Calender = () => {
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex));
   }, [monthIndex]);
-
-  // console.log("currenMonth:", currenMonth);
-  console.log(eventData,'eventdata');
-
-  
 
 
   return (

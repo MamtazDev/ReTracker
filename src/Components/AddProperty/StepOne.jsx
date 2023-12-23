@@ -1,7 +1,6 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
-import StepLines from "../../Shared/StepLines";
 import { Link } from "react-router-dom";
 import GlobalContext from "../../context/GlobalContext";
 

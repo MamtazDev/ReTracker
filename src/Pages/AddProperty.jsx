@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Auth from "../Shared/Auth";
 import StepOne from "../Components/AddProperty/StepOne";
 import StepTwo from "../Components/AddProperty/StepTwo";

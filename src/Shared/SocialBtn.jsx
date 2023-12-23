@@ -1,4 +1,3 @@
-import React from "react";
 import SocialMediaBtn from "./SocialMediaBtn";
 import google from "../assets/google.png";
 import facebook from "../assets/facebook.png";

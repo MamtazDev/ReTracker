@@ -27,8 +27,6 @@ const Footer = () => {
   const handleEmailChange = (e) => {
     const newEmail = e.target.value;
     setEmail(newEmail);
-
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setIsEmailValid(emailRegex.test(newEmail));
   };
@@ -36,21 +34,20 @@ const Footer = () => {
   const handleEmailSubmit = (e) => {
     e.preventDefault();
 
-    // Check if the email is valid before clearing the input field
+  
     if (isEmailValid) {
-      // Perform your subscribe logic here
+  
 
       setTimeout(() => {
         Swal.fire({
           position: "top-end",
-          // icon: "success",
-          title: "Successfully Subscribed",
+     
           showConfirmButton: false,
           timer: 1000,
         });
       }, []);
 
-      // After successful subscription, clear the input field
+   
       setEmail("");
     }
   };

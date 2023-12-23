@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import AuthTitle from "../../Shared/AuthTitle";
 import { FaPlus, FaMinus, FaChevronDown } from "react-icons/fa";
-import CountrySelect from "./CountrySelect";
 import countryCodes from "../../Utils/CountryCode";
 import dollar from "../../assets/dollar.png";
 import GlobalContext from "../../context/GlobalContext";
@@ -16,7 +15,6 @@ const StepFour = ({ setStepper }) => {
   const [showDropdown, setShowDropDown] = useState(false);
   const [country, setCountry] = useState();
   const [dollarvalue, setDollar] = useState("");
-
 
   useEffect(() => {
     const svgElement = document.querySelector("#flagContainer svg");

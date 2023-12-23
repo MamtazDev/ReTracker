@@ -1,4 +1,4 @@
-import React from "react";
+
 import ringCircleImg from "../../assets/ring.svg";
 import whatWeDoImg1 from "../../assets/whatWeDoImg.png";
 import whatWeDoImg2 from "../../assets/whatWeDoImg1.png";

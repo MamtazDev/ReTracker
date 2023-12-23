@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
-import StepLines from "../../Shared/StepLines";
+import  { useContext, useState } from "react";
 import AuthTitle from "../../Shared/AuthTitle";
 import PrimaryBtn from "../../Shared/PrimaryBtn";
 import OutLineBtn from "../../Shared/OutLineBtn";
 import GlobalContext from "../../context/GlobalContext";
 
-const StepTwo = ({ stepper, setStepper }) => {
+const StepTwo = ({setStepper }) => {
   const { setPropertyData } = useContext(GlobalContext);
   const options = [
     {

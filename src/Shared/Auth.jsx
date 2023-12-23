@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 import "../Styles/Auth.css";
 import Header from "./Header";
 

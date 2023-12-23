@@ -1,5 +1,4 @@
-import React from "react";
-import Auth from "../Shared/Auth";
+
 import Banner from "../Components/ConsultingUpsell/Banner";
 import Header from "../Shared/Header";
 import Packages from "../Components/ConsultingUpsell/Packages";

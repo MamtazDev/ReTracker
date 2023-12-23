@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 
 const ChartHeader = ({ title }) => {
   const [active, setActive] = useState(12);
