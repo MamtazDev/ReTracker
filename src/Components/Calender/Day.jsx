@@ -33,16 +33,13 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
 
   const handleOpen = (e, idx, evt) => {
     e.stopPropagation();
-    // if (locked !== null) {
-    //   setLocked(null);
-    // }
-    // setLocked(idx);
+
     setOpen(true);
     console.log("clicked", evt);
     setSelectedEvent(evt);
   };
 
-  const [activeDay, setActiveDay] = useState(null);
+  
 
   // console.log("dayEvents",dayEvents)
 
@@ -105,11 +102,10 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
                       : "bg-[#DBEAFE]"
                   } 
 
-                  // ${activeDay === day && "bg-black"}
+            
                   
                    w-full py-3 px-6 text-gray-600 text-sm rounded-4px overflow-hidden truncate rounded`}
                 >
-                  <p>{activeDay === day && "day is selected"}</p>
                   <CountDown evt={evt} />
 
                   {/* <p>Data {evt.label}</p> */}
@@ -183,18 +179,4 @@ export default function Day({ day, rowIdx, setOpen, eventData }) {
   );
 }
 
-const colorPalate = {
-  Consultation: ["[#6366F1]", "[#E0E7FF]"],
-  Repairs: ["#10B981", "#e0E7FF"],
-  Management: ["#3B82F6", "#DBEAFE"],
-  Analysis: ["#F59E0B", "#FEF3C7"],
-};
 
-function StartEndDiff({ evt }) {
-  console.log(evt, "diff");
-  return (
-    <>
-      <p className="text-xs font-normal text-slate-500">9 Hours</p>
-    </>
-  );
-}

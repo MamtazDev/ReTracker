@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import Header from '../Shared/Header'
 import Banner from '../Components/Home/Banner'
 import HowItsWorks from '../Components/Home/HowItsWorks'
 import PowerFeatures from '../Components/Home/PowerFeatures'

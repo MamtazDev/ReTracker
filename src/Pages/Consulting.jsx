@@ -6,9 +6,11 @@ import WhatWeDo from "../Components/Consulting/WhatWeDo";
 import Auth from "../Shared/Auth";
 
 const Consulting = () => {
+  
   useEffect(() => {
     Aos.init();
   }, []);
+
   return (
     <>
       <Auth>
