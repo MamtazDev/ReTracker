@@ -187,7 +187,7 @@ const StepFour = ({ setStepper }) => {
               value={dollarvalue}
               onChange={handleInputChange}
               onKeyDown={(e) =>
-                ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
+                ["e", "E", "+", "-","."].includes(e.key) && e.preventDefault()
               }
             />
             <img
