@@ -1,4 +1,4 @@
-import React from 'react'
+
 import getstartedImg from '../../assets/getstartedtoday.png'
 import SectionHeader from './SectionHeader';
 import MarkIcon2 from '../../assets/mark2.png'

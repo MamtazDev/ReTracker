@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 import intregrationImg from "../../assets/integrations.png";
 import SectionHeader from "./SectionHeader";

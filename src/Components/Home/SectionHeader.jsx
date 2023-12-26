@@ -1,5 +1,5 @@
 import Aos from "aos";
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 
 const SectionHeader = ({
   sectionTag,
@@ -25,7 +25,6 @@ const SectionHeader = ({
         <h2
           className={`text-2xl md:text-6xl font-semibold leading-8 md:leading-[76px] ${sectionTitleColor}`}>
           {sectionTitle} <br />
-          {/* className='hidden md:block' */}
           <span className={`${sectionTagColorTwo}`}>{sectionTitleTwo}</span>
         </h2>
       </div>

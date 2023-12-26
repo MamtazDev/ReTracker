@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Link } from "react-router-dom";
 import MarkIcon2 from "../../assets/mark2.png";
 import PricingCard from "./PricingCard";

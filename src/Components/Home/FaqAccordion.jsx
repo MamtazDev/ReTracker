@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react'
+import  {  useState } from 'react'
 import minus from "../../assets/accordion-minus.png";
 import plus from "../../assets/accordion-plus.png";
 

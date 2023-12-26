@@ -129,8 +129,6 @@ export default function EventModal() {
     setShowEventModal(false);
   }
 
-  console.log("eventmodal", selectedEvent);
-
   return (
     <div className="h-screen w-full  fixed z-50 left-0 top-0 flex justify-center items-center hour_spent ">
       <div className="bg-white rounded-3xl p-6 border max-w-[400px] h-[90%] overflow-y-scroll no-scrollbar">

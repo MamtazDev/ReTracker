@@ -1,10 +1,9 @@
 import Aos from "aos";
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 
 const PowerFeaturesCard = ({
   cardTitle,
   cardContent,
-  bgColor,
   cardImg,
   dataAos,
   dataDuration,

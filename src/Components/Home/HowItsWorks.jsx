@@ -1,4 +1,4 @@
-import React from "react";
+
 import setpOne from "../../assets/step1.png";
 import setpTwo from "../../assets/step2.png";
 import setpThree from "../../assets/step3.png";
